@@ -14,6 +14,23 @@
 		2FAE3F362918D4850069579F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FAE3F352918D4850069579F /* Assets.xcassets */; };
 		2FAE3F392918D4850069579F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FAE3F372918D4850069579F /* LaunchScreen.storyboard */; };
 		2FAE3F412918D4AD0069579F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2FAE3F402918D4AD0069579F /* .gitignore */; };
+		2FAE3F572918D54F0069579F /* CollectionType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F482918D54F0069579F /* CollectionType+.swift */; };
+		2FAE3F582918D54F0069579F /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F492918D54F0069579F /* String+.swift */; };
+		2FAE3F592918D54F0069579F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F4A2918D54F0069579F /* UIViewController+.swift */; };
+		2FAE3F5A2918D54F0069579F /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F4C2918D54F0069579F /* ReusableProtocol.swift */; };
+		2FAE3F5B2918D54F0069579F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F4E2918D54F0069579F /* BaseViewController.swift */; };
+		2FAE3F5C2918D54F0069579F /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F4F2918D54F0069579F /* BaseTableViewCell.swift */; };
+		2FAE3F5D2918D54F0069579F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F502918D54F0069579F /* BaseCollectionViewCell.swift */; };
+		2FAE3F5E2918D54F0069579F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F512918D54F0069579F /* BaseView.swift */; };
+		2FAE3F602918D5980069579F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F5F2918D5980069579F /* UIColor+.swift */; };
+		2FAE3F622918D9DD0069579F /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F612918D9DD0069579F /* UIFont+.swift */; };
+		2FAE3F662918EB7F0069579F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAE3F652918EB7F0069579F /* SnapKit */; };
+		2FAE3F682918ED5B0069579F /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F672918ED5B0069579F /* UIButton+.swift */; };
+		2FAE3F6E2918EE090069579F /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAE3F6D2918EE090069579F /* Then */; };
+		2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */; };
+		2FAE3F722918F7740069579F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F712918F7740069579F /* FirstViewController.swift */; };
+		2FAE3F742918F7820069579F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F732918F7820069579F /* SecondViewController.swift */; };
+		2FAE3F762918F78A0069579F /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F752918F78A0069579F /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +43,21 @@
 		2FAE3F382918D4850069579F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FAE3F3A2918D4850069579F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FAE3F402918D4AD0069579F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2FAE3F482918D54F0069579F /* CollectionType+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+.swift"; sourceTree = "<group>"; };
+		2FAE3F492918D54F0069579F /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		2FAE3F4A2918D54F0069579F /* UIViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		2FAE3F4C2918D54F0069579F /* ReusableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
+		2FAE3F4E2918D54F0069579F /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		2FAE3F4F2918D54F0069579F /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		2FAE3F502918D54F0069579F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FAE3F512918D54F0069579F /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		2FAE3F5F2918D5980069579F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		2FAE3F612918D9DD0069579F /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		2FAE3F672918ED5B0069579F /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		2FAE3F712918F7740069579F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		2FAE3F732918F7820069579F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		2FAE3F752918F78A0069579F /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FAE3F662918EB7F0069579F /* SnapKit in Frameworks */,
+				2FAE3F6E2918EE090069579F /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,8 +93,9 @@
 		2FAE3F2B2918D4840069579F /* SeSAC-StudyMate */ = {
 			isa = PBXGroup;
 			children = (
-				2FAE3F2C2918D4840069579F /* AppDelegate.swift */,
-				2FAE3F2E2918D4840069579F /* SceneDelegate.swift */,
+				2FAE3F432918D54F0069579F /* Source */,
+				2FAE3F552918D54F0069579F /* Support */,
+				2FAE3F562918D54F0069579F /* Resource */,
 				2FAE3F302918D4840069579F /* ViewController.swift */,
 				2FAE3F322918D4840069579F /* Main.storyboard */,
 				2FAE3F352918D4850069579F /* Assets.xcassets */,
@@ -68,6 +103,124 @@
 				2FAE3F3A2918D4850069579F /* Info.plist */,
 			);
 			path = "SeSAC-StudyMate";
+			sourceTree = "<group>";
+		};
+		2FAE3F432918D54F0069579F /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2FAE3F442918D54F0069579F /* Network */,
+				2FAE3F452918D54F0069579F /* Common */,
+				2FAE3F522918D54F0069579F /* Model */,
+				2FAE3F532918D54F0069579F /* Sence */,
+				2FAE3F542918D54F0069579F /* Application */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		2FAE3F442918D54F0069579F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2FAE3F452918D54F0069579F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2FAE3F462918D54F0069579F /* Utility */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2FAE3F462918D54F0069579F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2FAE3F472918D54F0069579F /* Extension */,
+				2FAE3F4B2918D54F0069579F /* Protocol */,
+				2FAE3F4D2918D54F0069579F /* Base */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		2FAE3F472918D54F0069579F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2FAE3F482918D54F0069579F /* CollectionType+.swift */,
+				2FAE3F492918D54F0069579F /* String+.swift */,
+				2FAE3F4A2918D54F0069579F /* UIViewController+.swift */,
+				2FAE3F5F2918D5980069579F /* UIColor+.swift */,
+				2FAE3F612918D9DD0069579F /* UIFont+.swift */,
+				2FAE3F672918ED5B0069579F /* UIButton+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2FAE3F4B2918D54F0069579F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2FAE3F4C2918D54F0069579F /* ReusableProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		2FAE3F4D2918D54F0069579F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2FAE3F4E2918D54F0069579F /* BaseViewController.swift */,
+				2FAE3F4F2918D54F0069579F /* BaseTableViewCell.swift */,
+				2FAE3F502918D54F0069579F /* BaseCollectionViewCell.swift */,
+				2FAE3F512918D54F0069579F /* BaseView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		2FAE3F522918D54F0069579F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2FAE3F532918D54F0069579F /* Sence */ = {
+			isa = PBXGroup;
+			children = (
+				2FAE3F632918EA000069579F /* onBoarding */,
+			);
+			path = Sence;
+			sourceTree = "<group>";
+		};
+		2FAE3F542918D54F0069579F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		2FAE3F552918D54F0069579F /* Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		2FAE3F562918D54F0069579F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2FAE3F2C2918D4840069579F /* AppDelegate.swift */,
+				2FAE3F2E2918D4840069579F /* SceneDelegate.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		2FAE3F632918EA000069579F /* onBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */,
+				2FAE3F712918F7740069579F /* FirstViewController.swift */,
+				2FAE3F732918F7820069579F /* SecondViewController.swift */,
+				2FAE3F752918F78A0069579F /* ThirdViewController.swift */,
+			);
+			path = onBoarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +239,10 @@
 			dependencies = (
 			);
 			name = "SeSAC-StudyMate";
+			packageProductDependencies = (
+				2FAE3F652918EB7F0069579F /* SnapKit */,
+				2FAE3F6D2918EE090069579F /* Then */,
+			);
 			productName = "SeSAC-StudyMate";
 			productReference = 2FAE3F292918D4840069579F /* SeSAC-StudyMate.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +271,10 @@
 				Base,
 			);
 			mainGroup = 2FAE3F202918D4840069579F;
+			packageReferences = (
+				2FAE3F642918EB7F0069579F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				2FAE3F6C2918EE090069579F /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = 2FAE3F2A2918D4840069579F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -142,8 +303,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FAE3F622918D9DD0069579F /* UIFont+.swift in Sources */,
+				2FAE3F742918F7820069579F /* SecondViewController.swift in Sources */,
+				2FAE3F682918ED5B0069579F /* UIButton+.swift in Sources */,
 				2FAE3F312918D4840069579F /* ViewController.swift in Sources */,
+				2FAE3F5A2918D54F0069579F /* ReusableProtocol.swift in Sources */,
+				2FAE3F572918D54F0069579F /* CollectionType+.swift in Sources */,
+				2FAE3F592918D54F0069579F /* UIViewController+.swift in Sources */,
+				2FAE3F5C2918D54F0069579F /* BaseTableViewCell.swift in Sources */,
+				2FAE3F602918D5980069579F /* UIColor+.swift in Sources */,
+				2FAE3F5D2918D54F0069579F /* BaseCollectionViewCell.swift in Sources */,
+				2FAE3F762918F78A0069579F /* ThirdViewController.swift in Sources */,
+				2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */,
+				2FAE3F582918D54F0069579F /* String+.swift in Sources */,
+				2FAE3F722918F7740069579F /* FirstViewController.swift in Sources */,
+				2FAE3F5B2918D54F0069579F /* BaseViewController.swift in Sources */,
 				2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */,
+				2FAE3F5E2918D54F0069579F /* BaseView.swift in Sources */,
 				2FAE3F2F2918D4840069579F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -306,6 +482,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cody.SeSAC-StudyMate";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -334,6 +513,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cody.SeSAC-StudyMate";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -362,6 +544,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2FAE3F642918EB7F0069579F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		2FAE3F6C2918EE090069579F /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2FAE3F652918EB7F0069579F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FAE3F642918EB7F0069579F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		2FAE3F6D2918EE090069579F /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FAE3F6C2918EE090069579F /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2FAE3F212918D4840069579F /* Project object */;
 }
