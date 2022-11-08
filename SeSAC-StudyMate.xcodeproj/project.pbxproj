@@ -31,6 +31,16 @@
 		2FAE3F722918F7740069579F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F712918F7740069579F /* FirstViewController.swift */; };
 		2FAE3F742918F7820069579F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F732918F7820069579F /* SecondViewController.swift */; };
 		2FAE3F762918F78A0069579F /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F752918F78A0069579F /* ThirdViewController.swift */; };
+		2FAE3F7929191F5A0069579F /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F7829191F5A0069579F /* FirstView.swift */; };
+		2FFA723D2919E9C200172240 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 2FFA723C2919E9C200172240 /* Toast */; };
+		2FFA7241291A1BF000172240 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2FFA723F291A1BF000172240 /* NotoSansKR-Medium.otf */; };
+		2FFA7242291A1BF000172240 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2FFA7240291A1BF000172240 /* NotoSansKR-Regular.otf */; };
+		2FFA7248291A340A00172240 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA7247291A340A00172240 /* PhoneViewController.swift */; };
+		2FFA724A291A372500172240 /* PhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA7249291A372500172240 /* PhoneView.swift */; };
+		2FFA724D291A3F3A00172240 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2FFA724C291A3F3A00172240 /* IQKeyboardManagerSwift */; };
+		2FFA7250291A40E300172240 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 2FFA724F291A40E300172240 /* RxCocoa */; };
+		2FFA7252291A40E300172240 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2FFA7251291A40E300172240 /* RxSwift */; };
+		2FFA7256291A414600172240 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA7255291A414600172240 /* PhoneViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +68,12 @@
 		2FAE3F712918F7740069579F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		2FAE3F732918F7820069579F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		2FAE3F752918F78A0069579F /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		2FAE3F7829191F5A0069579F /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		2FFA723F291A1BF000172240 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		2FFA7240291A1BF000172240 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		2FFA7247291A340A00172240 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
+		2FFA7249291A372500172240 /* PhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneView.swift; sourceTree = "<group>"; };
+		2FFA7255291A414600172240 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +81,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FFA7252291A40E300172240 /* RxSwift in Frameworks */,
+				2FFA723D2919E9C200172240 /* Toast in Frameworks */,
+				2FFA724D291A3F3A00172240 /* IQKeyboardManagerSwift in Frameworks */,
+				2FFA7250291A40E300172240 /* RxCocoa in Frameworks */,
 				2FAE3F662918EB7F0069579F /* SnapKit in Frameworks */,
 				2FAE3F6E2918EE090069579F /* Then in Frameworks */,
 			);
@@ -135,6 +155,7 @@
 		2FAE3F462918D54F0069579F /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				2FFA723E291A1BC600172240 /* Font */,
 				2FAE3F472918D54F0069579F /* Extension */,
 				2FAE3F4B2918D54F0069579F /* Protocol */,
 				2FAE3F4D2918D54F0069579F /* Base */,
@@ -184,6 +205,7 @@
 		2FAE3F532918D54F0069579F /* Sence */ = {
 			isa = PBXGroup;
 			children = (
+				2FFA7243291A304600172240 /* Login */,
 				2FAE3F632918EA000069579F /* onBoarding */,
 			);
 			path = Sence;
@@ -215,12 +237,64 @@
 		2FAE3F632918EA000069579F /* onBoarding */ = {
 			isa = PBXGroup;
 			children = (
-				2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */,
-				2FAE3F712918F7740069579F /* FirstViewController.swift */,
-				2FAE3F732918F7820069579F /* SecondViewController.swift */,
-				2FAE3F752918F78A0069579F /* ThirdViewController.swift */,
+				2FAE3F7729191F3A0069579F /* View */,
 			);
 			path = onBoarding;
+			sourceTree = "<group>";
+		};
+		2FAE3F7729191F3A0069579F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */,
+				2FAE3F732918F7820069579F /* SecondViewController.swift */,
+				2FAE3F752918F78A0069579F /* ThirdViewController.swift */,
+				2FAE3F712918F7740069579F /* FirstViewController.swift */,
+				2FAE3F7829191F5A0069579F /* FirstView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2FFA723E291A1BC600172240 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				2FFA723F291A1BF000172240 /* NotoSansKR-Medium.otf */,
+				2FFA7240291A1BF000172240 /* NotoSansKR-Regular.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		2FFA7243291A304600172240 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2FFA7253291A40F300172240 /* Phone */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2FFA7244291A306600172240 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FFA7249291A372500172240 /* PhoneView.swift */,
+				2FFA7247291A340A00172240 /* PhoneViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2FFA7253291A40F300172240 /* Phone */ = {
+			isa = PBXGroup;
+			children = (
+				2FFA7254291A413900172240 /* ViewModel */,
+				2FFA7244291A306600172240 /* View */,
+			);
+			path = Phone;
+			sourceTree = "<group>";
+		};
+		2FFA7254291A413900172240 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2FFA7255291A414600172240 /* PhoneViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +316,10 @@
 			packageProductDependencies = (
 				2FAE3F652918EB7F0069579F /* SnapKit */,
 				2FAE3F6D2918EE090069579F /* Then */,
+				2FFA723C2919E9C200172240 /* Toast */,
+				2FFA724C291A3F3A00172240 /* IQKeyboardManagerSwift */,
+				2FFA724F291A40E300172240 /* RxCocoa */,
+				2FFA7251291A40E300172240 /* RxSwift */,
 			);
 			productName = "SeSAC-StudyMate";
 			productReference = 2FAE3F292918D4840069579F /* SeSAC-StudyMate.app */;
@@ -274,6 +352,9 @@
 			packageReferences = (
 				2FAE3F642918EB7F0069579F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2FAE3F6C2918EE090069579F /* XCRemoteSwiftPackageReference "Then" */,
+				2FFA723B2919E9C200172240 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				2FFA724B291A3F3A00172240 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				2FFA724E291A40E300172240 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 2FAE3F2A2918D4840069579F /* Products */;
 			projectDirPath = "";
@@ -291,7 +372,9 @@
 			files = (
 				2FAE3F412918D4AD0069579F /* .gitignore in Resources */,
 				2FAE3F392918D4850069579F /* LaunchScreen.storyboard in Resources */,
+				2FFA7241291A1BF000172240 /* NotoSansKR-Medium.otf in Resources */,
 				2FAE3F362918D4850069579F /* Assets.xcassets in Resources */,
+				2FFA7242291A1BF000172240 /* NotoSansKR-Regular.otf in Resources */,
 				2FAE3F342918D4840069579F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,7 +392,9 @@
 				2FAE3F312918D4840069579F /* ViewController.swift in Sources */,
 				2FAE3F5A2918D54F0069579F /* ReusableProtocol.swift in Sources */,
 				2FAE3F572918D54F0069579F /* CollectionType+.swift in Sources */,
+				2FFA7248291A340A00172240 /* PhoneViewController.swift in Sources */,
 				2FAE3F592918D54F0069579F /* UIViewController+.swift in Sources */,
+				2FAE3F7929191F5A0069579F /* FirstView.swift in Sources */,
 				2FAE3F5C2918D54F0069579F /* BaseTableViewCell.swift in Sources */,
 				2FAE3F602918D5980069579F /* UIColor+.swift in Sources */,
 				2FAE3F5D2918D54F0069579F /* BaseCollectionViewCell.swift in Sources */,
@@ -318,9 +403,11 @@
 				2FAE3F582918D54F0069579F /* String+.swift in Sources */,
 				2FAE3F722918F7740069579F /* FirstViewController.swift in Sources */,
 				2FAE3F5B2918D54F0069579F /* BaseViewController.swift in Sources */,
+				2FFA7256291A414600172240 /* PhoneViewModel.swift in Sources */,
 				2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */,
 				2FAE3F5E2918D54F0069579F /* BaseView.swift in Sources */,
 				2FAE3F2F2918D4840069579F /* SceneDelegate.swift in Sources */,
+				2FFA724A291A372500172240 /* PhoneView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +649,30 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		2FFA723B2919E9C200172240 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		2FFA724B291A3F3A00172240 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
+		2FFA724E291A40E300172240 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -574,6 +685,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FAE3F6C2918EE090069579F /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		2FFA723C2919E9C200172240 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FFA723B2919E9C200172240 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		2FFA724C291A3F3A00172240 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FFA724B291A3F3A00172240 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		2FFA724F291A40E300172240 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FFA724E291A40E300172240 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		2FFA7251291A40E300172240 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FFA724E291A40E300172240 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
