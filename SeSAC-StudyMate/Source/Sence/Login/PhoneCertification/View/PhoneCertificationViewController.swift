@@ -35,14 +35,16 @@ class PhoneCertificationViewController: BaseViewController {
 
         let validation = mainview.phoneTextField.rx.text
             .orEmpty
-            .map { ($0.count >= 10 && $0.count <= 11) }
+            .map { ($0.count == 6) }
         
         
         validation
             .withUnretained(self)
             .bind { (vc, value) in
                 let color: UIColor = value ? .brandGreen : .grayScale3
+                let lineColor: UIColor = value ? .black : .grayScale3
                 vc.mainview.baseButton.backgroundColor = color
+                vc.mainview.lineView.backgroundColor = lineColor
             }
             .disposed(by: disposeBag)
         

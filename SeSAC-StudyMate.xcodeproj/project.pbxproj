@@ -14,6 +14,18 @@
 		2F21D6E2291B7F2700429935 /* PhoneCertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D6E1291B7F2700429935 /* PhoneCertificationView.swift */; };
 		2F21D6E4291B7F3200429935 /* PhoneCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D6E3291B7F3200429935 /* PhoneCertificationViewController.swift */; };
 		2F21D6E7291B7F7500429935 /* PhoneCertificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D6E6291B7F7500429935 /* PhoneCertificationViewModel.swift */; };
+		2F21D6F5291B902600429935 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D6F4291B902600429935 /* NicknameView.swift */; };
+		2F21D6F7291B903000429935 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D6F6291B903000429935 /* NicknameViewModel.swift */; };
+		2F21D6F9291B903E00429935 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D6F8291B903E00429935 /* NicknameViewController.swift */; };
+		2F21D6FB291B904D00429935 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D6FA291B904D00429935 /* BirthdayViewController.swift */; };
+		2F21D6FD291B905C00429935 /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D6FC291B905C00429935 /* BirthdayView.swift */; };
+		2F21D6FF291B906900429935 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D6FE291B906900429935 /* BirthdayViewModel.swift */; };
+		2F21D701291B907C00429935 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D700291B907C00429935 /* EmailView.swift */; };
+		2F21D703291B908500429935 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D702291B908500429935 /* EmailViewController.swift */; };
+		2F21D705291B908B00429935 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D704291B908B00429935 /* EmailViewModel.swift */; };
+		2F21D707291B909800429935 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D706291B909800429935 /* GenderView.swift */; };
+		2F21D709291B909D00429935 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D708291B909D00429935 /* GenderViewController.swift */; };
+		2F21D70B291B90A600429935 /* GenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D70A291B90A600429935 /* GenderViewModel.swift */; };
 		2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F2C2918D4840069579F /* AppDelegate.swift */; };
 		2FAE3F2F2918D4840069579F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F2E2918D4840069579F /* SceneDelegate.swift */; };
 		2FAE3F312918D4840069579F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F302918D4840069579F /* ViewController.swift */; };
@@ -56,6 +68,18 @@
 		2F21D6E1291B7F2700429935 /* PhoneCertificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationView.swift; sourceTree = "<group>"; };
 		2F21D6E3291B7F3200429935 /* PhoneCertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationViewController.swift; sourceTree = "<group>"; };
 		2F21D6E6291B7F7500429935 /* PhoneCertificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationViewModel.swift; sourceTree = "<group>"; };
+		2F21D6F4291B902600429935 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
+		2F21D6F6291B903000429935 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
+		2F21D6F8291B903E00429935 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
+		2F21D6FA291B904D00429935 /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
+		2F21D6FC291B905C00429935 /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
+		2F21D6FE291B906900429935 /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
+		2F21D700291B907C00429935 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
+		2F21D702291B908500429935 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		2F21D704291B908B00429935 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
+		2F21D706291B909800429935 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		2F21D708291B909D00429935 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
+		2F21D70A291B90A600429935 /* GenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewModel.swift; sourceTree = "<group>"; };
 		2FAE3F292918D4840069579F /* SeSAC-StudyMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeSAC-StudyMate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FAE3F2C2918D4840069579F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FAE3F2E2918D4840069579F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +161,8 @@
 		2F21D6E8291B838C00429935 /* Nickname */ = {
 			isa = PBXGroup;
 			children = (
+				2F21D6ED291B8F6500429935 /* View */,
+				2F21D6EC291B8F6100429935 /* ViewModel */,
 			);
 			path = Nickname;
 			sourceTree = "<group>";
@@ -144,6 +170,8 @@
 		2F21D6E9291B839C00429935 /* BirthDay */ = {
 			isa = PBXGroup;
 			children = (
+				2F21D6EF291B8F6E00429935 /* View */,
+				2F21D6EE291B8F6800429935 /* ViewModel */,
 			);
 			path = BirthDay;
 			sourceTree = "<group>";
@@ -151,6 +179,8 @@
 		2F21D6EA291B83AB00429935 /* Email */ = {
 			isa = PBXGroup;
 			children = (
+				2F21D6F1291B8F7400429935 /* ViewModel */,
+				2F21D6F0291B8F7200429935 /* View */,
 			);
 			path = Email;
 			sourceTree = "<group>";
@@ -158,8 +188,78 @@
 		2F21D6EB291B83B400429935 /* Gender */ = {
 			isa = PBXGroup;
 			children = (
+				2F21D6F3291B8F7C00429935 /* ViewModel */,
+				2F21D6F2291B8F7A00429935 /* View */,
 			);
 			path = Gender;
+			sourceTree = "<group>";
+		};
+		2F21D6EC291B8F6100429935 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F21D6F6291B903000429935 /* NicknameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2F21D6ED291B8F6500429935 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F21D6F4291B902600429935 /* NicknameView.swift */,
+				2F21D6F8291B903E00429935 /* NicknameViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2F21D6EE291B8F6800429935 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F21D6FE291B906900429935 /* BirthdayViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2F21D6EF291B8F6E00429935 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F21D6FA291B904D00429935 /* BirthdayViewController.swift */,
+				2F21D6FC291B905C00429935 /* BirthdayView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2F21D6F0291B8F7200429935 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F21D700291B907C00429935 /* EmailView.swift */,
+				2F21D702291B908500429935 /* EmailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2F21D6F1291B8F7400429935 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F21D704291B908B00429935 /* EmailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2F21D6F2291B8F7A00429935 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F21D706291B909800429935 /* GenderView.swift */,
+				2F21D708291B909D00429935 /* GenderViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2F21D6F3291B8F7C00429935 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F21D70A291B90A600429935 /* GenderViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2FAE3F202918D4840069579F = {
@@ -469,28 +569,40 @@
 			files = (
 				2FAE3F622918D9DD0069579F /* UIFont+.swift in Sources */,
 				2FAE3F742918F7820069579F /* SecondViewController.swift in Sources */,
+				2F21D70B291B90A600429935 /* GenderViewModel.swift in Sources */,
+				2F21D6F7291B903000429935 /* NicknameViewModel.swift in Sources */,
 				2FAE3F682918ED5B0069579F /* UIButton+.swift in Sources */,
 				2FAE3F312918D4840069579F /* ViewController.swift in Sources */,
 				2FAE3F5A2918D54F0069579F /* ReusableProtocol.swift in Sources */,
 				2FAE3F572918D54F0069579F /* CollectionType+.swift in Sources */,
 				2F21D6E7291B7F7500429935 /* PhoneCertificationViewModel.swift in Sources */,
 				2FFA7248291A340A00172240 /* PhoneViewController.swift in Sources */,
+				2F21D709291B909D00429935 /* GenderViewController.swift in Sources */,
+				2F21D6F5291B902600429935 /* NicknameView.swift in Sources */,
 				2FAE3F592918D54F0069579F /* UIViewController+.swift in Sources */,
 				2FAE3F7929191F5A0069579F /* FirstView.swift in Sources */,
+				2F21D6F9291B903E00429935 /* NicknameViewController.swift in Sources */,
+				2F21D701291B907C00429935 /* EmailView.swift in Sources */,
 				2FAE3F5C2918D54F0069579F /* BaseTableViewCell.swift in Sources */,
 				2FAE3F602918D5980069579F /* UIColor+.swift in Sources */,
+				2F21D6FD291B905C00429935 /* BirthdayView.swift in Sources */,
 				2FAE3F5D2918D54F0069579F /* BaseCollectionViewCell.swift in Sources */,
+				2F21D6FF291B906900429935 /* BirthdayViewModel.swift in Sources */,
+				2F21D6FB291B904D00429935 /* BirthdayViewController.swift in Sources */,
 				2FAE3F762918F78A0069579F /* ThirdViewController.swift in Sources */,
+				2F21D705291B908B00429935 /* EmailViewModel.swift in Sources */,
 				2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */,
 				2F21D6E4291B7F3200429935 /* PhoneCertificationViewController.swift in Sources */,
 				2FAE3F582918D54F0069579F /* String+.swift in Sources */,
 				2FAE3F722918F7740069579F /* FirstViewController.swift in Sources */,
+				2F21D707291B909800429935 /* GenderView.swift in Sources */,
 				2FAE3F5B2918D54F0069579F /* BaseViewController.swift in Sources */,
 				2FFA7256291A414600172240 /* PhoneViewModel.swift in Sources */,
 				2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */,
 				2FAE3F5E2918D54F0069579F /* BaseView.swift in Sources */,
 				2F21D6E2291B7F2700429935 /* PhoneCertificationView.swift in Sources */,
 				2FAE3F2F2918D4840069579F /* SceneDelegate.swift in Sources */,
+				2F21D703291B908500429935 /* EmailViewController.swift in Sources */,
 				2FFA724A291A372500172240 /* PhoneView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

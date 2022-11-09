@@ -1,41 +1,40 @@
 //
-//  PhoneViewController.swift
+//  EmailViewController.swift
 //  SeSAC-StudyMate
 //
-//  Created by 이병현 on 2022/11/08.
+//  Created by 이병현 on 2022/11/09.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
-import FirebaseAuth
 
-class PhoneViewController: BaseViewController {
+class EmailViewController: BaseViewController {
 
-    let mainview = PhoneView()
-    let viewModel = PhoneViewModel()
+    let mainview = EmailView()
+    let viewModel = EmailViewModel()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        validButtonBind()
     }
     
     override func loadView() {
         super.view = mainview
         mainview.backgroundColor = .white
+        validButtonBind()
     }
     
     func validButtonBind() {
         mainview.phoneTextField.rx.text
             .orEmpty
             .asDriver()
-            .drive(viewModel.phoneNumber)
+            .drive(viewModel.email)
             .disposed(by: disposeBag)
 
         let validation = mainview.phoneTextField.rx.text
             .orEmpty
-            .map { ($0.count >= 10 && $0.count <= 11) }
+            .map { $0.count <= 25 && $0.count > 0 }
         
         
         validation
@@ -48,5 +47,5 @@ class PhoneViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
     }
-    
+
 }

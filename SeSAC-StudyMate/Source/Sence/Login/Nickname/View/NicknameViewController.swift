@@ -1,19 +1,18 @@
 //
-//  PhoneViewController.swift
+//  NicknameViewController.swift
 //  SeSAC-StudyMate
 //
-//  Created by 이병현 on 2022/11/08.
+//  Created by 이병현 on 2022/11/09.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
-import FirebaseAuth
 
-class PhoneViewController: BaseViewController {
+class NicknameViewController: BaseViewController {
 
-    let mainview = PhoneView()
-    let viewModel = PhoneViewModel()
+    let mainview = NicknameView()
+    let viewModel = NicknameViewModel()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -30,12 +29,12 @@ class PhoneViewController: BaseViewController {
         mainview.phoneTextField.rx.text
             .orEmpty
             .asDriver()
-            .drive(viewModel.phoneNumber)
+            .drive(viewModel.nickname)
             .disposed(by: disposeBag)
 
         let validation = mainview.phoneTextField.rx.text
             .orEmpty
-            .map { ($0.count >= 10 && $0.count <= 11) }
+            .map { $0.count <= 10 }
         
         
         validation
@@ -48,5 +47,4 @@ class PhoneViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
     }
-    
 }
