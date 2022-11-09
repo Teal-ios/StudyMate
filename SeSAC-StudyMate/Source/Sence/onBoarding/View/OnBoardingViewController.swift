@@ -1,132 +1,105 @@
-//
-//  OnBoardingViewController.swift
-//  SeSAC-StudyMate
-//
-//  Created by 이병현 on 2022/11/07.
-//
 
 import UIKit
 
-class OnBoardingViewController: UIPageViewController {
+class OnBoardingViewController: BaseViewController, UIScrollViewDelegate {
     
-    
-    //뷰컨트롤러 배열
-    lazy var vc1: UIViewController = {
-        let vc = FirstViewController()
-        vc.view.backgroundColor = .red
-        
-        return vc
-    }()
-    
-    lazy var vc2: UIViewController = {
-        let vc = SecondViewController()
-        vc.view.backgroundColor = .green
-        
-        return vc
-    }()
-    
-    lazy var vc3: UIViewController = {
-        let vc = ThirdViewController()
-        vc.view.backgroundColor = .blue
-        
-        return vc
-    }()
-    
-    lazy var dataViewControllers: [UIViewController] = {
-        return [vc1, vc2, vc3]
-    }()
-    
-    lazy var pageViewController: UIPageViewController = {
-        let vc = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        
-        return vc
-    }()
+    // Define the number of pages.
+    let pageSize = 3
     
     lazy var pageControl: UIPageControl = {
-        let control = UIPageControl()
-        return control
+        // Create a UIPageControl.
+        let pageControl = UIPageControl(frame: CGRect(x: 0, y: self.view.frame.maxY - 200, width: self.view.frame.maxX, height:50))
+        pageControl.backgroundColor = .white
+        
+        // Set the number of pages to page control.
+        pageControl.numberOfPages = pageSize
+        
+        // Set the current page.
+        pageControl.currentPage = 0
+        pageControl.isUserInteractionEnabled = false
+        pageControl.currentPageIndicatorTintColor = .black
+        pageControl.pageIndicatorTintColor = .grayScale5
+        
+        return pageControl
     }()
     
     lazy var startButton: fillButton = {
-       let button = fillButton()
+        let button = fillButton(frame: CGRect(x: self.view.frame.width*0.05, y: self.view.frame.maxY - 120, width: self.view.frame.width*0.9, height:48))
         button.setTitle("시작하기", for: .normal)
+        DispatchQueue.main.async {
+            button.layer.cornerRadius = 8
+        }
         return button
     }()
     
+    lazy var scrollView: UIScrollView = {
+        // Create a UIScrollView.
+        let scrollView = UIScrollView(frame: self.view.frame)
+        
+        // Hide the vertical and horizontal indicators.
+        scrollView.showsHorizontalScrollIndicator = false;
+        scrollView.showsVerticalScrollIndicator = false
+        
+        // Allow paging.
+        scrollView.isPagingEnabled = true
+        
+        // Set delegate of ScrollView.
+        scrollView.delegate = self
+        
+        // Specify the screen size of the scroll.
+        scrollView.contentSize = CGSize(width: CGFloat(pageSize) * self.view.frame.maxX, height: 0)
+        
+        return scrollView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
         
-        // viewDidLoad()에서 호출
-        if let firstVC = dataViewControllers.first {
-            pageViewController.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
-        }
-        configure()
-        setupDelegate()
-        pageControl.numberOfPages = dataViewControllers.count
-        pageControl.pageIndicatorTintColor = .tintColor
-        pageControl.backgroundColor = .white
-    }
-    
-    private func configure() {
-        view.addSubview(startButton)
-        view.addSubview(pageControl)
-        addChild(pageViewController)
-        view.addSubview(pageViewController.view)
+        // Set the background color to Cyan.
+        self.view.backgroundColor = .white
         
-        startButton.snp.makeConstraints { make in
-            make.bottom.equalTo(-50)
-            make.trailing.equalTo(-16)
-            make.leading.equalTo(16)
-            make.height.equalTo(48)
-        }
+        // Get the vertical and horizontal sizes of the view.
+        let width = self.view.frame.maxX, height = self.view.frame.maxY
         
-        pageControl.snp.makeConstraints { make in
-            make.bottom.equalTo(startButton.snp.top).offset(-42)
-            make.height.equalTo(24)
-            make.width.equalTo(48)
-            make.centerX.equalTo(startButton)
-        }
-        
-        pageViewController.view.snp.makeConstraints { make in
-            make.top.equalTo(additionalSafeAreaInsets)
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(pageControl.snp.top).offset(-50)
-        }
-        pageViewController.didMove(toParent: self)
-        
-        
-        func setupDelegate() {
-            pageViewController.dataSource = self
-            pageViewController.delegate = self
-        }
-    }
-    
-    private func setupDelegate() {
-        pageViewController.dataSource = self
-        pageViewController.delegate = self
-    }
-    
-}
+        // Generate buttons for the number of pages.
+        for i in 0 ..< pageSize {
+            // Generate different labels for each page.
+            let view: UIImageView = UIImageView(frame: CGRect(x: CGFloat(i) * width, y: self.view.frame.maxY - self.view.frame.maxY * 0.75 , width: self.view.frame.width, height:self.view.frame.width * 0.85))
+            view.clipsToBounds = true
+            view.layer.masksToBounds = true
+            view.contentMode = .scaleAspectFit
+            view.image = UIImage(named: "onboarding_img\(i)")
 
-extension OnBoardingViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index = dataViewControllers.firstIndex(of: viewController) else { return nil }
-        let previousIndex = index - 1
-        if previousIndex < 0 {
-            return nil
-        }
-        return dataViewControllers[previousIndex]
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let index = dataViewControllers.firstIndex(of: viewController) else { return nil }
-        let nextIndex = index + 1
-        if nextIndex == dataViewControllers.count {
-            return nil
-        }
-        return dataViewControllers[nextIndex]
-    }
-}
+//
+            let label: UIImageView = UIImageView(frame: CGRect(x: CGFloat(i) * width + width/2 - 120, y: self.view.frame.maxY - self.view.frame.maxY * 0.95 , width: 240, height:self.view.frame.width * 0.35))
+            label.clipsToBounds = true
+            label.contentMode = .scaleAspectFit
+            label.layer.masksToBounds = true
+            label.image = UIImage(named: "onboardingtxt\(i)")
 
+            scrollView.addSubview(label)
+            scrollView.addSubview(view)
+        }
+        
+        // Add UIScrollView, UIPageControl on view
+        self.view.addSubview(self.scrollView)
+        self.view.addSubview(self.startButton)
+        self.view.addSubview(self.pageControl)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        // When the number of scrolls is one page worth.
+        if fmod(scrollView.contentOffset.x, scrollView.frame.maxX) == 0 {
+            // Switch the location of the page.
+            pageControl.currentPage = Int(scrollView.contentOffset.x / scrollView.frame.maxX)
+        }
+    }
+
+}
