@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F21D6D6291B405300429935 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F21D6D5291B405300429935 /* GoogleService-Info.plist */; };
+		2F21D6D9291B424900429935 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2F21D6D8291B424900429935 /* FirebaseAuth */; };
+		2F21D6DB291B424900429935 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2F21D6DA291B424900429935 /* FirebaseCrashlytics */; };
+		2F21D6DD291B424900429935 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 2F21D6DC291B424900429935 /* FirebaseMessaging */; };
+		2F21D6E2291B7F2700429935 /* PhoneCertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D6E1291B7F2700429935 /* PhoneCertificationView.swift */; };
+		2F21D6E4291B7F3200429935 /* PhoneCertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D6E3291B7F3200429935 /* PhoneCertificationViewController.swift */; };
+		2F21D6E7291B7F7500429935 /* PhoneCertificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D6E6291B7F7500429935 /* PhoneCertificationViewModel.swift */; };
 		2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F2C2918D4840069579F /* AppDelegate.swift */; };
 		2FAE3F2F2918D4840069579F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F2E2918D4840069579F /* SceneDelegate.swift */; };
 		2FAE3F312918D4840069579F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F302918D4840069579F /* ViewController.swift */; };
@@ -44,6 +51,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F21D6D5291B405300429935 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2F21D6DE291B6BF900429935 /* SeSAC-StudyMate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SeSAC-StudyMate.entitlements"; sourceTree = "<group>"; };
+		2F21D6E1291B7F2700429935 /* PhoneCertificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationView.swift; sourceTree = "<group>"; };
+		2F21D6E3291B7F3200429935 /* PhoneCertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationViewController.swift; sourceTree = "<group>"; };
+		2F21D6E6291B7F7500429935 /* PhoneCertificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationViewModel.swift; sourceTree = "<group>"; };
 		2FAE3F292918D4840069579F /* SeSAC-StudyMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeSAC-StudyMate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FAE3F2C2918D4840069579F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FAE3F2E2918D4840069579F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,11 +93,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F21D6DD291B424900429935 /* FirebaseMessaging in Frameworks */,
 				2FFA7252291A40E300172240 /* RxSwift in Frameworks */,
 				2FFA723D2919E9C200172240 /* Toast in Frameworks */,
 				2FFA724D291A3F3A00172240 /* IQKeyboardManagerSwift in Frameworks */,
 				2FFA7250291A40E300172240 /* RxCocoa in Frameworks */,
 				2FAE3F662918EB7F0069579F /* SnapKit in Frameworks */,
+				2F21D6DB291B424900429935 /* FirebaseCrashlytics in Frameworks */,
+				2F21D6D9291B424900429935 /* FirebaseAuth in Frameworks */,
 				2FAE3F6E2918EE090069579F /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +108,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F21D6DF291B7EF700429935 /* PhoneCertification */ = {
+			isa = PBXGroup;
+			children = (
+				2F21D6E5291B7F6700429935 /* ViewModel */,
+				2F21D6E0291B7F1A00429935 /* View */,
+			);
+			path = PhoneCertification;
+			sourceTree = "<group>";
+		};
+		2F21D6E0291B7F1A00429935 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F21D6E1291B7F2700429935 /* PhoneCertificationView.swift */,
+				2F21D6E3291B7F3200429935 /* PhoneCertificationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2F21D6E5291B7F6700429935 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F21D6E6291B7F7500429935 /* PhoneCertificationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2F21D6E8291B838C00429935 /* Nickname */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Nickname;
+			sourceTree = "<group>";
+		};
+		2F21D6E9291B839C00429935 /* BirthDay */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BirthDay;
+			sourceTree = "<group>";
+		};
+		2F21D6EA291B83AB00429935 /* Email */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		2F21D6EB291B83B400429935 /* Gender */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Gender;
+			sourceTree = "<group>";
+		};
 		2FAE3F202918D4840069579F = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +182,7 @@
 		2FAE3F2B2918D4840069579F /* SeSAC-StudyMate */ = {
 			isa = PBXGroup;
 			children = (
+				2F21D6DE291B6BF900429935 /* SeSAC-StudyMate.entitlements */,
 				2FAE3F432918D54F0069579F /* Source */,
 				2FAE3F552918D54F0069579F /* Support */,
 				2FAE3F562918D54F0069579F /* Resource */,
@@ -121,6 +191,7 @@
 				2FAE3F352918D4850069579F /* Assets.xcassets */,
 				2FAE3F372918D4850069579F /* LaunchScreen.storyboard */,
 				2FAE3F3A2918D4850069579F /* Info.plist */,
+				2F21D6D5291B405300429935 /* GoogleService-Info.plist */,
 			);
 			path = "SeSAC-StudyMate";
 			sourceTree = "<group>";
@@ -266,6 +337,11 @@
 		2FFA7243291A304600172240 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				2F21D6EB291B83B400429935 /* Gender */,
+				2F21D6EA291B83AB00429935 /* Email */,
+				2F21D6E9291B839C00429935 /* BirthDay */,
+				2F21D6E8291B838C00429935 /* Nickname */,
+				2F21D6DF291B7EF700429935 /* PhoneCertification */,
 				2FFA7253291A40F300172240 /* Phone */,
 			);
 			path = Login;
@@ -320,6 +396,9 @@
 				2FFA724C291A3F3A00172240 /* IQKeyboardManagerSwift */,
 				2FFA724F291A40E300172240 /* RxCocoa */,
 				2FFA7251291A40E300172240 /* RxSwift */,
+				2F21D6D8291B424900429935 /* FirebaseAuth */,
+				2F21D6DA291B424900429935 /* FirebaseCrashlytics */,
+				2F21D6DC291B424900429935 /* FirebaseMessaging */,
 			);
 			productName = "SeSAC-StudyMate";
 			productReference = 2FAE3F292918D4840069579F /* SeSAC-StudyMate.app */;
@@ -355,6 +434,7 @@
 				2FFA723B2919E9C200172240 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				2FFA724B291A3F3A00172240 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				2FFA724E291A40E300172240 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				2F21D6D7291B424900429935 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 2FAE3F2A2918D4840069579F /* Products */;
 			projectDirPath = "";
@@ -376,6 +456,7 @@
 				2FAE3F362918D4850069579F /* Assets.xcassets in Resources */,
 				2FFA7242291A1BF000172240 /* NotoSansKR-Regular.otf in Resources */,
 				2FAE3F342918D4840069579F /* Main.storyboard in Resources */,
+				2F21D6D6291B405300429935 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +473,7 @@
 				2FAE3F312918D4840069579F /* ViewController.swift in Sources */,
 				2FAE3F5A2918D54F0069579F /* ReusableProtocol.swift in Sources */,
 				2FAE3F572918D54F0069579F /* CollectionType+.swift in Sources */,
+				2F21D6E7291B7F7500429935 /* PhoneCertificationViewModel.swift in Sources */,
 				2FFA7248291A340A00172240 /* PhoneViewController.swift in Sources */,
 				2FAE3F592918D54F0069579F /* UIViewController+.swift in Sources */,
 				2FAE3F7929191F5A0069579F /* FirstView.swift in Sources */,
@@ -400,12 +482,14 @@
 				2FAE3F5D2918D54F0069579F /* BaseCollectionViewCell.swift in Sources */,
 				2FAE3F762918F78A0069579F /* ThirdViewController.swift in Sources */,
 				2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */,
+				2F21D6E4291B7F3200429935 /* PhoneCertificationViewController.swift in Sources */,
 				2FAE3F582918D54F0069579F /* String+.swift in Sources */,
 				2FAE3F722918F7740069579F /* FirstViewController.swift in Sources */,
 				2FAE3F5B2918D54F0069579F /* BaseViewController.swift in Sources */,
 				2FFA7256291A414600172240 /* PhoneViewModel.swift in Sources */,
 				2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */,
 				2FAE3F5E2918D54F0069579F /* BaseView.swift in Sources */,
+				2F21D6E2291B7F2700429935 /* PhoneCertificationView.swift in Sources */,
 				2FAE3F2F2918D4840069579F /* SceneDelegate.swift in Sources */,
 				2FFA724A291A372500172240 /* PhoneView.swift in Sources */,
 			);
@@ -552,6 +636,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SeSAC-StudyMate/SeSAC-StudyMate.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LL4R66V6Y3;
@@ -583,6 +668,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SeSAC-StudyMate/SeSAC-StudyMate.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LL4R66V6Y3;
@@ -633,6 +719,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2F21D6D7291B424900429935 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		2FAE3F642918EB7F0069579F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -676,6 +770,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2F21D6D8291B424900429935 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F21D6D7291B424900429935 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2F21D6DA291B424900429935 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F21D6D7291B424900429935 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		2F21D6DC291B424900429935 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F21D6D7291B424900429935 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
 		2FAE3F652918EB7F0069579F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2FAE3F642918EB7F0069579F /* XCRemoteSwiftPackageReference "SnapKit" */;

@@ -1,8 +1,8 @@
 //
-//  PhoneViewController.swift
+//  PhoneCertificationViewController.swift
 //  SeSAC-StudyMate
 //
-//  Created by 이병현 on 2022/11/08.
+//  Created by 이병현 on 2022/11/09.
 //
 
 import UIKit
@@ -10,10 +10,10 @@ import RxSwift
 import RxCocoa
 import FirebaseAuth
 
-class PhoneViewController: BaseViewController {
+class PhoneCertificationViewController: BaseViewController {
 
-    let mainview = PhoneView()
-    let viewModel = PhoneViewModel()
+    let mainview = PhoneCertificationView()
+    let viewModel = PhoneCertificationViewModel()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -45,7 +45,7 @@ class PhoneViewController: BaseViewController {
                 vc.mainview.baseButton.backgroundColor = color
             }
             .disposed(by: disposeBag)
-                
         
+                
     }
 }
