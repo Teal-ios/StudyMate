@@ -1,5 +1,6 @@
 
 import UIKit
+import RxSwift
 
 class OnBoardingViewController: BaseViewController, UIScrollViewDelegate {
     
@@ -66,14 +67,14 @@ class OnBoardingViewController: BaseViewController, UIScrollViewDelegate {
         // Generate buttons for the number of pages.
         for i in 0 ..< pageSize {
             // Generate different labels for each page.
-            let view: UIImageView = UIImageView(frame: CGRect(x: CGFloat(i) * width, y: self.view.frame.maxY - self.view.frame.maxY * 0.75 , width: self.view.frame.width, height:self.view.frame.width * 0.85))
+            let view: UIImageView = UIImageView(frame: CGRect(x: CGFloat(i) * width, y: height - height * 0.75 , width: self.view.frame.width, height:self.view.frame.width * 0.85))
             view.clipsToBounds = true
             view.layer.masksToBounds = true
             view.contentMode = .scaleAspectFit
             view.image = UIImage(named: "onboarding_img\(i)")
 
 //
-            let label: UIImageView = UIImageView(frame: CGRect(x: CGFloat(i) * width + width/2 - 120, y: self.view.frame.maxY - self.view.frame.maxY * 0.95 , width: 240, height:self.view.frame.width * 0.35))
+            let label: UIImageView = UIImageView(frame: CGRect(x: CGFloat(i) * width + width/2 - 120, y: height - height * 0.95 , width: 240, height: self.view.frame.width * 0.35))
             label.clipsToBounds = true
             label.contentMode = .scaleAspectFit
             label.layer.masksToBounds = true
@@ -81,6 +82,19 @@ class OnBoardingViewController: BaseViewController, UIScrollViewDelegate {
 
             scrollView.addSubview(label)
             scrollView.addSubview(view)
+            
+            startButton.rx.tap
+                .withUnretained(self)
+                .bind { (vc, _) in
+                    let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                    let sceneDelegate = windowScene?.delegate as? SceneDelegate
+
+                    let vc = PhoneViewController()
+                    UIView.transition(with: (sceneDelegate?.window)!, duration: 0.6, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+                    let navi = UINavigationController(rootViewController: vc)
+                    sceneDelegate?.window?.rootViewController = navi
+                    sceneDelegate?.window?.makeKeyAndVisible()
+                }
         }
         
         // Add UIScrollView, UIPageControl on view
@@ -101,5 +115,4 @@ class OnBoardingViewController: BaseViewController, UIScrollViewDelegate {
             pageControl.currentPage = Int(scrollView.contentOffset.x / scrollView.frame.maxX)
         }
     }
-
 }

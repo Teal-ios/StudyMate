@@ -47,10 +47,6 @@
 		2FAE3F682918ED5B0069579F /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F672918ED5B0069579F /* UIButton+.swift */; };
 		2FAE3F6E2918EE090069579F /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAE3F6D2918EE090069579F /* Then */; };
 		2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */; };
-		2FAE3F722918F7740069579F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F712918F7740069579F /* FirstViewController.swift */; };
-		2FAE3F742918F7820069579F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F732918F7820069579F /* SecondViewController.swift */; };
-		2FAE3F762918F78A0069579F /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F752918F78A0069579F /* ThirdViewController.swift */; };
-		2FAE3F7929191F5A0069579F /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F7829191F5A0069579F /* FirstView.swift */; };
 		2FFA723D2919E9C200172240 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 2FFA723C2919E9C200172240 /* Toast */; };
 		2FFA7241291A1BF000172240 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2FFA723F291A1BF000172240 /* NotoSansKR-Medium.otf */; };
 		2FFA7242291A1BF000172240 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2FFA7240291A1BF000172240 /* NotoSansKR-Regular.otf */; };
@@ -101,10 +97,6 @@
 		2FAE3F612918D9DD0069579F /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		2FAE3F672918ED5B0069579F /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
-		2FAE3F712918F7740069579F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		2FAE3F732918F7820069579F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		2FAE3F752918F78A0069579F /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		2FAE3F7829191F5A0069579F /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		2FFA723F291A1BF000172240 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		2FFA7240291A1BF000172240 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		2FFA7247291A340A00172240 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
@@ -417,10 +409,6 @@
 			isa = PBXGroup;
 			children = (
 				2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */,
-				2FAE3F732918F7820069579F /* SecondViewController.swift */,
-				2FAE3F752918F78A0069579F /* ThirdViewController.swift */,
-				2FAE3F712918F7740069579F /* FirstViewController.swift */,
-				2FAE3F7829191F5A0069579F /* FirstView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -568,7 +556,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FAE3F622918D9DD0069579F /* UIFont+.swift in Sources */,
-				2FAE3F742918F7820069579F /* SecondViewController.swift in Sources */,
 				2F21D70B291B90A600429935 /* GenderViewModel.swift in Sources */,
 				2F21D6F7291B903000429935 /* NicknameViewModel.swift in Sources */,
 				2FAE3F682918ED5B0069579F /* UIButton+.swift in Sources */,
@@ -580,7 +567,6 @@
 				2F21D709291B909D00429935 /* GenderViewController.swift in Sources */,
 				2F21D6F5291B902600429935 /* NicknameView.swift in Sources */,
 				2FAE3F592918D54F0069579F /* UIViewController+.swift in Sources */,
-				2FAE3F7929191F5A0069579F /* FirstView.swift in Sources */,
 				2F21D6F9291B903E00429935 /* NicknameViewController.swift in Sources */,
 				2F21D701291B907C00429935 /* EmailView.swift in Sources */,
 				2FAE3F5C2918D54F0069579F /* BaseTableViewCell.swift in Sources */,
@@ -589,12 +575,10 @@
 				2FAE3F5D2918D54F0069579F /* BaseCollectionViewCell.swift in Sources */,
 				2F21D6FF291B906900429935 /* BirthdayViewModel.swift in Sources */,
 				2F21D6FB291B904D00429935 /* BirthdayViewController.swift in Sources */,
-				2FAE3F762918F78A0069579F /* ThirdViewController.swift in Sources */,
 				2F21D705291B908B00429935 /* EmailViewModel.swift in Sources */,
 				2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */,
 				2F21D6E4291B7F3200429935 /* PhoneCertificationViewController.swift in Sources */,
 				2FAE3F582918D54F0069579F /* String+.swift in Sources */,
-				2FAE3F722918F7740069579F /* FirstViewController.swift in Sources */,
 				2F21D707291B909800429935 /* GenderView.swift in Sources */,
 				2FAE3F5B2918D54F0069579F /* BaseViewController.swift in Sources */,
 				2FFA7256291A414600172240 /* PhoneViewModel.swift in Sources */,
