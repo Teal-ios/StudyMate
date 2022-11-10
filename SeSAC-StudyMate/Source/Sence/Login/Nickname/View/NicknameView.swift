@@ -13,18 +13,18 @@ class NicknameView: BaseView {
         $0.font = .Display1_R20
         $0.textAlignment = .center
         $0.numberOfLines = 0
-        $0.text = "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요"
+        $0.text = "닉네임을 입력해 주세요"
     }
     
     let baseButton = disableButton().then { button in
-        button.setTitle("인증 문자 받기", for: .normal)
+        button.setTitle("다음", for: .normal)
         DispatchQueue.main.async {
             button.layer.cornerRadius = 8
         }
     }
     
     let phoneTextField = UITextField().then {
-        $0.placeholder = "휴대폰 번호(-없이 숫자만 입력)"
+        $0.placeholder = "10개 이내로 입력"
         $0.keyboardType = .numberPad
     }
     

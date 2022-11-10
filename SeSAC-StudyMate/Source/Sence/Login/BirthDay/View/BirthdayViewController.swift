@@ -25,6 +25,17 @@ class BirthdayViewController: BaseViewController {
         super.view = mainview
         mainview.backgroundColor = .white
         configureDatePicker()
+        validButtonBind()
+    }
+    
+    func validButtonBind() {
+        
+        
+        mainview.baseButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.navigationController?.pushViewController(EmailViewController(), animated: true)
+            }
     }
     
     // DATE PICKER

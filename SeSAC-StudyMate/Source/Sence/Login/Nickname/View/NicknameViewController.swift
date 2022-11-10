@@ -17,6 +17,7 @@ class NicknameViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        naviSet()
         validButtonBind()
     }
     
@@ -46,5 +47,11 @@ class NicknameViewController: BaseViewController {
                 vc.mainview.lineView.backgroundColor = lineColor
             }
             .disposed(by: disposeBag)
+        
+        mainview.baseButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.navigationController?.pushViewController(BirthdayViewController(), animated: true)
+            }
     }
 }

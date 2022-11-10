@@ -18,6 +18,7 @@ class PhoneCertificationViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        naviSet()
         validButtonBind()
     }
     
@@ -48,6 +49,12 @@ class PhoneCertificationViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-                
+        mainview.baseButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.navigationController?.pushViewController(NicknameViewController(), animated: true)
+            }
+
+      
     }
 }

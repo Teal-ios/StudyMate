@@ -20,7 +20,7 @@ class PhoneViewModel {
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: phoneNumber)
     }
     
-    func handleDoneBtn(_ sender: Any, text: String) {
+    func handleDoneBtn(text: String) {
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verifyID ?? "", verificationCode: text )
         Auth.auth().signIn(with: credential) { (success, error) in
             if error == nil {
@@ -29,8 +29,6 @@ class PhoneViewModel {
             } else {
                 print(error.debugDescription)
             }
-            
         }
     }
-    
 }

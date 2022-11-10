@@ -17,4 +17,10 @@ open class BaseViewController: UIViewController {
     
     func configure() { }
     
+    func naviSet() {
+        let backButton = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: nil)
+        backButton.tintColor = .black
+        navigationItem.leftBarButtonItem = backButton
+    }
+    
 }

@@ -15,6 +15,7 @@ class PhoneViewController: BaseViewController {
     let mainview = PhoneView()
     let viewModel = PhoneViewModel()
     let disposeBag = DisposeBag()
+    var verifyID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,17 @@ class PhoneViewController: BaseViewController {
                 vc.mainview.lineView.backgroundColor = lineColor
             }
             .disposed(by: disposeBag)
+        
+        mainview.baseButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.navigationController?.pushViewController(PhoneCertificationViewController(), animated: true)
+            }
+        
+//        mainview.baseButton.rx.tap
+//            .withUnretained(self)
+//            .bind { (vc, _) in
+//                vc.viewModel.handleDoneBtn(text: vc.mainview.phoneTextField.text ?? "")
+//            }
     }
-    
 }
