@@ -9,17 +9,17 @@ import UIKit
 import RxSwift
 import RxCocoa
 import FirebaseAuth
+import Toast
 
 class PhoneViewController: BaseViewController {
 
     let mainview = PhoneView()
     let viewModel = PhoneViewModel()
     let disposeBag = DisposeBag()
-    var verifyID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        validButtonBind()
+        bind()
     }
     
     override func loadView() {
@@ -27,38 +27,46 @@ class PhoneViewController: BaseViewController {
         mainview.backgroundColor = .white
     }
     
-    func validButtonBind() {
-        mainview.phoneTextField.rx.text
-            .orEmpty
-            .asDriver()
-            .drive(viewModel.phoneNumber)
-            .disposed(by: disposeBag)
+    override func configure() {
+        mainview.phoneTextField.addTarget(self, action: #selector(inputNumTextFieldChanged), for: .editingChanged)
 
-        let validation = mainview.phoneTextField.rx.text
-            .orEmpty
-            .map { ($0.count >= 10 && $0.count <= 11) }
-        
-        
-        validation
+    }
+    
+    func bind() {
+        viewModel.inputNumber
             .withUnretained(self)
             .bind { (vc, value) in
-                let color: UIColor = value ? .brandGreen : .grayScale3
-                let lineColor: UIColor = value ? .black : .grayScale3
-                vc.mainview.baseButton.backgroundColor = color
-                vc.mainview.lineView.backgroundColor = lineColor
+                let result = vc.viewModel.addHypen(num: value)
+                vc.mainview.phoneTextField.text = result
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.numValidation
+            .asDriver(onErrorJustReturn: false)
+            .map { $0 == true ? UIColor.brandGreen : UIColor.grayScale6 }
+            .drive(mainview.baseButton.rx.backgroundColor)
             .disposed(by: disposeBag)
         
         mainview.baseButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                vc.navigationController?.pushViewController(PhoneCertificationViewController(), animated: true)
+                guard let text = vc.mainview.phoneTextField.text else { return }
+                
+                vc.viewModel.isPhone(phoneNumber: text) == true ? vc.isPhoneSuccess()
+                : vc.mainview.makeToast("실패했습니다 :(")
+                
+                vc.viewModel.verifyNum(num: vc.mainview.phoneTextField.text)
             }
-        
-//        mainview.baseButton.rx.tap
-//            .withUnretained(self)
-//            .bind { (vc, _) in
-//                vc.viewModel.handleDoneBtn(text: vc.mainview.phoneTextField.text ?? "")
-//            }
+            .disposed(by: disposeBag)
+    }
+    
+    @objc func inputNumTextFieldChanged() {
+        guard let text = mainview.phoneTextField.text else { return }
+        viewModel.validationCheck(text: text)
+    }
+    
+    func isPhoneSuccess() {
+        self.mainview.makeToast("성공했습니다 :)")
+        self.transition(PhoneCertificationViewController())
     }
 }

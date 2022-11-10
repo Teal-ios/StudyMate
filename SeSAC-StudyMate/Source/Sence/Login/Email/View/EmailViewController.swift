@@ -46,6 +46,13 @@ class EmailViewController: BaseViewController {
                 vc.mainview.lineView.backgroundColor = lineColor
             }
             .disposed(by: disposeBag)
+        
+        mainview.baseButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.navigationController?.pushViewController(GenderViewController(), animated: true)
+            }
+
     }
 
 }

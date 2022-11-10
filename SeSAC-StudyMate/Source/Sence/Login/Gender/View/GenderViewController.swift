@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class GenderVieController: BaseViewController {
+class GenderViewController: BaseViewController {
 
     let mainview = GenderView()
     let viewModel = GenderViewModel()
@@ -23,4 +23,5 @@ class GenderVieController: BaseViewController {
         super.view = mainview
         mainview.backgroundColor = .white
     }
+    
 }

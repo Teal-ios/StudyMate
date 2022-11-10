@@ -12,28 +12,36 @@ class GenderView: BaseView {
     let baseLabel = UILabel().then {
         $0.font = .Display1_R20
         $0.textAlignment = .center
-        $0.numberOfLines = 0
-        $0.text = "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요"
+        $0.text = "성별을 선택해 주세요"
+    }
+    
+    let baseSecondLabel = UILabel().then {
+        $0.font = .Title2_R16
+        $0.textAlignment = .center
+        $0.text = "새싹 찾기 기능을 이용하기 위해서 필요해요!"
+        $0.textColor = .grayScale7
     }
     
     let baseButton = disableButton().then { button in
-        button.setTitle("인증 문자 받기", for: .normal)
+        button.setTitle("다음", for: .normal)
         DispatchQueue.main.async {
             button.layer.cornerRadius = 8
         }
     }
     
-    let phoneTextField = UITextField().then {
-        $0.placeholder = "휴대폰 번호(-없이 숫자만 입력)"
-        $0.keyboardType = .numberPad
-    }
+    let genderChoiceCollectionView: UICollectionView = {
+       let view = UICollectionView()
+        view.backgroundColor = .systemOrange
+        return view
+    }()
+    
     
     let lineView = UIView().then {
         $0.backgroundColor = .grayScale3
     }
     
     override func configureUI() {
-        [baseLabel, baseButton, phoneTextField, lineView].forEach {
+        [baseLabel, baseSecondLabel, baseButton, genderChoiceCollectionView, lineView].forEach {
             self.addSubview($0)
         }
     }
@@ -43,7 +51,14 @@ class GenderView: BaseView {
             make.top.equalTo(168)
             make.trailing.equalTo(-16)
             make.leading.equalTo(16)
-            make.height.equalTo(80)
+            make.height.equalTo(40)
+        }
+        
+        baseSecondLabel.snp.makeConstraints { make in
+            make.top.equalTo(212)
+            make.trailing.equalTo(-16)
+            make.leading.equalTo(16)
+            make.height.equalTo(40)
         }
         
         baseButton.snp.makeConstraints { make in
@@ -53,19 +68,18 @@ class GenderView: BaseView {
             make.leading.equalTo(16)
         }
 
-        phoneTextField.snp.makeConstraints { make in
+        genderChoiceCollectionView.snp.makeConstraints { make in
             make.trailing.equalTo(-16)
             make.leading.equalTo(16)
-            make.top.equalTo(300)
-            make.height.equalTo(48)
+            make.top.equalTo(baseSecondLabel.snp.bottom).offset(20)
+            make.bottom.equalTo(baseButton.snp.top).offset(-20)
         }
         
         lineView.snp.makeConstraints { make in
-            make.top.equalTo(phoneTextField.snp.bottom)
+            make.top.equalTo(genderChoiceCollectionView.snp.bottom)
             make.height.equalTo(1)
             make.trailing.equalTo(-16)
             make.leading.equalTo(16)
         }
     }
-    
 }

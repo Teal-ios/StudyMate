@@ -19,7 +19,7 @@ class PhoneCertificationViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         naviSet()
-        validButtonBind()
+        bind()
     }
     
     override func loadView() {
@@ -27,34 +27,44 @@ class PhoneCertificationViewController: BaseViewController {
         mainview.backgroundColor = .white
     }
     
-    func validButtonBind() {
-        mainview.phoneTextField.rx.text
-            .orEmpty
-            .asDriver()
-            .drive(viewModel.phoneNumber)
+    override func configure() {
+        mainview.phoneTextField.addTarget(self, action: #selector(inputNumTextFieldChanged), for: .editingChanged)
+    }
+    
+    func bind() {
+        
+        viewModel.numValidation
+            .asDriver(onErrorJustReturn: false)
+            .map { $0 == true ? UIColor.brandGreen : UIColor.grayScale6 }
+            .drive(mainview.baseButton.rx.backgroundColor)
             .disposed(by: disposeBag)
 
-        let validation = mainview.phoneTextField.rx.text
-            .orEmpty
-            .map { ($0.count == 6) }
-        
-        
-        validation
-            .withUnretained(self)
-            .bind { (vc, value) in
-                let color: UIColor = value ? .brandGreen : .grayScale3
-                let lineColor: UIColor = value ? .black : .grayScale3
-                vc.mainview.baseButton.backgroundColor = color
-                vc.mainview.lineView.backgroundColor = lineColor
-            }
-            .disposed(by: disposeBag)
         
         mainview.baseButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                vc.navigationController?.pushViewController(NicknameViewController(), animated: true)
+                guard let text = vc.mainview.phoneTextField.text else { return }
+
+                vc.viewModel.correctCode(code: text) == true ?
+                vc.isPhoneSuccess()
+                : vc.mainview.makeToast("인증코드가 일치하지 않습니다.")
+                
             }
+            .disposed(by: disposeBag)
 
       
+    }
+    
+    @objc func inputNumTextFieldChanged() {
+        guard let text = mainview.phoneTextField.text else { return }
+        viewModel.validationCheck(text: text)
+    }
+
+    func isPhoneSuccess() {
+        guard let text = self.mainview.phoneTextField.text else { return }
+        self.mainview.makeToast("인증코드가 일치합니다.")
+        self.viewModel.verifyID(code: text)
+        self.transition(NicknameViewController())
+
     }
 }

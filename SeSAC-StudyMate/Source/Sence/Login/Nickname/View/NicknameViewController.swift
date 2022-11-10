@@ -51,6 +51,7 @@ class NicknameViewController: BaseViewController {
         mainview.baseButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
+                
                 vc.navigationController?.pushViewController(BirthdayViewController(), animated: true)
             }
     }
