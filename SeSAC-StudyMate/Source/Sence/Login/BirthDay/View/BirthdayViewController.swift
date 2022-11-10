@@ -63,7 +63,4 @@ class BirthdayViewController: BaseViewController {
         self.mainview.monthTextField.text = monthFormmater.string(from: datePicker.date)
         self.mainview.dayTextField.text = dayFormmater.string(from: datePicker.date)
     }
-
-    
-
 }

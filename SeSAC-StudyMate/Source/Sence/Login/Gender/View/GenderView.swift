@@ -29,7 +29,7 @@ class GenderView: BaseView {
         }
     }
     
-    let genderChoiceCollectionView: UICollectionView = {
+    let collectionView: UICollectionView = {
        let view = UICollectionView()
         view.backgroundColor = .systemOrange
         return view
@@ -41,7 +41,7 @@ class GenderView: BaseView {
     }
     
     override func configureUI() {
-        [baseLabel, baseSecondLabel, baseButton, genderChoiceCollectionView, lineView].forEach {
+        [baseLabel, baseSecondLabel, baseButton, collectionView, lineView].forEach {
             self.addSubview($0)
         }
     }
@@ -68,7 +68,7 @@ class GenderView: BaseView {
             make.leading.equalTo(16)
         }
 
-        genderChoiceCollectionView.snp.makeConstraints { make in
+        collectionView.snp.makeConstraints { make in
             make.trailing.equalTo(-16)
             make.leading.equalTo(16)
             make.top.equalTo(baseSecondLabel.snp.bottom).offset(20)
@@ -76,7 +76,7 @@ class GenderView: BaseView {
         }
         
         lineView.snp.makeConstraints { make in
-            make.top.equalTo(genderChoiceCollectionView.snp.bottom)
+            make.top.equalTo(collectionView.snp.bottom)
             make.height.equalTo(1)
             make.trailing.equalTo(-16)
             make.leading.equalTo(16)
