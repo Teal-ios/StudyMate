@@ -41,7 +41,7 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
             .withUnretained(self)
             .bind { (vc, _) in
                 
-                vc.mainview.baseButton.backgroundColor == .brandGreen ? self.transition(OnBoardingViewController(), transitionStyle: .presentFullScreen) : vc.mainview.makeToast("성별을 선택해 주세요")
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.seccessLogin() : vc.mainview.makeToast("성별을 선택해 주세요")
 
             }
     }
@@ -56,8 +56,17 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
         mainview.collectionView.bottomAnchor.constraint(equalTo: self.mainview.baseButton.topAnchor).isActive = true
         mainview.collectionView.delegate = self
         mainview.collectionView.dataSource = self
+    }
+    
+    func seccessLogin() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
 
-        
+        let vc = MainViewController()
+        UIView.transition(with: (sceneDelegate?.window)!, duration: 0.6, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+        let navi = UINavigationController(rootViewController: vc)
+        sceneDelegate?.window?.rootViewController = navi
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
 }
 

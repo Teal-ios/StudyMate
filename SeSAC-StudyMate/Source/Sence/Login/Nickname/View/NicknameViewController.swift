@@ -43,7 +43,7 @@ class NicknameViewController: BaseViewController {
             .withUnretained(self)
             .bind { (vc, _) in
                 
-                vc.mainview.baseButton.backgroundColor == .brandGreen ? self.transition(BirthdayViewController(), transitionStyle: .presentFullScreen) : vc.mainview.makeToast("닉네임은 1자 이상 10자 이내로 부탁드려요")
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.seccess() : vc.mainview.makeToast("닉네임은 1자 이상 10자 이내로 부탁드려요")
 
             }
     }
@@ -51,5 +51,11 @@ class NicknameViewController: BaseViewController {
     @objc func inputNumTextFieldChanged() {
         guard let text = mainview.phoneTextField.text else { return }
         viewModel.nicknameValidationCheck(text: text)
+    }
+    
+    private func seccess() {
+        guard let text = mainview.phoneTextField.text else { return }
+        viewModel.successNickname(nickname: text)
+        self.transition(BirthdayViewController(), transitionStyle: .presentFullScreen)
     }
 }

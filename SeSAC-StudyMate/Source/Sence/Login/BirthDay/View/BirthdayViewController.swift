@@ -15,7 +15,7 @@ class BirthdayViewController: BaseViewController {
     let viewModel = BirthdayViewModel()
     let disposeBag = DisposeBag()
     let datePicker = UIDatePicker()
-    var diaryDate: Date?
+    var birthdayDate: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ class BirthdayViewController: BaseViewController {
             .withUnretained(self)
             .bind { (vc, _) in
                 
-                vc.mainview.baseButton.backgroundColor == .brandGreen ? self.transition(EmailViewController(), transitionStyle: .presentFullScreen) : vc.mainview.makeToast("날짜를 입력해주세요")
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.success() : vc.mainview.makeToast("날짜를 입력해주세요")
 
             }
     }
@@ -59,18 +59,23 @@ class BirthdayViewController: BaseViewController {
     
     //addTarget 두번쨰 파라미터 셀렉터 메서드
     @objc private func datePickerValueDidChange(_ datePicker: UIDatePicker){
+        
         let yearFormatter = DateFormatter()
         yearFormatter.dateFormat = "yyyy"
         yearFormatter.locale = Locale(identifier: "ko_KR")
+        
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "MM"
         monthFormatter.locale = Locale(identifier: "ko_KR")
+        
         let dayFormatter = DateFormatter()
         dayFormatter.dateFormat = "dd" //데이트 포멧형식 잡기
         dayFormatter.locale = Locale(identifier: "ko_KR")
+        
         let totalFormatter = DateFormatter()
-        totalFormatter.dateFormat = "YYYY-MM-DDTHH:mm:ss.SSSZ"
-
+        totalFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        birthdayDate = totalFormatter.string(from: datePicker.date)
+        print("@@@@@",birthdayDate)
         self.mainview.yearTextField.text = yearFormatter.string(from: datePicker.date)
         self.mainview.monthTextField.text = monthFormatter.string(from: datePicker.date)
         self.mainview.dayTextField.text = dayFormatter.string(from: datePicker.date)
@@ -82,5 +87,12 @@ class BirthdayViewController: BaseViewController {
     @objc func inputDayTextFieldChanged() {
         guard let text = mainview.yearTextField.text else { return }
         viewModel.birthDayValidationCheck(selectDay: text)
+    }
+    
+    func success() {
+        guard let birthday = birthdayDate else { return }
+        print(birthday)
+        viewModel.successBirthday(birthday: birthday)
+        self.transition(EmailViewController(), transitionStyle: .presentFullScreen)
     }
 }

@@ -30,4 +30,9 @@ class BirthdayViewModel {
             birthDayValidation.onNext(false)
         }
     }
+    
+    func successBirthday(birthday: String) {
+        UserDefaults.standard.set(birthday, forKey: "birthday")
+        print("생일 : \(UserDefaults.standard.string(forKey: "birthday"))")
+    }
 }

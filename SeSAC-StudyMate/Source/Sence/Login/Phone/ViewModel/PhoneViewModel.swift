@@ -64,6 +64,7 @@ class PhoneViewModel {
                 if let id = varification {
                     UserDefaults.standard.set("\(id)", forKey: "verificationID")
                 }
+                print(varification)
                 self.verificationID = varification
                 print("성공")
             } else {

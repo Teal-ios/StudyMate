@@ -45,10 +45,7 @@ class PhoneCertificationViewController: BaseViewController {
             .bind { (vc, _) in
                 guard let text = vc.mainview.phoneTextField.text else { return }
 
-                vc.viewModel.verifyID(code: text)
-                UserDefaults.standard.string(forKey: "authResult") == vc.mainview.phoneTextField.text ?
-                vc.isPhoneSuccess()
-                : vc.mainview.makeToast("인증코드가 일치하지 않습니다.")
+                vc.verifyID(code: text)
                 
             }
             .disposed(by: disposeBag)
@@ -66,4 +63,29 @@ class PhoneCertificationViewController: BaseViewController {
         self.transition(NicknameViewController(), transitionStyle: .presentFullScreen)
 
     }
+    
+    func verifyID(code: String?) {
+        guard let code = code else { return }
+        guard let verificationID = UserDefaults.standard.string(forKey: "verificationID") else { return }
+        
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: code)
+        
+        logIn(credential: credential)
+    }
+    
+    func logIn(credential: PhoneAuthCredential) {
+            Auth.auth().signIn(with: credential) { authResult, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    print("LogIn Failed...")
+                    self.mainview.makeToast("인증코드가 일치하지 않습니다.")
+                    
+                } else {
+                    print("LogIn Success!!")
+                    self.viewModel.requestIDToken()
+                    self.isPhoneSuccess() 
+                    self.mainview.makeToast("성공!!")
+                }
+            }
+        }
 }
