@@ -23,4 +23,11 @@ class GenderViewModel {
             genderValidation.onNext(false)
         }
     }
+    func successGender(gender: Int) {
+        UserDefaults.standard.set(gender, forKey: "gender")
+        print("닉네임 : \(UserDefaults.standard.string(forKey: "nickname"))")
+        print("생일 : \(UserDefaults.standard.string(forKey: "birthday"))")
+        print("이메일 : \(UserDefaults.standard.string(forKey: "email"))")
+        print("성별 : \(UserDefaults.standard.string(forKey: "gender"))")
+    }
 }

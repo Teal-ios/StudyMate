@@ -23,4 +23,9 @@ class EmailViewModel {
             emailValidation.onNext(false)
         }
     }
+    
+    func successEmail(email: String) {
+        UserDefaults.standard.set(email, forKey: "email")
+        print("이메일 : \(UserDefaults.standard.string(forKey: "email"))")
+    }
 }

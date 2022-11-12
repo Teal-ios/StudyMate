@@ -39,14 +39,20 @@ class EmailViewController: BaseViewController {
             .withUnretained(self)
             .bind { (vc, _) in
                 
-                vc.mainview.baseButton.backgroundColor == .brandGreen ? self.transition(GenderViewController(), transitionStyle: .presentFullScreen) : vc.mainview.makeToast("이메일의 형식이 맞지 않습니다.")
-
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.sucess() : vc.mainview.makeToast("이메일의 형식이 맞지 않습니다.")
             }
     }
 
     @objc func inputEmailTextFieldChanged() {
         guard let text = mainview.phoneTextField.text else { return }
         viewModel.emailValidationCheck(text: text)
+    }
+    
+    func sucess() {
+        guard let email = mainview.phoneTextField.text else { return }
+        print(email)
+        viewModel.successEmail(email: email)
+        self.transition(GenderViewController(), transitionStyle: .presentFullScreen)
     }
 
 }

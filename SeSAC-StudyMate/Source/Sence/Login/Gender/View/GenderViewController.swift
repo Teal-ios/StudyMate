@@ -15,6 +15,7 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
     let viewModel = GenderViewModel()
     let disposeBag = DisposeBag()
     var genderList = [["여자", "woman"], ["남자", "man"]]
+    var gender = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,7 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
             .withUnretained(self)
             .bind { (vc, _) in
                 
-                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.seccessLogin() : vc.mainview.makeToast("성별을 선택해 주세요")
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.seccessLogin(gender: self.gender) : vc.mainview.makeToast("성별을 선택해 주세요")
 
             }
     }
@@ -58,7 +59,7 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
         mainview.collectionView.dataSource = self
     }
     
-    func seccessLogin() {
+    func seccessLogin(gender: Int) {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
 
@@ -67,6 +68,7 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
         let navi = UINavigationController(rootViewController: vc)
         sceneDelegate?.window?.rootViewController = navi
         sceneDelegate?.window?.makeKeyAndVisible()
+        self.viewModel.successGender(gender: gender)
     }
 }
 
@@ -85,12 +87,15 @@ extension GenderViewController {
         cell.clipsToBounds = true
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 8
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.genderValidationCheck(text: indexPath.row)
-        print(viewModel.inputGender)
+        gender = indexPath.row
+        print(gender)
+        
     }
 }
 

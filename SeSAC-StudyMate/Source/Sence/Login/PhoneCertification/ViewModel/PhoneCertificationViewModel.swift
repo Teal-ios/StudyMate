@@ -16,10 +16,6 @@ class PhoneCertificationViewModel {
     var numValidation: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     private var verificationID: String?
     
-//    func correctCode(code: String) -> Bool {
-//        print(code)
-//        return code == verificationID
-//    }
     
     func validationCheck(text: String) {
         inputNumber.onNext(text)
