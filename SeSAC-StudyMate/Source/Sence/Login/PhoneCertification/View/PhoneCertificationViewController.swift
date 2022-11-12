@@ -45,6 +45,7 @@ class PhoneCertificationViewController: BaseViewController {
             .bind { (vc, _) in
                 guard let text = vc.mainview.phoneTextField.text else { return }
 
+                vc.viewModel.verifyID(code: text)
                 vc.viewModel.correctCode(code: text) == true ?
                 vc.isPhoneSuccess()
                 : vc.mainview.makeToast("인증코드가 일치하지 않습니다.")
@@ -61,9 +62,7 @@ class PhoneCertificationViewController: BaseViewController {
     }
 
     func isPhoneSuccess() {
-        guard let text = self.mainview.phoneTextField.text else { return }
         self.mainview.makeToast("인증코드가 일치합니다.")
-        self.viewModel.verifyID(code: text)
         self.transition(NicknameViewController())
 
     }

@@ -17,6 +17,7 @@ class PhoneCertificationViewModel {
     private var verificationID: String?
     
     func correctCode(code: String) -> Bool {
+        print(code)
         return code == verificationID
     }
     
@@ -31,14 +32,22 @@ class PhoneCertificationViewModel {
     
     func verifyID(code: String?) {
         guard let code = code else { return }
+        guard let verificationID = UserDefaults.standard.string(forKey: "verificationID") else { return }
         
-        PhoneAuthProvider.provider().verifyPhoneNumber(code, uiDelegate: nil) { (varification, error) in
-            if error == nil {
-                self.verificationID = varification
-            } else {
-                print("Phone Varification Error:\(error.debugDescription)")
-            }
-            
-        }
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: code)
+        
+        logIn(credential: credential)
     }
+    
+    func logIn(credential: PhoneAuthCredential) {
+            Auth.auth().signIn(with: credential) { authResult, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    print("LogIn Failed...")
+                }
+                print("LogIn Success!!")
+                print("\(authResult!)")
+            }
+        }
+    
 }

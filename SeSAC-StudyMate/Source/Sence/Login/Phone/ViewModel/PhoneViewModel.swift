@@ -61,6 +61,9 @@ class PhoneViewModel {
         
         PhoneAuthProvider.provider().verifyPhoneNumber(Country.kr.CountryCode + num, uiDelegate: nil) { (varification, error) in
             if error == nil {
+                if let id = varification {
+                    UserDefaults.standard.set("\(id)", forKey: "verificationID")
+                }
                 self.verificationID = varification
                 print("성공")
             } else {
