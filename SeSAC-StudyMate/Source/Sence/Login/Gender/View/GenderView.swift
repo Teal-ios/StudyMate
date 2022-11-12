@@ -38,7 +38,6 @@ class GenderView: BaseView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(GenderCollectionViewCell.self, forCellWithReuseIdentifier: GenderCollectionViewCell.reuseIdentifier)
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-//        collectionView.translatesAutoresizingMaskIntoConstraints = true
         return collectionView
     }()
     

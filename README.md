@@ -6,11 +6,18 @@
 
 
 
-| 날짜         | 기능                             | etc.                                |
-| ------------ | -------------------------------- | ----------------------------------- |
-| 22.11.07(월) | SLP Figma 톺아보기 / PageVC 구성 | PageControl...  왜 너 안되는거니... |
-| 22.11.08(화) | Login화면 구성 / Rx로 작성       | 하이픈... 너 쉽지않아               |
-| 22.11.09(수) | onBoarding 구성 및 Login UI 완성 | Rx로 Logic 구현 더 연습하기!!       |
+| 날짜         | 기능                                                    | etc.                                |
+| ------------ | ------------------------------------------------------- | ----------------------------------- |
+| 22.11.07(월) | SLP Figma 톺아보기 / PageVC 구성                        | PageControl...  왜 너 안되는거니... |
+| 22.11.08(화) | Login화면 구성 / Rx로 작성                              | 하이픈... 너 쉽지않아               |
+| 22.11.09(수) | onBoarding 구성 및 Login UI 완성                        | Rx로 Logic 구현 더 연습하기!!       |
+| 22.11.10(목) | 전화번호 인증 요청 및 LoginView 연결 / 하이픈 처리 완료 | 번호 인증.. 지옥이야...             |
+| 22.11.11(금) | Gender화면 구성 - collectionView 활용                   |                                     |
+| 22.11.12(토) | firebase 인증 완료 / Login Logic 구현 완료 및 저장      | 드디어..인증 지옥에서 벗어났다!!    |
+
+---
+
+
 
 ### 22.11.07(월)
 
@@ -33,6 +40,8 @@ SLP Service Flow를 한번 훑어보고자 제일 먼저 FIgma를 한번 다 훑
 #### OnBoarding화면 구성 - PageViewController
 
 PageViewController로 OnBoarding화면을 구성했다. 각각 VC들에 맞는 화면을 구성해주고, 마지막으로 PageVC안에 들어있는 각각의 FirstVC, SecondVC, ThirdVC에 pageControl을 넣어주었는데, index가 인식이 안되는 문제가 발생했다... 찾아보니 ScrollerView에 PageControl 방식으로 많이 구현하는 것 같아 후에 재구현할 생각이다.
+
+---
 
 
 
@@ -86,9 +95,204 @@ Login 기능 화면 중 Gender 부분 제외하고 기본 화면 구성을 완�
 
 우선 기본적으로 Firebase를 연결해주었고, 이에 따라 GoogleInfo.plist도 .gitignore처리를 해주어야 해서 새로 터미널로 처리를 해주었음! 이제 firebase를 통해 전화번호 인증을 할 것!
 
+---
 
 
 
+### 22.11.10(목)
+
+- Firebase 인증 요청 완료 - idToken발급 실패
+- Login View 연결 완료
+- 하이픈 설정 완료
+
+#### Firebase 인증 요청 완료 - idToken발급 실패
+
+Firebase 연결을 해놓았으니 이제 Auth를 통해 인증을 받기 위해 ViewModel에서 처리를 해주었다.
+        
+
+```swift
+func verifyNum(num: String?) {    
+	guard let num = num else { return }
+    
+    PhoneAuthProvider.provider().verifyPhoneNumber(Country.kr.CountryCode + num, uiDelegate: nil) { (varification, error) in
+        if error == nil {
+            if let id = varification {
+                UserDefaults.standard.set("\(id)", forKey: "FCMToken")
+            }
+            print(varification)
+            self.verificationID = varification
+            print("성공")
+        } else {
+            print("Phone Varification Error:\(error.debugDescription)")
+        }
+    }
+}
+
+func verifyID(code: String?) {
+    
+    guard let code = code else { return }
+    
+    let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID ?? "", verificationCode: code)
+    
+    Auth.auth().signIn(with: credential) { (success, error) in
+        if error == nil {
+            print(success ?? "")
+            print("User Signed in...")
+        } else {
+            print(error.debugDescription)
+        }
+    }
+}
+```
+
+이렇게 ViewModel에서 처리 후 실행하니 문자 인증은 잘 왔는데, 이상하게 인증코드를 입력하는 창에 넣으면 다음 화면으로 넘어가지 않는 문제가 발생했다. 후에 다시 인증 설정이 필요할 것 같다.
 
 
 
+#### Login View 연결 완료
+
+Rx형태로 화면 연결을 성공했을 때 화면이 연결되어 전환되도록 설정해주었다. 이때 모든 로직이 성공했을때 처리를 해주고 화면전환을 해주어야 하니, VC에서 함수를 하나 더 만들고 여기에 ViewModel에서 처리하는 함수 + 화면 전환하는 코드를 심어주는 식으로 구현했다.
+
+
+
+```swift
+//vc
+    private func seccess() {
+        guard let text = mainview.phoneTextField.text else { return }
+        viewModel.successNickname(nickname: text)
+        self.transition(BirthdayViewController(), transitionStyle: .presentFullScreen)
+    }
+
+
+
+        mainview.baseButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.seccess() : vc.mainview.makeToast("닉네임은 1자 이상 10자 이내로 부탁드려요")
+
+            }
+```
+
+
+
+#### 하이픈 설정 완료
+
+드디어.. 번호를 하이픈 넣어서 구현하고 싶었는데... 구현을 해따!!
+
+```swift
+    func isPhone(phoneNumber: String) -> Bool {
+        let regex = "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$"
+        
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: phoneNumber)
+    }
+    
+    func addHypen(num: String) -> String {
+        let numTen = num.toPhoneNumberPattern(pattern: "###-###-####", replacmentCharacter: "#")
+        let numEleven = num.toPhoneNumberPattern(pattern: "###-####-####", replacmentCharacter: "#")
+        
+        if num.count < 13 {
+            return numTen
+        } else {
+            return numEleven
+        }
+    }
+
+```
+
+사실 구글링과... 같이 공부하는 팀원들에게 배웠다... 왤케 머리가 안돌아가지 ;ㅅ;
+
+그래도 구현하고 보니 배우길 잘했다는 생각을.. 굳굳
+
+---
+
+
+
+### 22.11.11(금)
+
+- GenderVC CollectionView로 화면 구성 완료
+
+- GenderVC 클릭 시 하나만 선택되도록 설정 완료
+
+
+
+#### GenderVC CollectionView로 화면 구성 완료
+
+전체가 collectionView가 아니라 특정 부분만 collectionview로 구성하는건 처음이여서 약간 헷갈렸지만, View에서
+
+```swift
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: (UIScreen.main.bounds.width / 2) - 60, height: 200)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(GenderCollectionViewCell.self, forCellWithReuseIdentifier: GenderCollectionViewCell.reuseIdentifier)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return collectionView
+    }()
+```
+
+이렇게 레이아웃과 셀크기를 지정해주니 구현이 가능했었다.
+
+
+
+#### GenderVC 클릭 시 하나만 선택되도록 설정 완료
+
+처음에 로직 구현이 제대로 되지 않아 정말 고민거리였는데, isSelect라는 속성을 이용하니 해결이 가능했다.
+
+collectionViewCell에서 이렇게 계산속성을 활용해 구현하니 중복이 되지도 않고 하나만 선택하도록 설정할 수 있었다.
+
+~~~
+    override var isSelected: Bool {
+        didSet {
+            isSelectedCell()
+        }
+    }
+    
+    func isSelectedCell() {
+        if isSelected {
+            self.backgroundColor = .brandYellowGreen
+        } else {
+            self.backgroundColor = .white
+        }
+    }
+~~~
+
+---
+
+### 22.11.12(토)
+
+- 번호 인증 부분 구현 완료
+- Login Logic 모든 부분 Validation Check 완료 및 UserDefault 저장 완료
+
+
+
+#### 번호 인증 부분 구현 완료
+
+드디어... 애먹던 번호 인증 부분을 구현했다.
+
+~~~
+    func requestIDToken() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+            
+            if let error = error {
+                return
+            }
+            
+            guard let idToken = idToken else { return }
+            UserDefaults.standard.set(idToken, forKey: "idToken")
+            print("idToken",idToken)
+        }
+    }
+~~~
+
+내가 이부분을 구현하지 않아서 계속 토큰이 날라오지는 않고 성공했다고만 뜨고 그 이후의 token을 받아오지 못하는거였다. 공식문서를 더 자세히, 이해하면서 읽는 습관을 들여야겠다...
+
+
+
+#### Login Logic 모든 부분 Validation Check 완료 및 UserDefault 저장 완료
+
+서버 통신에 들어가기 전, 마지막으로 Validation 로직을 설정해주고, 성공했을 때 UserDefault에 저장되도록 로직을 설정해주었다. Date 부분이 Date형식으로 UserDefault에 저장해주어야지! 라고 생각했는데, UserDefault엔 Date로 저장할 수 없어 String으로 저장 후 후에 Date로 변환시켜주어야 한다는 것도 처음 알게 되었다.
