@@ -30,9 +30,16 @@ class GenderView: BaseView {
     }
     
     let collectionView: UICollectionView = {
-       let view = UICollectionView()
-        view.backgroundColor = .systemOrange
-        return view
+        let layout = UICollectionViewFlowLayout()
+        
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: (UIScreen.main.bounds.width / 2) - 60, height: 200)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(GenderCollectionViewCell.self, forCellWithReuseIdentifier: GenderCollectionViewCell.reuseIdentifier)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+//        collectionView.translatesAutoresizingMaskIntoConstraints = true
+        return collectionView
     }()
     
     

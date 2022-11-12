@@ -50,7 +50,7 @@ class EmailViewController: BaseViewController {
         mainview.baseButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                vc.navigationController?.pushViewController(GenderViewController(), animated: true)
+                self.transition(GenderViewController(), transitionStyle: .presentFullScreen)
             }
 
     }

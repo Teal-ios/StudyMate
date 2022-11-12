@@ -11,24 +11,10 @@ import RxCocoa
 
 class GenderViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var collectionView : UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        
-        layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: (UIScreen.main.bounds.width / 2) - 20, height: 200)
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
-        collectionView.register(GenderCollectionViewCell.self, forCellWithReuseIdentifier: GenderCollectionViewCell.reuseIdentifier)
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
-    }()
-    
     let mainview = GenderView()
     let viewModel = GenderViewModel()
     let disposeBag = DisposeBag()
-    var genderList = ["남자", "여자"]
+    var genderList = [["여자", "woman"], ["남자", "man"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,16 +28,16 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
     }
     
     func collectionViewConfiguration() {
-        self.view.addSubview(collectionView)
         
         let safeArea = self.view.safeAreaLayoutGuide
         
-        collectionView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor).isActive = true
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        mainview.collectionView.topAnchor.constraint(equalTo: self.mainview.baseSecondLabel.bottomAnchor).isActive = true
+        mainview.collectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
+        mainview.collectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true
+        mainview.collectionView.bottomAnchor.constraint(equalTo: self.mainview.baseButton.topAnchor).isActive = true
+        mainview.collectionView.delegate = self
+        mainview.collectionView.dataSource = self
+
         
     }
 }
@@ -66,7 +52,11 @@ extension GenderViewController {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GenderCollectionViewCell.reuseIdentifier, for: indexPath) as? GenderCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.genderLabel.text = genderList[0]
+        cell.genderLabel.text = genderList[indexPath.row][0]
+        cell.genderImg.image = UIImage(named: genderList[indexPath.row][1])
+        cell.clipsToBounds = true
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 8
         return cell
     }
 }

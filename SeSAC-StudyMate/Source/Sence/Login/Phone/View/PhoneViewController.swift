@@ -67,6 +67,6 @@ class PhoneViewController: BaseViewController {
     
     func isPhoneSuccess() {
         self.mainview.makeToast("성공했습니다 :)")
-        self.transition(PhoneCertificationViewController())
+        self.transition(PhoneCertificationViewController(), transitionStyle: .presentFullScreen)
     }
 }

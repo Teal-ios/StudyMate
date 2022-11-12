@@ -52,7 +52,7 @@ class NicknameViewController: BaseViewController {
             .withUnretained(self)
             .bind { (vc, _) in
                 
-                vc.navigationController?.pushViewController(BirthdayViewController(), animated: true)
+                self.transition(BirthdayViewController(), transitionStyle: .presentFullScreen)
             }
     }
 }

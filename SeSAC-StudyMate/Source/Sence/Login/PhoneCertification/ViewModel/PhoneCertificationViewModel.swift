@@ -16,10 +16,10 @@ class PhoneCertificationViewModel {
     var numValidation: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     private var verificationID: String?
     
-    func correctCode(code: String) -> Bool {
-        print(code)
-        return code == verificationID
-    }
+//    func correctCode(code: String) -> Bool {
+//        print(code)
+//        return code == verificationID
+//    }
     
     func validationCheck(text: String) {
         inputNumber.onNext(text)
@@ -44,9 +44,11 @@ class PhoneCertificationViewModel {
                 if let error = error {
                     print(error.localizedDescription)
                     print("LogIn Failed...")
+                } else {
+                    print("LogIn Success!!")
+                    print("\(authResult!)")
+                    UserDefaults.standard.set(authResult, forKey: "authResult")
                 }
-                print("LogIn Success!!")
-                print("\(authResult!)")
             }
         }
     

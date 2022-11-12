@@ -34,7 +34,7 @@ class BirthdayViewController: BaseViewController {
         mainview.baseButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                vc.navigationController?.pushViewController(EmailViewController(), animated: true)
+                self.transition(EmailViewController(), transitionStyle: .presentFullScreen)
             }
     }
     
