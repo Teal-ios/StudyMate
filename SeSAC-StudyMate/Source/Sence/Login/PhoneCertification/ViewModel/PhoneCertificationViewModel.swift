@@ -46,8 +46,8 @@ class PhoneCertificationViewModel {
                     print("LogIn Failed...")
                 } else {
                     print("LogIn Success!!")
-                    print("\(authResult!)")
-                    UserDefaults.standard.set(authResult, forKey: "authResult")
+                    print("###\(authResult!)")
+                    UserDefaults.standard.set("\(authResult)", forKey: "authResult")
                 }
             }
         }

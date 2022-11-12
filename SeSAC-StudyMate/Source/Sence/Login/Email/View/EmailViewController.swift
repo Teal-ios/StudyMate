@@ -24,35 +24,29 @@ class EmailViewController: BaseViewController {
         mainview.backgroundColor = .white
         validButtonBind()
     }
+    override func configure() {
+        mainview.phoneTextField.addTarget(self, action: #selector(inputEmailTextFieldChanged), for: .editingChanged)
+    }
     
     func validButtonBind() {
-        mainview.phoneTextField.rx.text
-            .orEmpty
-            .asDriver()
-            .drive(viewModel.email)
+        viewModel.emailValidation
+            .asDriver(onErrorJustReturn: false)
+            .map { $0 == true ? UIColor.brandGreen : UIColor.grayScale6 }
+            .drive(mainview.baseButton.rx.backgroundColor)
             .disposed(by: disposeBag)
 
-        let validation = mainview.phoneTextField.rx.text
-            .orEmpty
-            .map { $0.count <= 25 && $0.count > 0 }
-        
-        
-        validation
-            .withUnretained(self)
-            .bind { (vc, value) in
-                let color: UIColor = value ? .brandGreen : .grayScale3
-                let lineColor: UIColor = value ? .black : .grayScale3
-                vc.mainview.baseButton.backgroundColor = color
-                vc.mainview.lineView.backgroundColor = lineColor
-            }
-            .disposed(by: disposeBag)
-        
         mainview.baseButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                self.transition(GenderViewController(), transitionStyle: .presentFullScreen)
-            }
+                
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? self.transition(GenderViewController(), transitionStyle: .presentFullScreen) : vc.mainview.makeToast("이메일의 형식이 맞지 않습니다.")
 
+            }
+    }
+
+    @objc func inputEmailTextFieldChanged() {
+        guard let text = mainview.phoneTextField.text else { return }
+        viewModel.emailValidationCheck(text: text)
     }
 
 }

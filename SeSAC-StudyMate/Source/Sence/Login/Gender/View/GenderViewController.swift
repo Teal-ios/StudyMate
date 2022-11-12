@@ -20,11 +20,30 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
         super.viewDidLoad()
         
         collectionViewConfiguration()
+        bind()
     }
     
     override func loadView() {
         super.view = mainview
         mainview.backgroundColor = .white
+    }
+    
+
+    
+    func bind() {
+        viewModel.genderValidation
+            .asDriver(onErrorJustReturn: false)
+            .map { $0 == true ? UIColor.brandGreen : UIColor.grayScale6 }
+            .drive(mainview.baseButton.rx.backgroundColor)
+            .disposed(by: disposeBag)
+
+        mainview.baseButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? self.transition(OnBoardingViewController(), transitionStyle: .presentFullScreen) : vc.mainview.makeToast("성별을 선택해 주세요")
+
+            }
     }
     
     func collectionViewConfiguration() {
@@ -58,6 +77,11 @@ extension GenderViewController {
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 8
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.genderValidationCheck(text: indexPath.row)
+        print(viewModel.inputGender)
     }
 }
 

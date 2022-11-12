@@ -11,4 +11,18 @@ import RxSwift
 
 class NicknameViewModel {
     var nickname = BehaviorRelay<String>(value: "")
+    var nicknameValidation: BehaviorSubject<Bool> = BehaviorSubject(value: false)
+
+    var inputName: BehaviorSubject<String> = BehaviorSubject(value: "")
+    
+    func nicknameValidationCheck(text: String) {
+        
+        inputName.onNext(text)
+        
+        if text.count >= 1 && text.count <= 10 {
+            nicknameValidation.onNext(true)
+        } else {
+            nicknameValidation.onNext(false)
+        }
+    }
 }

@@ -26,6 +26,8 @@
 		2F21D707291B909800429935 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D706291B909800429935 /* GenderView.swift */; };
 		2F21D709291B909D00429935 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D708291B909D00429935 /* GenderViewController.swift */; };
 		2F21D70B291B90A600429935 /* GenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D70A291B90A600429935 /* GenderViewModel.swift */; };
+		2F8E1CBD291FB5340087935A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E1CBC291FB5340087935A /* MainView.swift */; };
+		2F8E1CBF291FB5440087935A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E1CBE291FB5440087935A /* MainViewController.swift */; };
 		2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F2C2918D4840069579F /* AppDelegate.swift */; };
 		2FAE3F2F2918D4840069579F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F2E2918D4840069579F /* SceneDelegate.swift */; };
 		2FAE3F312918D4840069579F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F302918D4840069579F /* ViewController.swift */; };
@@ -77,6 +79,8 @@
 		2F21D706291B909800429935 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		2F21D708291B909D00429935 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
 		2F21D70A291B90A600429935 /* GenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewModel.swift; sourceTree = "<group>"; };
+		2F8E1CBC291FB5340087935A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		2F8E1CBE291FB5440087935A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2FAE3F292918D4840069579F /* SeSAC-StudyMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeSAC-StudyMate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FAE3F2C2918D4840069579F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FAE3F2E2918D4840069579F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -257,6 +261,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2F8E1CBA291FB4B20087935A /* Main&Search */ = {
+			isa = PBXGroup;
+			children = (
+				2F8E1CBB291FB51B0087935A /* Main */,
+			);
+			path = "Main&Search";
+			sourceTree = "<group>";
+		};
+		2F8E1CBB291FB51B0087935A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2F8E1CBC291FB5340087935A /* MainView.swift */,
+				2F8E1CBE291FB5440087935A /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		2FAE3F202918D4840069579F = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +392,7 @@
 		2FAE3F532918D54F0069579F /* Sence */ = {
 			isa = PBXGroup;
 			children = (
+				2F8E1CBA291FB4B20087935A /* Main&Search */,
 				2FFA7243291A304600172240 /* Login */,
 				2FAE3F632918EA000069579F /* onBoarding */,
 			);
@@ -566,12 +588,14 @@
 				2FAE3F5A2918D54F0069579F /* ReusableProtocol.swift in Sources */,
 				2FAE3F572918D54F0069579F /* CollectionType+.swift in Sources */,
 				2F21D6E7291B7F7500429935 /* PhoneCertificationViewModel.swift in Sources */,
+				2F8E1CBD291FB5340087935A /* MainView.swift in Sources */,
 				2FFA7248291A340A00172240 /* PhoneViewController.swift in Sources */,
 				2F21D709291B909D00429935 /* GenderViewController.swift in Sources */,
 				2F21D6F5291B902600429935 /* NicknameView.swift in Sources */,
 				2FAE3F592918D54F0069579F /* UIViewController+.swift in Sources */,
 				2F21D6F9291B903E00429935 /* NicknameViewController.swift in Sources */,
 				2F21D701291B907C00429935 /* EmailView.swift in Sources */,
+				2F8E1CBF291FB5440087935A /* MainViewController.swift in Sources */,
 				2FAE3F5C2918D54F0069579F /* BaseTableViewCell.swift in Sources */,
 				2FAE3F602918D5980069579F /* UIColor+.swift in Sources */,
 				2F21D6FD291B905C00429935 /* BirthdayView.swift in Sources */,

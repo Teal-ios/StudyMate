@@ -25,16 +25,26 @@ class BirthdayViewController: BaseViewController {
         super.view = mainview
         mainview.backgroundColor = .white
         configureDatePicker()
-        validButtonBind()
+        bind()
+    }
+    override func configure() {
+        mainview.yearTextField.addTarget(self, action: #selector(inputDayTextFieldChanged), for: .allEvents)
     }
     
-    func validButtonBind() {
+    func bind() {
         
-        
+        viewModel.birthDayValidation
+            .asDriver(onErrorJustReturn: false)
+            .map { $0 == true ? UIColor.brandGreen : UIColor.grayScale6 }
+            .drive(mainview.baseButton.rx.backgroundColor)
+            .disposed(by: disposeBag)
+
         mainview.baseButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                self.transition(EmailViewController(), transitionStyle: .presentFullScreen)
+                
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? self.transition(EmailViewController(), transitionStyle: .presentFullScreen) : vc.mainview.makeToast("날짜를 입력해주세요")
+
             }
     }
     
@@ -49,18 +59,28 @@ class BirthdayViewController: BaseViewController {
     
     //addTarget 두번쨰 파라미터 셀렉터 메서드
     @objc private func datePickerValueDidChange(_ datePicker: UIDatePicker){
-        let yearFormmater = DateFormatter()
-        yearFormmater.dateFormat = "yyyy"
-        yearFormmater.locale = Locale(identifier: "ko_KR")
-        let monthFormmater = DateFormatter()
-        monthFormmater.dateFormat = "MM"
-        monthFormmater.locale = Locale(identifier: "ko_KR")
-        let dayFormmater = DateFormatter()
-        dayFormmater.dateFormat = "dd" //데이트 포멧형식 잡기
-        dayFormmater.locale = Locale(identifier: "ko_KR")
-        self.diaryDate = datePicker.date
-        self.mainview.yearTextField.text = yearFormmater.string(from: datePicker.date)
-        self.mainview.monthTextField.text = monthFormmater.string(from: datePicker.date)
-        self.mainview.dayTextField.text = dayFormmater.string(from: datePicker.date)
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "yyyy"
+        yearFormatter.locale = Locale(identifier: "ko_KR")
+        let monthFormatter = DateFormatter()
+        monthFormatter.dateFormat = "MM"
+        monthFormatter.locale = Locale(identifier: "ko_KR")
+        let dayFormatter = DateFormatter()
+        dayFormatter.dateFormat = "dd" //데이트 포멧형식 잡기
+        dayFormatter.locale = Locale(identifier: "ko_KR")
+        let totalFormatter = DateFormatter()
+        totalFormatter.dateFormat = "YYYY-MM-DDTHH:mm:ss.SSSZ"
+
+        self.mainview.yearTextField.text = yearFormatter.string(from: datePicker.date)
+        self.mainview.monthTextField.text = monthFormatter.string(from: datePicker.date)
+        self.mainview.dayTextField.text = dayFormatter.string(from: datePicker.date)
+        
+        self.viewModel.selectDay
+            .onNext(totalFormatter.string(from: datePicker.date))
+    }
+    
+    @objc func inputDayTextFieldChanged() {
+        guard let text = mainview.yearTextField.text else { return }
+        viewModel.birthDayValidationCheck(selectDay: text)
     }
 }

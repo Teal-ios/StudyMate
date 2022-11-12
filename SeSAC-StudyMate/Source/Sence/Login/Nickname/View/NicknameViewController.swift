@@ -18,7 +18,7 @@ class NicknameViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         naviSet()
-        validButtonBind()
+        bind()
     }
     
     override func loadView() {
@@ -26,33 +26,30 @@ class NicknameViewController: BaseViewController {
         mainview.backgroundColor = .white
     }
     
-    func validButtonBind() {
-        mainview.phoneTextField.rx.text
-            .orEmpty
-            .asDriver()
-            .drive(viewModel.nickname)
+    override func configure() {
+        mainview.phoneTextField.addTarget(self, action: #selector(inputNumTextFieldChanged), for: .editingChanged)
+    }
+
+    
+    func bind() {
+        
+        viewModel.nicknameValidation
+            .asDriver(onErrorJustReturn: false)
+            .map { $0 == true ? UIColor.brandGreen : UIColor.grayScale6 }
+            .drive(mainview.baseButton.rx.backgroundColor)
             .disposed(by: disposeBag)
 
-        let validation = mainview.phoneTextField.rx.text
-            .orEmpty
-            .map { $0.count <= 10 }
-        
-        
-        validation
-            .withUnretained(self)
-            .bind { (vc, value) in
-                let color: UIColor = value ? .brandGreen : .grayScale3
-                let lineColor: UIColor = value ? .black : .grayScale3
-                vc.mainview.baseButton.backgroundColor = color
-                vc.mainview.lineView.backgroundColor = lineColor
-            }
-            .disposed(by: disposeBag)
-        
         mainview.baseButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
                 
-                self.transition(BirthdayViewController(), transitionStyle: .presentFullScreen)
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? self.transition(BirthdayViewController(), transitionStyle: .presentFullScreen) : vc.mainview.makeToast("닉네임은 1자 이상 10자 이내로 부탁드려요")
+
             }
+    }
+    
+    @objc func inputNumTextFieldChanged() {
+        guard let text = mainview.phoneTextField.text else { return }
+        viewModel.nicknameValidationCheck(text: text)
     }
 }
