@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F21D6D6291B405300429935 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F21D6D5291B405300429935 /* GoogleService-Info.plist */; };
 		2F21D6D9291B424900429935 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2F21D6D8291B424900429935 /* FirebaseAuth */; };
 		2F21D6DB291B424900429935 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2F21D6DA291B424900429935 /* FirebaseCrashlytics */; };
 		2F21D6DD291B424900429935 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 2F21D6DC291B424900429935 /* FirebaseMessaging */; };
@@ -53,6 +52,7 @@
 		2FD4C9B8292095D100EEDEA8 /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4C9B7292095D100EEDEA8 /* MoyaPlugin.swift */; };
 		2FD4C9BA292095F200EEDEA8 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4C9B9292095F200EEDEA8 /* APIService.swift */; };
 		2FD4C9BC2920A6C700EEDEA8 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4C9BB2920A6C700EEDEA8 /* UserAPI.swift */; };
+		2FD4C9BE2920B39700EEDEA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FD4C9BD2920B39700EEDEA8 /* GoogleService-Info.plist */; };
 		2FD5A00A291CF67C009102EF /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5A009291CF67C009102EF /* GenderCollectionViewCell.swift */; };
 		2FFA723D2919E9C200172240 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 2FFA723C2919E9C200172240 /* Toast */; };
 		2FFA7241291A1BF000172240 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2FFA723F291A1BF000172240 /* NotoSansKR-Medium.otf */; };
@@ -66,7 +66,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2F21D6D5291B405300429935 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F21D6DE291B6BF900429935 /* SeSAC-StudyMate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SeSAC-StudyMate.entitlements"; sourceTree = "<group>"; };
 		2F21D6E1291B7F2700429935 /* PhoneCertificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationView.swift; sourceTree = "<group>"; };
 		2F21D6E3291B7F3200429935 /* PhoneCertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +108,7 @@
 		2FD4C9B7292095D100EEDEA8 /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
 		2FD4C9B9292095F200EEDEA8 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		2FD4C9BB2920A6C700EEDEA8 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		2FD4C9BD2920B39700EEDEA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FD5A009291CF67C009102EF /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FFA723F291A1BF000172240 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		2FFA7240291A1BF000172240 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
@@ -315,7 +315,7 @@
 				2FAE3F352918D4850069579F /* Assets.xcassets */,
 				2FAE3F372918D4850069579F /* LaunchScreen.storyboard */,
 				2FAE3F3A2918D4850069579F /* Info.plist */,
-				2F21D6D5291B405300429935 /* GoogleService-Info.plist */,
+				2FD4C9BD2920B39700EEDEA8 /* GoogleService-Info.plist */,
 			);
 			path = "SeSAC-StudyMate";
 			sourceTree = "<group>";
@@ -614,7 +614,7 @@
 				2FAE3F362918D4850069579F /* Assets.xcassets in Resources */,
 				2FFA7242291A1BF000172240 /* NotoSansKR-Regular.otf in Resources */,
 				2FAE3F342918D4840069579F /* Main.storyboard in Resources */,
-				2F21D6D6291B405300429935 /* GoogleService-Info.plist in Resources */,
+				2FD4C9BE2920B39700EEDEA8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

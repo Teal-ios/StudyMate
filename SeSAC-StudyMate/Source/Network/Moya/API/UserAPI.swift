@@ -21,13 +21,15 @@ final class UserAPI {
     // 서버 연결 후 전달 받을 response
     
     func postData() {
-        SLPProvider.request(.user) { result in
+        SLPProvider.request(.user) { result  in
+            
             switch result {
-                
-            case .success(_):
-                print("POST 성공")
-            case .failure(_):
-                print("POST 실패")
+
+            case .success(let reponse):
+                print("POST 성공", reponse.response?.statusCode)
+
+            case .failure(let error):
+                print("POST 실패", error.response?.statusCode)
             }
         }
     }

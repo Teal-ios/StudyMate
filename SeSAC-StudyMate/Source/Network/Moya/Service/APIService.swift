@@ -16,7 +16,12 @@ enum APIService {
     case update_fcm_token
     case mypage
     
-    // 비슷한 영화 API
+}
+
+enum SLPError: Int, Error {
+    case invalidAuthorization = 401
+    case takenEmail = 406
+    case emptyParameters = 501
 }
 
 // TargetType이라는 protocol을 채택하면 -> 서버 통신 시 필요한 요소들을 채택해서 사용할 수 있도록 유도

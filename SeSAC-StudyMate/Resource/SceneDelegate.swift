@@ -16,13 +16,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let rootViewController = OnBoardingViewController()
-        let navigationController = UINavigationController(rootViewController: rootViewController)
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
-        guard let _ = (scene as? UIWindowScene) else { return }
         
-        window?.makeKeyAndVisible()
+        if !UserDefaults.standard.bool(forKey: "OnBoarding") {
+            let vc = OnBoardingViewController()
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
+        } else {
+            let vc = NicknameViewController()
+            let nav = UINavigationController(rootViewController: vc)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        }
         
     }
 

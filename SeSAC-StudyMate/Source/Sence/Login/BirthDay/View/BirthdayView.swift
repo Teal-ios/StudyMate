@@ -52,7 +52,6 @@ class BirthdayView: BaseView {
     
     let dayTextField = UITextField().then {
         $0.placeholder = "1"
-        $0.keyboardType = .numberPad
     }
     
     let dayLineView = UIView().then {

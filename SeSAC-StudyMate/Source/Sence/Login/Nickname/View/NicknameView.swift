@@ -25,7 +25,6 @@ class NicknameView: BaseView {
     
     let phoneTextField = UITextField().then {
         $0.placeholder = "10개 이내로 입력"
-        $0.keyboardType = .numberPad
     }
     
     let lineView = UIView().then {

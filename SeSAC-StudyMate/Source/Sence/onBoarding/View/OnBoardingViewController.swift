@@ -86,6 +86,7 @@ class OnBoardingViewController: BaseViewController, UIScrollViewDelegate {
             startButton.rx.tap
                 .withUnretained(self)
                 .bind { (vc, _) in
+                    UserDefaults.standard.set(true, forKey: "OnBoarding")
                     let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                     let sceneDelegate = windowScene?.delegate as? SceneDelegate
 

@@ -31,7 +31,7 @@ class EmailView: BaseView {
     
     let phoneTextField = UITextField().then {
         $0.placeholder = "SeSAC@email.com"
-        $0.keyboardType = .numberPad
+        $0.keyboardType = .emailAddress
     }
     
     let lineView = UIView().then {
