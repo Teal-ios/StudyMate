@@ -36,8 +36,8 @@ class PhoneCertificationViewModel {
             }
             
             guard let idToken = idToken else { return }
-            UserDefaults.standard.set(idToken, forKey: "idToken")
-            print("idToken",idToken)
+            UserDefaults.standard.set(idToken, forKey: "idtoken")
+            print("idtoken",idToken)
         }
     }
 }

@@ -58,14 +58,20 @@ class PhoneViewModel {
     func verifyNum(num: String?) {
         
         guard let num = num else { return }
+        var setNum = num
+        var realNum = setNum.components(separatedBy: ["-"]).joined()
+        realNum.remove(at: setNum.startIndex)
         
         PhoneAuthProvider.provider().verifyPhoneNumber(Country.kr.CountryCode + num, uiDelegate: nil) { (varification, error) in
             if error == nil {
                 if let id = varification {
-                    UserDefaults.standard.set("\(id)", forKey: "FCMToken")
+                    UserDefaults.standard.set("\(id)", forKey: "FCMtoken")
                 }
                 print(varification)
+                
                 self.verificationID = varification
+                UserDefaults.standard.set("\(Country.kr.CountryCode + realNum)", forKey: "phoneNumber")
+                print("저장된 번호",UserDefaults.standard.string(forKey: "phoneNumber"))
                 print("성공")
             } else {
                 print("Phone Varification Error:\(error.debugDescription)")

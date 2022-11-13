@@ -32,7 +32,7 @@ class BirthdayViewModel {
     }
     
     func successBirthday(birthday: String) {
-        UserDefaults.standard.set(birthday, forKey: "birthday")
-        print("생일 : \(UserDefaults.standard.string(forKey: "birthday"))")
+        UserDefaults.standard.set(birthday, forKey: "birth")
+        print("생일 : \(UserDefaults.standard.string(forKey: "birth"))")
     }
 }

@@ -25,9 +25,12 @@ class GenderViewModel {
     }
     func successGender(gender: Int) {
         UserDefaults.standard.set(gender, forKey: "gender")
-        print("닉네임 : \(UserDefaults.standard.string(forKey: "nickname"))")
-        print("생일 : \(UserDefaults.standard.string(forKey: "birthday"))")
+        print("전화번호 : \(UserDefaults.standard.string(forKey: "phoneNumber"))")
+        print("닉네임 : \(UserDefaults.standard.string(forKey: "nick"))")
+        print("생일 : \(UserDefaults.standard.string(forKey: "birth"))")
         print("이메일 : \(UserDefaults.standard.string(forKey: "email"))")
         print("성별 : \(UserDefaults.standard.string(forKey: "gender"))")
+       
+        UserAPI.shared.postData()
     }
 }

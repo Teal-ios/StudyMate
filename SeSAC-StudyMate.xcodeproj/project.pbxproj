@@ -49,6 +49,10 @@
 		2FAE3F682918ED5B0069579F /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F672918ED5B0069579F /* UIButton+.swift */; };
 		2FAE3F6E2918EE090069579F /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAE3F6D2918EE090069579F /* Then */; };
 		2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */; };
+		2FD4C9B1292090FD00EEDEA8 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD4C9B0292090FD00EEDEA8 /* Moya */; };
+		2FD4C9B8292095D100EEDEA8 /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4C9B7292095D100EEDEA8 /* MoyaPlugin.swift */; };
+		2FD4C9BA292095F200EEDEA8 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4C9B9292095F200EEDEA8 /* APIService.swift */; };
+		2FD4C9BC2920A6C700EEDEA8 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4C9BB2920A6C700EEDEA8 /* UserAPI.swift */; };
 		2FD5A00A291CF67C009102EF /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5A009291CF67C009102EF /* GenderCollectionViewCell.swift */; };
 		2FFA723D2919E9C200172240 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 2FFA723C2919E9C200172240 /* Toast */; };
 		2FFA7241291A1BF000172240 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2FFA723F291A1BF000172240 /* NotoSansKR-Medium.otf */; };
@@ -102,6 +106,9 @@
 		2FAE3F612918D9DD0069579F /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		2FAE3F672918ED5B0069579F /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		2FD4C9B7292095D100EEDEA8 /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
+		2FD4C9B9292095F200EEDEA8 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		2FD4C9BB2920A6C700EEDEA8 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		2FD5A009291CF67C009102EF /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FFA723F291A1BF000172240 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		2FFA7240291A1BF000172240 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
@@ -123,6 +130,7 @@
 				2FAE3F662918EB7F0069579F /* SnapKit in Frameworks */,
 				2F21D6DB291B424900429935 /* FirebaseCrashlytics in Frameworks */,
 				2F21D6D9291B424900429935 /* FirebaseAuth in Frameworks */,
+				2FD4C9B1292090FD00EEDEA8 /* Moya in Frameworks */,
 				2FAE3F6E2918EE090069579F /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +335,7 @@
 		2FAE3F442918D54F0069579F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2FD4C9AC29208FB600EEDEA8 /* Moya */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -438,6 +447,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2FD4C9AC29208FB600EEDEA8 /* Moya */ = {
+			isa = PBXGroup;
+			children = (
+				2FD4C9B62920932E00EEDEA8 /* Service */,
+				2FD4C9B52920932700EEDEA8 /* Base */,
+				2FD4C9B42920932000EEDEA8 /* API */,
+			);
+			path = Moya;
+			sourceTree = "<group>";
+		};
+		2FD4C9B42920932000EEDEA8 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2FD4C9BB2920A6C700EEDEA8 /* UserAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		2FD4C9B52920932700EEDEA8 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2FD4C9B7292095D100EEDEA8 /* MoyaPlugin.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		2FD4C9B62920932E00EEDEA8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2FD4C9B9292095F200EEDEA8 /* APIService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		2FFA723E291A1BC600172240 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,6 +555,7 @@
 				2F21D6D8291B424900429935 /* FirebaseAuth */,
 				2F21D6DA291B424900429935 /* FirebaseCrashlytics */,
 				2F21D6DC291B424900429935 /* FirebaseMessaging */,
+				2FD4C9B0292090FD00EEDEA8 /* Moya */,
 			);
 			productName = "SeSAC-StudyMate";
 			productReference = 2FAE3F292918D4840069579F /* SeSAC-StudyMate.app */;
@@ -548,6 +592,7 @@
 				2FFA724B291A3F3A00172240 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				2FFA724E291A40E300172240 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				2F21D6D7291B424900429935 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2FD4C9AF292090FD00EEDEA8 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 2FAE3F2A2918D4840069579F /* Products */;
 			projectDirPath = "";
@@ -586,6 +631,7 @@
 				2FAE3F682918ED5B0069579F /* UIButton+.swift in Sources */,
 				2FAE3F312918D4840069579F /* ViewController.swift in Sources */,
 				2FAE3F5A2918D54F0069579F /* ReusableProtocol.swift in Sources */,
+				2FD4C9BA292095F200EEDEA8 /* APIService.swift in Sources */,
 				2FAE3F572918D54F0069579F /* CollectionType+.swift in Sources */,
 				2F21D6E7291B7F7500429935 /* PhoneCertificationViewModel.swift in Sources */,
 				2F8E1CBD291FB5340087935A /* MainView.swift in Sources */,
@@ -593,6 +639,7 @@
 				2F21D709291B909D00429935 /* GenderViewController.swift in Sources */,
 				2F21D6F5291B902600429935 /* NicknameView.swift in Sources */,
 				2FAE3F592918D54F0069579F /* UIViewController+.swift in Sources */,
+				2FD4C9B8292095D100EEDEA8 /* MoyaPlugin.swift in Sources */,
 				2F21D6F9291B903E00429935 /* NicknameViewController.swift in Sources */,
 				2F21D701291B907C00429935 /* EmailView.swift in Sources */,
 				2F8E1CBF291FB5440087935A /* MainViewController.swift in Sources */,
@@ -607,6 +654,7 @@
 				2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */,
 				2F21D6E4291B7F3200429935 /* PhoneCertificationViewController.swift in Sources */,
 				2FAE3F582918D54F0069579F /* String+.swift in Sources */,
+				2FD4C9BC2920A6C700EEDEA8 /* UserAPI.swift in Sources */,
 				2F21D707291B909800429935 /* GenderView.swift in Sources */,
 				2FAE3F5B2918D54F0069579F /* BaseViewController.swift in Sources */,
 				2FFA7256291A414600172240 /* PhoneViewModel.swift in Sources */,
@@ -867,6 +915,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		2FD4C9AF292090FD00EEDEA8 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = exactVersion;
+				version = 15.0.0;
+			};
+		};
 		2FFA723B2919E9C200172240 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -918,6 +974,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FAE3F6C2918EE090069579F /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		2FD4C9B0292090FD00EEDEA8 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FD4C9AF292090FD00EEDEA8 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 		2FFA723C2919E9C200172240 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
