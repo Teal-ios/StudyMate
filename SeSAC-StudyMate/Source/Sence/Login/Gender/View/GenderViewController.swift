@@ -19,7 +19,7 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        naviSet()
         collectionViewConfiguration()
         bind()
     }

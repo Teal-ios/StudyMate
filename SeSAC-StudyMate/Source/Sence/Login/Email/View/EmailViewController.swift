@@ -17,6 +17,7 @@ class EmailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        naviSet()
     }
     
     override func loadView() {
@@ -52,7 +53,7 @@ class EmailViewController: BaseViewController {
         guard let email = mainview.phoneTextField.text else { return }
         print(email)
         viewModel.successEmail(email: email)
-        self.transition(GenderViewController(), transitionStyle: .presentFullScreen)
+        self.transition(GenderViewController(), transitionStyle: .push)
     }
 
 }

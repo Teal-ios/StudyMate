@@ -18,9 +18,14 @@ open class BaseViewController: UIViewController {
     func configure() { }
     
     func naviSet() {
-        let backButton = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: nil)
+        let backButton = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: #selector(goBack))
         backButton.tintColor = .black
         navigationItem.leftBarButtonItem = backButton
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
+    @objc func goBack() {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

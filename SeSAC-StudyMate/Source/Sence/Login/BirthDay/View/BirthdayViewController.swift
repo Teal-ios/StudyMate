@@ -19,6 +19,7 @@ class BirthdayViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        naviSet()
     }
     
     override func loadView() {
@@ -93,6 +94,6 @@ class BirthdayViewController: BaseViewController {
         guard let birthday = birthdayDate else { return }
         print(birthday)
         viewModel.successBirthday(birthday: birthday)
-        self.transition(EmailViewController(), transitionStyle: .presentFullScreen)
+        self.transition(EmailViewController(), transitionStyle: .push)
     }
 }

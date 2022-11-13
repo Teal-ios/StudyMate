@@ -37,6 +37,7 @@ extension UIViewController {
         case push
         case presentFullScreen
         case presentCrossDisolve
+        case rootViewChanged
     }
     
     public func transition<T: UIViewController>(_ viewController: T, transitionStyle: TransitionStyle = .present, handler: ( (T) -> Void)? = nil) {
@@ -63,6 +64,22 @@ extension UIViewController {
             viewController.modalPresentationStyle = .overFullScreen
             viewController.modalTransitionStyle = .crossDissolve
             self.present(viewController, animated: true)
+            
+        case .rootViewChanged:
+            changeRootVC()
         }
+    }
+    
+    func changeRootVC() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        
+        
+        let vc = MainViewController()
+        UIView.transition(with: (sceneDelegate?.window)!, duration: 0.6, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+        let navi = UINavigationController(rootViewController: vc)
+        sceneDelegate?.window?.rootViewController = navi
+        sceneDelegate?.window?.makeKeyAndVisible()
+
     }
 }

@@ -22,10 +22,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = vc
             window?.makeKeyAndVisible()
         } else {
-            let vc = NicknameViewController()
-            let nav = UINavigationController(rootViewController: vc)
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
+            if UserDefaults.standard.string(forKey: "idtoken") != nil {
+                let vc = NicknameViewController()
+                let nav = UINavigationController(rootViewController: vc)
+                window?.rootViewController = nav
+                window?.makeKeyAndVisible()
+            } else {
+                let vc = PhoneViewController()
+                let nav = UINavigationController(rootViewController: vc)
+                window?.rootViewController = nav
+                window?.makeKeyAndVisible()
+            }
+            
         }
         
     }

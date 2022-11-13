@@ -44,7 +44,6 @@ class NicknameViewController: BaseViewController {
             .bind { (vc, _) in
                 
                 vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.seccess() : vc.mainview.makeToast("닉네임은 1자 이상 10자 이내로 부탁드려요")
-
             }
     }
     
@@ -56,6 +55,6 @@ class NicknameViewController: BaseViewController {
     private func seccess() {
         guard let text = mainview.phoneTextField.text else { return }
         viewModel.successNickname(nickname: text)
-        self.transition(BirthdayViewController(), transitionStyle: .presentFullScreen)
+        self.transition(BirthdayViewController(), transitionStyle: .push)
     }
 }
