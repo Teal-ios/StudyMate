@@ -63,7 +63,7 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
 
-        let vc = MainViewController()
+        let vc = MainTabBarViewController()
         UIView.transition(with: (sceneDelegate?.window)!, duration: 0.6, options: [.transitionCrossDissolve], animations: nil, completion: nil)
         let navi = UINavigationController(rootViewController: vc)
         sceneDelegate?.window?.rootViewController = navi
