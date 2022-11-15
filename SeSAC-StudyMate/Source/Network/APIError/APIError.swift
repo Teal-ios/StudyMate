@@ -23,7 +23,7 @@ enum APIError: Int, Error {
 }
 
 extension APIError: LocalizedError {
-    var errorDescription: String? {
+    private var errorDescription: String {
         switch self {
         case .success:
             return "성공"
@@ -32,7 +32,7 @@ extension APIError: LocalizedError {
         case .nicknameError:
             return "사용불가닉네임"
         case .expiredTokenError:
-            return "과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요."
+            return "토큰이 만료되었습니다."
         case .notCurrentUserError:
             return "🔔 새싹 스터디 서버에 최종 가입이 되지 않은 미가입 유저"
         case .serverError:
@@ -42,6 +42,7 @@ extension APIError: LocalizedError {
         }
     }
 }
+
 
 // MARK: - Error Handling
 extension UIViewController {

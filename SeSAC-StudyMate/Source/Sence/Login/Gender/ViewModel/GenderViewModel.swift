@@ -31,6 +31,5 @@ class GenderViewModel {
         print("이메일 : \(UserDefaults.standard.string(forKey: "email"))")
         print("성별 : \(UserDefaults.standard.string(forKey: "gender"))")
        
-        UserAPI.shared.postData()
     }
 }

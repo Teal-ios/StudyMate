@@ -29,7 +29,7 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
         mainview.backgroundColor = .white
     }
     
-
+    
     
     func bind() {
         viewModel.genderValidation
@@ -37,16 +37,72 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
             .map { $0 == true ? UIColor.brandGreen : UIColor.grayScale6 }
             .drive(mainview.baseButton.rx.backgroundColor)
             .disposed(by: disposeBag)
-
+        
         mainview.baseButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
                 
-                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.seccessLogin(gender: self.gender) : vc.mainview.makeToast(toastMessage.notChoiceGenderError.description)
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.postServer() : vc.mainview.makeToast(toastMessage.notChoiceGenderError.description)
                 
             }
     }
     
+    func postServer() {
+        UserAPI.shared.postData { statusCode, error in
+            
+            
+            guard let statusCode = statusCode else { return }
+            
+//            if statusCode == 200 {
+//
+//            } else if statusCode == 401 {
+//                self.showToast("토큰만료!!!!")
+//                print("🟢🟢🟢🟢🟢🟢🟢🟢토큰만료")
+//            }
+//
+            
+            guard let apiError = APIError(rawValue: statusCode) else { return }
+            
+            print(apiError)
+            guard let errorDescription = apiError.errorDescription else { return }
+            
+            print(errorDescription)
+            
+            
+            
+            
+            switch apiError {
+            case .success:
+                self.showToast("\(statusCode)")
+                self.seccessLogin(gender: self.gender)
+                print("🟢🟢🟢🟢🟢🟢🟢🟢\(statusCode)")
+            case .alreadyUser:
+                print("🟢🟢🟢🟢🟢🟢🟢🟢\(errorDescription)")
+                self.showToast(errorDescription)
+            case .nicknameError:
+                print("🟢🟢🟢🟢🟢🟢🟢🟢\(errorDescription)")
+                self.showToast(errorDescription)
+            case .expiredTokenError:
+                self.showToast(errorDescription)
+                print("🟢🟢🟢🟢🟢🟢🟢🟢\(errorDescription)")
+            case .notCurrentUserError:
+                self.showToast(errorDescription)
+                print("🟢🟢🟢🟢🟢🟢🟢🟢\(errorDescription)")
+
+            case .serverError:
+                self.showToast(errorDescription)
+                print("🟢🟢🟢🟢🟢🟢🟢🟢\(errorDescription)")
+
+            case .clientError:
+                self.showToast(errorDescription)
+                print("🟢🟢🟢🟢🟢🟢🟢🟢\(errorDescription)")
+
+            }
+            
+            
+            
+        }
+    }
     func collectionViewConfiguration() {
         
         let safeArea = self.view.safeAreaLayoutGuide
@@ -62,7 +118,7 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
     func seccessLogin(gender: Int) {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
-
+        
         let vc = MainTabBarViewController()
         UIView.transition(with: (sceneDelegate?.window)!, duration: 0.6, options: [.transitionCrossDissolve], animations: nil, completion: nil)
         let navi = UINavigationController(rootViewController: vc)

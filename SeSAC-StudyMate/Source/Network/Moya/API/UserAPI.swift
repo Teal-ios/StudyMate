@@ -20,13 +20,21 @@ final class UserAPI {
     private init() { }
     // 서버 연결 후 전달 받을 response
     
-    func postData() {
+    func postData(completionHandler: @escaping (Int?, APIError?)->Void) {
         SLPProvider.request(.user) { result  in
+            
             switch result {
             case .success(let response):
-                print("POST 성공", response.response?.statusCode, "responseData", response)
-
+                guard let statusCode = response.response?.statusCode else { return }
+                print("POST 성공", statusCode)
+                completionHandler(statusCode, nil)
+                
             case .failure(let error):
+                guard let statusCode = error.response?.statusCode else { return }
+                
+                let apiError = APIError(rawValue: statusCode)
+                completionHandler(nil, apiError)
+                
                 print("POST 실패", error.response?.statusCode)
             }
         }
