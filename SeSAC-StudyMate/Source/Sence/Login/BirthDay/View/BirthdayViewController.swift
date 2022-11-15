@@ -44,7 +44,7 @@ class BirthdayViewController: BaseViewController {
             .withUnretained(self)
             .bind { (vc, _) in
                 
-                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.success() : vc.mainview.makeToast("날짜를 입력해주세요")
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.success() : vc.mainview.makeToast(toastMessage.notChoiceWeatherError.description)
 
             }
     }

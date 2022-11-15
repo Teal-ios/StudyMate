@@ -11,9 +11,12 @@ import FirebaseAuth
 
 @frozen
 enum APIError: Int, Error {
+    
     case success = 200
+    case alreadyUser = 201
     case nicknameError = 202
     case expiredTokenError = 401
+    
     case notCurrentUserError = 406
     case serverError = 500
     case clientError = 501
@@ -24,6 +27,8 @@ extension APIError: LocalizedError {
         switch self {
         case .success:
             return "성공"
+        case .alreadyUser:
+            return "가입된 유저"
         case .nicknameError:
             return "사용불가닉네임"
         case .expiredTokenError:
@@ -54,12 +59,12 @@ extension UIViewController {
            
             let viewControllers: [UIViewController] = self.navigationController?.viewControllers as! [UIViewController]
             self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
-            viewControllers[viewControllers.count - 4].showToast(ToastMatrix.invalidNickname.description)
+            viewControllers[viewControllers.count - 4].showToast(toastMessage.invalidNickname.description)
             
         case .expiredTokenError:
             print(error.rawValue, error.errorDescription!)
             self.refreshToken()
-            self.showToast(ToastMatrix.overRequestError.description)
+            self.showToast(toastMessage.overRequestError.description)
             
         case .notCurrentUserError:
             print(error.rawValue, error.errorDescription!)

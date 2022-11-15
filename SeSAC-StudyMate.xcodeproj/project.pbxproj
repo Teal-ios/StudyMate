@@ -38,7 +38,7 @@
 		2F8E1CBF291FB5440087935A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */; };
 		2FAE2C3C292298FF0015DBEB /* ScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */; };
 		2FAE2C3F292356AE0015DBEB /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C3E292356AE0015DBEB /* APIError.swift */; };
-		2FAE2C41292359220015DBEB /* ToastMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C40292359220015DBEB /* ToastMatrix.swift */; };
+		2FAE2C41292359220015DBEB /* toastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C40292359220015DBEB /* toastMessage.swift */; };
 		2FAE2C432923595A0015DBEB /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C422923595A0015DBEB /* UserDefaultsHelper.swift */; };
 		2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F2C2918D4840069579F /* AppDelegate.swift */; };
 		2FAE3F2F2918D4840069579F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F2E2918D4840069579F /* SceneDelegate.swift */; };
@@ -111,7 +111,7 @@
 		2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+.swift"; sourceTree = "<group>"; };
 		2FAE2C3E292356AE0015DBEB /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		2FAE2C40292359220015DBEB /* ToastMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMatrix.swift; sourceTree = "<group>"; };
+		2FAE2C40292359220015DBEB /* toastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toastMessage.swift; sourceTree = "<group>"; };
 		2FAE2C422923595A0015DBEB /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		2FAE3F292918D4840069579F /* SeSAC-StudyMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeSAC-StudyMate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FAE3F2C2918D4840069579F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -394,7 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				2FAE2C3E292356AE0015DBEB /* APIError.swift */,
-				2FAE2C40292359220015DBEB /* ToastMatrix.swift */,
+				2FAE2C40292359220015DBEB /* toastMessage.swift */,
 			);
 			path = APIError;
 			sourceTree = "<group>";
@@ -805,7 +805,7 @@
 				2F2751DB2922024D00391163 /* InfoViewController.swift in Sources */,
 				2FAE3F5C2918D54F0069579F /* BaseTableViewCell.swift in Sources */,
 				2FAE3F602918D5980069579F /* UIColor+.swift in Sources */,
-				2FAE2C41292359220015DBEB /* ToastMatrix.swift in Sources */,
+				2FAE2C41292359220015DBEB /* toastMessage.swift in Sources */,
 				2FAE2C3F292356AE0015DBEB /* APIError.swift in Sources */,
 				2F2751D92922024500391163 /* FriendViewController.swift in Sources */,
 				2F21D6FD291B905C00429935 /* BirthdayView.swift in Sources */,

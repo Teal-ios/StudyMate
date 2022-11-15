@@ -20,9 +20,14 @@ enum APIService {
 }
 
 enum SLPError: Int, Error {
-    case invalidAuthorization = 401
-    case takenEmail = 406
-    case emptyParameters = 501
+    case success = 200
+    case alreadyUser = 201
+    case nicknameError = 202
+    case expiredTokenError = 401
+    
+    case notCurrentUserError = 406
+    case serverError = 500
+    case clientError = 501
 }
 
 // TargetType이라는 protocol을 채택하면 -> 서버 통신 시 필요한 요소들을 채택해서 사용할 수 있도록 유도

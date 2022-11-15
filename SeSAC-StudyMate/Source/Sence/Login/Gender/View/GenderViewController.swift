@@ -42,8 +42,8 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
             .withUnretained(self)
             .bind { (vc, _) in
                 
-                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.seccessLogin(gender: self.gender) : vc.mainview.makeToast("성별을 선택해 주세요")
-
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.seccessLogin(gender: self.gender) : vc.mainview.makeToast(toastMessage.notChoiceGenderError.description)
+                
             }
     }
     

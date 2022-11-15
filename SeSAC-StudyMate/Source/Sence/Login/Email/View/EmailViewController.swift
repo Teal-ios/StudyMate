@@ -40,7 +40,7 @@ class EmailViewController: BaseViewController {
             .withUnretained(self)
             .bind { (vc, _) in
                 
-                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.sucess() : vc.mainview.makeToast("이메일의 형식이 맞지 않습니다.")
+                vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.sucess() : vc.mainview.makeToast(toastMessage.emailTypeError.description)
             }
     }
 

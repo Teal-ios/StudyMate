@@ -77,7 +77,7 @@ class PhoneCertificationViewController: BaseViewController {
                 if let error = error {
                     print(error.localizedDescription)
                     print("LogIn Failed...")
-                    self.mainview.makeToast("인증코드가 일치하지 않습니다.")
+                    self.mainview.makeToast(toastMessage.notEqualCode.description)
                     
                 } else {
                     print("LogIn Success!!")

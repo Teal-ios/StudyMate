@@ -22,9 +22,7 @@ final class UserAPI {
     
     func postData() {
         SLPProvider.request(.user) { result  in
-            
             switch result {
-
             case .success(let response):
                 print("POST 성공", response.response?.statusCode, "responseData", response)
 

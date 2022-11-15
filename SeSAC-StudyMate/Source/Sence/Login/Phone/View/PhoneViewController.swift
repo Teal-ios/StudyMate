@@ -53,7 +53,7 @@ class PhoneViewController: BaseViewController {
                 guard let text = vc.mainview.phoneTextField.text else { return }
                 
                 vc.viewModel.isPhone(phoneNumber: text) == true ? vc.isPhoneSuccess()
-                : vc.mainview.makeToast("실패했습니다 :(")
+                : vc.mainview.makeToast(toastMessage.phoneTypeError.description)
                 
                 vc.viewModel.verifyNum(num: vc.mainview.phoneTextField.text)
             }
