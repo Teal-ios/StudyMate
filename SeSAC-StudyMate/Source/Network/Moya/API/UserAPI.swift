@@ -25,6 +25,20 @@ final class UserAPI {
             
             switch result {
 
+            case .success(let response):
+                print("POST 성공", response.response?.statusCode, "responseData", response)
+
+            case .failure(let error):
+                print("POST 실패", error.response?.statusCode)
+            }
+        }
+    }
+    
+    func getLoginData() {
+        SLPProvider.request(.login) { result  in
+            
+            switch result {
+
             case .success(let reponse):
                 print("POST 성공", reponse.response?.statusCode)
 

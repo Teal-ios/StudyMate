@@ -7,7 +7,16 @@
 
 import UIKit
 
-class detailScrollerView: BaseScrollView {
+class detailView: BaseView {
+    
+    let detailScrollerView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .white
+        scrollView.showsVerticalScrollIndicator = false
+        
+        return scrollView
+    }()
     
     let bgView = UIView().then {
         $0.layer.borderWidth = 1
@@ -26,16 +35,19 @@ class detailScrollerView: BaseScrollView {
     }
     
     override func configureUI() {
-        [bgView, nameLabel, detailButton].forEach {
+        [detailScrollerView, bgView, nameLabel, detailButton].forEach {
             self.addSubview($0)
         }
     }
     
     override func setConstraints() {
-
-
-        bgView.snp.makeConstraints { make in
+        
+        detailScrollerView.snp.makeConstraints { make in
             make.edges.equalTo(0)
+        }
+        
+        bgView.snp.makeConstraints { make in
+            make.edges.equalTo(detailScrollerView).inset(0)
         }
         
         nameLabel.snp.makeConstraints { make in
@@ -43,27 +55,24 @@ class detailScrollerView: BaseScrollView {
         }
         
         detailButton.snp.makeConstraints { make in
-            make.centerX.equalTo(bgView)
-            make.height.equalTo(16)
-            make.width.equalTo(16)
-            make.trailing.equalTo(safeAreaLayoutGuide).offset(-8)
+            make.top.equalTo(nameLabel.snp.top)
+            make.trailing.equalTo(nameLabel.snp.trailing)
+            make.bottom.equalTo(nameLabel.snp.bottom)
+            make.width.equalTo(24)
         }
-        
-        
-        
     }
 }
 
 class InfoManageView: BaseView {
     
-    private let contentScrollView: UIScrollView = {
-            let scrollView = UIScrollView()
-            scrollView.translatesAutoresizingMaskIntoConstraints = false
-            scrollView.backgroundColor = .white
-            scrollView.showsVerticalScrollIndicator = false
-            
-            return scrollView
-        }()
+    let contentScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .white
+        scrollView.showsVerticalScrollIndicator = false
+        
+        return scrollView
+    }()
     
     let backgroundImgView = UIImageView().then {
         $0.image = UIImage(named: "sesac_background_2")
@@ -77,10 +86,9 @@ class InfoManageView: BaseView {
         $0.contentMode = .scaleAspectFit
     }
     
-    let detailView = detailScrollerView().then {
+    let dynamicScrollerView = detailView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-
-        $0.backgroundColor = .systemCyan
+        
     }
     
     let genderStackView: UIStackView = {
@@ -114,7 +122,7 @@ class InfoManageView: BaseView {
     }()
     
     override func configureUI() {
-        [contentScrollView, backgroundImgView, profileImgView, detailView, genderStackView, studyStackView, phoneStackView, ageStackView, exitView].forEach {
+        [contentScrollView, backgroundImgView, profileImgView, dynamicScrollerView, genderStackView, studyStackView, phoneStackView, ageStackView, exitView].forEach {
             self.addSubview($0)
         }
     }
@@ -124,7 +132,7 @@ class InfoManageView: BaseView {
         contentScrollView.snp.makeConstraints { make in
             make.edges.equalTo(0)
         }
-
+        
         backgroundImgView.snp.makeConstraints { make in
             make.top.leading.equalTo(safeAreaLayoutGuide).offset(16)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(-16)
@@ -137,7 +145,7 @@ class InfoManageView: BaseView {
             make.centerX.equalTo(backgroundImgView)
         }
         
-        detailView.snp.makeConstraints { make in
+        dynamicScrollerView.snp.makeConstraints { make in
             make.top.equalTo(backgroundImgView.snp.bottom)
             make.leading.equalTo(safeAreaLayoutGuide).offset(16)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(-16)
@@ -145,7 +153,7 @@ class InfoManageView: BaseView {
         }
         
         genderStackView.snp.makeConstraints { make in
-            make.top.equalTo(detailView.snp.bottom).offset(8)
+            make.top.equalTo(dynamicScrollerView.snp.bottom).offset(8)
             make.leading.equalTo(safeAreaLayoutGuide).offset(16)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(-16)
             make.height.equalTo(56)

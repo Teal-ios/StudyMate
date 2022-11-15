@@ -52,7 +52,7 @@ class NicknameViewController: BaseViewController {
         viewModel.nicknameValidationCheck(text: text)
     }
     
-    private func seccess() {
+    func seccess() {
         guard let text = mainview.phoneTextField.text else { return }
         viewModel.successNickname(nickname: text)
         self.transition(BirthdayViewController(), transitionStyle: .push)

@@ -36,6 +36,10 @@
 		2F2751E9292230B200391163 /* InfoManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751E8292230B200391163 /* InfoManageViewController.swift */; };
 		2F2751ED2922499600391163 /* BaseScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751EC2922499600391163 /* BaseScrollerView.swift */; };
 		2F8E1CBF291FB5440087935A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */; };
+		2FAE2C3C292298FF0015DBEB /* ScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */; };
+		2FAE2C3F292356AE0015DBEB /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C3E292356AE0015DBEB /* APIError.swift */; };
+		2FAE2C41292359220015DBEB /* ToastMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C40292359220015DBEB /* ToastMatrix.swift */; };
+		2FAE2C432923595A0015DBEB /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C422923595A0015DBEB /* UserDefaultsHelper.swift */; };
 		2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F2C2918D4840069579F /* AppDelegate.swift */; };
 		2FAE3F2F2918D4840069579F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F2E2918D4840069579F /* SceneDelegate.swift */; };
 		2FAE3F312918D4840069579F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F302918D4840069579F /* ViewController.swift */; };
@@ -105,6 +109,10 @@
 		2F2751E8292230B200391163 /* InfoManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManageViewController.swift; sourceTree = "<group>"; };
 		2F2751EC2922499600391163 /* BaseScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollerView.swift; sourceTree = "<group>"; };
 		2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+.swift"; sourceTree = "<group>"; };
+		2FAE2C3E292356AE0015DBEB /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		2FAE2C40292359220015DBEB /* ToastMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMatrix.swift; sourceTree = "<group>"; };
+		2FAE2C422923595A0015DBEB /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		2FAE3F292918D4840069579F /* SeSAC-StudyMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeSAC-StudyMate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FAE3F2C2918D4840069579F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FAE3F2E2918D4840069579F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -382,6 +390,23 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		2FAE2C3D2923569D0015DBEB /* APIError */ = {
+			isa = PBXGroup;
+			children = (
+				2FAE2C3E292356AE0015DBEB /* APIError.swift */,
+				2FAE2C40292359220015DBEB /* ToastMatrix.swift */,
+			);
+			path = APIError;
+			sourceTree = "<group>";
+		};
+		2FAE2C4429236A3A0015DBEB /* UserDefaultsHelper */ = {
+			isa = PBXGroup;
+			children = (
+				2FAE2C422923595A0015DBEB /* UserDefaultsHelper.swift */,
+			);
+			path = UserDefaultsHelper;
+			sourceTree = "<group>";
+		};
 		2FAE3F202918D4840069579F = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +456,7 @@
 		2FAE3F442918D54F0069579F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2FAE2C3D2923569D0015DBEB /* APIError */,
 				2FD4C9AC29208FB600EEDEA8 /* Moya */,
 			);
 			path = Network;
@@ -439,6 +465,7 @@
 		2FAE3F452918D54F0069579F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2FAE2C4429236A3A0015DBEB /* UserDefaultsHelper */,
 				2FAE3F462918D54F0069579F /* Utility */,
 			);
 			path = Common;
@@ -464,6 +491,7 @@
 				2FAE3F5F2918D5980069579F /* UIColor+.swift */,
 				2FAE3F612918D9DD0069579F /* UIFont+.swift */,
 				2FAE3F672918ED5B0069579F /* UIButton+.swift */,
+				2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -777,6 +805,8 @@
 				2F2751DB2922024D00391163 /* InfoViewController.swift in Sources */,
 				2FAE3F5C2918D54F0069579F /* BaseTableViewCell.swift in Sources */,
 				2FAE3F602918D5980069579F /* UIColor+.swift in Sources */,
+				2FAE2C41292359220015DBEB /* ToastMatrix.swift in Sources */,
+				2FAE2C3F292356AE0015DBEB /* APIError.swift in Sources */,
 				2F2751D92922024500391163 /* FriendViewController.swift in Sources */,
 				2F21D6FD291B905C00429935 /* BirthdayView.swift in Sources */,
 				2FD5A00A291CF67C009102EF /* GenderCollectionViewCell.swift in Sources */,
@@ -792,8 +822,10 @@
 				2FD4C9BC2920A6C700EEDEA8 /* UserAPI.swift in Sources */,
 				2F21D707291B909800429935 /* GenderView.swift in Sources */,
 				2FAE3F5B2918D54F0069579F /* BaseViewController.swift in Sources */,
+				2FAE2C432923595A0015DBEB /* UserDefaultsHelper.swift in Sources */,
 				2FFA7256291A414600172240 /* PhoneViewModel.swift in Sources */,
 				2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */,
+				2FAE2C3C292298FF0015DBEB /* ScrollView+.swift in Sources */,
 				2F2751ED2922499600391163 /* BaseScrollerView.swift in Sources */,
 				2FAE3F5E2918D54F0069579F /* BaseView.swift in Sources */,
 				2F21D6E2291B7F2700429935 /* PhoneCertificationView.swift in Sources */,

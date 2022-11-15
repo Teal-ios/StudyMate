@@ -9,4 +9,7 @@ import Foundation
 
 class LaunchScreenViewModel {
     
+    func fetchNetwork() {
+        UserAPI.shared.getLoginData()
+    }
 }

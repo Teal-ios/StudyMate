@@ -65,7 +65,7 @@ class PhoneCertificationViewController: BaseViewController {
     
     func verifyID(code: String?) {
         guard let code = code else { return }
-        guard let verificationID = UserDefaults.standard.string(forKey: "FCMtoken") else { return }
+        guard let verificationID = UserDefaultsHelper.standard.FCMtoken else { return }
         
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: code)
         

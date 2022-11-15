@@ -12,6 +12,7 @@ import Moya
 enum APIService {
     // 트렌드 미디어 API
     case user
+    case login
     case withdraw
     case update_fcm_token
     case mypage
@@ -34,7 +35,7 @@ extension APIService: TargetType {
     // base url 뒤로 붙는 각 API 별 path parameter
     var path: String {
         switch self {
-        case .user:
+        case .user, .login:
             return "/v1/user"
         case .withdraw:
             return "/v1/user/withdraw"
@@ -47,7 +48,7 @@ extension APIService: TargetType {
     
     // header
     var headers: [String : String]? {
-        return ["idtoken" : UserDefaults.standard.string(forKey: "idtoken")!]
+        return ["Content-Type": "application/x-www-form-urlencoded", "idtoken" : UserDefaultsHelper.standard.idToken!]
     }
     
     // method (.get, .post, .delete, .patch 등의 어떤 통신을 할 것인가?)
@@ -57,6 +58,8 @@ extension APIService: TargetType {
             return .post
         case .mypage, .update_fcm_token:
             return .put
+        case .login:
+            return .get
         }
     }
     
@@ -69,15 +72,17 @@ extension APIService: TargetType {
     // 1. request body로 보낼 것인가?
     // 2. query parameter로 보낼 것인가?
     // 3. JSON으로 보낼 것인가? 등등 ..
+    
+    
     var task: Moya.Task {
         switch self {
-        case .user:
-            return .requestParameters(parameters: ["phoneNumber" : UserDefaults.standard.string(forKey: "phoneNumber")!,
-                                                   "FCMtoken" : UserDefaults.standard.string(forKey: "FCMtoken")!,
-                                                   "nick" : UserDefaults.standard.string(forKey: "nick")!,
-                                                   "birth" : UserDefaults.standard.string(forKey: "birth")!,
-                                                   "email" : UserDefaults.standard.string(forKey: "email")!,
-                                                   "gender" : UserDefaults.standard.integer(forKey: "gender")
+        case .user, .login:
+            return .requestParameters(parameters: ["phoneNumber" : UserDefaultsHelper.standard.phone!,
+                                                   "FCMtoken" : UserDefaultsHelper.standard.FCMtoken!,
+                                                   "nick" : UserDefaultsHelper.standard.nickname!,
+                                                   "birth" : UserDefaultsHelper.standard.birthday!,
+                                                   "email" : UserDefaultsHelper.standard.email!,
+                                                   "gender" : UserDefaultsHelper.standard.gender
                                                   ], encoding: URLEncoding.default)
                 
         case .withdraw:

@@ -27,7 +27,8 @@ class NicknameViewModel {
     }
     
     func successNickname(nickname: String) {
-        UserDefaults.standard.set(nickname, forKey: "nick")
-        print("닉네임 : \(UserDefaults.standard.string(forKey: "nick"))")
+//        UserDefaults.standard.set(nickname, forKey: "nick")
+        UserDefaultsHelper.standard.nickname = nickname
+        print("닉네임 : \(UserDefaultsHelper.standard.nickname)")
     }
 }

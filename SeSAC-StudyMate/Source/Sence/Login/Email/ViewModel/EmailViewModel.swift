@@ -25,7 +25,8 @@ class EmailViewModel {
     }
     
     func successEmail(email: String) {
-        UserDefaults.standard.set(email, forKey: "email")
-        print("이메일 : \(UserDefaults.standard.string(forKey: "email"))")
+//        UserDefaults.standard.set(email, forKey: "email")
+        UserDefaultsHelper.standard.email = email
+        print("이메일 : \(UserDefaultsHelper.standard.email)")
     }
 }
