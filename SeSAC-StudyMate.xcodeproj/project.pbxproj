@@ -32,8 +32,6 @@
 		2F2751DD29221F3400391163 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751DC29221F3400391163 /* InfoView.swift */; };
 		2F2751DF29221FD000391163 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751DE29221FD000391163 /* InfoTableViewCell.swift */; };
 		2F2751E229222A8600391163 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751E129222A8600391163 /* InfoViewModel.swift */; };
-		2F2751E7292230A600391163 /* InfoManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751E6292230A600391163 /* InfoManageView.swift */; };
-		2F2751E9292230B200391163 /* InfoManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751E8292230B200391163 /* InfoManageViewController.swift */; };
 		2F2751ED2922499600391163 /* BaseScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751EC2922499600391163 /* BaseScrollerView.swift */; };
 		2F8E1CBF291FB5440087935A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */; };
 		2FAE2C3C292298FF0015DBEB /* ScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */; };
@@ -70,6 +68,19 @@
 		2FDD9BEB2921F0C300C87641 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9BEA2921F0C300C87641 /* LaunchScreenViewController.swift */; };
 		2FDD9BEF2921F0D900C87641 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9BEE2921F0D900C87641 /* LaunchScreenView.swift */; };
 		2FDD9BF12921F0E500C87641 /* LaunchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9BF02921F0E500C87641 /* LaunchScreenViewModel.swift */; };
+		2FF877D72924A1B70002C35E /* InfoManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877D62924A1B70002C35E /* InfoManageViewController.swift */; };
+		2FF877D92924A2410002C35E /* InfoManageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877D82924A2410002C35E /* InfoManageTableViewCell.swift */; };
+		2FF877DC2924A2BB0002C35E /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 2FF877DB2924A2BB0002C35E /* MultiSlider */; };
+		2FF877DE2924AB700002C35E /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877DD2924AB700002C35E /* UIView+.swift */; };
+		2FF877E12924AF340002C35E /* InfoManageCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877E02924AF340002C35E /* InfoManageCardTableViewCell.swift */; };
+		2FF877E32924B11A0002C35E /* MyNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877E22924B11A0002C35E /* MyNameView.swift */; };
+		2FF877E52924B24A0002C35E /* MyTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877E42924B24A0002C35E /* MyTitleView.swift */; };
+		2FF877E72924B2590002C35E /* MyStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877E62924B2590002C35E /* MyStudyView.swift */; };
+		2FF877E92924B2670002C35E /* MyReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877E82924B2670002C35E /* MyReviewView.swift */; };
+		2FF877EB2924B4090002C35E /* MyDetailImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877EA2924B4090002C35E /* MyDetailImageTableViewCell.swift */; };
+		2FF877ED2924B45D0002C35E /* TitleCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877EC2924B45D0002C35E /* TitleCategoryCollectionViewCell.swift */; };
+		2FF877EF2924B7110002C35E /* MyDetailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877EE2924B7110002C35E /* MyDetailImageView.swift */; };
+		2FF877F32924FF000002C35E /* InfoManageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877F22924FF000002C35E /* InfoManageViewModel.swift */; };
 		2FFA723D2919E9C200172240 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 2FFA723C2919E9C200172240 /* Toast */; };
 		2FFA7241291A1BF000172240 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2FFA723F291A1BF000172240 /* NotoSansKR-Medium.otf */; };
 		2FFA7242291A1BF000172240 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2FFA7240291A1BF000172240 /* NotoSansKR-Regular.otf */; };
@@ -105,8 +116,6 @@
 		2F2751DC29221F3400391163 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		2F2751DE29221FD000391163 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		2F2751E129222A8600391163 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
-		2F2751E6292230A600391163 /* InfoManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManageView.swift; sourceTree = "<group>"; };
-		2F2751E8292230B200391163 /* InfoManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManageViewController.swift; sourceTree = "<group>"; };
 		2F2751EC2922499600391163 /* BaseScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollerView.swift; sourceTree = "<group>"; };
 		2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+.swift"; sourceTree = "<group>"; };
@@ -142,6 +151,18 @@
 		2FDD9BEA2921F0C300C87641 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		2FDD9BEE2921F0D900C87641 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		2FDD9BF02921F0E500C87641 /* LaunchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewModel.swift; sourceTree = "<group>"; };
+		2FF877D62924A1B70002C35E /* InfoManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManageViewController.swift; sourceTree = "<group>"; };
+		2FF877D82924A2410002C35E /* InfoManageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManageTableViewCell.swift; sourceTree = "<group>"; };
+		2FF877DD2924AB700002C35E /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		2FF877E02924AF340002C35E /* InfoManageCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManageCardTableViewCell.swift; sourceTree = "<group>"; };
+		2FF877E22924B11A0002C35E /* MyNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNameView.swift; sourceTree = "<group>"; };
+		2FF877E42924B24A0002C35E /* MyTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTitleView.swift; sourceTree = "<group>"; };
+		2FF877E62924B2590002C35E /* MyStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStudyView.swift; sourceTree = "<group>"; };
+		2FF877E82924B2670002C35E /* MyReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewView.swift; sourceTree = "<group>"; };
+		2FF877EA2924B4090002C35E /* MyDetailImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDetailImageTableViewCell.swift; sourceTree = "<group>"; };
+		2FF877EC2924B45D0002C35E /* TitleCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FF877EE2924B7110002C35E /* MyDetailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDetailImageView.swift; sourceTree = "<group>"; };
+		2FF877F22924FF000002C35E /* InfoManageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManageViewModel.swift; sourceTree = "<group>"; };
 		2FFA723F291A1BF000172240 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		2FFA7240291A1BF000172240 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		2FFA7247291A340A00172240 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +182,7 @@
 				2FFA7250291A40E300172240 /* RxCocoa in Frameworks */,
 				2FAE3F662918EB7F0069579F /* SnapKit in Frameworks */,
 				2F21D6DB291B424900429935 /* FirebaseCrashlytics in Frameworks */,
+				2FF877DC2924A2BB0002C35E /* MultiSlider in Frameworks */,
 				2F21D6D9291B424900429935 /* FirebaseAuth in Frameworks */,
 				2FD4C9B1292090FD00EEDEA8 /* Moya in Frameworks */,
 				2FAE3F6E2918EE090069579F /* Then in Frameworks */,
@@ -347,6 +369,7 @@
 		2F2751E32922306F00391163 /* InfoManage */ = {
 			isa = PBXGroup;
 			children = (
+				2FF877D52924A17F0002C35E /* Controller */,
 				2F2751E52922309B00391163 /* View */,
 				2F2751E42922309700391163 /* ViewModel */,
 			);
@@ -356,6 +379,7 @@
 		2F2751E42922309700391163 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2FF877F22924FF000002C35E /* InfoManageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -363,8 +387,12 @@
 		2F2751E52922309B00391163 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2F2751E6292230A600391163 /* InfoManageView.swift */,
-				2F2751E8292230B200391163 /* InfoManageViewController.swift */,
+				2FF877D42924A17B0002C35E /* Cell */,
+				2FF877E22924B11A0002C35E /* MyNameView.swift */,
+				2FF877E42924B24A0002C35E /* MyTitleView.swift */,
+				2FF877E62924B2590002C35E /* MyStudyView.swift */,
+				2FF877E82924B2670002C35E /* MyReviewView.swift */,
+				2FF877EE2924B7110002C35E /* MyDetailImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -492,6 +520,7 @@
 				2FAE3F612918D9DD0069579F /* UIFont+.swift */,
 				2FAE3F672918ED5B0069579F /* UIButton+.swift */,
 				2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */,
+				2FF877DD2924AB700002C35E /* UIView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -633,6 +662,25 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2FF877D42924A17B0002C35E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2FF877D82924A2410002C35E /* InfoManageTableViewCell.swift */,
+				2FF877E02924AF340002C35E /* InfoManageCardTableViewCell.swift */,
+				2FF877EA2924B4090002C35E /* MyDetailImageTableViewCell.swift */,
+				2FF877EC2924B45D0002C35E /* TitleCategoryCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2FF877D52924A17F0002C35E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2FF877D62924A1B70002C35E /* InfoManageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		2FFA723E291A1BC600172240 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +756,7 @@
 				2F21D6DA291B424900429935 /* FirebaseCrashlytics */,
 				2F21D6DC291B424900429935 /* FirebaseMessaging */,
 				2FD4C9B0292090FD00EEDEA8 /* Moya */,
+				2FF877DB2924A2BB0002C35E /* MultiSlider */,
 			);
 			productName = "SeSAC-StudyMate";
 			productReference = 2FAE3F292918D4840069579F /* SeSAC-StudyMate.app */;
@@ -745,6 +794,7 @@
 				2FFA724E291A40E300172240 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				2F21D6D7291B424900429935 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				2FD4C9AF292090FD00EEDEA8 /* XCRemoteSwiftPackageReference "Moya" */,
+				2FF877DA2924A2BB0002C35E /* XCRemoteSwiftPackageReference "MultiSlider" */,
 			);
 			productRefGroup = 2FAE3F2A2918D4840069579F /* Products */;
 			projectDirPath = "";
@@ -778,15 +828,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FAE3F622918D9DD0069579F /* UIFont+.swift in Sources */,
+				2FF877ED2924B45D0002C35E /* TitleCategoryCollectionViewCell.swift in Sources */,
 				2F21D70B291B90A600429935 /* GenderViewModel.swift in Sources */,
+				2FF877EB2924B4090002C35E /* MyDetailImageTableViewCell.swift in Sources */,
 				2F21D6F7291B903000429935 /* NicknameViewModel.swift in Sources */,
+				2FF877E52924B24A0002C35E /* MyTitleView.swift in Sources */,
 				2F2751D52922022F00391163 /* ShopViewController.swift in Sources */,
 				2FAE3F682918ED5B0069579F /* UIButton+.swift in Sources */,
-				2F2751E7292230A600391163 /* InfoManageView.swift in Sources */,
 				2FAE3F312918D4840069579F /* ViewController.swift in Sources */,
-				2F2751E9292230B200391163 /* InfoManageViewController.swift in Sources */,
+				2FF877EF2924B7110002C35E /* MyDetailImageView.swift in Sources */,
 				2FAE3F5A2918D54F0069579F /* ReusableProtocol.swift in Sources */,
 				2F2751D72922023B00391163 /* HomeViewController.swift in Sources */,
+				2FF877E92924B2670002C35E /* MyReviewView.swift in Sources */,
 				2FD4C9BA292095F200EEDEA8 /* APIService.swift in Sources */,
 				2FAE3F572918D54F0069579F /* CollectionType+.swift in Sources */,
 				2F21D6E7291B7F7500429935 /* PhoneCertificationViewModel.swift in Sources */,
@@ -800,6 +853,7 @@
 				2F21D6F9291B903E00429935 /* NicknameViewController.swift in Sources */,
 				2F21D701291B907C00429935 /* EmailView.swift in Sources */,
 				2F8E1CBF291FB5440087935A /* MainTabBarViewController.swift in Sources */,
+				2FF877E72924B2590002C35E /* MyStudyView.swift in Sources */,
 				2FDD9BEB2921F0C300C87641 /* LaunchScreenViewController.swift in Sources */,
 				2F2751DD29221F3400391163 /* InfoView.swift in Sources */,
 				2F2751DB2922024D00391163 /* InfoViewController.swift in Sources */,
@@ -815,15 +869,21 @@
 				2F21D6FB291B904D00429935 /* BirthdayViewController.swift in Sources */,
 				2F21D705291B908B00429935 /* EmailViewModel.swift in Sources */,
 				2F2751DF29221FD000391163 /* InfoTableViewCell.swift in Sources */,
+				2FF877F32924FF000002C35E /* InfoManageViewModel.swift in Sources */,
 				2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */,
+				2FF877D92924A2410002C35E /* InfoManageTableViewCell.swift in Sources */,
 				2FDD9BF12921F0E500C87641 /* LaunchScreenViewModel.swift in Sources */,
+				2FF877E32924B11A0002C35E /* MyNameView.swift in Sources */,
 				2F21D6E4291B7F3200429935 /* PhoneCertificationViewController.swift in Sources */,
 				2FAE3F582918D54F0069579F /* String+.swift in Sources */,
 				2FD4C9BC2920A6C700EEDEA8 /* UserAPI.swift in Sources */,
+				2FF877E12924AF340002C35E /* InfoManageCardTableViewCell.swift in Sources */,
 				2F21D707291B909800429935 /* GenderView.swift in Sources */,
 				2FAE3F5B2918D54F0069579F /* BaseViewController.swift in Sources */,
+				2FF877DE2924AB700002C35E /* UIView+.swift in Sources */,
 				2FAE2C432923595A0015DBEB /* UserDefaultsHelper.swift in Sources */,
 				2FFA7256291A414600172240 /* PhoneViewModel.swift in Sources */,
+				2FF877D72924A1B70002C35E /* InfoManageViewController.swift in Sources */,
 				2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */,
 				2FAE2C3C292298FF0015DBEB /* ScrollView+.swift in Sources */,
 				2F2751ED2922499600391163 /* BaseScrollerView.swift in Sources */,
@@ -1091,6 +1151,14 @@
 				version = 15.0.0;
 			};
 		};
+		2FF877DA2924A2BB0002C35E /* XCRemoteSwiftPackageReference "MultiSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yonat/MultiSlider.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.13.2;
+			};
+		};
 		2FFA723B2919E9C200172240 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -1147,6 +1215,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FD4C9AF292090FD00EEDEA8 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		2FF877DB2924A2BB0002C35E /* MultiSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FF877DA2924A2BB0002C35E /* XCRemoteSwiftPackageReference "MultiSlider" */;
+			productName = MultiSlider;
 		};
 		2FFA723C2919E9C200172240 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;

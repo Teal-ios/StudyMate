@@ -15,6 +15,8 @@ open class BaseView: UIView {
         
         configureUI()
         setConstraints()
+        configureLayout()
+        setupDelegate()
     }
     
     required public init?(coder: NSCoder) {
@@ -23,4 +25,6 @@ open class BaseView: UIView {
     
     func configureUI() { }
     func setConstraints() { }
+    func configureLayout() { }
+    func setupDelegate() { }
 }

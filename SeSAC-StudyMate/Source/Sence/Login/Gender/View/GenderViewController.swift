@@ -50,16 +50,27 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
     func postServer() {
         UserAPI.shared.postData { statusCode, error in
             
-            
             guard let statusCode = statusCode else { return }
-            
-//            if statusCode == 200 {
-//
-//            } else if statusCode == 401 {
-//                self.showToast("토큰만료!!!!")
-//                print("🟢🟢🟢🟢🟢🟢🟢🟢토큰만료")
-//            }
-//
+
+            switch statusCode {
+            case 200:
+                return self.showToast("성공")
+            case 201:
+                return self.showToast("가입된 유저입니다.")
+            case 202:
+                return self.showToast("사용이 불가능한 닉네임입니다.")
+            case 401:
+                return self.showToast("토큰이 만료되었습니다.")
+            case 406:
+                return self.showToast("새싹 스터디 서버에 최종 가입이 되지 않은 미가입 유저입니다.")
+            case 500:
+                return self.showToast("서버 에러")
+            case 501:
+                return self.showToast("API 요청시 Header와 RequestBody에 값을 빠트리지 않고 전송했는지 확인")
+            default:
+                return self.showToast("등록되지 않는 에러입니다.")
+            }
+
             
             guard let apiError = APIError(rawValue: statusCode) else { return }
             
@@ -67,9 +78,6 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
             guard let errorDescription = apiError.errorDescription else { return }
             
             print(errorDescription)
-            
-            
-            
             
             switch apiError {
             case .success:
@@ -98,9 +106,6 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
                 print("🟢🟢🟢🟢🟢🟢🟢🟢\(errorDescription)")
 
             }
-            
-            
-            
         }
     }
     func collectionViewConfiguration() {

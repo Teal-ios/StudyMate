@@ -18,17 +18,13 @@ final class InfoViewController: BaseViewController {
         super.viewDidLoad()
         
         mainview.tableView.rowHeight = 72
-        
         mainview.tableView.dataSource = self
         mainview.tableView.delegate = self
     }
-    
-    
+
     override func loadView() {
         super.view = mainview
     }
-    
-    
 }
 
 extension InfoViewController: UITableViewDelegate, UITableViewDataSource {

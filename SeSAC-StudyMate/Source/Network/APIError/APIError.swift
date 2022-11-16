@@ -43,7 +43,6 @@ extension APIError: LocalizedError {
     }
 }
 
-
 // MARK: - Error Handling
 extension UIViewController {
     

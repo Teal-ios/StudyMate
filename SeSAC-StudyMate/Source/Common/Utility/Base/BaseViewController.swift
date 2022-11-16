@@ -13,9 +13,13 @@ open class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         configure()
+        setupDelegate()
     }
     
-    func configure() { }
+    func configure() {
+        view.backgroundColor = .white
+//        navigationController?.navigationBar.topItem?.title = " "
+    }
     
     func naviSet() {
         let backButton = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: #selector(goBack))
@@ -27,5 +31,6 @@ open class BaseViewController: UIViewController {
     @objc func goBack() {
         self.navigationController?.popViewController(animated: true)
     }
+    func setupDelegate() { }
     
 }

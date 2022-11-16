@@ -14,6 +14,7 @@ open class BaseTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         configureUI()
+        configureLayout()
         setConstraints()
     }
     
@@ -22,5 +23,6 @@ open class BaseTableViewCell: UITableViewCell {
     }
     
     func configureUI() { }
+    func configureLayout() { }
     func setConstraints() { }
 }

@@ -23,4 +23,5 @@ open class BaseScrollView: UIScrollView {
     
     func configureUI() { }
     func setConstraints() { }
+    
 }
