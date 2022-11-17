@@ -81,7 +81,9 @@ extension APIService: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .user, .login:
+        case .login:
+            return .requestPlain
+        case .user:
             return .requestParameters(parameters: ["phoneNumber" : UserDefaultsHelper.standard.phone!,
                                                    "FCMtoken" : UserDefaultsHelper.standard.FCMtoken!,
                                                    "nick" : UserDefaultsHelper.standard.nickname!,

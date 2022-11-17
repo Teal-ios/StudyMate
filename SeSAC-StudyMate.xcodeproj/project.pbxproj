@@ -33,6 +33,8 @@
 		2F2751DF29221FD000391163 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751DE29221FD000391163 /* InfoTableViewCell.swift */; };
 		2F2751E229222A8600391163 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751E129222A8600391163 /* InfoViewModel.swift */; };
 		2F2751ED2922499600391163 /* BaseScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751EC2922499600391163 /* BaseScrollerView.swift */; };
+		2F3F5B7B2925FD34005EF93F /* SLPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7A2925FD34005EF93F /* SLPModel.swift */; };
+		2F3F5B7E2925FEC1005EF93F /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */; };
 		2F8E1CBF291FB5440087935A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */; };
 		2FAE2C3C292298FF0015DBEB /* ScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */; };
 		2FAE2C3F292356AE0015DBEB /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C3E292356AE0015DBEB /* APIError.swift */; };
@@ -67,7 +69,6 @@
 		2FD5A00A291CF67C009102EF /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5A009291CF67C009102EF /* GenderCollectionViewCell.swift */; };
 		2FDD9BEB2921F0C300C87641 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9BEA2921F0C300C87641 /* LaunchScreenViewController.swift */; };
 		2FDD9BEF2921F0D900C87641 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9BEE2921F0D900C87641 /* LaunchScreenView.swift */; };
-		2FDD9BF12921F0E500C87641 /* LaunchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9BF02921F0E500C87641 /* LaunchScreenViewModel.swift */; };
 		2FF877D72924A1B70002C35E /* InfoManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877D62924A1B70002C35E /* InfoManageViewController.swift */; };
 		2FF877D92924A2410002C35E /* InfoManageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877D82924A2410002C35E /* InfoManageTableViewCell.swift */; };
 		2FF877DC2924A2BB0002C35E /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 2FF877DB2924A2BB0002C35E /* MultiSlider */; };
@@ -117,6 +118,8 @@
 		2F2751DE29221FD000391163 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		2F2751E129222A8600391163 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 		2F2751EC2922499600391163 /* BaseScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollerView.swift; sourceTree = "<group>"; };
+		2F3F5B7A2925FD34005EF93F /* SLPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPModel.swift; sourceTree = "<group>"; };
+		2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+.swift"; sourceTree = "<group>"; };
 		2FAE2C3E292356AE0015DBEB /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -150,7 +153,6 @@
 		2FD5A009291CF67C009102EF /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FDD9BEA2921F0C300C87641 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		2FDD9BEE2921F0D900C87641 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
-		2FDD9BF02921F0E500C87641 /* LaunchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewModel.swift; sourceTree = "<group>"; };
 		2FF877D62924A1B70002C35E /* InfoManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManageViewController.swift; sourceTree = "<group>"; };
 		2FF877D82924A2410002C35E /* InfoManageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManageTableViewCell.swift; sourceTree = "<group>"; };
 		2FF877DD2924AB700002C35E /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -397,6 +399,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2F3F5B7C2925FE30005EF93F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F3F5B7A2925FD34005EF93F /* SLPModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2F8E1CBA291FB4B20087935A /* Main&Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +494,7 @@
 		2FAE3F442918D54F0069579F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2F3F5B7C2925FE30005EF93F /* Model */,
 				2FAE2C3D2923569D0015DBEB /* APIError */,
 				2FD4C9AC29208FB600EEDEA8 /* Moya */,
 			);
@@ -616,6 +627,7 @@
 			isa = PBXGroup;
 			children = (
 				2FD4C9BB2920A6C700EEDEA8 /* UserAPI.swift */,
+				2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -657,7 +669,6 @@
 		2FDD9BED2921F0CA00C87641 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				2FDD9BF02921F0E500C87641 /* LaunchScreenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -872,7 +883,6 @@
 				2FF877F32924FF000002C35E /* InfoManageViewModel.swift in Sources */,
 				2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */,
 				2FF877D92924A2410002C35E /* InfoManageTableViewCell.swift in Sources */,
-				2FDD9BF12921F0E500C87641 /* LaunchScreenViewModel.swift in Sources */,
 				2FF877E32924B11A0002C35E /* MyNameView.swift in Sources */,
 				2F21D6E4291B7F3200429935 /* PhoneCertificationViewController.swift in Sources */,
 				2FAE3F582918D54F0069579F /* String+.swift in Sources */,
@@ -883,9 +893,11 @@
 				2FF877DE2924AB700002C35E /* UIView+.swift in Sources */,
 				2FAE2C432923595A0015DBEB /* UserDefaultsHelper.swift in Sources */,
 				2FFA7256291A414600172240 /* PhoneViewModel.swift in Sources */,
+				2F3F5B7B2925FD34005EF93F /* SLPModel.swift in Sources */,
 				2FF877D72924A1B70002C35E /* InfoManageViewController.swift in Sources */,
 				2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */,
 				2FAE2C3C292298FF0015DBEB /* ScrollView+.swift in Sources */,
+				2F3F5B7E2925FEC1005EF93F /* LoginAPI.swift in Sources */,
 				2F2751ED2922499600391163 /* BaseScrollerView.swift in Sources */,
 				2FAE3F5E2918D54F0069579F /* BaseView.swift in Sources */,
 				2F21D6E2291B7F2700429935 /* PhoneCertificationView.swift in Sources */,

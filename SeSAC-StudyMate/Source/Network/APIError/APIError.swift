@@ -89,3 +89,26 @@ extension UIViewController {
         }
     }
 }
+
+
+enum LoginError: Int, Error {
+    case FirebaseTokenError = 401
+    case notSignUp = 406
+    case serverError = 500
+    case clientError = 501
+}
+
+extension LoginError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .FirebaseTokenError:
+            return "id토큰이 만료되었습니다. 갱신해주세요"
+        case .notSignUp:
+            return "미가입 유저입니다."
+        case .serverError:
+            return "Server Error"
+        case .clientError:
+            return "Client Error"
+        }
+    }
+}

@@ -17,13 +17,15 @@ enum SceneType: String {
 
 final class LaunchScreenViewController: BaseViewController {
     
+    var arr: SLPModel?
+    
     private let mainview = LaunchScreenView()
-    private let viewModel = LaunchScreenViewModel()
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchNetwork()
+        
+        loginLogic()
     }
     
     override func loadView() {
@@ -31,4 +33,15 @@ final class LaunchScreenViewController: BaseViewController {
         mainview.backgroundColor = .white
     }
     
+    func loginLogic() {
+        if UserDefaultsHelper.standard.idToken == nil {
+            transition(OnBoardingViewController(), transitionStyle: .rootViewChanged)
+        } else {
+            LoginAPI.shared.requestLoginData { data in
+                print("@@@@@@@",data)
+            }
+            
+            transition(MainTabBarViewController(), transitionStyle: .rootViewChanged)
+        }
+    }
 }

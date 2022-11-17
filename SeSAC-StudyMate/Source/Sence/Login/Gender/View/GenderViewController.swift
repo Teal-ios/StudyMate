@@ -68,7 +68,7 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
             case 501:
                 return self.showToast("API 요청시 Header와 RequestBody에 값을 빠트리지 않고 전송했는지 확인")
             default:
-                return self.showToast("등록되지 않는 에러입니다.")
+                return self.showToast("등록되지 않은 에러입니다.")
             }
 
             
