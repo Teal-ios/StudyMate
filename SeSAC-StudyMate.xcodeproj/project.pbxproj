@@ -35,6 +35,7 @@
 		2F2751ED2922499600391163 /* BaseScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751EC2922499600391163 /* BaseScrollerView.swift */; };
 		2F3F5B7B2925FD34005EF93F /* SLPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7A2925FD34005EF93F /* SLPModel.swift */; };
 		2F3F5B7E2925FEC1005EF93F /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */; };
+		2F3F5B8029261236005EF93F /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7F29261236005EF93F /* LoginError.swift */; };
 		2F8E1CBF291FB5440087935A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */; };
 		2FAE2C3C292298FF0015DBEB /* ScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */; };
 		2FAE2C3F292356AE0015DBEB /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C3E292356AE0015DBEB /* APIError.swift */; };
@@ -120,6 +121,7 @@
 		2F2751EC2922499600391163 /* BaseScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollerView.swift; sourceTree = "<group>"; };
 		2F3F5B7A2925FD34005EF93F /* SLPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPModel.swift; sourceTree = "<group>"; };
 		2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		2F3F5B7F29261236005EF93F /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
 		2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+.swift"; sourceTree = "<group>"; };
 		2FAE2C3E292356AE0015DBEB /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 			children = (
 				2FAE2C3E292356AE0015DBEB /* APIError.swift */,
 				2FAE2C40292359220015DBEB /* toastMessage.swift */,
+				2F3F5B7F29261236005EF93F /* LoginError.swift */,
 			);
 			path = APIError;
 			sourceTree = "<group>";
@@ -892,6 +895,7 @@
 				2FAE3F5B2918D54F0069579F /* BaseViewController.swift in Sources */,
 				2FF877DE2924AB700002C35E /* UIView+.swift in Sources */,
 				2FAE2C432923595A0015DBEB /* UserDefaultsHelper.swift in Sources */,
+				2F3F5B8029261236005EF93F /* LoginError.swift in Sources */,
 				2FFA7256291A414600172240 /* PhoneViewModel.swift in Sources */,
 				2F3F5B7B2925FD34005EF93F /* SLPModel.swift in Sources */,
 				2FF877D72924A1B70002C35E /* InfoManageViewController.swift in Sources */,

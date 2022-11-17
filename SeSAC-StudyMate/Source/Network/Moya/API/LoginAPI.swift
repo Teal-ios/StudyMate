@@ -21,7 +21,7 @@ final class LoginAPI {
     // 서버 연결 후 전달 받을 response
     var data: SLPModel?
 
-    func requestLoginData(completionHandler: @escaping (Result<SLPModel?, LoginError> ) -> Void) {
+    func requestLoginData(completionHandler: @escaping (SLPModel?, LoginError?, Int?) -> Void) {
         SLPProvider.request(.login) { result  in
 
             switch result {
@@ -36,16 +36,16 @@ final class LoginAPI {
                     guard let data = self.data else { return }
                     
                     // 해당 데이터를 함수 호출 뒤, 탈출 클로저로 쓸 수 있도록 전달
-                    completionHandler(.success(data))
+                    completionHandler(data, nil, statusCode)
                 } catch {
                     guard let error = LoginError(rawValue: statusCode) else { return }
-                    completionHandler(.failure(error))
+                    completionHandler(nil, error, statusCode)
                     print("decode 실패")
                 }
             case .failure(let error):
                 guard let statusCode = error.response?.statusCode else { return }
                 
-                print("GET 실패", error.response?.statusCode)
+                completionHandler(nil, nil, statusCode)
             }
         }
     }

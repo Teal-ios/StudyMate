@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import FirebaseAuth
 
 enum SceneType: String {
     case onboarding
@@ -37,11 +38,36 @@ final class LaunchScreenViewController: BaseViewController {
         if UserDefaultsHelper.standard.idToken == nil {
             transition(OnBoardingViewController(), transitionStyle: .rootViewChanged)
         } else {
-            LoginAPI.shared.requestLoginData { data in
-                print("@@@@@@@",data)
+            LoginAPI.shared.requestLoginData { data, error, statusCode in
+                guard let statusCode = statusCode else { return }
+                print("제발나와라이이이잉🔵🔵🔵🔵",statusCode)
+                switch statusCode {
+                case 401:
+                    self.mainview.makeToast("\(LoginError(rawValue: statusCode)?.rawValue)")
+                    self.idTokenRefresh()
+                case 406:
+                    self.transition(NicknameViewController(), transitionStyle: .rootViewChanged)
+                case 500:
+                    self.mainview.makeToast("\(LoginError(rawValue: statusCode)?.rawValue)")
+                case 501:
+                    self.mainview.makeToast("\(LoginError(rawValue: statusCode)?.rawValue)")
+                default:
+                    return self.mainview.makeToast("등록되지 않은 에러입니다.")
+                }
             }
-            
-            transition(MainTabBarViewController(), transitionStyle: .rootViewChanged)
+        }
+    }
+    
+    func idTokenRefresh() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+          if let error = error {
+            print(error)
+            return;
+          }
+            UserDefaultsHelper.standard.idToken = idToken
+            print("refresh완료")
+            self.transition(MainTabBarViewController(), transitionStyle: .rootViewChanged)
         }
     }
 }

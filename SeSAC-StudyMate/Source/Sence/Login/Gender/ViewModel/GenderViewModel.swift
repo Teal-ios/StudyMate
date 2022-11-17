@@ -8,6 +8,7 @@
 import Foundation
 import RxCocoa
 import RxSwift
+import FirebaseAuth
 
 class GenderViewModel {
     var gender = BehaviorRelay<Int>(value: 0)
@@ -31,5 +32,16 @@ class GenderViewModel {
         print("이메일 : \(UserDefaults.standard.string(forKey: "email"))")
         print("성별 : \(UserDefaults.standard.string(forKey: "gender"))")
        
+    }
+    
+    func idTokenRefresh() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+          if let error = error {
+            print(error)
+            return;
+          }
+            UserDefaultsHelper.standard.idToken = idToken
+        }
     }
 }

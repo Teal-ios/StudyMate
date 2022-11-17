@@ -16,8 +16,6 @@ enum APIError: Int, Error {
     case alreadyUser = 201
     case nicknameError = 202
     case expiredTokenError = 401
-    
-    case notCurrentUserError = 406
     case serverError = 500
     case clientError = 501
 }
@@ -28,87 +26,15 @@ extension APIError: LocalizedError {
         case .success:
             return "성공"
         case .alreadyUser:
-            return "가입된 유저"
+            return "중복된 닉네임 입니다."
         case .nicknameError:
-            return "사용불가닉네임"
+            return "사용불가 닉네임"
         case .expiredTokenError:
             return "토큰이 만료되었습니다."
-        case .notCurrentUserError:
-            return "🔔 새싹 스터디 서버에 최종 가입이 되지 않은 미가입 유저"
         case .serverError:
-            return "🔔 Server Error"
+            return "서버에러입니다. 잠시만 기다려주세요."
         case .clientError:
-            return "🔔 API 요청시 Header와 RequestBody에 값을 빠트리지 않고 전송했는지 확인"
-        }
-    }
-}
-
-// MARK: - Error Handling
-extension UIViewController {
-    
-    typealias Completion = (() -> Void)
-    
-    func handle(with error: APIError) {
-        
-        switch error {
-        case .success:
-            print(error.rawValue, error.errorDescription!)
-            
-        case .nicknameError:
-            print(error.rawValue, error.errorDescription!)
-           
-            let viewControllers: [UIViewController] = self.navigationController?.viewControllers as! [UIViewController]
-            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
-            viewControllers[viewControllers.count - 4].showToast(toastMessage.invalidNickname.description)
-            
-        case .expiredTokenError:
-            print(error.rawValue, error.errorDescription!)
-            self.refreshToken()
-            self.showToast(toastMessage.overRequestError.description)
-            
-        case .notCurrentUserError:
-            print(error.rawValue, error.errorDescription!)
-            let vc = NicknameViewController()
-            self.transition(vc, transitionStyle: .push)
-            
-        default:
-            print(error.rawValue, error.errorDescription!)
-        }
-    }
-    
-    private func refreshToken() {
-        let currentUser = Auth.auth().currentUser
-        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
-            if let error = error {
-                print("🔴Firebase idToken 실패 = 파베 기존 유저 아님", error.localizedDescription)
-                return
-            }
-            guard let idToken = idToken else { return }
-            print("🟢Firebase idToken 성공 ->>>", idToken)
-            UserDefaultsHelper.standard.idToken = idToken
-        }
-    }
-}
-
-
-enum LoginError: Int, Error {
-    case FirebaseTokenError = 401
-    case notSignUp = 406
-    case serverError = 500
-    case clientError = 501
-}
-
-extension LoginError: LocalizedError {
-    var errorDescription: String? {
-        switch self {
-        case .FirebaseTokenError:
-            return "id토큰이 만료되었습니다. 갱신해주세요"
-        case .notSignUp:
-            return "미가입 유저입니다."
-        case .serverError:
-            return "Server Error"
-        case .clientError:
-            return "Client Error"
+            return "전부 입력했는지 확인해주세요."
         }
     }
 }

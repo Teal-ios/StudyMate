@@ -8,6 +8,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Toast
+import FirebaseAuth
 
 class GenderViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -47,65 +49,50 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
             }
     }
     
+
+    
     func postServer() {
         UserAPI.shared.postData { statusCode, error in
             
             guard let statusCode = statusCode else { return }
-
+            print("제발나와라이이이잉🔵🔵🔵🔵",statusCode)
             switch statusCode {
             case 200:
-                return self.showToast("성공")
+                self.mainview.makeToast("\(APIError(rawValue: statusCode)?.rawValue)")
+                self.transition(MainTabBarViewController(), transitionStyle: .rootViewChanged)
             case 201:
-                return self.showToast("가입된 유저입니다.")
+                self.mainview.makeToast("\(APIError(rawValue: statusCode)?.rawValue)")
+                let viewControllers: [UIViewController] = self.navigationController?.viewControllers as! [UIViewController]
+                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
             case 202:
-                return self.showToast("사용이 불가능한 닉네임입니다.")
+                self.mainview.makeToast("\(APIError(rawValue: statusCode)?.rawValue)")
+                let viewControllers: [UIViewController] = self.navigationController?.viewControllers as! [UIViewController]
+                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
+                
             case 401:
-                return self.showToast("토큰이 만료되었습니다.")
-            case 406:
-                return self.showToast("새싹 스터디 서버에 최종 가입이 되지 않은 미가입 유저입니다.")
+                self.mainview.makeToast("\(APIError(rawValue: statusCode)?.rawValue)")
+                self.idTokenRefresh()
             case 500:
-                return self.showToast("서버 에러")
+                self.mainview.makeToast("\(APIError(rawValue: statusCode)?.rawValue)")
             case 501:
-                return self.showToast("API 요청시 Header와 RequestBody에 값을 빠트리지 않고 전송했는지 확인")
+                self.mainview.makeToast("\(APIError(rawValue: statusCode)?.rawValue)")
+                
             default:
-                return self.showToast("등록되지 않은 에러입니다.")
+                return self.mainview.makeToast("등록되지 않은 에러입니다.")
             }
-
-            
-            guard let apiError = APIError(rawValue: statusCode) else { return }
-            
-            print(apiError)
-            guard let errorDescription = apiError.errorDescription else { return }
-            
-            print(errorDescription)
-            
-            switch apiError {
-            case .success:
-                self.showToast("\(statusCode)")
-                self.seccessLogin(gender: self.gender)
-                print("🟢🟢🟢🟢🟢🟢🟢🟢\(statusCode)")
-            case .alreadyUser:
-                print("🟢🟢🟢🟢🟢🟢🟢🟢\(errorDescription)")
-                self.showToast(errorDescription)
-            case .nicknameError:
-                print("🟢🟢🟢🟢🟢🟢🟢🟢\(errorDescription)")
-                self.showToast(errorDescription)
-            case .expiredTokenError:
-                self.showToast(errorDescription)
-                print("🟢🟢🟢🟢🟢🟢🟢🟢\(errorDescription)")
-            case .notCurrentUserError:
-                self.showToast(errorDescription)
-                print("🟢🟢🟢🟢🟢🟢🟢🟢\(errorDescription)")
-
-            case .serverError:
-                self.showToast(errorDescription)
-                print("🟢🟢🟢🟢🟢🟢🟢🟢\(errorDescription)")
-
-            case .clientError:
-                self.showToast(errorDescription)
-                print("🟢🟢🟢🟢🟢🟢🟢🟢\(errorDescription)")
-
-            }
+        }
+    }
+    
+    func idTokenRefresh() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+          if let error = error {
+            print(error)
+            return;
+          }
+            UserDefaultsHelper.standard.idToken = idToken
+            print("refresh완료")
+            self.transition(MainTabBarViewController(), transitionStyle: .rootViewChanged)
         }
     }
     func collectionViewConfiguration() {
