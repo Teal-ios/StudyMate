@@ -1,8 +1,8 @@
 //
-//  MyStudyView.swift
+//  nowAroundView.swift
 //  SeSAC-StudyMate
 //
-//  Created by 이병현 on 2022/11/16.
+//  Created by 이병현 on 2022/11/18.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class MyStudyView: BaseView {
+final class nowAroundView: BaseView {
     
     // MARK: - Property
     
@@ -67,12 +67,12 @@ final class MyStudyView: BaseView {
     
     override func setupDelegate() {
         studyCollectionView.delegate = self
-        studyCollectionView.register(TitleCategoryCollectionViewCell.self, forCellWithReuseIdentifier: TitleCategoryCollectionViewCell.reuseIdentifier)
+        studyCollectionView.register(nowAroundCollectionViewCell.self, forCellWithReuseIdentifier: nowAroundCollectionViewCell.reuseIdentifier)
     }
 }
 
 // MARK: - CollectionView Layout
-extension MyStudyView: UICollectionViewDelegate {
+extension nowAroundView: UICollectionViewDelegate {
     
     private func configureCollectionViewLayout() -> UICollectionViewLayout {
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
@@ -98,9 +98,9 @@ extension MyStudyView: UICollectionViewDelegate {
 }
 
 // MARK: - Configure DataSource / UICollectionViewDelegate
-extension MyStudyView {
+extension nowAroundView {
     private func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<TitleCategoryCollectionViewCell, String> { cell, indexPath, itemIdentifier in
+        let cellRegistration = UICollectionView.CellRegistration<nowAroundCollectionViewCell, String> { cell, indexPath, itemIdentifier in
         }
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: studyCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in

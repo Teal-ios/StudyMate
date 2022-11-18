@@ -1,17 +1,18 @@
 //
-//  TitleCategoryCollectionViewCell.swift
+//  nowAroundCollectionViewCell.swift
 //  SeSAC-StudyMate
 //
-//  Created by 이병현 on 2022/11/16.
+//  Created by 이병현 on 2022/11/18.
 //
 
 import UIKit
 
-final class TitleCategoryCollectionViewCell: BaseCollectionViewCell {
+
+final class nowAroundCollectionViewCell: BaseCollectionViewCell {
     
     // MARK: - Property
     
-    var button = PlainButton(.grayLine, height: .h32)
+    let button = PlainButton(.grayLine, height: .h32)
 
     
     // MARK: - Initializer

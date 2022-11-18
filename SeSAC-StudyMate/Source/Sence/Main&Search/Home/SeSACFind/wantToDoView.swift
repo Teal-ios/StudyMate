@@ -1,8 +1,8 @@
 //
-//  MyStudyView.swift
+//  wantToDoView.swift
 //  SeSAC-StudyMate
 //
-//  Created by 이병현 on 2022/11/16.
+//  Created by 이병현 on 2022/11/18.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class MyStudyView: BaseView {
+final class wantToDoView: BaseView {
     
     // MARK: - Property
     
@@ -26,7 +26,7 @@ final class MyStudyView: BaseView {
     private let studyLabel = UILabel().then {
         $0.textColor = UIColor.black
         $0.font = UIFont.Title6_R12
-        $0.text = "하고 싶은 스터디"
+        $0.text = "내가 하고 싶은"
         
     }
 
@@ -67,12 +67,12 @@ final class MyStudyView: BaseView {
     
     override func setupDelegate() {
         studyCollectionView.delegate = self
-        studyCollectionView.register(TitleCategoryCollectionViewCell.self, forCellWithReuseIdentifier: TitleCategoryCollectionViewCell.reuseIdentifier)
+        studyCollectionView.register(wantToDoCollectionViewCell.self, forCellWithReuseIdentifier: wantToDoCollectionViewCell.reuseIdentifier)
     }
 }
 
 // MARK: - CollectionView Layout
-extension MyStudyView: UICollectionViewDelegate {
+extension wantToDoView: UICollectionViewDelegate {
     
     private func configureCollectionViewLayout() -> UICollectionViewLayout {
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
@@ -98,21 +98,22 @@ extension MyStudyView: UICollectionViewDelegate {
 }
 
 // MARK: - Configure DataSource / UICollectionViewDelegate
-extension MyStudyView {
+extension wantToDoView {
     private func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<TitleCategoryCollectionViewCell, String> { cell, indexPath, itemIdentifier in
+        let cellRegistration = UICollectionView.CellRegistration<wantToDoCollectionViewCell, String> { cell, indexPath, itemIdentifier in
         }
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: studyCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             let cell = collectionView.dequeueConfiguredReusableCell(
                 using: cellRegistration, for: indexPath, item: itemIdentifier)
             cell.setupData(itemIdentifier)
+            
             return cell
         })
         
         var snapShot = NSDiffableDataSourceSnapshot<Int, String>()
         snapShot.appendSections([0])
-        snapShot.appendItems([" 나는 새삥 ", " 모든게 다 새삥 ", " 보세옷을 걸쳐도 "], toSection: 0)
+        snapShot.appendItems([" 코딩 ", " 모든게 다 새삥 ", " 보세옷을 걸쳐도 "], toSection: 0)
         dataSource?.apply(snapShot)
         
     }

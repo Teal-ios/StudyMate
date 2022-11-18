@@ -36,6 +36,14 @@
 		2F3F5B7B2925FD34005EF93F /* SLPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7A2925FD34005EF93F /* SLPModel.swift */; };
 		2F3F5B7E2925FEC1005EF93F /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */; };
 		2F3F5B8029261236005EF93F /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7F29261236005EF93F /* LoginError.swift */; };
+		2F6C9488292778F900A1B5E6 /* SeSACFindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C9487292778F900A1B5E6 /* SeSACFindView.swift */; };
+		2F6C948A2927792400A1B5E6 /* SeSACFindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C94892927792400A1B5E6 /* SeSACFindViewController.swift */; };
+		2F6C948D29277CF000A1B5E6 /* nowAroundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C948C29277CF000A1B5E6 /* nowAroundTableViewCell.swift */; };
+		2F6C948F292785F800A1B5E6 /* wantToDoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C948E292785F800A1B5E6 /* wantToDoTableCell.swift */; };
+		2F6C9491292787B600A1B5E6 /* wantToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C9490292787B600A1B5E6 /* wantToDoView.swift */; };
+		2F6C949329278B2B00A1B5E6 /* nowAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C949229278B2B00A1B5E6 /* nowAroundView.swift */; };
+		2F6C949529278D8E00A1B5E6 /* wantToDoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C949429278D8E00A1B5E6 /* wantToDoCollectionViewCell.swift */; };
+		2F6C949729278F2C00A1B5E6 /* nowAroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C949629278F2C00A1B5E6 /* nowAroundCollectionViewCell.swift */; };
 		2F8E1CBF291FB5440087935A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */; };
 		2FAE2C3C292298FF0015DBEB /* ScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */; };
 		2FAE2C3F292356AE0015DBEB /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C3E292356AE0015DBEB /* APIError.swift */; };
@@ -123,6 +131,14 @@
 		2F3F5B7A2925FD34005EF93F /* SLPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPModel.swift; sourceTree = "<group>"; };
 		2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		2F3F5B7F29261236005EF93F /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
+		2F6C9487292778F900A1B5E6 /* SeSACFindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACFindView.swift; sourceTree = "<group>"; };
+		2F6C94892927792400A1B5E6 /* SeSACFindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACFindViewController.swift; sourceTree = "<group>"; };
+		2F6C948C29277CF000A1B5E6 /* nowAroundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowAroundTableViewCell.swift; sourceTree = "<group>"; };
+		2F6C948E292785F800A1B5E6 /* wantToDoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wantToDoTableCell.swift; sourceTree = "<group>"; };
+		2F6C9490292787B600A1B5E6 /* wantToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wantToDoView.swift; sourceTree = "<group>"; };
+		2F6C949229278B2B00A1B5E6 /* nowAroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowAroundView.swift; sourceTree = "<group>"; };
+		2F6C949429278D8E00A1B5E6 /* wantToDoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wantToDoCollectionViewCell.swift; sourceTree = "<group>"; };
+		2F6C949629278F2C00A1B5E6 /* nowAroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowAroundCollectionViewCell.swift; sourceTree = "<group>"; };
 		2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+.swift"; sourceTree = "<group>"; };
 		2FAE2C3E292356AE0015DBEB /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -340,8 +356,8 @@
 		2F2751D0292200BF00391163 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				2F2751D62922023B00391163 /* HomeViewController.swift */,
-				2FC61FA6292757D000CA11F3 /* HomeView.swift */,
+				2F6C9486292778D400A1B5E6 /* Main */,
+				2F6C9485292778C700A1B5E6 /* SeSACFind */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -410,6 +426,38 @@
 				2F3F5B7A2925FD34005EF93F /* SLPModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2F6C9485292778C700A1B5E6 /* SeSACFind */ = {
+			isa = PBXGroup;
+			children = (
+				2F6C948B29277CC000A1B5E6 /* Cell */,
+				2F6C9487292778F900A1B5E6 /* SeSACFindView.swift */,
+				2F6C94892927792400A1B5E6 /* SeSACFindViewController.swift */,
+				2F6C9490292787B600A1B5E6 /* wantToDoView.swift */,
+				2F6C949229278B2B00A1B5E6 /* nowAroundView.swift */,
+			);
+			path = SeSACFind;
+			sourceTree = "<group>";
+		};
+		2F6C9486292778D400A1B5E6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2FC61FA6292757D000CA11F3 /* HomeView.swift */,
+				2F2751D62922023B00391163 /* HomeViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2F6C948B29277CC000A1B5E6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2F6C948C29277CF000A1B5E6 /* nowAroundTableViewCell.swift */,
+				2F6C948E292785F800A1B5E6 /* wantToDoTableCell.swift */,
+				2F6C949429278D8E00A1B5E6 /* wantToDoCollectionViewCell.swift */,
+				2F6C949629278F2C00A1B5E6 /* nowAroundCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		2F8E1CBA291FB4B20087935A /* Main&Search */ = {
@@ -844,9 +892,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F6C949329278B2B00A1B5E6 /* nowAroundView.swift in Sources */,
 				2FAE3F622918D9DD0069579F /* UIFont+.swift in Sources */,
 				2FF877ED2924B45D0002C35E /* TitleCategoryCollectionViewCell.swift in Sources */,
 				2F21D70B291B90A600429935 /* GenderViewModel.swift in Sources */,
+				2F6C949529278D8E00A1B5E6 /* wantToDoCollectionViewCell.swift in Sources */,
 				2FF877EB2924B4090002C35E /* MyDetailImageTableViewCell.swift in Sources */,
 				2F21D6F7291B903000429935 /* NicknameViewModel.swift in Sources */,
 				2FC61FA7292757D000CA11F3 /* HomeView.swift in Sources */,
@@ -857,6 +907,7 @@
 				2FF877EF2924B7110002C35E /* MyDetailImageView.swift in Sources */,
 				2FAE3F5A2918D54F0069579F /* ReusableProtocol.swift in Sources */,
 				2F2751D72922023B00391163 /* HomeViewController.swift in Sources */,
+				2F6C9488292778F900A1B5E6 /* SeSACFindView.swift in Sources */,
 				2FF877E92924B2670002C35E /* MyReviewView.swift in Sources */,
 				2FD4C9BA292095F200EEDEA8 /* APIService.swift in Sources */,
 				2FAE3F572918D54F0069579F /* CollectionType+.swift in Sources */,
@@ -864,6 +915,7 @@
 				2FDD9BEF2921F0D900C87641 /* LaunchScreenView.swift in Sources */,
 				2FFA7248291A340A00172240 /* PhoneViewController.swift in Sources */,
 				2F21D709291B909D00429935 /* GenderViewController.swift in Sources */,
+				2F6C948A2927792400A1B5E6 /* SeSACFindViewController.swift in Sources */,
 				2F21D6F5291B902600429935 /* NicknameView.swift in Sources */,
 				2FAE3F592918D54F0069579F /* UIViewController+.swift in Sources */,
 				2FD4C9B8292095D100EEDEA8 /* MoyaPlugin.swift in Sources */,
@@ -884,6 +936,7 @@
 				2FD5A00A291CF67C009102EF /* GenderCollectionViewCell.swift in Sources */,
 				2FAE3F5D2918D54F0069579F /* BaseCollectionViewCell.swift in Sources */,
 				2F21D6FF291B906900429935 /* BirthdayViewModel.swift in Sources */,
+				2F6C949729278F2C00A1B5E6 /* nowAroundCollectionViewCell.swift in Sources */,
 				2F21D6FB291B904D00429935 /* BirthdayViewController.swift in Sources */,
 				2F21D705291B908B00429935 /* EmailViewModel.swift in Sources */,
 				2F2751DF29221FD000391163 /* InfoTableViewCell.swift in Sources */,
@@ -899,6 +952,9 @@
 				2FAE3F5B2918D54F0069579F /* BaseViewController.swift in Sources */,
 				2FF877DE2924AB700002C35E /* UIView+.swift in Sources */,
 				2FAE2C432923595A0015DBEB /* UserDefaultsHelper.swift in Sources */,
+				2F6C948D29277CF000A1B5E6 /* nowAroundTableViewCell.swift in Sources */,
+				2F6C948F292785F800A1B5E6 /* wantToDoTableCell.swift in Sources */,
+				2F6C9491292787B600A1B5E6 /* wantToDoView.swift in Sources */,
 				2F3F5B8029261236005EF93F /* LoginError.swift in Sources */,
 				2FFA7256291A414600172240 /* PhoneViewModel.swift in Sources */,
 				2F3F5B7B2925FD34005EF93F /* SLPModel.swift in Sources */,

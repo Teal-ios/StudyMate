@@ -35,7 +35,6 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
         locationManager.delegate = self
         
         addCustomPin()
-        
         buttonActions()
         
     }
@@ -44,18 +43,18 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
         let pin = MKPointAnnotation()
         //포인트 어노테이션은 뭔가요?
         pin.coordinate = sesacCoordinate
-        pin.title = "새싹 영등포캠퍼스"
-        pin.subtitle = "전체 3층짜리 건물"
+        pin.title = "지금 내위치"
+        pin.subtitle = "코딩하고 있겠지?"
         mapView.map.addAnnotation(pin)
     }
     
     
     //재사용 할 수 있는 어노테이션 만들기! 마치 테이블뷰의 재사용 Cell을 넣어주는 것과 같아요!
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard !annotation.isKind(of: MKUserLocation.self) else {
-            // 유저 위치를 나타낼때는 기본 파란 그 점 아시죠? 그거 쓰고싶으니까~ 요렇게 해주시고 만약에 쓰고싶은 어노테이션이 있다면 그녀석을 리턴해 주시면 되긋죠? 하하!
-            return nil
-        }
+//        guard !annotation.isKind(of: MKUserLocation.self) else {
+//            // 유저 위치를 나타낼때는 기본 파란 그 점 아시죠? 그거 쓰고싶으니까~ 요렇게 해주시고 만약에 쓰고싶은 어노테이션이 있다면 그녀석을 리턴해 주시면 되긋죠? 하하!
+//            return nil
+//        }
         //우리가 만들고 싶은 커스텀 어노테이션을 만들어 줍시다. 그냥 뿅 생길 수 없겠죠? 보여주고 싶은 모양을 뷰로 짜준다고 생각하시면 됩니다.
         //즉시 인스턴스로 만들어 줘 보겠습니다요. 어떻게 생겼을지는 아직 안정했지만 일단 커스텀이라는 식별자?를 가진 뷰로 만들어 줬습니다.
         //마커 어노테이션뷰 라는 어노테이션뷰를 상속받는 뷰가 따로있습니다. 풍선모양이라고 하는데 한번 만들어 보시는것도 좋겠네요! 테두리가 있고 안에 내용물을 바꾸는 식으로 설정이 되는듯 해요.
@@ -65,14 +64,14 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
             //없으면 하나 만들어 주시고
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "Custom")
             annotationView?.canShowCallout = true
-            
-            
+
+
             //callOutView를 통해서 추가적인 액션을 더해줄수도 있겠죠! 와 무지 간편합니다!
             let miniButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
             miniButton.setImage(UIImage(systemName: "person"), for: .normal)
             miniButton.tintColor = .blue
             annotationView?.rightCalloutAccessoryView = miniButton
-            
+
         } else {
             //있으면 등록된 걸 쓰시면 됩니다.
             annotationView?.annotation = annotation
@@ -86,15 +85,15 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
     }
     
     
-    @objc func findSesacLocation() {
-        
-        mapView.map.showsUserLocation = false
-        
-        mapView.map.userTrackingMode = .none
-        
-        mapView.map.setRegion(MKCoordinateRegion(center: sesacCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.11)), animated: true)
-    }
-    
+//    @objc func findSesacLocation() {
+//
+//        mapView.map.showsUserLocation = false
+//
+//        mapView.map.userTrackingMode = .none
+//
+//        mapView.map.setRegion(MKCoordinateRegion(center: sesacCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.11)), animated: true)
+//    }
+//
     @objc func findMyLocation() {
         
         guard let currentLocation = locationManager.location else {
@@ -103,7 +102,6 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
         }
         
         mapView.map.showsUserLocation = true
-        
         mapView.map.setUserTrackingMode(.follow, animated: true)
         
     }
@@ -175,18 +173,13 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
         }
     }
     
-//    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-//        print(#function)
-//        checkUserLocationServicesAuthorization()
-//    }
-    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         print(#function)
         checkUserLocationServicesAuthorization()
     }
 
     func buttonActions() {
-        mapView.sesacLocationButton.addTarget(self, action: #selector(findSesacLocation), for: .touchUpInside)
+        mapView.gpsButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
     }
 
 }
