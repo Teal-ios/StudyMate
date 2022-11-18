@@ -34,7 +34,7 @@ enum SLPError: Int, Error {
 extension APIService: TargetType {
     // base url
     var baseURL: URL {
-        return URL(string: "http://api.sesac.co.kr:1207")!
+        return URL(string: "http://api.sesac.co.kr:1210")!
     }
     
     // base url 뒤로 붙는 각 API 별 path parameter

@@ -42,6 +42,8 @@ final class LaunchScreenViewController: BaseViewController {
                 guard let statusCode = statusCode else { return }
                 print("제발나와라이이이잉🔵🔵🔵🔵",statusCode)
                 switch statusCode {
+                case 200:
+                    self.transition(MainTabBarViewController(), transitionStyle: .rootViewChanged)
                 case 401:
                     self.mainview.makeToast("\(LoginError(rawValue: statusCode)?.rawValue)")
                     self.idTokenRefresh()
@@ -67,7 +69,7 @@ final class LaunchScreenViewController: BaseViewController {
           }
             UserDefaultsHelper.standard.idToken = idToken
             print("refresh완료")
-            self.transition(MainTabBarViewController(), transitionStyle: .rootViewChanged)
+            self.loginLogic()
         }
     }
 }
