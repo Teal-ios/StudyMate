@@ -26,7 +26,7 @@ final class nowAroundView: BaseView {
     private let studyLabel = UILabel().then {
         $0.textColor = UIColor.black
         $0.font = UIFont.Title6_R12
-        $0.text = "하고 싶은 스터디"
+        $0.text = "지금 주변에는"
         
     }
 
@@ -94,6 +94,10 @@ extension nowAroundView: UICollectionViewDelegate {
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
         let layout = configureCollectionViewLayout()
         return layout
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var arr = ["쿠쿠쿠"]
     }
 }
 

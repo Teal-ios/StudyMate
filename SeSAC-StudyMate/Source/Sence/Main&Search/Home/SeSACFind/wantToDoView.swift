@@ -14,7 +14,7 @@ final class wantToDoView: BaseView {
     
     // MARK: - Property
     
-    private var dataSource: UICollectionViewDiffableDataSource<Int, String>?
+    var dataSource: UICollectionViewDiffableDataSource<Int, String>?
     
     private lazy var studyStackView = UIStackView(arrangedSubviews: [studyLabel, studyCollectionView]).then {
         $0.axis = .vertical

@@ -29,9 +29,20 @@ final class SeSACFindViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        searchNavi()
         configureLayout()
         setupDelegate()
+    }
+    // MARK: - Search Navigation
+    private func searchNavi() {
+        
+        let backButton = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: #selector(goBack))
+        backButton.tintColor = .black
+        self.navigationItem.leftBarButtonItem = backButton
+        
+        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 340, height: 0))
+        searchBar.placeholder = "띄어쓰기로 복수 입력이 가능해요"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
     }
     
     // MARK: - UI & Layout
