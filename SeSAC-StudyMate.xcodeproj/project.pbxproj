@@ -71,6 +71,7 @@
 		2FAE3F6E2918EE090069579F /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAE3F6D2918EE090069579F /* Then */; };
 		2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */; };
 		2FC61FA7292757D000CA11F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC61FA6292757D000CA11F3 /* HomeView.swift */; };
+		2FCEF784292A0988003A1C5D /* FindSeSACViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEF783292A0988003A1C5D /* FindSeSACViewController.swift */; };
 		2FD4C9B1292090FD00EEDEA8 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD4C9B0292090FD00EEDEA8 /* Moya */; };
 		2FD4C9B8292095D100EEDEA8 /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4C9B7292095D100EEDEA8 /* MoyaPlugin.swift */; };
 		2FD4C9BA292095F200EEDEA8 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4C9B9292095F200EEDEA8 /* APIService.swift */; };
@@ -166,6 +167,7 @@
 		2FAE3F672918ED5B0069579F /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		2FC61FA6292757D000CA11F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2FCEF783292A0988003A1C5D /* FindSeSACViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSeSACViewController.swift; sourceTree = "<group>"; };
 		2FD4C9B7292095D100EEDEA8 /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
 		2FD4C9B9292095F200EEDEA8 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		2FD4C9BB2920A6C700EEDEA8 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 		2F2751D0292200BF00391163 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2FCEF782292A0965003A1C5D /* FindSeSAC */,
 				2F6C9486292778D400A1B5E6 /* Main */,
 				2F6C9485292778C700A1B5E6 /* SeSACFind */,
 			);
@@ -667,6 +670,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2FCEF782292A0965003A1C5D /* FindSeSAC */ = {
+			isa = PBXGroup;
+			children = (
+				2FCEF783292A0988003A1C5D /* FindSeSACViewController.swift */,
+			);
+			path = FindSeSAC;
+			sourceTree = "<group>";
+		};
 		2FD4C9AC29208FB600EEDEA8 /* Moya */ = {
 			isa = PBXGroup;
 			children = (
@@ -901,6 +912,7 @@
 				2F21D6F7291B903000429935 /* NicknameViewModel.swift in Sources */,
 				2FC61FA7292757D000CA11F3 /* HomeView.swift in Sources */,
 				2FF877E52924B24A0002C35E /* MyTitleView.swift in Sources */,
+				2FCEF784292A0988003A1C5D /* FindSeSACViewController.swift in Sources */,
 				2F2751D52922022F00391163 /* ShopViewController.swift in Sources */,
 				2FAE3F682918ED5B0069579F /* UIButton+.swift in Sources */,
 				2FAE3F312918D4840069579F /* ViewController.swift in Sources */,

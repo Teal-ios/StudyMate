@@ -244,7 +244,4 @@ final class InfoManageTableViewCell: BaseTableViewCell {
         sender.layer.borderWidth = 0
         sender.setTitleColor(.white, for: .normal)
     }
-
-    
-
 }

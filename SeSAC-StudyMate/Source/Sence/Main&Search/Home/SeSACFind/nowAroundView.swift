@@ -97,8 +97,8 @@ extension nowAroundView: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var arr = ["쿠쿠쿠"]
     }
+    
 }
 
 // MARK: - Configure DataSource / UICollectionViewDelegate
@@ -116,8 +116,12 @@ extension nowAroundView {
         
         var snapShot = NSDiffableDataSourceSnapshot<Int, String>()
         snapShot.appendSections([0])
-        snapShot.appendItems([" 나는 새삥 ", " 모든게 다 새삥 ", " 보세옷을 걸쳐도 "], toSection: 0)
+        snapShot.appendItems(appendStringX(StringArr: SeSACFindViewController.snapshotArr[0]), toSection: 0)
         dataSource?.apply(snapShot)
         
+    }
+    
+    private func appendStringX(StringArr: [String]) -> [String] {
+        return StringArr.map { " " + $0 + " " }
     }
 }

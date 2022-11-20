@@ -10,8 +10,10 @@ import UIKit
 import SnapKit
 import Then
 import RxSwift
+
 final class SeSACFindViewController: BaseViewController {
     
+    static var snapshotArr: [[String]] = [["코딩", "모든게 다 새삥", " 보세옷을 걸쳐도", "ㅇㄹㅁㅇㄴㄹㄴ"],["ㄴㅁㅇㄹ", "나좀살려줘어어어 즁말 모르게땅 "]]
     
     // MARK: - Property
     
