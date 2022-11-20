@@ -109,13 +109,8 @@ extension APIService: TargetType {
                                                                 "gender" : UserDefaults.standard.integer(forKey: "gender")
                                                                ], bodyEncoding: URLEncoding.default, urlParameters: ["Content-Type": "application/x-www-form-urlencoded"])
         case .mypage:
-            return .requestCompositeParameters(bodyParameters: ["phoneNumber" : UserDefaults.standard.string(forKey: "phoneNumber")!,
-                                                                "FCMtoken" : UserDefaults.standard.string(forKey: "FCMtoken")!,
-                                                                "nick" : UserDefaults.standard.string(forKey: "nick")!,
-                                                                "birth" : UserDefaults.standard.string(forKey: "birth")!,
-                                                                "email" : UserDefaults.standard.string(forKey: "email")!,
-                                                                "gender" : UserDefaults.standard.integer(forKey: "gender")
-                                                               ], bodyEncoding: URLEncoding.default, urlParameters: ["Content-Type": "application/x-www-form-urlencoded"])
+            let mypage = InfoManageViewController().updateMypage
+            return .requestParameters(parameters: ["searchable" : mypage.searchable, "ageMin" : mypage.ageMin, "ageMax" : mypage.ageMax, "gender" : mypage.gender, "study" : mypage.study ?? nil], encoding: URLEncoding.default)
         }
     }
 

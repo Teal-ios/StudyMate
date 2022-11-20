@@ -88,12 +88,16 @@ extension wantToDoView: UICollectionViewDelegate {
             
             return section
         }, configuration: configuration)
+        
     }
     
     private func createLayout() -> UICollectionViewLayout {
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
         let layout = configureCollectionViewLayout()
         return layout
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("원투두뷰임")
     }
 }
 
@@ -122,5 +126,7 @@ extension wantToDoView {
     private func appendStringX(StringArr: [String]) -> [String] {
         return StringArr.map { " " + $0 + " X " }
     }
+    
+    
 
 }

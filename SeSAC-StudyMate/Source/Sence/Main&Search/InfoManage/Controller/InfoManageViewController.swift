@@ -30,6 +30,7 @@ final class InfoManageViewController: BaseViewController {
         $0.rowHeight = UITableView.automaticDimension
     }
     
+    var updateMypage = myPage(searchable: 1, ageMin: 1, ageMax: 1, gender: 1)
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -79,7 +80,30 @@ final class InfoManageViewController: BaseViewController {
 
     
     @objc func saveButtonClicked() {
-        self.tableView.reloadData()
+        var searchable = 1
+        if InfoManageTableViewCell().numberSwitch.isOn == true {
+            searchable = 1
+        } else {
+            searchable = 0
+        }
+        
+        var ageMin = InfoManageTableViewCell().ageSlider.minimumValue
+        
+        var ageMax = InfoManageTableViewCell().ageSlider.maximumValue
+        
+        var gender = 0
+        
+        if InfoManageTableViewCell().maleButton.backgroundColor == UIColor.brandGreen {
+            gender = 1
+        } else {
+            gender = 0
+        }
+        
+        updateMypage = myPage(searchable: searchable, ageMin: Int(ageMin), ageMax: Int(ageMax), gender: gender)
+        MyPageAPI.shared.MyPageUpdate { statusCode, error in
+            print(statusCode)
+            print(error)
+        }
     }
     
 }
