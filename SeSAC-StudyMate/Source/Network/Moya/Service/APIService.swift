@@ -16,6 +16,10 @@ enum APIService {
     case withdraw
     case update_fcm_token
     case mypage
+    case search
+    case myQueueState
+    case queue
+    case queueStop
     
 }
 
@@ -48,6 +52,12 @@ extension APIService: TargetType {
             return "/v1/user/update_fcm_token"
         case .mypage:
             return "/v1/user/mypage"
+        case .queue, .queueStop:
+            return "/v1/queue"
+        case .search:
+            return "/v1/queue/search"
+        case .myQueueState:
+            return "/v1/queue/myQueueState"
         }
     }
     
@@ -59,12 +69,14 @@ extension APIService: TargetType {
     // method (.get, .post, .delete, .patch 등의 어떤 통신을 할 것인가?)
     var method: Moya.Method {
         switch self {
-        case .user, .withdraw:
+        case .user, .withdraw, .queue, .search:
             return .post
         case .mypage, .update_fcm_token:
             return .put
-        case .login:
+        case .login, .myQueueState:
             return .get
+        case .queueStop:
+            return .delete
         }
     }
     
@@ -111,6 +123,15 @@ extension APIService: TargetType {
         case .mypage:
             let mypage = InfoManageViewController().updateMypage
             return .requestParameters(parameters: ["searchable" : mypage.searchable, "ageMin" : mypage.ageMin, "ageMax" : mypage.ageMax, "gender" : mypage.gender, "study" : mypage.study ?? nil], encoding: URLEncoding.default)
+        case .queue:
+            return .requestPlain
+        case .queueStop:
+            return .requestPlain
+        case .search:
+            return .requestPlain
+            
+        case .myQueueState:
+            return .requestPlain
         }
     }
 

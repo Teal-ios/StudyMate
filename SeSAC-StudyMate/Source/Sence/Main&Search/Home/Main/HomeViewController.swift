@@ -36,6 +36,7 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
         
         addCustomPin()
         buttonActions()
+        myQueueState()
         
     }
     
@@ -180,6 +181,13 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
 
     func buttonActions() {
         mapView.gpsButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
+    }
+    
+    func myQueueState() {
+        MyQueueStateAPI.shared.requestMyQueueData { data, error, statusCode in
+            print("##########",data)
+            print("##########",statusCode)
+        }
     }
 
 }

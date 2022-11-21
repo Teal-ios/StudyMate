@@ -30,7 +30,7 @@ final class InfoManageViewController: BaseViewController {
         $0.rowHeight = UITableView.automaticDimension
     }
     
-    var updateMypage = myPage(searchable: 1, ageMin: 1, ageMax: 1, gender: 1)
+    var updateMypage = myPage(searchable: 1, ageMin: 18, ageMax: 65, gender: 1)
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -40,6 +40,7 @@ final class InfoManageViewController: BaseViewController {
         naviSet()
         configureLayout()
         setupDelegate()
+        getUserData()
     }
     
     // MARK: - UI & Layout
@@ -87,9 +88,9 @@ final class InfoManageViewController: BaseViewController {
             searchable = 0
         }
         
-        var ageMin = InfoManageTableViewCell().ageSlider.minimumValue
+        var ageMin = InfoManageTableViewCell().ageSlider.value[0]
         
-        var ageMax = InfoManageTableViewCell().ageSlider.maximumValue
+        var ageMax = InfoManageTableViewCell().ageSlider.value[1]
         
         var gender = 0
         
@@ -103,6 +104,31 @@ final class InfoManageViewController: BaseViewController {
         MyPageAPI.shared.MyPageUpdate { statusCode, error in
             print(statusCode)
             print(error)
+            print("🔵🔵🔵🔵🔵🔵🔵🔵🔵",self.updateMypage)
+        }
+    }
+    
+    func getUserData() {
+        LoginAPI.shared.requestLoginData { data, error, statusCode in
+            guard let statusCode = statusCode else { return }
+            print("제발나와라이이이잉🔵🔵🔵🔵",statusCode)
+            switch statusCode {
+            case 200:
+                print(data)
+                self.updateMypage = myPage(searchable: data?.searchable ?? 1, ageMin: data?.ageMin ?? 1, ageMax: data?.ageMax ?? 1, gender: data?.gender ?? 1)
+                print("🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵", self.updateMypage)
+                self.tableView.reloadData()
+            case 401:
+                self.tableView.makeToast("\(LoginError(rawValue: statusCode)?.rawValue)")
+            case 406:
+                self.tableView.makeToast("\(LoginError(rawValue: statusCode)?.rawValue)")
+            case 500:
+                self.tableView.makeToast("\(LoginError(rawValue: statusCode)?.rawValue)")
+            case 501:
+                self.tableView.makeToast("\(LoginError(rawValue: statusCode)?.rawValue)")
+            default:
+                return self.tableView.makeToast("등록되지 않은 에러입니다.")
+            }
         }
     }
     
@@ -135,6 +161,19 @@ extension InfoManageViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             guard let infoCell = tableView.dequeueReusableCell(withIdentifier: InfoManageTableViewCell.reuseIdentifier, for: indexPath) as? InfoManageTableViewCell
             else { return UITableViewCell() }
+            if updateMypage.gender == 0 {
+                infoCell.maleButton.backgroundColor = .brandGreen
+            } else {
+                infoCell.femaleButton.backgroundColor = .brandGreen
+            }
+            infoCell.ageSlider.minimumValue = CGFloat(updateMypage.ageMin)
+            infoCell.ageSlider.maximumValue = CGFloat(updateMypage.ageMax)
+            if updateMypage.searchable == 1 {
+                infoCell.numberSwitch.isOn = true
+            } else {
+                infoCell.numberSwitch.isOn = false
+
+            }
             return infoCell
         }
     }
