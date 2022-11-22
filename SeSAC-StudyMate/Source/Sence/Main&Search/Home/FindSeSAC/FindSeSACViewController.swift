@@ -73,13 +73,11 @@ final class FindSeSACViewController: BaseViewController {
     
     @objc func touchupToggleButton(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! InfoManageCardTableViewCell
+        let cell = tableView.cellForRow(at: IndexPath(row: sender.tag, section: 0)) as! InfoManageCardTableViewCell
         
-        cell.toggleButton.isSelected ? cell.changeView(isSelected: true) : cell.changeView(isSelected: false)
+        sender.isSelected ? cell.changeView(isSelected: true) : cell.changeView(isSelected: false)
         tableView.reloadSections(IndexSet(), with: .fade)
     }
-    
-    
     
     @objc func saveButtonClicked() {
         self.tableView.reloadData()

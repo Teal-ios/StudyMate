@@ -30,6 +30,11 @@ class HomeView: BaseView{
     let statusButton = UIButton().then {
         $0.setImage(UIImage(named: "Property 1=default"), for: .normal)
     }
+    
+    let fakeImgPinView = UIImageView().then {
+        $0.image = UIImage(named: "map_marker")
+        $0.contentMode = .scaleAspectFit
+    }
 
     let map = MKMapView()
     
@@ -38,6 +43,8 @@ class HomeView: BaseView{
         self.addSubview(genderFilterView)
         self.addSubview(gpsButton)
         self.addSubview(statusButton)
+        self.addSubview(fakeImgPinView)
+
         
     }
     
@@ -62,6 +69,12 @@ class HomeView: BaseView{
         statusButton.snp.makeConstraints { make in
             make.trailing.bottom.equalTo(self.safeAreaLayoutGuide).inset(16)
             make.width.height.equalTo(64)
+        }
+        
+        fakeImgPinView.snp.makeConstraints { make in
+            make.centerX.equalTo(map)
+            make.centerY.equalTo(map)
+            make.width.height.equalTo(48)
         }
 
     }

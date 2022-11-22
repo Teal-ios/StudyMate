@@ -120,9 +120,22 @@ extension nowAroundView {
         snapShot.appendItems(appendStringX(StringArr: SeSACFindViewController.snapshotArr[0]), toSection: 0)
         dataSource?.apply(snapShot)
         
+        var snapShot2 = NSDiffableDataSourceSnapshot<Int, String>()
+        snapShot2.appendSections([1])
+        snapShot2.appendItems(appendStringSection2(StringArr: SeSACFindViewController.snapshotArr[1]), toSection: 0)
+        dataSource?.apply(snapShot2)
+    }
+    
+    func fetchCellItem(section: Int) {
+        
     }
     
     private func appendStringX(StringArr: [String]) -> [String] {
         return StringArr.map { " " + $0 + " " }
     }
+    
+    private func appendStringSection2(StringArr: [String]) -> [String] {
+        return StringArr.map { " " + $0 + " X " }
+    }
+    
 }

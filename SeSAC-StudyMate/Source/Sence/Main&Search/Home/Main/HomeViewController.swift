@@ -34,20 +34,23 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
         mapView.map.delegate = self
         locationManager.delegate = self
         
-        addCustomPin()
+//        addCustomPin()
         buttonActions()
         myQueueState()
         
     }
     
-    private func addCustomPin() {
-        let pin = MKPointAnnotation()
-        //포인트 어노테이션은 뭔가요?
-        pin.coordinate = sesacCoordinate
-        pin.title = "지금 내위치"
-        pin.subtitle = "코딩하고 있겠지?"
-        mapView.map.addAnnotation(pin)
-    }
+//    private func addCustomPin() {
+//        let pin = MKPointAnnotation()
+//        //포인트 어노테이션은 뭔가요?
+//        pin.coordinate = sesacCoordinate
+//        pin.title = "지금 내위치"
+//        pin.subtitle = "코딩하고 있겠지?"
+//        mapView.map.addAnnotation(pin)
+//        
+//    }
+    
+    
     
     
     //재사용 할 수 있는 어노테이션 만들기! 마치 테이블뷰의 재사용 Cell을 넣어주는 것과 같아요!
@@ -84,17 +87,7 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
         
         return annotationView
     }
-    
-    
-//    @objc func findSesacLocation() {
-//
-//        mapView.map.showsUserLocation = false
-//
-//        mapView.map.userTrackingMode = .none
-//
-//        mapView.map.setRegion(MKCoordinateRegion(center: sesacCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.11)), animated: true)
-//    }
-//
+
     @objc func findMyLocation() {
         
         guard let currentLocation = locationManager.location else {
@@ -105,6 +98,10 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
         mapView.map.showsUserLocation = true
         mapView.map.setUserTrackingMode(.follow, animated: true)
         
+    }
+    
+    @objc func findSeSAC() {
+        transition(SeSACFindViewController(), transitionStyle: .push)
     }
     
     //권한 설정을 위한 코드들
@@ -181,6 +178,7 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
 
     func buttonActions() {
         mapView.gpsButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
+        mapView.statusButton.addTarget(self, action: #selector(findSeSAC), for: .touchUpInside)
     }
     
     func myQueueState() {
@@ -189,5 +187,4 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
             print("##########",statusCode)
         }
     }
-
 }

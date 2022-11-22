@@ -62,7 +62,7 @@ final class SeSACFindViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(nowAroundTableViewCell.self, forCellReuseIdentifier: nowAroundTableViewCell.reuseIdentifier)
-        tableView.register(wantToDoTableViewCell.self, forCellReuseIdentifier: wantToDoTableViewCell.reuseIdentifier)
+//        tableView.register(wantToDoTableViewCell.self, forCellReuseIdentifier: wantToDoTableViewCell.reuseIdentifier)
     }
     
     
@@ -90,18 +90,18 @@ extension SeSACFindViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        if indexPath.section == 0 {
-            guard let nameCell = tableView.dequeueReusableCell(withIdentifier: nowAroundTableViewCell.reuseIdentifier, for: indexPath) as? nowAroundTableViewCell
-            else { return UITableViewCell() }
-            return nameCell
-        } else {
-            guard let infoCell = tableView.dequeueReusableCell(withIdentifier: wantToDoTableViewCell.reuseIdentifier, for: indexPath) as? wantToDoTableViewCell
-            else { return UITableViewCell() }
-            return infoCell
-        }
+        //        if indexPath.section == 0 {
+        guard let nameCell = tableView.dequeueReusableCell(withIdentifier: nowAroundTableViewCell.reuseIdentifier, for: indexPath) as? nowAroundTableViewCell
+        else { return UITableViewCell() }
+        return nameCell
+        //        } else {
+        //            guard let infoCell = tableView.dequeueReusableCell(withIdentifier: wantToDoTableViewCell.reuseIdentifier, for: indexPath) as? wantToDoTableViewCell
+        //            else { return UITableViewCell() }
+        //            return infoCell
+        //        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
+        //        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
