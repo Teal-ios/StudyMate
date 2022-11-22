@@ -30,7 +30,11 @@ final class InfoManageViewController: BaseViewController {
         $0.rowHeight = UITableView.automaticDimension
     }
     
+    
     var updateMypage = myPage(searchable: 1, ageMin: 18, ageMax: 65, gender: 1)
+    
+    
+    let viewModel = InfoManageViewModel()
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -40,6 +44,7 @@ final class InfoManageViewController: BaseViewController {
         naviSet()
         configureLayout()
         setupDelegate()
+        bind()
         getUserData()
     }
     
@@ -69,6 +74,46 @@ final class InfoManageViewController: BaseViewController {
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
+    //MARK: - RxBind
+    func bind() {
+        let cell = InfoManageTableViewCell()
+        
+        cell.maleButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.viewModel.gender = 1
+            }
+        
+        
+        cell.femaleButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.viewModel.gender = 0
+            }
+        
+        
+        cell.textField.rx.text
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.viewModel.study = cell.textField.text
+            }
+        
+        
+        cell.numberSwitch.rx.value
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.viewModel.accept = cell.numberSwitch.isOn
+            }
+        
+        
+        cell.ageSlider.rx.deallocated
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.viewModel.minage = Int(cell.ageSlider.value[0])
+                vc.viewModel.maxage = Int(cell.ageSlider.value[1])
+            }
+    }
+    
     // MARK: - @objce
     
     @objc func touchupToggleButton(_ sender: UIButton) {
@@ -81,26 +126,26 @@ final class InfoManageViewController: BaseViewController {
 
     
     @objc func saveButtonClicked() {
-        var searchable = 1
-        if InfoManageTableViewCell().numberSwitch.isOn == true {
-            searchable = 1
-        } else {
-            searchable = 0
-        }
-        
-        var ageMin = InfoManageTableViewCell().ageSlider.value[0]
-        
-        var ageMax = InfoManageTableViewCell().ageSlider.value[1]
-        
-        var gender = 0
-        
-        if InfoManageTableViewCell().maleButton.backgroundColor == UIColor.brandGreen {
-            gender = 1
-        } else {
-            gender = 0
-        }
-        
-        updateMypage = myPage(searchable: searchable, ageMin: Int(ageMin), ageMax: Int(ageMax), gender: gender)
+//        var searchable = 1
+//        if InfoManageTableViewCell().numberSwitch.isOn == true {
+//            searchable = 1
+//        } else {
+//            searchable = 0
+//        }
+//
+//        var ageMin = InfoManageTableViewCell().ageSlider.value[0]
+//
+//        var ageMax = InfoManageTableViewCell().ageSlider.value[1]
+//
+//        var gender = 0
+//
+//        if InfoManageTableViewCell().maleButton.backgroundColor == UIColor.brandGreen {
+//            gender = 1
+//        } else {
+//            gender = 0
+//        }
+//        if self.viewModel.accept == true
+        updateMypage = myPage(searchable: self.viewModel.accept ? 1 : 0, ageMin: self.viewModel.minage, ageMax: self.viewModel.maxage, gender: self.viewModel.gender, study: self.viewModel.study)
         MyPageAPI.shared.MyPageUpdate { statusCode, error in
             print(statusCode)
             print(error)

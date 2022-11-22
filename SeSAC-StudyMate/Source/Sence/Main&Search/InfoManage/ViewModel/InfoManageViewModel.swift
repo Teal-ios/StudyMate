@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import RxSwift
+
+class InfoManageViewModel {
+    var gender: Int = 1
+    var study: String? = nil
+    var accept: Bool = true
+    var minage = 18
+    var maxage = 65
+}
