@@ -36,7 +36,6 @@
 		2F3F5B7B2925FD34005EF93F /* SLPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7A2925FD34005EF93F /* SLPModel.swift */; };
 		2F3F5B7E2925FEC1005EF93F /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */; };
 		2F3F5B8029261236005EF93F /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7F29261236005EF93F /* LoginError.swift */; };
-		2F6C9488292778F900A1B5E6 /* SeSACFindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C9487292778F900A1B5E6 /* SeSACFindView.swift */; };
 		2F6C948A2927792400A1B5E6 /* SeSACFindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C94892927792400A1B5E6 /* SeSACFindViewController.swift */; };
 		2F6C948D29277CF000A1B5E6 /* nowAroundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C948C29277CF000A1B5E6 /* nowAroundTableViewCell.swift */; };
 		2F6C948F292785F800A1B5E6 /* wantToDoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C948E292785F800A1B5E6 /* wantToDoTableCell.swift */; };
@@ -75,6 +74,8 @@
 		2FAE3F682918ED5B0069579F /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F672918ED5B0069579F /* UIButton+.swift */; };
 		2FAE3F6E2918EE090069579F /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAE3F6D2918EE090069579F /* Then */; };
 		2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */; };
+		2FB151A8292DF27000742F7D /* SearchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB151A7292DF27000742F7D /* SearchError.swift */; };
+		2FB151AA292DF2D500742F7D /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB151A9292DF2D500742F7D /* SearchAPI.swift */; };
 		2FBD9725292A90B0008FBA04 /* MyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD9724292A90B0008FBA04 /* MyPageModel.swift */; };
 		2FBD9727292A93A7008FBA04 /* MyPageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */; };
 		2FC61FA7292757D000CA11F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC61FA6292757D000CA11F3 /* HomeView.swift */; };
@@ -139,7 +140,6 @@
 		2F3F5B7A2925FD34005EF93F /* SLPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPModel.swift; sourceTree = "<group>"; };
 		2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		2F3F5B7F29261236005EF93F /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
-		2F6C9487292778F900A1B5E6 /* SeSACFindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACFindView.swift; sourceTree = "<group>"; };
 		2F6C94892927792400A1B5E6 /* SeSACFindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACFindViewController.swift; sourceTree = "<group>"; };
 		2F6C948C29277CF000A1B5E6 /* nowAroundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowAroundTableViewCell.swift; sourceTree = "<group>"; };
 		2F6C948E292785F800A1B5E6 /* wantToDoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wantToDoTableCell.swift; sourceTree = "<group>"; };
@@ -178,6 +178,8 @@
 		2FAE3F612918D9DD0069579F /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		2FAE3F672918ED5B0069579F /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		2FAE3F6F2918F6A90069579F /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		2FB151A7292DF27000742F7D /* SearchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchError.swift; sourceTree = "<group>"; };
+		2FB151A9292DF2D500742F7D /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
 		2FBD9724292A90B0008FBA04 /* MyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModel.swift; sourceTree = "<group>"; };
 		2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAPI.swift; sourceTree = "<group>"; };
 		2FC61FA6292757D000CA11F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -453,7 +455,6 @@
 			isa = PBXGroup;
 			children = (
 				2F6C948B29277CC000A1B5E6 /* Cell */,
-				2F6C9487292778F900A1B5E6 /* SeSACFindView.swift */,
 				2F6C94892927792400A1B5E6 /* SeSACFindViewController.swift */,
 				2F6C9490292787B600A1B5E6 /* wantToDoView.swift */,
 				2F6C949229278B2B00A1B5E6 /* nowAroundView.swift */,
@@ -509,6 +510,7 @@
 				2FAE2C40292359220015DBEB /* toastMessage.swift */,
 				2F3F5B7F29261236005EF93F /* LoginError.swift */,
 				2F9F31AD292B515500281816 /* MyQueueStateError.swift */,
+				2FB151A7292DF27000742F7D /* SearchError.swift */,
 			);
 			path = APIError;
 			sourceTree = "<group>";
@@ -714,6 +716,7 @@
 				2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */,
 				2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */,
 				2F9F31AB292B4EB100281816 /* MyQueueStateAPI.swift */,
+				2FB151A9292DF2D500742F7D /* SearchAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -942,7 +945,6 @@
 				2FAE3F5A2918D54F0069579F /* ReusableProtocol.swift in Sources */,
 				2FBD9727292A93A7008FBA04 /* MyPageAPI.swift in Sources */,
 				2F2751D72922023B00391163 /* HomeViewController.swift in Sources */,
-				2F6C9488292778F900A1B5E6 /* SeSACFindView.swift in Sources */,
 				2FF877E92924B2670002C35E /* MyReviewView.swift in Sources */,
 				2FD4C9BA292095F200EEDEA8 /* APIService.swift in Sources */,
 				2FAE3F572918D54F0069579F /* CollectionType+.swift in Sources */,
@@ -969,6 +971,7 @@
 				2FAE2C41292359220015DBEB /* toastMessage.swift in Sources */,
 				2FAE2C3F292356AE0015DBEB /* APIError.swift in Sources */,
 				2F2751D92922024500391163 /* FriendViewController.swift in Sources */,
+				2FB151A8292DF27000742F7D /* SearchError.swift in Sources */,
 				2F21D6FD291B905C00429935 /* BirthdayView.swift in Sources */,
 				2FD5A00A291CF67C009102EF /* GenderCollectionViewCell.swift in Sources */,
 				2FAE3F5D2918D54F0069579F /* BaseCollectionViewCell.swift in Sources */,
@@ -979,6 +982,7 @@
 				2F2751DF29221FD000391163 /* InfoTableViewCell.swift in Sources */,
 				2FF877F32924FF000002C35E /* InfoManageViewModel.swift in Sources */,
 				2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */,
+				2FB151AA292DF2D500742F7D /* SearchAPI.swift in Sources */,
 				2FF877D92924A2410002C35E /* InfoManageTableViewCell.swift in Sources */,
 				2FF877E32924B11A0002C35E /* MyNameView.swift in Sources */,
 				2F21D6E4291B7F3200429935 /* PhoneCertificationViewController.swift in Sources */,

@@ -26,7 +26,7 @@ final class nowAroundView: BaseView {
     private let studyLabel = UILabel().then {
         $0.textColor = UIColor.black
         $0.font = UIFont.Title6_R12
-        $0.text = "지금 주변에는"
+//        $0.text = "지금 주변에는"
         
     }
 
@@ -97,9 +97,8 @@ extension nowAroundView: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("@@@@@@@")
+        print("안녕나는컬렉션뷰아이템이야")
     }
-    
 }
 
 // MARK: - Configure DataSource / UICollectionViewDelegate
@@ -112,22 +111,42 @@ extension nowAroundView {
             let cell = collectionView.dequeueConfiguredReusableCell(
                 using: cellRegistration, for: indexPath, item: itemIdentifier)
             cell.setupData(itemIdentifier)
+            if cell.isSelected {
+                print("안녕나는컬렉션뷰아이템이야")
+            }
+            
+            if cell.button.isSelected {
+                print("안녕나는컬렉션뷰아이템이야")
+
+            }
             return cell
         })
+        applyDatasource()
         
-        var snapShot = NSDiffableDataSourceSnapshot<Int, String>()
-        snapShot.appendSections([0])
-        snapShot.appendItems(appendStringX(StringArr: SeSACFindViewController.snapshotArr[0]), toSection: 0)
-        dataSource?.apply(snapShot)
-        
-        var snapShot2 = NSDiffableDataSourceSnapshot<Int, String>()
-        snapShot2.appendSections([1])
-        snapShot2.appendItems(appendStringSection2(StringArr: SeSACFindViewController.snapshotArr[1]), toSection: 0)
-        dataSource?.apply(snapShot2)
+//        var snapShot = NSDiffableDataSourceSnapshot<Int, String>()
+//        snapShot.appendSections([0])
+//        snapShot.appendItems(appendStringX(StringArr: SeSACFindViewController.snapshotArr[0]), toSection: 0)
+//        snapShot.appendSections([1])
+//        snapShot.appendItems(appendStringX(StringArr: SeSACFindViewController.snapshotArr[1]), toSection: 1)
+//        dataSource?.apply(snapShot)
     }
-    
-    func fetchCellItem(section: Int) {
+
+    func applyDatasource() {
+        var snapShot = NSDiffableDataSourceSnapshot<Int, String>()
         
+        SearchAPI.shared.requestSearchData { data, error, statusCode in
+            print("앍앍앍앍앍",data, error, statusCode)
+            switch statusCode {
+            case 200:
+                snapShot.appendSections([0])
+                snapShot.appendItems(self.appendStringX(StringArr: data?.fromRecommend ?? [""]), toSection: 0)
+                snapShot.appendSections([1])
+                snapShot.appendItems(self.appendStringX(StringArr: data?.fromQueueDB[2].studylist ?? [""]), toSection: 1)
+                self.dataSource?.apply(snapShot)
+            default:
+                return
+            }
+        }
     }
     
     private func appendStringX(StringArr: [String]) -> [String] {

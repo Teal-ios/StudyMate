@@ -28,7 +28,7 @@ final class FindSeSACViewController: BaseViewController {
         $0.sectionHeaderTopPadding = 0
         $0.backgroundColor = .white
         $0.bounces = false
-        //        $0.allowsSelection =  false
+        $0.allowsSelection =  false
         $0.rowHeight = UITableView.automaticDimension
     }
     

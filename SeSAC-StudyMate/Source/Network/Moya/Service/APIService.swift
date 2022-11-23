@@ -128,7 +128,7 @@ extension APIService: TargetType {
         case .queueStop:
             return .requestPlain
         case .search:
-            return .requestPlain
+            return .requestParameters(parameters: ["lat": 37.51818789942772, "long" : 126.88541765534976], encoding: URLEncoding.default)
             
         case .myQueueState:
             return .requestPlain

@@ -34,6 +34,12 @@ final class SeSACFindViewController: BaseViewController {
         searchNavi()
         configureLayout()
         setupDelegate()
+        
+        SearchAPI.shared.requestSearchData { data, error, statusCode in
+            print("🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷",data, statusCode, error)
+            print(statusCode)
+        }
+
     }
     // MARK: - Search Navigation
     private func searchNavi() {
@@ -80,11 +86,22 @@ final class SeSACFindViewController: BaseViewController {
 extension SeSACFindViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "지금 주변에는"
+        case 2:
+            return "내가 하고싶은"
+        default:
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,7 +118,7 @@ extension SeSACFindViewController: UITableViewDelegate, UITableViewDataSource {
         //        }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        tableView.deselectRow(at: indexPath, animated: true)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//                tableView.deselectRow(at: indexPath, animated: true)
+//    }
 }
