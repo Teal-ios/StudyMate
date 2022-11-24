@@ -14,7 +14,7 @@ final class nowAroundView: BaseView {
     
     // MARK: - Property
     
-    private var dataSource: UICollectionViewDiffableDataSource<Int, String>?
+    private var dataSource: UICollectionViewDiffableDataSource<sectionKind, String>?
     
     private lazy var studyStackView = UIStackView(arrangedSubviews: [studyLabel, studyCollectionView]).then {
         $0.axis = .vertical
@@ -22,14 +22,14 @@ final class nowAroundView: BaseView {
         $0.alignment = .fill
         
     }
-
+    
     private let studyLabel = UILabel().then {
         $0.textColor = UIColor.black
         $0.font = UIFont.Title6_R12
-//        $0.text = "지금 주변에는"
+        //        $0.text = "지금 주변에는"
         
     }
-
+    
     lazy var studyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: self.createLayout()).then {
         $0.isScrollEnabled = false
     }
@@ -101,47 +101,81 @@ extension nowAroundView: UICollectionViewDelegate {
     }
 }
 
+enum sectionKind: Int, CaseIterable {
+    case red, near, want
+}
+
 // MARK: - Configure DataSource / UICollectionViewDelegate
 extension nowAroundView {
     private func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<nowAroundCollectionViewCell, String> { cell, indexPath, itemIdentifier in
+        let nowAroundRedCellRegistration = UICollectionView.CellRegistration<nowAroundRedCollectionViewCell, String> { cell, indexPath, itemIdentifier in
+            if cell.button.isSelected {
+                print("나눌릿나")
+
+            }
         }
         
-        dataSource = UICollectionViewDiffableDataSource(collectionView: studyCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-            let cell = collectionView.dequeueConfiguredReusableCell(
-                using: cellRegistration, for: indexPath, item: itemIdentifier)
-            cell.setupData(itemIdentifier)
+        let nowAroundCellRegistration = UICollectionView.CellRegistration<nowAroundCollectionViewCell, String> { cell, indexPath, itemIdentifier in
             if cell.isSelected {
-                print("안녕나는컬렉션뷰아이템이야")
+                print("나눌릿나")
             }
-            
-            if cell.button.isSelected {
-                print("안녕나는컬렉션뷰아이템이야")
+        }
+        
+        let wantToDoCellRegistration = UICollectionView.CellRegistration<wantToDoCollectionViewCell, String> { cell, indexPath, itemIdentifier in
+            if cell.isSelected {
+                print("나눌릿나")
+            }
+        }
+        
+        
+        
+        dataSource = UICollectionViewDiffableDataSource(collectionView: studyCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            //            let cell = collectionView.dequeueConfiguredReusableCell(
+            //                using: nowAroundRedCellRegistration, for: indexPath, item: itemIdentifier)
+            //            cell.setupData(itemIdentifier)
+            if indexPath.section == 0 {
+                let cell = collectionView.dequeueConfiguredReusableCell(
+                    using: nowAroundRedCellRegistration, for: indexPath, item: itemIdentifier)
+                return cell
 
+            } else if indexPath.section == 1 {
+                let cell = collectionView.dequeueConfiguredReusableCell(
+                    using: nowAroundCellRegistration, for: indexPath, item: itemIdentifier)
+                return cell
+
+            } else {
+                let cell = collectionView.dequeueConfiguredReusableCell(
+                    using: wantToDoCellRegistration, for: indexPath, item: itemIdentifier)
+                return cell
             }
-            return cell
         })
+        
+        
         applyDatasource()
         
-//        var snapShot = NSDiffableDataSourceSnapshot<Int, String>()
-//        snapShot.appendSections([0])
-//        snapShot.appendItems(appendStringX(StringArr: SeSACFindViewController.snapshotArr[0]), toSection: 0)
-//        snapShot.appendSections([1])
-//        snapShot.appendItems(appendStringX(StringArr: SeSACFindViewController.snapshotArr[1]), toSection: 1)
-//        dataSource?.apply(snapShot)
+        //        var snapShot = NSDiffableDataSourceSnapshot<Int, String>()
+        //        snapShot.appendSections([0])
+        //        snapShot.appendItems(appendStringX(StringArr: SeSACFindViewController.snapshotArr[0]), toSection: 0)
+        //        snapShot.appendSections([1])
+        //        snapShot.appendItems(appendStringX(StringArr: SeSACFindViewController.snapshotArr[1]), toSection: 1)
+        //        dataSource?.apply(snapShot)
     }
-
+    
     func applyDatasource() {
-        var snapShot = NSDiffableDataSourceSnapshot<Int, String>()
+        var snapShot = NSDiffableDataSourceSnapshot<sectionKind, String>()
         
         SearchAPI.shared.requestSearchData { data, error, statusCode in
             print("앍앍앍앍앍",data, error, statusCode)
             switch statusCode {
             case 200:
-                snapShot.appendSections([0])
-                snapShot.appendItems(self.appendStringX(StringArr: data?.fromRecommend ?? [""]), toSection: 0)
-                snapShot.appendSections([1])
-                snapShot.appendItems(self.appendStringX(StringArr: data?.fromQueueDB[2].studylist ?? [""]), toSection: 1)
+                sectionKind.allCases.forEach {
+                    snapShot.appendSections([$0])
+                    snapShot.appendItems(self.appendStringX(StringArr: data?.fromRecommend ?? [""]))
+                }
+//                snapShot.appendSections([0])
+//                snapShot.appendItems(self.appendStringX(StringArr: data?.fromRecommend ?? [""]), toSection: 0)
+//                snapShot.appendSections([1])
+//                snapShot.appendItems(self.appendStringX(StringArr: data?.fromQueueDB[2].studylist ?? [""]), toSection: 1)
                 self.dataSource?.apply(snapShot)
             default:
                 return

@@ -39,6 +39,8 @@ final class SeSACFindViewController: BaseViewController {
             print("🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷",data, statusCode, error)
             print(statusCode)
         }
+        
+        
 
     }
     // MARK: - Search Navigation
@@ -86,7 +88,7 @@ final class SeSACFindViewController: BaseViewController {
 extension SeSACFindViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,7 +99,7 @@ extension SeSACFindViewController: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case 0:
             return "지금 주변에는"
-        case 2:
+        case 1:
             return "내가 하고싶은"
         default:
             return nil

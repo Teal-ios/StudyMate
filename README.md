@@ -6,22 +6,25 @@
 
 
 
-| 날짜         | 기능                                                    | etc.                                                         |
-| ------------ | ------------------------------------------------------- | ------------------------------------------------------------ |
-| 22.11.07(월) | SLP Figma 톺아보기 / PageVC 구성                        | PageControl...  왜 너 안되는거니...                          |
-| 22.11.08(화) | Login화면 구성 / Rx로 작성                              | 하이픈... 너 쉽지않아                                        |
-| 22.11.09(수) | onBoarding 구성 및 Login UI 완성                        | Rx로 Logic 구현 더 연습하기!!                                |
-| 22.11.10(목) | 전화번호 인증 요청 및 LoginView 연결 / 하이픈 처리 완료 | 번호 인증.. 지옥이야...                                      |
-| 22.11.11(금) | Gender화면 구성 - collectionView 활용                   |                                                              |
-| 22.11.12(토) | firebase 인증 완료 / Login Logic 구현 완료 및 저장      | 드디어..인증 지옥에서 벗어났다!!                             |
-| 22.11.13(일) | Network 통신 완료 및 Firebase 회사 측으로 변경 완료     | 그래도...그래도... 메인 기능은 성공...!!                     |
-| 22.11.14(월) | TabbarVC 구성 / 내정보 VC 구성 완료                     | 내정보 관리 VC 구성 실패...                                  |
-| 22.11.15(화) | UserDefaults 싱글톤으로 한부분에서 관리                 | 내정보 관리 VC 구성을 다시해봤는데... 아직도 감이 잡히지 않는다... |
-| 22.11.16(수) | 내정보 관리 VC 구성 완료                                | 팀원분들의 중요성... 감사함당....                            |
-| 22.11.17(목) |                                                         |                                                              |
-| 22.11.18(금) |                                                         |                                                              |
-| 22.11.19(토) |                                                         |                                                              |
-| 22.11.20(일) |                                                         |                                                              |
+| 날짜         | 기능                                                         | etc.                                                         |
+| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 22.11.07(월) | SLP Figma 톺아보기 / PageVC 구성                             | PageControl...  왜 너 안되는거니...                          |
+| 22.11.08(화) | Login화면 구성 / Rx로 작성                                   | 하이픈... 너 쉽지않아                                        |
+| 22.11.09(수) | onBoarding 구성 및 Login UI 완성                             | Rx로 Logic 구현 더 연습하기!!                                |
+| 22.11.10(목) | 전화번호 인증 요청 및 LoginView 연결 / 하이픈 처리 완료      | 번호 인증.. 지옥이야...                                      |
+| 22.11.11(금) | Gender화면 구성 - collectionView 활용                        |                                                              |
+| 22.11.12(토) | firebase 인증 완료 / Login Logic 구현 완료 및 저장           | 드디어..인증 지옥에서 벗어났다!!                             |
+| 22.11.13(일) | Network 통신 완료 및 Firebase 회사 측으로 변경 완료          | 그래도...그래도... 메인 기능은 성공...!!                     |
+| 22.11.14(월) | TabbarVC 구성 / 내정보 VC 구성 완료                          | 내정보 관리 VC 구성 실패...                                  |
+| 22.11.15(화) | UserDefaults 싱글톤으로 한부분에서 관리                      | 내정보 관리 VC 구성을 다시해봤는데... 아직도 감이 잡히지 않는다... |
+| 22.11.16(수) | 내정보 관리 VC 구성 완료                                     | 팀원분들의 중요성... 감사함당....                            |
+| 22.11.17(목) | Firebase 재인증 완료 / Login GET 통신 완료                   |                                                              |
+| 22.11.18(금) | Mapkit 설정 완료                                             |                                                              |
+| 22.11.19(토) | SearchView 구성 - 기능 구현 실패 / 내 친구 찾기 UI 구성      | 검색뷰 도전 1일차...                                         |
+| 22.11.20(일) | MyPage PUT 통신/Network MyQueueState Setting                 |                                                              |
+| 22.11.21(월) | SearchView CollectionView 1개로 재구성 - 구현 실패           | 검색뷰 도전 2일차...                                         |
+| 22.11.22(화) | SearchView Cell 하나로 섹션 분리 도전 - 구현 실패            | 검색뷰 도전 3일차....                                        |
+| 22.11.23(수) | SearchView Section 3개 / Cell 3개 - 구현 실패 / cell Protocol로 값전달 | 검색뷰 도전 4일차...                                         |
 
 ---
 
@@ -345,6 +348,18 @@ Navigation을 Custom해서 설정해주었다.
 - 내정보 VC 구성
 - 내정보 관리 VC 구성 - 처참히 실패
 
+
+
+#### MainTabbarVC 구성 
+
+이제 회원가입 로직을 마무리하고, MainView 구현쪽으로 넘어갔다. Tabbar와 Navibar를 같이 사용할 때에 고려할 점이 필요하다는 것을 느낀 경험이었다.
+
+
+
+#### 내정보 VC 구성
+
+펼쳤다 닫는 UI를 구현 - 처음에 expandable table View로 구조를 잡았음 - 각 뷰가 펼쳤다 닫아져야하는데, 그 때 UI가 요구사항을 구현하지 못하는 이슈 발생 - 실패
+
 ---
 
 ### 22.11.15(화)
@@ -353,11 +368,147 @@ Navigation을 Custom해서 설정해주었다.
 - Network 분기 처리
 - 내정보 관리 VC 설계 - 두번째 처참히 실패...
 
+
+
+#### 코드 구조화 - UserDefaults 싱글턴 관리
+
+계속 UI만 그리다보니, 잘 그려지지도 않고 머리가 복잡해져서 기존에 작성했지만 보기 싫었던 코드들을 구조화 시켜보았음. UserDefaults를 싱글톤으로 하나에서 관리하도록 구조 변경
+
+~~~swift
+import Foundation
+
+final class UserDefaultsHelper {
+    private init() { }
+    static let standard = UserDefaultsHelper()
+    let userDefaults = UserDefaults.standard
+    
+    enum Key {
+        static let idToken = "idToken"
+        static let FCMtoken = "FCMtoken"
+        static let verificationID = "verificationID"
+        static let phone = "phoneNumber"
+        static let nickname = "nick"
+        static let birthday = "birth"
+        static let email = "email"
+        static let gender = "gender"
+        static let currentUser = "currentUser"
+    }
+    
+    var idToken: String? {
+        get { return userDefaults.string(forKey: Key.idToken) ?? "" }
+        set { userDefaults.set(newValue, forKey: Key.idToken) }
+    }
+    
+    var FCMtoken: String? {
+        get { return userDefaults.string(forKey: Key.FCMtoken) ?? "" }
+        set { userDefaults.set(newValue, forKey: Key.FCMtoken) }
+    }
+    
+    var verificationID: String? {
+        get { return userDefaults.string(forKey: Key.verificationID) ?? "" }
+        set { userDefaults.set(newValue, forKey: Key.verificationID) }
+    }
+    
+    var phone: String? {
+        get { return userDefaults.string(forKey: Key.phone) ?? "" }
+        set { userDefaults.set(newValue, forKey: Key.phone) }
+    }
+    
+    var nickname: String? {
+        get { return userDefaults.string(forKey: Key.nickname) ?? "" }
+        set { userDefaults.set(newValue, forKey: Key.nickname) }
+    }
+    
+    var birthday: String? {
+        get { return userDefaults.string(forKey: Key.birthday) ?? "" }
+        set { userDefaults.set(newValue, forKey: Key.birthday) }
+    }
+    
+    var email: String? {
+        get { return userDefaults.string(forKey: Key.email) ?? "" }
+        set { userDefaults.set(newValue, forKey: Key.email) }
+    }
+    
+    var gender: Int {
+        get { return userDefaults.integer(forKey: Key.gender) }
+        set { userDefaults.set(newValue, forKey: Key.gender) }
+    }
+    
+    var currentUser: Bool {
+        get { return userDefaults.bool(forKey: Key.currentUser) }
+        set { userDefaults.set(newValue, forKey: Key.currentUser) }
+    }
+    
+    func removeObject() {
+        userDefaults.removeObject(forKey: Key.idToken)
+        userDefaults.removeObject(forKey: Key.FCMtoken)
+        userDefaults.removeObject(forKey: Key.verificationID)
+        userDefaults.removeObject(forKey: Key.phone)
+        userDefaults.removeObject(forKey: Key.nickname)
+        userDefaults.removeObject(forKey: Key.birthday)
+        userDefaults.removeObject(forKey: Key.email)
+        userDefaults.removeObject(forKey: Key.gender)
+    }
+    
+    func removeAccessToken() {
+        userDefaults.removeObject(forKey: Key.idToken)
+    }
+}
+
+~~~
+
+
+
+#### Network 분기 처리
+
+네트워크도 Error를 재사용해보려고 했지만, 각 에러들마다 처리하는 예외처리가 다 달라 아에 각자의 Error들로 분리하고, 통신도 이에 맞춰서 다 분리해주었음.
+
+~~~swift
+import Foundation
+
+enum LoginError: Int, Error {
+    case FirebaseTokenError = 401
+    case notSignUp = 406
+    case serverError = 500
+    case clientError = 501
+}
+
+extension LoginError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .FirebaseTokenError:
+            return "id토큰이 만료되었습니다. 갱신해주세요"
+        case .notSignUp:
+            return "미가입 유저입니다."
+        case .serverError:
+            return "Server Error"
+        case .clientError:
+            return "Client Error"
+        }
+    }
+}
+
+~~~
+
+
+
+#### 내정보 관리 VC 설계 - 두번째 처참히 실패...
+
+다른 코드들을 구조화시키게 만들었던 이친구... 어떻게 해볼까 하다가 새로 Layout을 잡아주는 형태로 생각 - 구현해보니 이후 재사용 부분에서는 이런 방식으로 구현을 할 수 없는 UI임을 늦게 깨달아버렸고... 이렇게.... 2트 실패...
+
 ---
 
 ### 22.11.16(수)
 
 - 정보관리 VC 구현 성공 - 중요한건... 꺾이지 않는 마음
+
+
+
+#### 정보관리 VC 구현 성공 - 중요한건... 꺾이지 않는 마음
+
+팀원이 테이블 뷰 + 스택 뷰 방식으로 구현해서 구조에 대해 설명듣고 팁도 들었고... 드디어... 팀원의 구조를 참고해 구성 완료!!
+
+팀원들의 개발 연륜과 소중함을 느꼈다...
 
 ---
 
@@ -367,21 +518,60 @@ Navigation을 Custom해서 설정해주었다.
 - Login Error 처리 완료
 - Firebase 토큰 갱신 처리 완료
 
+
+
+#### Login GET 통신 완료/ Error처리 완료 / Firebase 토큰 갱신 처리 완료
+
+이제 내정보 UI를 끝냈으니 MainView에 들어가기 전, 마지막으로 전 주에 다듬지 못했던 나머지 예외 처리와 토큰 갱신을 마무리했다. 생각보다  어려운 줄 알고 구현안하고 있었는데, 막상 해결하려고 해보니 금방 구현했었던 토큰 갱신이었다.
+
 ---
 
 ### 22.11.18(금)
 
-- study 검색 화면 구성 - 각 셀 클릭시 나타나는 기능 구현 실패
+- SearchView 구성 - 각 셀 클릭시 나타나는 기능 구현 실패
+- Mapkit 설정 완료
+
+
+
+#### SearchView 구성 - 각 셀 클릭시 나타나는 기능 구현 실패
+
+서치 뷰를 구성할 때, 테이블 뷰 안에 두개의 디퍼블 컬렉션 뷰를 넣고, 컴포지셔널 레이아웃으로 잡아줬는데 다른 셀끼리 데이터 전달을 실패.
+
+#### Mapkit 설정 완료
+
+기본적으로
 
 ---
 
 ### 22.11.19(토)
 
 - 내 친구 찾기 UI 구성
+- SearchView 구성 - 기능 구현 실패
 
 ---
 
 ### 22.11.20(일)
 
-- study 검색 화면 / 내 주변 친구 찾기 기능 구성 - 실패
+- 내 주변 친구 찾기 기능 구성 - 실패
 - 내정보 관리 PUT Network 통신 완료
+- SearchView CollectionView 화면 구성 - 구현 실패
+
+---
+
+### 22.11.21(월)
+
+- SearchView CollectionView 1개로 재구성 - 구현 실패
+
+
+
+---
+
+### 22.11.22(화)
+
+- SearchView Cell 하나로 섹션 분리 도전 - 구현 실패
+
+---
+
+### 22.11.23(수)
+
+- SearchView Section 3개 / Cell 3개 - 구현 실패
