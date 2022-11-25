@@ -18,7 +18,7 @@ enum APIService {
     case mypage
     case search
     case myQueueState
-    case queue
+    case queue(lat: Double, long: Double)
     case queueStop
     
 }
@@ -113,10 +113,10 @@ extension APIService: TargetType {
         case .mypage:
             let mypage = InfoManageViewController().updateMypage
             return .requestParameters(parameters: ["searchable" : mypage.searchable, "ageMin" : mypage.ageMin, "ageMax" : mypage.ageMax, "gender" : mypage.gender, "study" : mypage.study ?? nil], encoding: URLEncoding.default)
-        case .queue:            
+        case .queue(let lat, let long):
             return .requestParameters(parameters: [
-                "long": 126.88541765534976,
-                "lat": 37.51818789942772,
+                "long": long,
+                "lat": lat,
                 "studylist":  ["아속피", "콘크리트", "anything"]]
                                    , encoding: URLEncoding(arrayEncoding: .noBrackets))
         case .queueStop:

@@ -39,7 +39,7 @@ class CustomAnnotation: NSObject, MKAnnotation {
   ) {
     self.sesac_image = sesac_image
     self.coordinate = coordinate
-
+    
     super.init()
   }
 }

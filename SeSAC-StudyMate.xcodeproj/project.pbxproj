@@ -502,9 +502,9 @@
 		2F6C9486292778D400A1B5E6 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				2FAEF4862930D6880046E22B /* ViewController */,
 				2FAEF47F29309D650046E22B /* ViewModel */,
 				2FC61FA6292757D000CA11F3 /* HomeView.swift */,
-				2F2751D62922023B00391163 /* HomeViewController.swift */,
 				2FAEF4822930B25C0046E22B /* CustomAnnotation.swift */,
 			);
 			path = Main;
@@ -742,6 +742,14 @@
 				2FAEF48029309D700046E22B /* HomewViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2FAEF4862930D6880046E22B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2F2751D62922023B00391163 /* HomeViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		2FB151AB292E179D00742F7D /* Controller */ = {

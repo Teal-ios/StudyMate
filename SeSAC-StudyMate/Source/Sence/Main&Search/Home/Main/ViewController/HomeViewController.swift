@@ -11,7 +11,7 @@ import CoreLocation
 import RxSwift
 import RxCocoa
 
-class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManagerDelegate { //LocationManager를 사용하기 위한 Delegate
+class HomeViewController: BaseViewController,  CLLocationManagerDelegate { //LocationManager를 사용하기 위한 Delegate
     
     let viewModel = HomeViewModel()
     let mapView = HomeView()
@@ -27,8 +27,7 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
         super.viewDidLoad()
         
         locationManager.requestWhenInUseAuthorization() //권한요청도 알아서 척척!
-        
-        mapView.map.setRegion(MKCoordinateRegion(center: viewModel.sesacCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
+
         
         
         mapView.map.delegate = self
@@ -64,24 +63,35 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
         if annotationView == nil {
             //없으면 하나 만들어 주시고
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: CustomAnnotationView.identifier)
+            annotationView?.canShowCallout = false
+            annotationView?.contentMode = .scaleAspectFit
         } else {
             //있으면 등록된 걸 쓰시면 됩니다.
             annotationView?.annotation = annotation
         }
         
+        let sesacImage: UIImage!
+        let size = CGSize(width: 120, height: 120)
+        UIGraphicsBeginImageContext(size)
+        
         switch annotation.sesac_image {
             
         case .basic:
-            annotationView?.image = Annotation.basic.imageName
+            sesacImage = Annotation.basic.imageName
         case .strong:
-            annotationView?.image = Annotation.strong.imageName
+            sesacImage = Annotation.strong.imageName
         case .mint:
-            annotationView?.image = Annotation.mint.imageName
+            sesacImage = Annotation.mint.imageName
         case .purple:
-            annotationView?.image = Annotation.purple.imageName
+            sesacImage = Annotation.purple.imageName
         case .gold:
-            annotationView?.image = Annotation.gold.imageName
+            sesacImage = Annotation.gold.imageName
         }
+        
+        
+        sesacImage.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        annotationView?.image = resizedImage
         return annotationView
     }
 
@@ -184,5 +194,13 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
             print("##########",statusCode)
             
         }
+    }
+}
+
+extension HomeViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        
+        
+        
     }
 }

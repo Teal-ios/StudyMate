@@ -20,7 +20,14 @@ final class QueueAPI {
     // 서버 연결 후 전달 받을 response
     
     func requestQueueData(completionHandler: @escaping (Int?, QueueError?)->Void) {
-        MyPageProvider.request(.queue) { result  in
+        var dataLong: Double = 126.92983890550006
+        var dataLat: Double = 37.482733667903865
+        func location(lat: Double, long: Double) {
+            dataLong = long
+            dataLat = lat
+            print("좌표 값",dataLong, dataLat)
+        }
+        MyPageProvider.request(.queue(lat: dataLat, long: dataLong)) { result  in
             
             switch result {
             case .success(let response):
