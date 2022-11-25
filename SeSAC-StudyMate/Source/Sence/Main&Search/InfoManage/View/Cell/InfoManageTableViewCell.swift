@@ -10,9 +10,15 @@ import MultiSlider
 import SnapKit
 import Then
 
+protocol sliderDelegate: AnyObject {
+    func slider(min: Int, max: Int)
+}
+
 final class InfoManageTableViewCell: BaseTableViewCell {
     
     // MARK: - Property
+    
+    weak var infoCellDelegate: sliderDelegate?
     
     var ageRange: String = "18 - 65" {
         didSet {
@@ -201,7 +207,11 @@ final class InfoManageTableViewCell: BaseTableViewCell {
     
     @objc func sliderChanged(_ sender: MultiSlider) {
         print(sender.minimumValue, sender.maximumValue)
-        rangeLabel.text = "\(Int(sender.value[0]))" + " - " + "\(Int(sender.value[1]))"
+//        rangeLabel.text = "\(Int(sender.value[0]))" + " - " + "\(Int(sender.value[1]))"
+        var min = ageSlider.value[0]
+        var max = ageSlider.value[1]
+        
+        infoCellDelegate?.slider(min: Int(min), max: Int(max))
     }
     
     @objc func maleButtonClicked(_ sender: PlainButton) {

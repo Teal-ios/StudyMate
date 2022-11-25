@@ -206,6 +206,9 @@ extension InfoManageViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             guard let infoCell = tableView.dequeueReusableCell(withIdentifier: InfoManageTableViewCell.reuseIdentifier, for: indexPath) as? InfoManageTableViewCell
             else { return UITableViewCell() }
+            
+            infoCell.infoCellDelegate = self
+            
             if updateMypage.gender == 0 {
                 infoCell.maleButton.backgroundColor = .brandGreen
             } else {
@@ -225,5 +228,13 @@ extension InfoManageViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension InfoManageViewController: sliderDelegate {
+    func slider(min: Int, max: Int) {
+        viewModel.maxage = min
+        viewModel.maxage = max
+        print(min, max)
     }
 }

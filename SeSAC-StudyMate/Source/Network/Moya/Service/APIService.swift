@@ -23,16 +23,6 @@ enum APIService {
     
 }
 
-enum SLPError: Int, Error {
-    case success = 200
-    case alreadyUser = 201
-    case nicknameError = 202
-    case expiredTokenError = 401
-    
-    case notCurrentUserError = 406
-    case serverError = 500
-    case clientError = 501
-}
 
 // TargetType이라는 protocol을 채택하면 -> 서버 통신 시 필요한 요소들을 채택해서 사용할 수 있도록 유도
 extension APIService: TargetType {
@@ -123,8 +113,12 @@ extension APIService: TargetType {
         case .mypage:
             let mypage = InfoManageViewController().updateMypage
             return .requestParameters(parameters: ["searchable" : mypage.searchable, "ageMin" : mypage.ageMin, "ageMax" : mypage.ageMax, "gender" : mypage.gender, "study" : mypage.study ?? nil], encoding: URLEncoding.default)
-        case .queue:
-            return .requestPlain
+        case .queue:            
+            return .requestParameters(parameters: [
+                "long": 126.88541765534976,
+                "lat": 37.51818789942772,
+                "studylist":  ["아속피", "콘크리트", "anything"]]
+                                   , encoding: URLEncoding(arrayEncoding: .noBrackets))
         case .queueStop:
             return .requestPlain
         case .search:

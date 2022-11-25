@@ -22,11 +22,6 @@ class MainTabBarViewController: UITabBarController {
         let FriendVC = FriendViewController()
         let InfoVC = InfoViewController()
         
-        SearchAPI.shared.requestSearchData { data, error, statusCode in
-            print("🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷",data, statusCode, error)
-            print(statusCode)
-        }
-        
         //각 tab bar의 viewcontroller 타이틀 설정
         
         HomeVC.title = "홈"

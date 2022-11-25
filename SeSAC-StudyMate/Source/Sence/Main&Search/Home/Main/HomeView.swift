@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import MapKit
 import Then
+import CoreLocation
 
 class HomeView: BaseView{
 
@@ -39,13 +40,7 @@ class HomeView: BaseView{
     let map = MKMapView()
     
     override func configureUI() {
-        self.addSubview(map)
-        self.addSubview(genderFilterView)
-        self.addSubview(gpsButton)
-        self.addSubview(statusButton)
-        self.addSubview(fakeImgPinView)
-
-        
+        [map, genderFilterView, gpsButton, statusButton, fakeImgPinView].forEach{ addSubview($0) }        
     }
     
     override func setConstraints() {
@@ -77,9 +72,5 @@ class HomeView: BaseView{
             make.width.height.equalTo(48)
         }
 
-    }
-    
-    
-
-    
+    }   
 }

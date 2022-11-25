@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 import Then
 
+
+
 final class InfoManageCardTableViewCell: BaseTableViewCell {
     
     // MARK: - Property

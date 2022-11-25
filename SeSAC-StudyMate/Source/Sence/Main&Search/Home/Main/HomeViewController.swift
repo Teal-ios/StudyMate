@@ -8,18 +8,18 @@
 import UIKit
 import MapKit
 import CoreLocation
-
+import RxSwift
+import RxCocoa
 
 class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManagerDelegate { //LocationManager를 사용하기 위한 Delegate
     
+    let viewModel = HomeViewModel()
     let mapView = HomeView()
-    
-    let sesacCoordinate = CLLocationCoordinate2D(latitude: 37.51818789942772, longitude: 126.88541765534976) //새싹 영등포 캠퍼스의 위치입니다. 여기서 시작하면 재밌을 것 같죠? 하하
-    
     let locationManager = CLLocationManager() //위치를 조종하게(?) 도와주는 로케이션 매니저를 하나 고용합시다.
+    let disposeBag = DisposeBag()
     
     override func loadView() {
-        view = mapView
+        super.view = mapView
     }
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
         
         locationManager.requestWhenInUseAuthorization() //권한요청도 알아서 척척!
         
-        mapView.map.setRegion(MKCoordinateRegion(center: sesacCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
+        mapView.map.setRegion(MKCoordinateRegion(center: viewModel.sesacCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
         
         
         mapView.map.delegate = self
@@ -37,54 +37,51 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
 //        addCustomPin()
         buttonActions()
         myQueueState()
+        viewModel.requestSearchData()
+        bind()
         
     }
     
-//    private func addCustomPin() {
-//        let pin = MKPointAnnotation()
-//        //포인트 어노테이션은 뭔가요?
-//        pin.coordinate = sesacCoordinate
-//        pin.title = "지금 내위치"
-//        pin.subtitle = "코딩하고 있겠지?"
-//        mapView.map.addAnnotation(pin)
-//        
-//    }
-    
+    func bind() {
+        viewModel.searchData
+            .asDriver(onErrorJustReturn: SearchResponse(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
+            .drive(onNext: { [weak self] value in
+                guard let self = self else { return }
+                self.viewModel.addAnnotation(map: self.mapView.map, data: value)
+
+            })
+    }
     
     
     
     //재사용 할 수 있는 어노테이션 만들기! 마치 테이블뷰의 재사용 Cell을 넣어주는 것과 같아요!
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        guard !annotation.isKind(of: MKUserLocation.self) else {
-//            // 유저 위치를 나타낼때는 기본 파란 그 점 아시죠? 그거 쓰고싶으니까~ 요렇게 해주시고 만약에 쓰고싶은 어노테이션이 있다면 그녀석을 리턴해 주시면 되긋죠? 하하!
-//            return nil
-//        }
-        //우리가 만들고 싶은 커스텀 어노테이션을 만들어 줍시다. 그냥 뿅 생길 수 없겠죠? 보여주고 싶은 모양을 뷰로 짜준다고 생각하시면 됩니다.
-        //즉시 인스턴스로 만들어 줘 보겠습니다요. 어떻게 생겼을지는 아직 안정했지만 일단 커스텀이라는 식별자?를 가진 뷰로 만들어 줬습니다.
-        //마커 어노테이션뷰 라는 어노테이션뷰를 상속받는 뷰가 따로있습니다. 풍선모양이라고 하는데 한번 만들어 보시는것도 좋겠네요! 테두리가 있고 안에 내용물을 바꾸는 식으로 설정이 되는듯 해요.
-        var annotationView = self.mapView.map.dequeueReusableAnnotationView(withIdentifier: "Custom")
+        
+        guard let annotation = annotation as? CustomAnnotation else { return nil }
+        
+        var annotationView = self.mapView.map.dequeueReusableAnnotationView(withIdentifier: CustomAnnotationView.identifier)
         
         if annotationView == nil {
             //없으면 하나 만들어 주시고
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "Custom")
-            annotationView?.canShowCallout = true
-
-
-            //callOutView를 통해서 추가적인 액션을 더해줄수도 있겠죠! 와 무지 간편합니다!
-            let miniButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-            miniButton.setImage(UIImage(systemName: "person"), for: .normal)
-            miniButton.tintColor = .blue
-            annotationView?.rightCalloutAccessoryView = miniButton
-
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: CustomAnnotationView.identifier)
         } else {
             //있으면 등록된 걸 쓰시면 됩니다.
             annotationView?.annotation = annotation
         }
         
-        annotationView?.image = UIImage(named: "map_marker")
-        
-        //상황에 따라 다른 annotationView를 리턴하게 하면 여러가지 모양을 쓸 수도 있겠죠?
-        
+        switch annotation.sesac_image {
+            
+        case .basic:
+            annotationView?.image = Annotation.basic.imageName
+        case .strong:
+            annotationView?.image = Annotation.strong.imageName
+        case .mint:
+            annotationView?.image = Annotation.mint.imageName
+        case .purple:
+            annotationView?.image = Annotation.purple.imageName
+        case .gold:
+            annotationView?.image = Annotation.gold.imageName
+        }
         return annotationView
     }
 
@@ -101,7 +98,7 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
     }
     
     @objc func findSeSAC() {
-        transition(SeSACFindViewController(), transitionStyle: .push)
+        transition(StudyViewController(), transitionStyle: .push)
     }
     
     //권한 설정을 위한 코드들
@@ -185,6 +182,7 @@ class HomeViewController: BaseViewController, MKMapViewDelegate, CLLocationManag
         MyQueueStateAPI.shared.requestMyQueueData { data, error, statusCode in
             print("##########",data)
             print("##########",statusCode)
+            
         }
     }
 }
