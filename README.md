@@ -25,6 +25,9 @@
 | 22.11.21(월) | SearchView CollectionView 1개로 재구성 - 구현 실패           | 검색뷰 도전 2일차...                                         |
 | 22.11.22(화) | SearchView Cell 하나로 섹션 분리 도전 - 구현 실패            | 검색뷰 도전 3일차....                                        |
 | 22.11.23(수) | SearchView Section 3개 / Cell 3개 - 구현 실패 / cell Protocol로 값전달 | 검색뷰 도전 4일차...                                         |
+| 22.11.24(목) | 검색뷰 구성 완료 - CollectionView                            | Diffable로 후에 다시 개선해보기                              |
+| 22.11.25(금) | HomeVC 통신해서 다른 새싹 위치 반영 완료                     | 값 전달의 필요성을 깨달음                                    |
+| 22.11.26(토) | Home 로직 개선 및 Protocol 값 전달해 네트워크 값 넣어주기    | HomeVC 고려해야할게 완전 많다...                             |
 
 ---
 
@@ -539,7 +542,7 @@ extension LoginError: LocalizedError {
 
 #### Mapkit 설정 완료
 
-기본적으로
+기본적으로 해야하는 권한 설정 및 Pin에대한 설정을 해주었음. Mapkit을 많이 사용해본 것이 아니라 메서드들에 대해 알아가면서 공부하기!
 
 ---
 
@@ -575,3 +578,21 @@ extension LoginError: LocalizedError {
 ### 22.11.23(수)
 
 - SearchView Section 3개 / Cell 3개 - 구현 실패
+
+---
+
+### 22.11.24(목)
+
+- 검색뷰 구성 완료
+
+---
+
+### 22.11.25(금)
+
+- HomeVC 통신해서 다른 새싹 위치 반영 완료
+
+---
+
+### 22.11.26(토)
+
+- Home Logic 추가 및 Protocol 값전달 완료
