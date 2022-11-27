@@ -39,24 +39,4 @@ final class UserAPI {
             }
         }
     }
-    
-//    func getLoginData(completionHandler: @escaping (Int?, APIError?)->Void) {
-//        SLPProvider.request(.login) { result  in
-//     
-//            switch result {
-//            case .success(let response):
-//                guard let statusCode = response.response?.statusCode else { return }
-//                print("GET 성공", statusCode)
-//                completionHandler(statusCode, nil)
-//                
-//            case .failure(let error):
-//                guard let statusCode = error.response?.statusCode else { return }
-//                
-//                let apiError = APIError(rawValue: statusCode)
-//                completionHandler(nil, apiError)
-//                
-//                print("GET 실패", error.response?.statusCode)
-//            }
-//        }
-//    }
 }

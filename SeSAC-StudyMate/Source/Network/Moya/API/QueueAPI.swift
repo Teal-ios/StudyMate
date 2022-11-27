@@ -8,8 +8,15 @@
 import Moya
 import Foundation
 
-final class QueueAPI {
-    
+final class QueueAPI: locationDelegate {
+    var dataLong: Double = 126.92983890550006
+    var dataLat: Double = 37.482733667903865
+    func location(lat: Double, long: Double) {
+        dataLong = long
+        dataLat = lat
+        print("좌표 값",dataLong, dataLat)
+    }
+
     // 싱글톤 패턴
     static let shared: QueueAPI = QueueAPI()
     
@@ -20,13 +27,7 @@ final class QueueAPI {
     // 서버 연결 후 전달 받을 response
     
     func requestQueueData(completionHandler: @escaping (Int?, QueueError?)->Void) {
-        var dataLong: Double = 126.92983890550006
-        var dataLat: Double = 37.482733667903865
-        func location(lat: Double, long: Double) {
-            dataLong = long
-            dataLat = lat
-            print("좌표 값",dataLong, dataLat)
-        }
+
         MyPageProvider.request(.queue(lat: dataLat, long: dataLong)) { result  in
             
             switch result {

@@ -21,8 +21,8 @@ final class SearchAPI {
     
     var data: SearchResponse?
 
-    func requestSearchData(completionHandler: @escaping (SearchResponse?, SearchError?, Int?) -> Void) {
-        MyPageProvider.request(.search) { result  in
+    func requestSearchData(lat: Double, long: Double, completionHandler: @escaping (SearchResponse?, SearchError?, Int?) -> Void) {
+        MyPageProvider.request(.search(lat: lat, long: long)) { result  in
 
             switch result {
                 

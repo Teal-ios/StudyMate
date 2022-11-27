@@ -24,7 +24,7 @@ final class StudyViewModel {
     
     func fetchSeSacSearch(location: CLLocationCoordinate2D) {
         
-        SearchAPI.shared.requestSearchData { data, error, statusCode in
+        SearchAPI.shared.requestSearchData(lat: location.latitude, long: location.longitude, completionHandler: { data, error, statusCode in
             guard let statusCode = statusCode else { return }
             switch statusCode {
             case 200:
@@ -34,7 +34,7 @@ final class StudyViewModel {
             default:
                 print("\(error)")
             }
-        }
+        })
     }
     
     func tapSearchButton() {

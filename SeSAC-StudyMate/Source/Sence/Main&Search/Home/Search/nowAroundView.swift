@@ -164,7 +164,7 @@ extension nowAroundView {
     func applyDatasource() {
         var snapShot = NSDiffableDataSourceSnapshot<sectionKind, String>()
         
-        SearchAPI.shared.requestSearchData { data, error, statusCode in
+        SearchAPI.shared.requestSearchData(lat: 37.517819364682694, long: 126.88647317074734, completionHandler: { data, error, statusCode in
             print("앍앍앍앍앍",data, error, statusCode)
             switch statusCode {
             case 200:
@@ -180,7 +180,7 @@ extension nowAroundView {
             default:
                 return
             }
-        }
+        })
     }
     
     private func appendStringX(StringArr: [String]) -> [String] {

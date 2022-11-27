@@ -18,10 +18,13 @@ protocol locationDelegate: AnyObject {
 class HomeViewModel {
     var locationDelegate: locationDelegate?
     var searchData = PublishRelay<SearchResponse>()
-    var currentLocation = BehaviorSubject<CLLocationCoordinate2D>(value: CLLocationCoordinate2D(latitude: 37.51818789942772, longitude: 126.88541765534976))
+    var currentLocation = BehaviorSubject<CLLocationCoordinate2D>(value: CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270))
+    var currentLocations: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
+    
 
-    func requestSearchData() {
-        SearchAPI.shared.requestSearchData { data, error, statusCode in
+    func requestSearchData(lat: Double, long: Double) {
+        SearchAPI.shared.requestSearchData(lat: lat, long: long) { data, error, statusCode in
+            print("requestSearchData")
             print("🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷",data, statusCode, error)
             
             switch statusCode {
@@ -41,13 +44,13 @@ class HomeViewModel {
     }
     
     func addAnnotation(map: MKMapView, data: SearchResponse) {
+        print("인터넷호출되구이따요")
         data.fromQueueDB.forEach {
             let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
             guard let image = Annotation(rawValue: $0.sesac) else { return }
             let annotation = CustomAnnotation(sesac_image: image, coordinate: coordinate)
             annotation.coordinate = coordinate
             map.addAnnotation(annotation)
-            print("인터넷호출되구이따요")
         }
         data.fromQueueDBRequested.forEach {
             let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
@@ -65,6 +68,16 @@ class HomeViewModel {
         var long = map.centerCoordinate.longitude
         
         locationDelegate?.location(lat: lat, long: long)
+    }
+    
+    
+    func reloadAnnotation(map: MKMapView) {
+        locationDelegate?.location(lat: map.centerCoordinate.latitude, long: map.centerCoordinate.longitude)
+//        self.requestSearchData()
+    }
+    
+    func reloadLocation(location: CLLocationCoordinate2D) {
+        self.requestSearchData(lat: location.latitude, long: location.longitude)
     }
 }
 

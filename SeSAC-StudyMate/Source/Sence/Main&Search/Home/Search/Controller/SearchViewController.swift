@@ -33,7 +33,7 @@ final class SearchViewController: BaseViewController {
         configureLayout()
         setupDelegate()
         
-        SearchAPI.shared.requestSearchData { data, error, statusCode in
+        SearchAPI.shared.requestSearchData(lat: 37.517819364682694, long: 126.88647317074734) { data, error, statusCode in
             print("🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷",data, statusCode, error)
             print(statusCode)
         }

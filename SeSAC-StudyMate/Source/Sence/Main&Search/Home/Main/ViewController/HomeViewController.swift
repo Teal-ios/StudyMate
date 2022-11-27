@@ -11,49 +11,79 @@ import CoreLocation
 import RxSwift
 import RxCocoa
 
-class HomeViewController: BaseViewController,  CLLocationManagerDelegate { //LocationManager를 사용하기 위한 Delegate
+class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
     
     let viewModel = HomeViewModel()
     let mapView = HomeView()
-    let locationManager = CLLocationManager() //위치를 조종하게(?) 도와주는 로케이션 매니저를 하나 고용합시다.
+    let locationManager = CLLocationManager()
     let disposeBag = DisposeBag()
     
     override func loadView() {
-        super.view = mapView
+        view = mapView
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
-        locationManager.requestWhenInUseAuthorization() //권한요청도 알아서 척척!
-
-        
-        
+        locationManager.requestWhenInUseAuthorization()
         mapView.map.delegate = self
         locationManager.delegate = self
         
-//        addCustomPin()
         buttonActions()
-        myQueueState()
-        viewModel.requestSearchData()
+//        myQueueState()
+        viewModel.requestSearchData(lat: 37.517829, long: 126.886270)
         bind()
         
     }
     
-    func bind() {
+    private func bind() {
         viewModel.searchData
             .asDriver(onErrorJustReturn: SearchResponse(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
             .drive(onNext: { [weak self] value in
                 guard let self = self else { return }
                 self.viewModel.addAnnotation(map: self.mapView.map, data: value)
-
             })
     }
+
+
+    @objc func findMyLocation() {
+        
+        guard let currentLocation = locationManager.location else {
+            checkUserLocationServicesAuthorization()
+            return
+        }
+        
+        mapView.map.showsUserLocation = true
+        mapView.map.setUserTrackingMode(.follow, animated: true)
+        
+    }
     
+    @objc func findSeSAC() {
+        transition(StudyViewController(), transitionStyle: .push)
+    }
+
+    func buttonActions() {
+        mapView.gpsButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
+        mapView.statusButton.addTarget(self, action: #selector(findSeSAC), for: .touchUpInside)
+    }
     
+    func myQueueState() {
+        MyQueueStateAPI.shared.requestMyQueueData { data, error, statusCode in
+            print("##########",data)
+            print("##########",statusCode)
+        }
+    }
+}
+
+extension HomeViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        
+        print(mapView.centerCoordinate)
+        mapView.removeAnnotations(mapView.annotations)
+        viewModel.requestSearchData(lat: mapView.centerCoordinate.latitude, long: mapView.centerCoordinate.longitude)
+        
+    }
     
-    //재사용 할 수 있는 어노테이션 만들기! 마치 테이블뷰의 재사용 Cell을 넣어주는 것과 같아요!
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         guard let annotation = annotation as? CustomAnnotation else { return nil }
@@ -61,12 +91,10 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate { //Loc
         var annotationView = self.mapView.map.dequeueReusableAnnotationView(withIdentifier: CustomAnnotationView.identifier)
         
         if annotationView == nil {
-            //없으면 하나 만들어 주시고
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: CustomAnnotationView.identifier)
             annotationView?.canShowCallout = false
             annotationView?.contentMode = .scaleAspectFit
         } else {
-            //있으면 등록된 걸 쓰시면 됩니다.
             annotationView?.annotation = annotation
         }
         
@@ -94,25 +122,11 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate { //Loc
         annotationView?.image = resizedImage
         return annotationView
     }
+}
 
-    @objc func findMyLocation() {
-        
-        guard let currentLocation = locationManager.location else {
-            checkUserLocationServicesAuthorization()
-            return
-        }
-        
-        mapView.map.showsUserLocation = true
-        mapView.map.setUserTrackingMode(.follow, animated: true)
-        
-    }
-    
-    @objc func findSeSAC() {
-        transition(StudyViewController(), transitionStyle: .push)
-    }
-    
-    //권한 설정을 위한 코드들
-    
+//MARK: 권한 설정
+
+extension HomeViewController {
     func checkCurrentLocationAuthorization(authorizationStatus: CLAuthorizationStatus) {
         switch authorizationStatus {
         case .notDetermined:
@@ -147,7 +161,7 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate { //Loc
     
     func goSetting() {
         
-        let alert = UIAlertController(title: "위치권한 요청", message: "러닝 거리 기록을 위해 항상 위치 권한이 필요합니다.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "위치권한 요청", message: "위치 기반 서비스를 위해 항상 위치 권한이 필요합니다.", preferredStyle: .alert)
         let settingAction = UIAlertAction(title: "설정", style: .default) { action in
             guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
             // 열 수 있는 url 이라면, 이동
@@ -182,25 +196,14 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate { //Loc
         print(#function)
         checkUserLocationServicesAuthorization()
     }
-
-    func buttonActions() {
-        mapView.gpsButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
-        mapView.statusButton.addTarget(self, action: #selector(findSeSAC), for: .touchUpInside)
-    }
-    
-    func myQueueState() {
-        MyQueueStateAPI.shared.requestMyQueueData { data, error, statusCode in
-            print("##########",data)
-            print("##########",statusCode)
-            
-        }
-    }
 }
 
-extension HomeViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        
-        
-        
+//MARK: - Map
+extension HomeViewController {
+    private func setRegion(center: CLLocationCoordinate2D) {
+        print("region설정")
+        print("센터센터: \(center)")
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 800, longitudinalMeters: 800)
+        mapView.map.setRegion(region, animated: true)
     }
 }

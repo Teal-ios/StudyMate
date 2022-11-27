@@ -16,15 +16,13 @@ enum APIService {
     case withdraw
     case update_fcm_token
     case mypage
-    case search
+    case search(lat: Double, long: Double)
     case myQueueState
     case queue(lat: Double, long: Double)
     case queueStop
     
 }
 
-
-// TargetType이라는 protocol을 채택하면 -> 서버 통신 시 필요한 요소들을 채택해서 사용할 수 있도록 유도
 extension APIService: TargetType {
     // base url
     var baseURL: URL {
@@ -56,7 +54,7 @@ extension APIService: TargetType {
         return ["Content-Type": "application/x-www-form-urlencoded", "idtoken" : UserDefaultsHelper.standard.idToken!]
     }
     
-    // method (.get, .post, .delete, .patch 등의 어떤 통신을 할 것인가?)
+    //MARK: method (.get, .post, .delete, .patch 등의 어떤 통신을 할 것인가?)
     var method: Moya.Method {
         switch self {
         case .user, .withdraw, .queue, .search:
@@ -70,17 +68,12 @@ extension APIService: TargetType {
         }
     }
     
-    // 서버를 연결하기 전, mock data
+    //MARK: 서버를 연결하기 전의 Mock Data
     var sampleData: Data {
         return Data()
     }
     
-    // request를 어떻게 가공해서 보낼 것인가?
-    // 1. request body로 보낼 것인가?
-    // 2. query parameter로 보낼 것인가?
-    // 3. JSON으로 보낼 것인가? 등등 ..
-    
-    
+    //MARK: 요청
     var task: Moya.Task {
         switch self {
         case .login:
@@ -121,8 +114,8 @@ extension APIService: TargetType {
                                    , encoding: URLEncoding(arrayEncoding: .noBrackets))
         case .queueStop:
             return .requestPlain
-        case .search:
-            return .requestParameters(parameters: ["lat": 37.51818789942772, "long" : 126.88541765534976], encoding: URLEncoding.default)
+        case .search(let lat, let long):
+            return .requestParameters(parameters: ["lat": lat, "long" : long], encoding: URLEncoding.default)
             
         case .myQueueState:
             return .requestPlain
