@@ -18,7 +18,6 @@ open class BaseViewController: UIViewController {
     
     func configure() {
         view.backgroundColor = .white
-//        navigationController?.navigationBar.topItem?.title = " "
     }
     
     func naviSet() {

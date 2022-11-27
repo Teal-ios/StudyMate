@@ -10,6 +10,7 @@ import MapKit
 import CoreLocation
 import RxSwift
 import RxCocoa
+import Toast
 
 class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
     
@@ -18,25 +19,37 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     let disposeBag = DisposeBag()
     
+    //MARK: - LifeCycle
     override func loadView() {
-        view = mapView
+        super.view = mapView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        locationManager.requestWhenInUseAuthorization()
-        mapView.map.delegate = self
-        locationManager.delegate = self
-        
+
         buttonActions()
-//        myQueueState()
-        viewModel.requestSearchData(lat: 37.517829, long: 126.886270)
         bind()
-        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.myQueueState()
+    }
+    
+    //MARK: - Bind
     private func bind() {
+        
+        //myQueue통신 후 상태 확인
+        switch viewModel.myQueueState() {
+        case matchState.matching.rawValue:
+            self.mapView.statusButton.setImage(matchState.matching.imageName, for: .normal)
+        case matchState.matched.rawValue:
+            self.mapView.statusButton.setImage(matchState.matched.imageName, for: .normal)
+        case matchState.normal.rawValue:
+            self.mapView.statusButton.setImage(matchState.normal.imageName, for: .normal)
+        default:
+            self.mapView.makeToast("등록되지 않은 상태입니다.")
+        }
+                
         viewModel.searchData
             .asDriver(onErrorJustReturn: SearchResponse(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
             .drive(onNext: { [weak self] value in
@@ -44,7 +57,15 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
                 self.viewModel.addAnnotation(map: self.mapView.map, data: value)
             })
     }
-
+    
+    //MARK: - Configure
+    override func configure() {
+        super.configure()
+        
+        mapView.map.delegate = self
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+    }
 
     @objc func findMyLocation() {
         
@@ -52,36 +73,52 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
             checkUserLocationServicesAuthorization()
             return
         }
-        
         mapView.map.showsUserLocation = true
         mapView.map.setUserTrackingMode(.follow, animated: true)
-        
     }
     
     @objc func findSeSAC() {
-        transition(StudyViewController(), transitionStyle: .push)
+        
+        switch viewModel.myQueueState() {
+            case matchState.matching.rawValue:
+                transition(FindSeSACViewController(), transitionStyle: .push)
+            case matchState.matched.rawValue:
+                print("1-5화면인 채팅으로 넘어가야함")
+            case matchState.normal.rawValue:
+                transition(StudyViewController(), transitionStyle: .push)
+            default:
+                print()
+        }
     }
 
     func buttonActions() {
         mapView.gpsButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
         mapView.statusButton.addTarget(self, action: #selector(findSeSAC), for: .touchUpInside)
     }
-    
-    func myQueueState() {
-        MyQueueStateAPI.shared.requestMyQueueData { data, error, statusCode in
-            print("##########",data)
-            print("##########",statusCode)
-        }
-    }
 }
 
+//MARK: - Map Delegate
 extension HomeViewController: MKMapViewDelegate {
+    
+    // 처음 맵 뷰가 실행될 때 -> 권한 OK : 현재위치 아니면 영등포 캠퍼스
+    func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
+        guard let currentLocation = locationManager.location else {
+            checkUserLocationServicesAuthorization()
+            return
+        }
+        
+        self.mapView.map.showsUserLocation = true
+        self.mapView.map.setUserTrackingMode(.follow, animated: true)
+        
+        viewModel.requestSearchData(lat: locationManager.location?.coordinate.latitude ?? 37.517829, long: locationManager.location?.coordinate.longitude ?? 126.886270)
+    }
+    
+    // 위치가 이동할 때 통신 후 Annotation 잡아주기
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         
         print(mapView.centerCoordinate)
         mapView.removeAnnotations(mapView.annotations)
         viewModel.requestSearchData(lat: mapView.centerCoordinate.latitude, long: mapView.centerCoordinate.longitude)
-        
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -116,7 +153,6 @@ extension HomeViewController: MKMapViewDelegate {
             sesacImage = Annotation.gold.imageName
         }
         
-        
         sesacImage.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         annotationView?.image = resizedImage
@@ -124,7 +160,7 @@ extension HomeViewController: MKMapViewDelegate {
     }
 }
 
-//MARK: 권한 설정
+//MARK: - 권한 설정
 
 extension HomeViewController {
     func checkCurrentLocationAuthorization(authorizationStatus: CLAuthorizationStatus) {
@@ -201,9 +237,7 @@ extension HomeViewController {
 //MARK: - Map
 extension HomeViewController {
     private func setRegion(center: CLLocationCoordinate2D) {
-        print("region설정")
-        print("센터센터: \(center)")
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 800, longitudinalMeters: 800)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 700)
         mapView.map.setRegion(region, animated: true)
     }
 }

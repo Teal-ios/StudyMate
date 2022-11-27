@@ -114,6 +114,7 @@ class GenderViewController: BaseViewController, UICollectionViewDataSource, UICo
         let vc = MainTabBarViewController()
         UIView.transition(with: (sceneDelegate?.window)!, duration: 0.6, options: [.transitionCrossDissolve], animations: nil, completion: nil)
         let navi = UINavigationController(rootViewController: vc)
+        navi.isNavigationBarHidden = true
         sceneDelegate?.window?.rootViewController = navi
         sceneDelegate?.window?.makeKeyAndVisible()
         self.viewModel.successGender(gender: gender)

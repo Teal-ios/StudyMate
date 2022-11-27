@@ -21,27 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
-
-        //        if !UserDefaults.standard.bool(forKey: "OnBoarding") {
-        //            let vc = OnBoardingViewController()
-        //            window?.rootViewController = vc
-        //            window?.makeKeyAndVisible()
-        //        }
-        //        else {
-        //            if UserDefaults.standard.string(forKey: "idtoken") != nil {
-        //                let vc = NicknameViewController()
-        //                let nav = UINavigationController(rootViewController: vc)
-        //                window?.rootViewController = nav
-        //                window?.makeKeyAndVisible()
-        //            } else {
-        //                let vc = PhoneViewController()
-        //                let nav = UINavigationController(rootViewController: vc)
-        //                window?.rootViewController = nav
-        //                window?.makeKeyAndVisible()
-        //            }
-        //
-        //        }
-        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

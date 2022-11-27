@@ -26,21 +26,15 @@ class HomeViewModel {
         SearchAPI.shared.requestSearchData(lat: lat, long: long) { data, error, statusCode in
             print("requestSearchData")
             print("🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷",data, statusCode, error)
-            
             switch statusCode {
             case 200:
                 guard let data = data else { return }
                 self.searchData.accept(data)
-                
             default:
                 print("에러당에러야")
             }
             print(statusCode)
         }
-    }
-    
-    func moveSearchRequest() {
-        
     }
     
     func addAnnotation(map: MKMapView, data: SearchResponse) {
@@ -78,6 +72,30 @@ class HomeViewModel {
     
     func reloadLocation(location: CLLocationCoordinate2D) {
         self.requestSearchData(lat: location.latitude, long: location.longitude)
+    }
+    
+    func myQueueState() -> Int {
+        var num = 0
+        MyQueueStateAPI.shared.requestMyQueueData { data, error, statusCode in
+            switch statusCode {
+            case 200:
+                // 생각해보기
+                // matched(rawValue: data?.matched)
+
+                if data?.matched == matched.matched.rawValue {
+                    print("매칭 대기중 상태")
+                    num = 1
+                } else {
+                    print("매칭 상태")
+                    num = 2
+                }
+            default:
+                print("미등록 에러")
+                num = 0
+            }
+            print("myQueue 통신",statusCode, data)
+        }
+        return num
     }
 }
 

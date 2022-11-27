@@ -30,7 +30,7 @@ final class LaunchScreenViewController: BaseViewController {
     }
     
     override func loadView() {
-        super.view = mainview
+        view = mainview
         mainview.backgroundColor = .white
     }
     

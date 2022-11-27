@@ -20,9 +20,9 @@ extension MyQueueStateError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .matchingCheckingOK:
-            return "id토큰이 만료되었습니다. 갱신해주세요"
+            return "매칭 상태 확인 성공"
         case .normalStatus:
-            return "미가입 유저입니다."
+            return "일반 상태"
         case .firebaseTokenRefresh:
             return "토큰 갱신 필요"
         case .notSignUp:
