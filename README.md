@@ -28,6 +28,8 @@
 | 22.11.24(목) | 검색뷰 구성 완료 - CollectionView                            | Diffable로 후에 다시 개선해보기                              |
 | 22.11.25(금) | HomeVC 통신해서 다른 새싹 위치 반영 완료                     | 값 전달의 필요성을 깨달음                                    |
 | 22.11.26(토) | Home 로직 개선 및 Protocol 값 전달해 네트워크 값 넣어주기    | HomeVC 고려해야할게 완전 많다...                             |
+| 22.11.27(일) | Home 마커 이동 시 데이터 전환 완료                           | Protocol 값전달 진짜 마스터!!                                |
+| 22.11.28(월) | Image / String Enum 처리 / HomeVC State 따라 분기 처리 완료  | 코드 정리는 미리미리... 리팩도 꾸준히 하기!!                 |
 
 ---
 
@@ -534,8 +536,6 @@ extension LoginError: LocalizedError {
 - SearchView 구성 - 각 셀 클릭시 나타나는 기능 구현 실패
 - Mapkit 설정 완료
 
-
-
 #### SearchView 구성 - 각 셀 클릭시 나타나는 기능 구현 실패
 
 서치 뷰를 구성할 때, 테이블 뷰 안에 두개의 디퍼블 컬렉션 뷰를 넣고, 컴포지셔널 레이아웃으로 잡아줬는데 다른 셀끼리 데이터 전달을 실패.
@@ -551,6 +551,14 @@ extension LoginError: LocalizedError {
 - 내 친구 찾기 UI 구성
 - SearchView 구성 - 기능 구현 실패
 
+#### 내 친구 찾기 UI 구성
+
+카드뷰 재사용으로 UI먼저 구성 - 중복 데이터 처리를 하지 못하는 Issue 발생.
+
+#### SearchView 구성 - 기능 구현 실패
+
+
+
 ---
 
 ### 22.11.20(일)
@@ -559,13 +567,19 @@ extension LoginError: LocalizedError {
 - 내정보 관리 PUT Network 통신 완료
 - SearchView CollectionView 화면 구성 - 구현 실패
 
+#### 내 주변 친구 찾기 기능 구성 - 실패
+
+#### 내정보 관리 PUT Network 통신 완료
+
+#### SearchView CollectionView 화면 구성 - 구현 실패
+
 ---
 
 ### 22.11.21(월)
 
 - SearchView CollectionView 1개로 재구성 - 구현 실패
 
-
+#### SearchView CollectionView 1개로 재구성 - 구현 실패
 
 ---
 
@@ -573,11 +587,15 @@ extension LoginError: LocalizedError {
 
 - SearchView Cell 하나로 섹션 분리 도전 - 구현 실패
 
+#### SearchView Cell 하나로 섹션 분리 도전 - 구현 실패
+
 ---
 
 ### 22.11.23(수)
 
 - SearchView Section 3개 / Cell 3개 - 구현 실패
+
+#### SearchView Section 3개 / Cell 3개 - 구현 실패
 
 ---
 
@@ -585,14 +603,54 @@ extension LoginError: LocalizedError {
 
 - 검색뷰 구성 완료
 
+#### 검색뷰 구성 완료
+
 ---
 
 ### 22.11.25(금)
 
 - HomeVC 통신해서 다른 새싹 위치 반영 완료
 
+#### HomeVC 통신해서 다른 새싹 위치 반영 완료
+
 ---
 
 ### 22.11.26(토)
 
 - Home Logic 추가 및 Protocol 값전달 완료
+
+#### Home Logic 추가 및 Protocol 값전달 완료
+
+---
+
+### 22.11.27(일)
+
+- Home 마커 이동 시 데이터 전환 완료
+
+#### Home 마커 이동 시 데이터 전환 완료
+
+Home VC에서 regionDidChange 메서드를 사용해서 어노테이션을 지워주고, 뷰 모델에서 재통신을 해주는 로직을 구현하였다.
+
+~~~swift
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        
+        print(mapView.centerCoordinate)
+        mapView.removeAnnotations(mapView.annotations)
+        viewModel.requestSearchData(lat: mapView.centerCoordinate.latitude, long: mapView.centerCoordinate.longitude)
+    }
+~~~
+
+이러니 과호출 문제도 해결되었다.
+
+---
+
+### 22.11.28(월)
+
+- Image / String Enum으로 묶기
+- Home VC State에 따라 분기 처리 완료
+
+#### Image / String Enum으로 묶기
+
+Enum과 Switch를 활용해서 다 row한 값들을 묶어주었다. 근데 다 작성하고 보니, 피드백으로 Image 같은 부분을 static let으로 묶는게 더 좋을 것 같다고 받아서, 후에 리팩토링 할 예정.
+
+#### Home VC State에 따라 분기 처리 완료

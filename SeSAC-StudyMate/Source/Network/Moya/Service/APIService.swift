@@ -8,9 +8,7 @@
 import Foundation
 import Moya
 
-// 영화 API에서 사용할 Service를 case 별로 관리
 enum APIService {
-    // 트렌드 미디어 API
     case user
     case login
     case withdraw
@@ -20,7 +18,6 @@ enum APIService {
     case myQueueState
     case queue(lat: Double, long: Double)
     case queueStop
-    
 }
 
 extension APIService: TargetType {

@@ -155,7 +155,6 @@ extension StudyViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 appendSelectedStudy(study: study)
             }
         default:
-            //myStudyList에서 제거
             viewModel.removeMyStudyListElement(item: indexPath.item)
         }
     }
