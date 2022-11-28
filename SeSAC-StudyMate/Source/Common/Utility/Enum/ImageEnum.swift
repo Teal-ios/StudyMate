@@ -32,6 +32,14 @@ enum ImageEnum: Int {
     case moreArrow_2
     
     case filterControl
+    case mapmaker
+    case place
+    case delete
+    
+    case tabHome
+    case tabShop
+    case tabFriend
+    case tabInfo
 }
 
 extension ImageEnum {
@@ -83,6 +91,20 @@ extension ImageEnum {
         case .filterControl:
             return UIImage(named: "filter_control")
 
+        case .mapmaker:
+            return UIImage(named: "map_marker")
+        case .place:
+            return UIImage(named: "place")
+        case .delete:
+            return UIImage(systemName: "close_small")
+        case .tabHome:
+            return UIImage.init(named: "tabHome.gray")
+        case .tabShop:
+            return UIImage.init(named: "tabShop.gray")
+        case .tabFriend:
+            return UIImage.init(named: "tabFriend.gray")
+        case .tabInfo:
+            return UIImage.init(named: "tabInfo.gray")
         }
     }
 }

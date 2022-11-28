@@ -20,15 +20,16 @@ class MainTabBarViewController: UITabBarController {
         let InfoVC = InfoViewController()
         
         //각 tab bar의 viewcontroller 타이틀 설정
-        HomeVC.title = "홈"
-        ShopVC.title = "새싹샵"
-        FriendVC.title = "새싹친구"
-        InfoVC.title = "내정보"
+        HomeVC.title = MainEnum.home.text
+        ShopVC.title = MainEnum.shop.text
+        FriendVC.title = MainEnum.friend.text
+        FriendVC.title = MainEnum.friend.text
+        InfoVC.title = MainEnum.myInfo.text
         
-        HomeVC.tabBarItem.image = UIImage.init(named: "tabHome.gray")
-        ShopVC.tabBarItem.image = UIImage.init(named: "tabShop.gray")
-        FriendVC.tabBarItem.image = UIImage.init(named: "tabFriend.gray")
-        InfoVC.tabBarItem.image =  UIImage.init(named: "tabInfo.gray")
+        HomeVC.tabBarItem.image = ImageEnum.tabHome.image
+        ShopVC.tabBarItem.image = ImageEnum.tabShop.image
+        FriendVC.tabBarItem.image = ImageEnum.tabFriend.image
+        InfoVC.tabBarItem.image =  ImageEnum.tabInfo.image
 
         let navigationHome = UINavigationController(rootViewController: HomeVC)
         let navigationShop = UINavigationController(rootViewController: ShopVC)

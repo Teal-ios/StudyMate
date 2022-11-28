@@ -80,7 +80,6 @@ final class StudyViewController: BaseViewController {
         //MARK: Rxkeyboard에선 두 가지 드라이버를 제공 frame, visibleHeight. 싱글턴
         RxKeyboard.instance.visibleHeight
             .drive(onNext: { [weak self] value in
-                print("키보드 높인가 \(value)")
                 self?.mainView.searchButton.snp.removeConstraints()
                 self?.changeSearchButtonConstraints(value: value)
             })
@@ -145,7 +144,7 @@ extension StudyViewController: UICollectionViewDelegate, UICollectionViewDataSou
         switch collectionView {
         case mainView.aroundCollectionView:
             if viewModel.checkMyStudyListCountAlready() {
-                self.mainView.makeToast("8개 이상 등록할 수 없습니다.")
+                self.mainView.makeToast(ToastEnum.tooManyRegistration.message)
                 return
             }
             if indexPath.section == 0 {
@@ -165,7 +164,7 @@ extension StudyViewController: UICollectionViewDelegate, UICollectionViewDataSou
 extension StudyViewController {
     private func appendSelectedStudy(study: String) {
         if viewModel.checkElementExist(study: study) {
-            self.mainView.makeToast("중복된 값은 등록할 수 없습니다.")
+            self.mainView.makeToast(ToastEnum.duplicateValue.message)
             return
         }
         viewModel.appendMyStudyListElement(study: study)
@@ -179,25 +178,25 @@ extension StudyViewController {
         let studyArr = viewModel.createStringArray(text: text)
         
         if viewModel.checkAlreadyExist(list: studyArr) {
-            self.mainView.makeToast("중복된 리스트입니다.")
+            self.mainView.makeToast(ToastEnum.duplicateList.message)
 
             return
         }
         //추가하면 8개가 넘는지 확인
         if viewModel.checkMyStudyListCount(list: studyArr) {
-            self.mainView.makeToast("8개 이상 등록이 불가능합니다.")
+            self.mainView.makeToast(ToastEnum.tooManyRegistration.message)
 
             return
         }
         //현재 리스트에서 8자 이상이 있는지 확인
         if viewModel.checkTextCount(list: studyArr) {
-            self.mainView.makeToast("8자 이상 등록이 불가능합니다.")
+            self.mainView.makeToast(ToastEnum.tooManyChracater.message)
 
             return
         }
         //공백만 입력되었는지
         if viewModel.checkOnlyEmpty(list: studyArr) {
-            self.mainView.makeToast("공백만 입력해주세요.")
+            self.mainView.makeToast(ToastEnum.onlyBin.message)
 
             return
         }

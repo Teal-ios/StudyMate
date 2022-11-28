@@ -56,7 +56,7 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             transition(InfoManageViewController(), transitionStyle: .push)
         default:
-            self.mainview.makeToast("준비중입니다.")
+            self.mainview.makeToast(ToastEnum.comingSoon.message)
         }
     }
     

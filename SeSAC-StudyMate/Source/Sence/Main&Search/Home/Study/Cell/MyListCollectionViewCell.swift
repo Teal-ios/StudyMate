@@ -32,7 +32,7 @@ final class MyListCollectionViewCell: BaseCollectionViewCell {
         var configuration = UIButton.Configuration.filled()
         configuration.baseForegroundColor = .brandGreen
         configuration.baseBackgroundColor = .clear
-        configuration.image = UIImage(systemName: "close_small")
+        configuration.image = ImageEnum.delete.image
         configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 12)
         button.configuration = configuration
         return button
@@ -41,8 +41,6 @@ final class MyListCollectionViewCell: BaseCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    
-
     
     override func configureUI() {
         super.configureUI()

@@ -21,7 +21,12 @@ enum MainEnum {
     case wantStudy
     case review
     case firstReview
-    
+    case nowAround
+    case wantToDo
+    case home
+    case shop
+    case friend
+    case myInfo
 }
 
 extension MainEnum {
@@ -52,6 +57,18 @@ extension MainEnum {
             return "새싹 리뷰"
         case .firstReview:
             return "첫 리뷰를 기다리는 중이에요!"
+        case .nowAround:
+            return "지금 주변에는"
+        case .wantToDo:
+            return "내가 하고싶은"
+        case .home:
+            return "홈"
+        case .shop:
+            return "새싹샵"
+        case .friend:
+            return "새싹친구"
+        case .myInfo:
+            return "내정보"
         }
     }
 }

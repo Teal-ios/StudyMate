@@ -36,13 +36,6 @@
 		2F3F5B7B2925FD34005EF93F /* SLPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7A2925FD34005EF93F /* SLPModel.swift */; };
 		2F3F5B7E2925FEC1005EF93F /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */; };
 		2F3F5B8029261236005EF93F /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7F29261236005EF93F /* LoginError.swift */; };
-		2F6C948A2927792400A1B5E6 /* SeSACFindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C94892927792400A1B5E6 /* SeSACFindViewController.swift */; };
-		2F6C948D29277CF000A1B5E6 /* nowAroundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C948C29277CF000A1B5E6 /* nowAroundTableViewCell.swift */; };
-		2F6C948F292785F800A1B5E6 /* wantToDoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C948E292785F800A1B5E6 /* wantToDoTableCell.swift */; };
-		2F6C9491292787B600A1B5E6 /* wantToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C9490292787B600A1B5E6 /* wantToDoView.swift */; };
-		2F6C949329278B2B00A1B5E6 /* nowAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C949229278B2B00A1B5E6 /* nowAroundView.swift */; };
-		2F6C949529278D8E00A1B5E6 /* wantToDoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C949429278D8E00A1B5E6 /* wantToDoCollectionViewCell.swift */; };
-		2F6C949729278F2C00A1B5E6 /* nowAroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C949629278F2C00A1B5E6 /* nowAroundCollectionViewCell.swift */; };
 		2F8E1CBF291FB5440087935A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */; };
 		2F9F31A4292B46F600281816 /* MyQueueStateResponese.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F31A3292B46F600281816 /* MyQueueStateResponese.swift */; };
 		2F9F31A8292B4B3700281816 /* QueueRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F31A7292B4B3700281816 /* QueueRequest.swift */; };
@@ -79,9 +72,6 @@
 		2FAEF4852930B2F20046E22B /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAEF4842930B2F20046E22B /* Annotation.swift */; };
 		2FB151A8292DF27000742F7D /* SearchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB151A7292DF27000742F7D /* SearchError.swift */; };
 		2FB151AA292DF2D500742F7D /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB151A9292DF2D500742F7D /* SearchAPI.swift */; };
-		2FB151AD292E253700742F7D /* nowAroundRedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB151AC292E253700742F7D /* nowAroundRedCollectionViewCell.swift */; };
-		2FB151AF292E257E00742F7D /* nowAroundRedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB151AE292E257E00742F7D /* nowAroundRedTableViewCell.swift */; };
-		2FB151B1292E2CC200742F7D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB151B0292E2CC200742F7D /* SearchViewController.swift */; };
 		2FBD9725292A90B0008FBA04 /* MyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD9724292A90B0008FBA04 /* MyPageModel.swift */; };
 		2FBD9727292A93A7008FBA04 /* MyPageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */; };
 		2FC61FA7292757D000CA11F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC61FA6292757D000CA11F3 /* HomeView.swift */; };
@@ -162,13 +152,6 @@
 		2F3F5B7A2925FD34005EF93F /* SLPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPModel.swift; sourceTree = "<group>"; };
 		2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		2F3F5B7F29261236005EF93F /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
-		2F6C94892927792400A1B5E6 /* SeSACFindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACFindViewController.swift; sourceTree = "<group>"; };
-		2F6C948C29277CF000A1B5E6 /* nowAroundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowAroundTableViewCell.swift; sourceTree = "<group>"; };
-		2F6C948E292785F800A1B5E6 /* wantToDoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wantToDoTableCell.swift; sourceTree = "<group>"; };
-		2F6C9490292787B600A1B5E6 /* wantToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wantToDoView.swift; sourceTree = "<group>"; };
-		2F6C949229278B2B00A1B5E6 /* nowAroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowAroundView.swift; sourceTree = "<group>"; };
-		2F6C949429278D8E00A1B5E6 /* wantToDoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wantToDoCollectionViewCell.swift; sourceTree = "<group>"; };
-		2F6C949629278F2C00A1B5E6 /* nowAroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowAroundCollectionViewCell.swift; sourceTree = "<group>"; };
 		2F8E1CBE291FB5440087935A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2F9F31A3292B46F600281816 /* MyQueueStateResponese.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQueueStateResponese.swift; sourceTree = "<group>"; };
 		2F9F31A7292B4B3700281816 /* QueueRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueRequest.swift; sourceTree = "<group>"; };
@@ -205,9 +188,6 @@
 		2FAEF4842930B2F20046E22B /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		2FB151A7292DF27000742F7D /* SearchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchError.swift; sourceTree = "<group>"; };
 		2FB151A9292DF2D500742F7D /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
-		2FB151AC292E253700742F7D /* nowAroundRedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowAroundRedCollectionViewCell.swift; sourceTree = "<group>"; };
-		2FB151AE292E257E00742F7D /* nowAroundRedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowAroundRedTableViewCell.swift; sourceTree = "<group>"; };
-		2FB151B0292E2CC200742F7D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2FBD9724292A90B0008FBA04 /* MyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModel.swift; sourceTree = "<group>"; };
 		2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAPI.swift; sourceTree = "<group>"; };
 		2FC61FA6292757D000CA11F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -421,7 +401,6 @@
 				2FD0504B292F44960045450E /* Study */,
 				2FCEF782292A0965003A1C5D /* FindSeSAC */,
 				2F6C9486292778D400A1B5E6 /* Main */,
-				2F6C9485292778C700A1B5E6 /* Search */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -496,17 +475,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		2F6C9485292778C700A1B5E6 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				2FB151AB292E179D00742F7D /* Controller */,
-				2F6C948B29277CC000A1B5E6 /* Cell */,
-				2F6C9490292787B600A1B5E6 /* wantToDoView.swift */,
-				2F6C949229278B2B00A1B5E6 /* nowAroundView.swift */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
 		2F6C9486292778D400A1B5E6 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,19 +484,6 @@
 				2FAEF4822930B25C0046E22B /* CustomAnnotation.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		2F6C948B29277CC000A1B5E6 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				2F6C948C29277CF000A1B5E6 /* nowAroundTableViewCell.swift */,
-				2F6C949629278F2C00A1B5E6 /* nowAroundCollectionViewCell.swift */,
-				2F6C948E292785F800A1B5E6 /* wantToDoTableCell.swift */,
-				2F6C949429278D8E00A1B5E6 /* wantToDoCollectionViewCell.swift */,
-				2FB151AC292E253700742F7D /* nowAroundRedCollectionViewCell.swift */,
-				2FB151AE292E257E00742F7D /* nowAroundRedTableViewCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		2F8E1CBA291FB4B20087935A /* Main&Search */ = {
@@ -758,15 +713,6 @@
 				2F2751D62922023B00391163 /* HomeViewController.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		2FB151AB292E179D00742F7D /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				2F6C94892927792400A1B5E6 /* SeSACFindViewController.swift */,
-				2FB151B0292E2CC200742F7D /* SearchViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		2FCEF782292A0965003A1C5D /* FindSeSAC */ = {
@@ -1058,12 +1004,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F6C949329278B2B00A1B5E6 /* nowAroundView.swift in Sources */,
 				2FAE3F622918D9DD0069579F /* UIFont+.swift in Sources */,
 				2FF877ED2924B45D0002C35E /* TitleCategoryCollectionViewCell.swift in Sources */,
 				2FD05058292F560E0045450E /* RecommendCollectionViewCell.swift in Sources */,
 				2F21D70B291B90A600429935 /* GenderViewModel.swift in Sources */,
-				2F6C949529278D8E00A1B5E6 /* wantToDoCollectionViewCell.swift in Sources */,
 				2FF877EB2924B4090002C35E /* MyDetailImageTableViewCell.swift in Sources */,
 				2F9F31AA292B4DFC00281816 /* SearchResponse.swift in Sources */,
 				2F21D6F7291B903000429935 /* NicknameViewModel.swift in Sources */,
@@ -1091,14 +1035,12 @@
 				2FFA7248291A340A00172240 /* PhoneViewController.swift in Sources */,
 				2FD0505E292F59FD0045450E /* StudyViewController.swift in Sources */,
 				2F21D709291B909D00429935 /* GenderViewController.swift in Sources */,
-				2F6C948A2927792400A1B5E6 /* SeSACFindViewController.swift in Sources */,
 				2F21D6F5291B902600429935 /* NicknameView.swift in Sources */,
 				2FAE3F592918D54F0069579F /* UIViewController+.swift in Sources */,
 				2FD4C9B8292095D100EEDEA8 /* MoyaPlugin.swift in Sources */,
 				2F2751E229222A8600391163 /* InfoViewModel.swift in Sources */,
 				2F21D6F9291B903E00429935 /* NicknameViewController.swift in Sources */,
 				2F21D701291B907C00429935 /* EmailView.swift in Sources */,
-				2FB151B1292E2CC200742F7D /* SearchViewController.swift in Sources */,
 				2F8E1CBF291FB5440087935A /* MainTabBarViewController.swift in Sources */,
 				2FF877E72924B2590002C35E /* MyStudyView.swift in Sources */,
 				2FAEF48129309D700046E22B /* HomewViewModel.swift in Sources */,
@@ -1120,13 +1062,11 @@
 				2FD05067292F7A7C0045450E /* QueueAPI.swift in Sources */,
 				2FAE3F5D2918D54F0069579F /* BaseCollectionViewCell.swift in Sources */,
 				2F21D6FF291B906900429935 /* BirthdayViewModel.swift in Sources */,
-				2F6C949729278F2C00A1B5E6 /* nowAroundCollectionViewCell.swift in Sources */,
 				2F21D6FB291B904D00429935 /* BirthdayViewController.swift in Sources */,
 				2F21D705291B908B00429935 /* EmailViewModel.swift in Sources */,
 				2FD05051292F44F60045450E /* StudyView.swift in Sources */,
 				2F2751DF29221FD000391163 /* InfoTableViewCell.swift in Sources */,
 				2FF877F32924FF000002C35E /* InfoManageViewModel.swift in Sources */,
-				2FB151AD292E253700742F7D /* nowAroundRedCollectionViewCell.swift in Sources */,
 				2FAE3F702918F6A90069579F /* OnBoardingViewController.swift in Sources */,
 				2FB151AA292DF2D500742F7D /* SearchAPI.swift in Sources */,
 				2FF877D92924A2410002C35E /* InfoManageTableViewCell.swift in Sources */,
@@ -1143,9 +1083,6 @@
 				2FF877DE2924AB700002C35E /* UIView+.swift in Sources */,
 				2FAE2C432923595A0015DBEB /* UserDefaultsHelper.swift in Sources */,
 				2FAEF4832930B25C0046E22B /* CustomAnnotation.swift in Sources */,
-				2F6C948D29277CF000A1B5E6 /* nowAroundTableViewCell.swift in Sources */,
-				2F6C948F292785F800A1B5E6 /* wantToDoTableCell.swift in Sources */,
-				2F6C9491292787B600A1B5E6 /* wantToDoView.swift in Sources */,
 				2F9F31A8292B4B3700281816 /* QueueRequest.swift in Sources */,
 				2F9F31AC292B4EB100281816 /* MyQueueStateAPI.swift in Sources */,
 				2F3F5B8029261236005EF93F /* LoginError.swift in Sources */,
@@ -1163,7 +1100,6 @@
 				2F21D703291B908500429935 /* EmailViewController.swift in Sources */,
 				2FD05056292F55090045450E /* MyListCollectionViewCell.swift in Sources */,
 				2FFA724A291A372500172240 /* PhoneView.swift in Sources */,
-				2FB151AF292E257E00742F7D /* nowAroundRedTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

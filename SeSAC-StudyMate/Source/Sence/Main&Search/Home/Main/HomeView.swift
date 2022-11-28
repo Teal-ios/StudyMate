@@ -21,7 +21,7 @@ class HomeView: BaseView{
         $0.makeShadow(color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor, radius: 1, offset: CGSize(width: 0, height: 1), opacity: 1)    }
     
     let gpsButton = UIButton().then {
-        $0.setImage(UIImage(named: "place"), for: .normal)
+        $0.setImage(ImageEnum.place.image, for: .normal)
         $0.backgroundColor = .white
         $0.setTitleColor(.black, for: .normal)
         $0.makeCornerStyle(radius: 8)
@@ -29,11 +29,11 @@ class HomeView: BaseView{
     }
     
     let statusButton = UIButton().then {
-        $0.setImage(UIImage(named: "Property 1=default"), for: .normal)
+        $0.setImage(ImageEnum.MatchStateState.image, for: .normal)
     }
     
     let fakeImgPinView = UIImageView().then {
-        $0.image = UIImage(named: "map_marker")
+        $0.image = ImageEnum.mapmaker.image
         $0.contentMode = .scaleAspectFit
     }
 
