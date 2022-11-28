@@ -39,10 +39,6 @@ final class InfoManageCardTableViewCell: BaseTableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16))
@@ -70,13 +66,13 @@ final class InfoManageCardTableViewCell: BaseTableViewCell {
             titleView.isHidden = true
             studyView.isHidden = true
             reviewView.isHidden = true
-            nameView.moreImageView.image = UIImage(named: "more_arrow 1")
+            nameView.moreImageView.image = ImageEnum.moreArrow_1.image
         }
          else {
             titleView.isHidden = false
             studyView.isHidden = false
             reviewView.isHidden = false
-            nameView.moreImageView.image = UIImage(named: "more_arrow 2")
+             nameView.moreImageView.image = ImageEnum.moreArrow_2.image
         }
     }
 }

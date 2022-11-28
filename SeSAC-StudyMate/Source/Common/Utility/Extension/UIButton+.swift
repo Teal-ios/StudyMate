@@ -205,7 +205,6 @@ final class PlainButton: UIButton {
     override var isSelected: Bool {
         didSet {
             configureSelectedColor(type: type)
-            print("선택")
         }
     }
         
@@ -238,7 +237,6 @@ final class PlainButton: UIButton {
     }
     
     private func configureDisableColor(type: PlainButtonType) {
-//        isUserInteractionEnabled = isEnable ? true : false
         let titleColor: UIColor = isEnable ? .white : UIColor.grayScale4
         setTitleColor(titleColor, for: .normal)
         backgroundColor = isEnable ? type.backgroundColor : UIColor.grayScale6

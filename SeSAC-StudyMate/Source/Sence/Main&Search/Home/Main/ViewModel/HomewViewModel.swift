@@ -80,9 +80,9 @@ class HomeViewModel {
             switch statusCode {
             case 200:
                 // 생각해보기
-                // matched(rawValue: data?.matched)
+                // Matched(rawValue: data?.matched)
 
-                if data?.matched == matched.matched.rawValue {
+                if data?.matched == Matched.matched.rawValue {
                     print("매칭 대기중 상태")
                     num = 1
                 } else {

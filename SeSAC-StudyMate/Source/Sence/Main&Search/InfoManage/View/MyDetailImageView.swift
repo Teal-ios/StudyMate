@@ -16,22 +16,18 @@ final class MyDetailImageView: BaseView {
     let backgroundImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
-        $0.image = UIImage(named: "sesac_background_2")
+        $0.image = ImageEnum.background_2.image
         $0.makeCornerStyle(width: 0, color: .none, radius: 8)
     }
+    
     let profileImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
-        $0.image = UIImage(named: "sesac_face_4")
+        $0.image = ImageEnum.SeSACFace4.image
     }
-    
     // MARK: - Initializer
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    }
-    
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: -  UI & Layout

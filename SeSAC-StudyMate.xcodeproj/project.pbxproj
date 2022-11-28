@@ -107,6 +107,9 @@
 		2FD5A00A291CF67C009102EF /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5A009291CF67C009102EF /* GenderCollectionViewCell.swift */; };
 		2FDD9BEB2921F0C300C87641 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9BEA2921F0C300C87641 /* LaunchScreenViewController.swift */; };
 		2FDD9BEF2921F0D900C87641 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9BEE2921F0D900C87641 /* LaunchScreenView.swift */; };
+		2FDF688229347B520005484C /* ImageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDF688129347B520005484C /* ImageEnum.swift */; };
+		2FDF688429347FC50005484C /* ToastEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDF688329347FC50005484C /* ToastEnum.swift */; };
+		2FDF6886293481F80005484C /* MainEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDF6885293481F80005484C /* MainEnum.swift */; };
 		2FF877D72924A1B70002C35E /* InfoManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877D62924A1B70002C35E /* InfoManageViewController.swift */; };
 		2FF877D92924A2410002C35E /* InfoManageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877D82924A2410002C35E /* InfoManageTableViewCell.swift */; };
 		2FF877DC2924A2BB0002C35E /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 2FF877DB2924A2BB0002C35E /* MultiSlider */; };
@@ -228,6 +231,9 @@
 		2FD5A009291CF67C009102EF /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FDD9BEA2921F0C300C87641 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		2FDD9BEE2921F0D900C87641 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		2FDF688129347B520005484C /* ImageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEnum.swift; sourceTree = "<group>"; };
+		2FDF688329347FC50005484C /* ToastEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastEnum.swift; sourceTree = "<group>"; };
+		2FDF6885293481F80005484C /* MainEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEnum.swift; sourceTree = "<group>"; };
 		2FF877D62924A1B70002C35E /* InfoManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManageViewController.swift; sourceTree = "<group>"; };
 		2FF877D82924A2410002C35E /* InfoManageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManageTableViewCell.swift; sourceTree = "<group>"; };
 		2FF877DD2924AB700002C35E /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -822,6 +828,9 @@
 				2FD05053292F45960045450E /* PlaceHolder.swift */,
 				2FAEF4842930B2F20046E22B /* Annotation.swift */,
 				2FCFC7602933A9CF00F33CF5 /* matchedEnum.swift */,
+				2FDF688129347B520005484C /* ImageEnum.swift */,
+				2FDF688329347FC50005484C /* ToastEnum.swift */,
+				2FDF6885293481F80005484C /* MainEnum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -868,7 +877,6 @@
 		2FDD9BE92921F08000C87641 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				2FDD9BED2921F0CA00C87641 /* ViewModel */,
 				2FDD9BEC2921F0C600C87641 /* View */,
 			);
 			path = LaunchScreen;
@@ -881,13 +889,6 @@
 				2FDD9BEE2921F0D900C87641 /* LaunchScreenView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		2FDD9BED2921F0CA00C87641 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2FF877D42924A17B0002C35E /* Cell */ = {
@@ -1107,6 +1108,7 @@
 				2FAE3F5C2918D54F0069579F /* BaseTableViewCell.swift in Sources */,
 				2FAE3F602918D5980069579F /* UIColor+.swift in Sources */,
 				2FAE2C41292359220015DBEB /* toastMessage.swift in Sources */,
+				2FDF688229347B520005484C /* ImageEnum.swift in Sources */,
 				2FAE2C3F292356AE0015DBEB /* APIError.swift in Sources */,
 				2F2751D92922024500391163 /* FriendViewController.swift in Sources */,
 				2FAEF4852930B2F20046E22B /* Annotation.swift in Sources */,
@@ -1130,6 +1132,8 @@
 				2FF877D92924A2410002C35E /* InfoManageTableViewCell.swift in Sources */,
 				2FF877E32924B11A0002C35E /* MyNameView.swift in Sources */,
 				2F21D6E4291B7F3200429935 /* PhoneCertificationViewController.swift in Sources */,
+				2FDF688429347FC50005484C /* ToastEnum.swift in Sources */,
+				2FDF6886293481F80005484C /* MainEnum.swift in Sources */,
 				2FAE3F582918D54F0069579F /* String+.swift in Sources */,
 				2FD4C9BC2920A6C700EEDEA8 /* UserAPI.swift in Sources */,
 				2F9F31AE292B515500281816 /* MyQueueStateError.swift in Sources */,

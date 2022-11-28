@@ -54,7 +54,7 @@ final class LaunchScreenViewController: BaseViewController {
                 case 501:
                     self.mainview.makeToast("\(LoginError(rawValue: statusCode)?.rawValue)")
                 default:
-                    return self.mainview.makeToast("등록되지 않은 에러입니다.")
+                    return self.mainview.makeToast(ToastEnum.notDefindError.message)
                 }
             }
         }
@@ -68,7 +68,7 @@ final class LaunchScreenViewController: BaseViewController {
             return;
           }
             UserDefaultsHelper.standard.idToken = idToken
-            print("refresh완료")
+            print(ToastEnum.refreshToken.message)
             self.loginLogic()
         }
     }

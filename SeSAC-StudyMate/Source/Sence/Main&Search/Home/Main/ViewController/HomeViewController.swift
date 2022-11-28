@@ -40,14 +40,14 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
         
         //myQueue통신 후 상태 확인
         switch viewModel.myQueueState() {
-        case matchState.matching.rawValue:
-            self.mapView.statusButton.setImage(matchState.matching.imageName, for: .normal)
-        case matchState.matched.rawValue:
-            self.mapView.statusButton.setImage(matchState.matched.imageName, for: .normal)
-        case matchState.normal.rawValue:
-            self.mapView.statusButton.setImage(matchState.normal.imageName, for: .normal)
+        case MatchState.matching.rawValue:
+            self.mapView.statusButton.setImage(MatchState.matching.imageName, for: .normal)
+        case MatchState.matched.rawValue:
+            self.mapView.statusButton.setImage(MatchState.matched.imageName, for: .normal)
+        case MatchState.normal.rawValue:
+            self.mapView.statusButton.setImage(MatchState.normal.imageName, for: .normal)
         default:
-            self.mapView.makeToast("등록되지 않은 상태입니다.")
+            self.mapView.makeToast(ToastEnum.notDefindError.message)
         }
                 
         viewModel.searchData
@@ -80,11 +80,11 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
     @objc func findSeSAC() {
         
         switch viewModel.myQueueState() {
-            case matchState.matching.rawValue:
+            case MatchState.matching.rawValue:
                 transition(FindSeSACViewController(), transitionStyle: .push)
-            case matchState.matched.rawValue:
+            case MatchState.matched.rawValue:
                 print("1-5화면인 채팅으로 넘어가야함")
-            case matchState.normal.rawValue:
+            case MatchState.normal.rawValue:
                 transition(StudyViewController(), transitionStyle: .push)
             default:
                 print()

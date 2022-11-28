@@ -24,7 +24,7 @@ final class MyTitleView: BaseView {
     private let titleLabel = UILabel().then {
         $0.textColor = UIColor.black
         $0.font = UIFont.Title6_R12
-        $0.text = "새싹 타이틀"
+        $0.text = MainEnum.title.text
     }
     
     lazy var titleCollectionView = UICollectionView(frame: .zero, collectionViewLayout: self.createLayout())
@@ -34,10 +34,6 @@ final class MyTitleView: BaseView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         configureDataSource()
-    }
-    
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Configure UI & Layout

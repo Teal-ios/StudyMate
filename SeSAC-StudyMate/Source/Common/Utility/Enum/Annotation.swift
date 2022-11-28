@@ -19,15 +19,15 @@ extension Annotation {
     var imageName: UIImage? {
         switch self {
         case .basic:
-            return UIImage(named: "sesac_face_1")
+            return ImageEnum.SeSACFace1.image
         case .strong:
-            return UIImage(named: "sesac_face_2")
+            return ImageEnum.SeSACFace2.image
         case .mint:
-            return UIImage(named: "sesac_face_3")
+            return ImageEnum.SeSACFace3.image
         case .purple:
-            return UIImage(named: "sesac_face_4")
+            return ImageEnum.SeSACFace4.image
         case .gold:
-            return UIImage(named: "sesac_face_5")
+            return ImageEnum.SeSACFace5.image
         }
     }
 }

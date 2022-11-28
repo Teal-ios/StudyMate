@@ -126,25 +126,6 @@ final class InfoManageViewController: BaseViewController {
 
     
     @objc func saveButtonClicked() {
-//        var searchable = 1
-//        if InfoManageTableViewCell().numberSwitch.isOn == true {
-//            searchable = 1
-//        } else {
-//            searchable = 0
-//        }
-//
-//        var ageMin = InfoManageTableViewCell().ageSlider.value[0]
-//
-//        var ageMax = InfoManageTableViewCell().ageSlider.value[1]
-//
-//        var gender = 0
-//
-//        if InfoManageTableViewCell().maleButton.backgroundColor == UIColor.brandGreen {
-//            gender = 1
-//        } else {
-//            gender = 0
-//        }
-//        if self.viewModel.accept == true
         updateMypage = myPage(searchable: self.viewModel.accept ? 1 : 0, ageMin: self.viewModel.minage, ageMax: self.viewModel.maxage, gender: self.viewModel.gender, study: self.viewModel.study)
         MyPageAPI.shared.MyPageUpdate { statusCode, error in
             print(statusCode)
@@ -172,7 +153,7 @@ final class InfoManageViewController: BaseViewController {
             case 501:
                 self.tableView.makeToast("\(LoginError(rawValue: statusCode)?.rawValue)")
             default:
-                return self.tableView.makeToast("등록되지 않은 에러입니다.")
+                return self.tableView.makeToast(ToastEnum.notDefindError.message)
             }
         }
     }

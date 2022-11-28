@@ -7,36 +7,30 @@
 
 import UIKit
 
-enum matched: Int {
+enum Matched: Int {
     case matched
     case notMatched
 }
 
-enum dodged: Int {
+enum Dodged: Int {
     case dodged
     case cancelStudy
 }
 
-enum matchState: Int {
+enum MatchState: Int {
     case matching
     case matched
     case normal
 }
-extension matchState {
+extension MatchState {
     var imageName: UIImage? {
         switch self {
         case .matching:
-            return UIImage(named: "Property 1=matching")
+            return ImageEnum.MatchStateMatching.image
         case .matched:
-            return UIImage(named: "Property 1=matched")
+            return ImageEnum.MatchStateMatched.image
         case .normal:
-            return UIImage(named: "Property 1=default")
+            return ImageEnum.MatchStateState.image
         }
     }
 }
-
-
-//enum reviewed: Int {
-//    case notReviewed
-//    case reviewd
-//}

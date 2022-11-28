@@ -21,7 +21,7 @@ final class MyNameView: BaseView {
     }
         
     let moreImageView = UIImageView().then {
-        $0.image = UIImage(named: "more_arrow 1")
+        $0.image = ImageEnum.moreArrow_1.image
     }
         
     // MARK: - Initializer
@@ -30,9 +30,6 @@ final class MyNameView: BaseView {
         super.init(frame: .zero)
     }
     
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // MARK: - Configure UI & Layout
     

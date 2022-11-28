@@ -23,29 +23,25 @@ final class MyReviewView: BaseView {
     private let reviewTitleLabel = UILabel().then {
         $0.textColor = UIColor.black
         $0.font = UIFont.Title6_R12
-        $0.text = "새싹 리뷰"
+        $0.text = MainEnum.review.text
     }
     
     let reviewLabel = UILabel().then {
         $0.font = UIFont.Body3_R14
-        $0.text = "첫 리뷰를 기다리는 중이에요!"
+        $0.text = MainEnum.firstReview.text
         $0.textColor = UIColor.grayScale6
     }
     
     private let reviewBottomView = UIView()
 
     let moreButton = UIButton().then {
-        $0.setImage(UIImage(named: "more_arrow"), for: .normal)
+        $0.setImage(ImageEnum.moreArrow.image, for: .normal)
     }
 
     // MARK: - Initializer
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-    }
-    
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Configure UI & Layout

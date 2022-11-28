@@ -16,7 +16,7 @@ final class MyDetailImageTableViewCell: BaseTableViewCell {
     let profileImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
-        $0.image = UIImage(named: "sesac_background_2")
+        $0.image = Annotation.strong.imageName
         $0.makeCornerStyle(width: 0, color: .none, radius: 8)
     }
     
@@ -26,10 +26,7 @@ final class MyDetailImageTableViewCell: BaseTableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
     // MARK: -  UI & Layout
     
     override func configureLayout() {

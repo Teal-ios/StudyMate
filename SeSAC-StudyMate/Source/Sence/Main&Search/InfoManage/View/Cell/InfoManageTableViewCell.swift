@@ -20,36 +20,36 @@ final class InfoManageTableViewCell: BaseTableViewCell {
     
     weak var infoCellDelegate: sliderDelegate?
     
-    var ageRange: String = "18 - 65" {
+    var ageRange: String = MainEnum.ageRange.text {
         didSet {
             rangeLabel.text = oldValue
         }
     }
     
     private let genderLabel = UILabel().then {
-        $0.text = "내 성별"
+        $0.text = MainEnum.myGender.text
     }
     
     let maleButton = PlainButton(.grayLine, height: .h48).then {
-        $0.title = "남자"
+        $0.title = MainEnum.man.text
         $0.addTarget(self, action: #selector(maleButtonClicked), for: .touchUpInside)
     }
     
     let femaleButton = PlainButton(.grayLine, height: .h48).then {
-        $0.title = "여자"
+        $0.title = MainEnum.female.text
         $0.addTarget(self , action: #selector(femaleButtonClicked), for: .touchUpInside)
 
     }
     
     private let studyLabel = UILabel().then {
-        $0.text = "자주 하는 스터디"
+        $0.text = MainEnum.frequentStudy.text
     }
     
     let textField = UITextField().then {
         $0.font = UIFont.Title4_R14
         $0.textColor = .black
         $0.borderStyle = .none
-        $0.placeholder = "스터디를 입력해 주세요"
+        $0.placeholder = PlaceHolder.writeStudy.text
     }
     
     private let lineView = UIView().then {
@@ -57,7 +57,7 @@ final class InfoManageTableViewCell: BaseTableViewCell {
     }
     
     private let numberLabel = UILabel().then {
-        $0.text = "내 번호 검색 허용"
+        $0.text = MainEnum.allowMyPhone.text
     }
     
     let numberSwitch = UISwitch().then {
@@ -67,7 +67,7 @@ final class InfoManageTableViewCell: BaseTableViewCell {
     }
     
     private let ageLabel = UILabel().then {
-        $0.text = "상대방 연령대"
+        $0.text = MainEnum.opponentAge.text
     }
     
     let ageSlider = MultiSlider().then {
@@ -79,7 +79,7 @@ final class InfoManageTableViewCell: BaseTableViewCell {
         $0.tintColor = UIColor.brandGreen
         $0.trackWidth = 4
         $0.showsThumbImageShadow = true
-        $0.thumbImage = UIImage(named: "filter_control")
+        $0.thumbImage = ImageEnum.filterControl.image
         $0.keepsDistanceBetweenThumbs = true
         $0.addTarget(self, action: #selector(sliderChanged), for: .valueChanged)
     }
@@ -87,23 +87,19 @@ final class InfoManageTableViewCell: BaseTableViewCell {
     let rangeLabel = UILabel().then {
         $0.font = UIFont.Title3_M14
         $0.textColor = UIColor.brandGreen
-        $0.text = "18 - 65"
+        $0.text = MainEnum.ageRange.text
     }
     
     let withdrawButton = UIButton()
     
     private let withdrawLabel = UILabel().then {
-        $0.text = "회원탈퇴"
+        $0.text = MainEnum.allowMyPhone.text
     }
     
     // MARK: - Initializer
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {
@@ -207,7 +203,6 @@ final class InfoManageTableViewCell: BaseTableViewCell {
     
     @objc func sliderChanged(_ sender: MultiSlider) {
         print(sender.minimumValue, sender.maximumValue)
-//        rangeLabel.text = "\(Int(sender.value[0]))" + " - " + "\(Int(sender.value[1]))"
         var min = ageSlider.value[0]
         var max = ageSlider.value[1]
         

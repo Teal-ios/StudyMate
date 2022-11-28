@@ -26,7 +26,7 @@ final class MyStudyView: BaseView {
     private let studyLabel = UILabel().then {
         $0.textColor = UIColor.black
         $0.font = UIFont.Title6_R12
-        $0.text = "하고 싶은 스터디"
+        $0.text = MainEnum.wantStudy.text
         
     }
 
@@ -41,9 +41,6 @@ final class MyStudyView: BaseView {
         configureDataSource()
     }
     
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // MARK: - Configure UI & Layout
     
