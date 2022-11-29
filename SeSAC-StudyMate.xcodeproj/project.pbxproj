@@ -42,6 +42,9 @@
 		2F9F31AA292B4DFC00281816 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F31A9292B4DFC00281816 /* SearchResponse.swift */; };
 		2F9F31AC292B4EB100281816 /* MyQueueStateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F31AB292B4EB100281816 /* MyQueueStateAPI.swift */; };
 		2F9F31AE292B515500281816 /* MyQueueStateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F31AD292B515500281816 /* MyQueueStateError.swift */; };
+		2FAB1B502935C63B00683D8F /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB1B4F2935C63B00683D8F /* CustomAlertView.swift */; };
+		2FAB1B532935C99800683D8F /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAB1B522935C99800683D8F /* Tabman */; };
+		2FAB1B552935CC9500683D8F /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB1B542935CC9500683D8F /* CustomAlertViewController.swift */; };
 		2FAE2C3C292298FF0015DBEB /* ScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */; };
 		2FAE2C3F292356AE0015DBEB /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C3E292356AE0015DBEB /* APIError.swift */; };
 		2FAE2C41292359220015DBEB /* toastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE2C40292359220015DBEB /* toastMessage.swift */; };
@@ -158,6 +161,8 @@
 		2F9F31A9292B4DFC00281816 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		2F9F31AB292B4EB100281816 /* MyQueueStateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQueueStateAPI.swift; sourceTree = "<group>"; };
 		2F9F31AD292B515500281816 /* MyQueueStateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQueueStateError.swift; sourceTree = "<group>"; };
+		2FAB1B4F2935C63B00683D8F /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		2FAB1B542935CC9500683D8F /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+.swift"; sourceTree = "<group>"; };
 		2FAE2C3E292356AE0015DBEB /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		2FAE2C40292359220015DBEB /* toastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toastMessage.swift; sourceTree = "<group>"; };
@@ -238,6 +243,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FAB1B532935C99800683D8F /* Tabman in Frameworks */,
 				2F21D6DD291B424900429935 /* FirebaseMessaging in Frameworks */,
 				2FD05065292F6BB70045450E /* RxKeyboard in Frameworks */,
 				2FFA7252291A40E300172240 /* RxSwift in Frameworks */,
@@ -507,6 +513,15 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		2FAB1B4E2935C61400683D8F /* ReuseItem */ = {
+			isa = PBXGroup;
+			children = (
+				2FAB1B4F2935C63B00683D8F /* CustomAlertView.swift */,
+				2FAB1B542935CC9500683D8F /* CustomAlertViewController.swift */,
+			);
+			path = ReuseItem;
+			sourceTree = "<group>";
+		};
 		2FAE2C3D2923569D0015DBEB /* APIError */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +612,7 @@
 		2FAE3F462918D54F0069579F /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				2FAB1B4E2935C61400683D8F /* ReuseItem */,
 				2FD05052292F458D0045450E /* Enum */,
 				2FFA723E291A1BC600172240 /* Font */,
 				2FAE3F472918D54F0069579F /* Extension */,
@@ -933,6 +949,7 @@
 				2FD4C9B0292090FD00EEDEA8 /* Moya */,
 				2FF877DB2924A2BB0002C35E /* MultiSlider */,
 				2FD05064292F6BB70045450E /* RxKeyboard */,
+				2FAB1B522935C99800683D8F /* Tabman */,
 			);
 			productName = "SeSAC-StudyMate";
 			productReference = 2FAE3F292918D4840069579F /* SeSAC-StudyMate.app */;
@@ -972,6 +989,7 @@
 				2FD4C9AF292090FD00EEDEA8 /* XCRemoteSwiftPackageReference "Moya" */,
 				2FF877DA2924A2BB0002C35E /* XCRemoteSwiftPackageReference "MultiSlider" */,
 				2FD05063292F6BB70045450E /* XCRemoteSwiftPackageReference "RxKeyboard" */,
+				2FAB1B512935C99700683D8F /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = 2FAE3F2A2918D4840069579F /* Products */;
 			projectDirPath = "";
@@ -1045,6 +1063,7 @@
 				2FF877E72924B2590002C35E /* MyStudyView.swift in Sources */,
 				2FAEF48129309D700046E22B /* HomewViewModel.swift in Sources */,
 				2FDD9BEB2921F0C300C87641 /* LaunchScreenViewController.swift in Sources */,
+				2FAB1B502935C63B00683D8F /* CustomAlertView.swift in Sources */,
 				2F2751DD29221F3400391163 /* InfoView.swift in Sources */,
 				2F2751DB2922024D00391163 /* InfoViewController.swift in Sources */,
 				2FAE3F5C2918D54F0069579F /* BaseTableViewCell.swift in Sources */,
@@ -1071,6 +1090,7 @@
 				2FB151AA292DF2D500742F7D /* SearchAPI.swift in Sources */,
 				2FF877D92924A2410002C35E /* InfoManageTableViewCell.swift in Sources */,
 				2FF877E32924B11A0002C35E /* MyNameView.swift in Sources */,
+				2FAB1B552935CC9500683D8F /* CustomAlertViewController.swift in Sources */,
 				2F21D6E4291B7F3200429935 /* PhoneCertificationViewController.swift in Sources */,
 				2FDF688429347FC50005484C /* ToastEnum.swift in Sources */,
 				2FDF6886293481F80005484C /* MainEnum.swift in Sources */,
@@ -1335,6 +1355,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		2FAB1B512935C99700683D8F /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.0.1;
+			};
+		};
 		2FAE3F642918EB7F0069579F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1416,6 +1444,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2F21D6D7291B424900429935 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		2FAB1B522935C99800683D8F /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FAB1B512935C99700683D8F /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
 		};
 		2FAE3F652918EB7F0069579F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
