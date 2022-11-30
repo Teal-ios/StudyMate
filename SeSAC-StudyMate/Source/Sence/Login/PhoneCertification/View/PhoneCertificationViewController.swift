@@ -59,7 +59,7 @@ class PhoneCertificationViewController: BaseViewController {
 
     func isPhoneSuccess() {
         self.mainview.makeToast("인증코드가 일치합니다.")
-        self.transition(NicknameViewController(), transitionStyle: .rootViewChanged)
+        self.transition(NicknameViewController(), transitionStyle: .presentFullScreen)
 
     }
     

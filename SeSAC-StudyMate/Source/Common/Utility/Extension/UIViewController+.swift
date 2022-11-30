@@ -39,6 +39,7 @@ extension UIViewController {
         case presentFullScreen
         case presentCrossDisolve
         case rootViewChanged
+        case overFullScreen
     }
     
     public func transition<T: UIViewController>(_ viewController: T, transitionStyle: TransitionStyle = .present, handler: ( (T) -> Void)? = nil) {
@@ -65,6 +66,11 @@ extension UIViewController {
             viewController.modalPresentationStyle = .overFullScreen
             viewController.modalTransitionStyle = .crossDissolve
             self.present(viewController, animated: true)
+            
+        case .overFullScreen:
+            let nav = UINavigationController(rootViewController: viewController)
+            nav.modalPresentationStyle = .overFullScreen
+            self.present(nav, animated: true)
             
         case .rootViewChanged:
             changeRootVC()

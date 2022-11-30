@@ -10,6 +10,7 @@ import SnapKit
 
 open class BaseView: UIView {
     
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -28,4 +29,7 @@ open class BaseView: UIView {
     func setConstraints() { }
     func configureLayout() { }
     func setupDelegate() { }
+
 }
+
+

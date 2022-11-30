@@ -12,7 +12,9 @@ import Then
 import RxSwift
 import MultiSlider
 
-final class InfoManageViewController: BaseViewController {
+final class InfoManageViewController: BaseViewController, WithdrawDelegate {
+
+    
     
     // MARK: - DisposeBag
     
@@ -112,6 +114,15 @@ final class InfoManageViewController: BaseViewController {
                 vc.viewModel.minage = Int(cell.ageSlider.value[0])
                 vc.viewModel.maxage = Int(cell.ageSlider.value[1])
             }
+        
+        cell.withdrawButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.transition(CustomAlertViewController())
+                print("taptap")
+            }
+        
+        cell.withdrawDelegate = self
     }
     
     // MARK: - @objce
@@ -122,8 +133,6 @@ final class InfoManageViewController: BaseViewController {
         cell.toggleButton.isSelected ? cell.changeView(isSelected: true) : cell.changeView(isSelected: false)
         tableView.reloadSections(IndexSet(), with: .fade)
     }
-    
-
     
     @objc func saveButtonClicked() {
         updateMypage = myPage(searchable: self.viewModel.accept ? 1 : 0, ageMin: self.viewModel.minage, ageMax: self.viewModel.maxage, gender: self.viewModel.gender, study: self.viewModel.study)
@@ -158,6 +167,11 @@ final class InfoManageViewController: BaseViewController {
         }
     }
     
+    func withdrawButtonTapped(tap: Bool) {
+        if tap {
+            self.transition(WithDrawAlertViewController(), transitionStyle: .overFullScreen)
+        }
+    }
 }
 
 // MARK: - TableView
@@ -201,8 +215,10 @@ extension InfoManageViewController: UITableViewDelegate, UITableViewDataSource {
                 infoCell.numberSwitch.isOn = true
             } else {
                 infoCell.numberSwitch.isOn = false
-
             }
+            //의존성 주입해서 연결
+            infoCell.withdrawDelegate = self
+            
             return infoCell
         }
     }

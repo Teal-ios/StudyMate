@@ -26,23 +26,27 @@ extension APIService: TargetType {
         return URL(string: "http://api.sesac.co.kr:1210")!
     }
     
+    var version: String {
+        return "/v1"
+    }
+    
     // base url 뒤로 붙는 각 API 별 path parameter
     var path: String {
         switch self {
         case .user, .login:
-            return "/v1/user"
+            return "\(version)/user"
         case .withdraw:
-            return "/v1/user/withdraw"
+            return "\(version)/user/withdraw"
         case .update_fcm_token:
-            return "/v1/user/update_fcm_token"
+            return "\(version)/user/update_fcm_token"
         case .mypage:
-            return "/v1/user/mypage"
+            return "\(version)/user/mypage"
         case .queue, .queueStop:
-            return "/v1/queue"
+            return "\(version)/queue"
         case .search:
-            return "/v1/queue/search"
+            return "\(version)/queue/search"
         case .myQueueState:
-            return "/v1/queue/myQueueState"
+            return "\(version)/queue/myQueueState"
         }
     }
     
@@ -85,13 +89,7 @@ extension APIService: TargetType {
                                                   ], encoding: URLEncoding.default)
                 
         case .withdraw:
-            return .requestCompositeParameters(bodyParameters: ["phoneNumber" : UserDefaults.standard.string(forKey: "phoneNumber")!,
-                                                                "FCMtoken" : UserDefaults.standard.string(forKey: "FCMtoken")!,
-                                                                "nick" : UserDefaults.standard.string(forKey: "nick")!,
-                                                                "birth" : UserDefaults.standard.string(forKey: "birth")!,
-                                                                "email" : UserDefaults.standard.string(forKey: "email")!,
-                                                                "gender" : UserDefaults.standard.integer(forKey: "gender")
-                                                               ], bodyEncoding: URLEncoding.default, urlParameters: ["Content-Type": "application/x-www-form-urlencoded"])
+            return .requestPlain
         case .update_fcm_token:
             return .requestCompositeParameters(bodyParameters: ["phoneNumber" : UserDefaults.standard.string(forKey: "phoneNumber")!,
                                                                 "FCMtoken" : UserDefaults.standard.string(forKey: "FCMtoken")!,

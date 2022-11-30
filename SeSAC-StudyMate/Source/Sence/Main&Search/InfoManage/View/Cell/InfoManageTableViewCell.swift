@@ -14,11 +14,16 @@ protocol sliderDelegate: AnyObject {
     func slider(min: Int, max: Int)
 }
 
+protocol WithdrawDelegate: AnyObject {
+    func withdrawButtonTapped(tap: Bool)
+}
+
 final class InfoManageTableViewCell: BaseTableViewCell {
     
     // MARK: - Property
     
     weak var infoCellDelegate: sliderDelegate?
+    weak var withdrawDelegate: WithdrawDelegate?
     
     var ageRange: String = MainEnum.ageRange.text {
         didSet {
@@ -90,11 +95,17 @@ final class InfoManageTableViewCell: BaseTableViewCell {
         $0.text = MainEnum.ageRange.text
     }
     
-    let withdrawButton = UIButton()
+    let withdrawButton = UIButton().then {
+        $0.backgroundColor = .clear
+        $0.addTarget(self , action: #selector(withdrawButtonClicked), for: .touchUpInside)
+
+    }
     
     private let withdrawLabel = UILabel().then {
-        $0.text = MainEnum.allowMyPhone.text
+        $0.text = MainEnum.withDrawal.text
     }
+    
+    
     
     // MARK: - Initializer
     
@@ -118,7 +129,7 @@ final class InfoManageTableViewCell: BaseTableViewCell {
     override func configureLayout() {
                 contentView.addSubviews([genderLabel, maleButton, femaleButton, studyLabel, textField, lineView,
                                          numberLabel, numberSwitch,
-                                         ageLabel, rangeLabel, ageSlider,
+                                         ageLabel, rangeLabel, ageSlider, withdrawButton,
                                          withdrawLabel])
         
         genderLabel.snp.makeConstraints { make in
@@ -183,6 +194,12 @@ final class InfoManageTableViewCell: BaseTableViewCell {
             make.height.equalTo(28)
         }
         
+        withdrawButton.snp.makeConstraints { make in
+            make.top.equalTo(ageSlider.snp.bottom).offset(12)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(100)
+        }
+        
         withdrawLabel.snp.makeConstraints { make in
             make.top.equalTo(ageSlider.snp.bottom).offset(29)
             make.leading.equalToSuperview()
@@ -237,6 +254,13 @@ final class InfoManageTableViewCell: BaseTableViewCell {
             }
         }
     }
+    
+    @objc func withdrawButtonClicked(_ sender: UIButton) {
+        print("taptap")
+        withdrawDelegate?.withdrawButtonTapped(tap: sender.isTouchInside)
+        print(sender.isTouchInside)
+    }
+    
     
     func buttonSettingWhite(_ sender: PlainButton) {
         sender.backgroundColor = UIColor.white

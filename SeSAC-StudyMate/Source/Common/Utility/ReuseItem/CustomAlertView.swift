@@ -8,7 +8,15 @@
 import UIKit
 import Then
 
+protocol withDrawButtonDelegate: AnyObject {
+    func cancelButtonTapped(tap: Bool)
+    func okButtonTapped(tap: Bool)
+}
+
 class CustomAlertView: BaseView {
+    
+    var withDrawButtonDelegate: withDrawButtonDelegate?
+    
     let bgView = UIView().then {
         $0.layer.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.5).cgColor
     }
@@ -23,14 +31,12 @@ class CustomAlertView: BaseView {
         $0.textColor = .black
         $0.font = UIFont.Body1_M16
         $0.textAlignment = .center
-        $0.text = "fasdfasdf"
     }
     
     let subtitleLabel = UILabel().then {
         $0.textColor = UIColor(red: 0.533, green: 0.533, blue: 0.533, alpha: 1)
         $0.font = UIFont.Title4_R14
         $0.textAlignment = .center
-        $0.text = "asdfasdf"
     }
     
     private lazy var buttonStackView = UIStackView(arrangedSubviews: [cancelButton, okButton]).then {
@@ -41,11 +47,13 @@ class CustomAlertView: BaseView {
 
     }
     
-    let cancelButton = PlainButton(.cancel, height: .h48).then {
+    private lazy var cancelButton = PlainButton(.cancel, height: .h48).then {
         $0.title = "취소"
+        $0.addTarget(self, action: #selector(cancelButtonClicked), for: .touchUpInside)
     }
-    let okButton = PlainButton(.fill, height: .h48).then {
+    private lazy var okButton = PlainButton(.fill, height: .h48).then {
         $0.title = "확인"
+        $0.addTarget(self, action: #selector(okButtonClicked), for: .touchUpInside)
     }
     
     override func configureUI() {
@@ -78,5 +86,18 @@ class CustomAlertView: BaseView {
             make.top.equalTo(subtitleLabel.snp.bottom).offset(8)
             make.leading.trailing.bottom.equalTo(alertView).inset(16)
         }
+    }
+    
+    @objc func cancelButtonClicked(_ sender: PlainButton) {
+        let tap = sender.isTouchInside
+        withDrawButtonDelegate?.cancelButtonTapped(tap: tap)
+        print(sender.isTouchInside)
+        print("제발눌려라")
+    }
+    
+    @objc func okButtonClicked(_ sender: PlainButton) {
+        print(sender.isTouchInside)
+        withDrawButtonDelegate?.okButtonTapped(tap: sender.isTouchInside)
+        print("제발눌려라")
     }
 }

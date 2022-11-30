@@ -35,20 +35,20 @@ final class LaunchScreenViewController: BaseViewController {
     }
     
     func loginLogic() {
-        if UserDefaultsHelper.standard.idToken == nil {
-            transition(OnBoardingViewController(), transitionStyle: .rootViewChanged)
+        if UserDefaultsHelper.standard.idToken == ("") {
+            transition(OnBoardingViewController(), transitionStyle: .presentFullScreen)
         } else {
             LoginAPI.shared.requestLoginData { data, error, statusCode in
                 guard let statusCode = statusCode else { return }
                 print("제발나와라이이이잉🔵🔵🔵🔵",statusCode)
                 switch statusCode {
                 case 200:
-                    self.transition(MainTabBarViewController(), transitionStyle: .rootViewChanged)
+                    self.transition(MainTabBarViewController(), transitionStyle: .presentFullScreen)
                 case 401:
                     self.mainview.makeToast("\(LoginError(rawValue: statusCode)?.rawValue)")
                     self.idTokenRefresh()
                 case 406:
-                    self.transition(NicknameViewController(), transitionStyle: .rootViewChanged)
+                    self.transition(OnBoardingViewController(), transitionStyle: .presentFullScreen)
                 case 500:
                     self.mainview.makeToast("\(LoginError(rawValue: statusCode)?.rawValue)")
                 case 501:
