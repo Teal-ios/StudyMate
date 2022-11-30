@@ -40,6 +40,9 @@ enum ImageEnum: Int {
     case tabShop
     case tabFriend
     case tabInfo
+    
+    case emptyImage_near
+    case emptyImage_request
 }
 
 extension ImageEnum {
@@ -105,6 +108,10 @@ extension ImageEnum {
             return UIImage.init(named: "tabFriend.gray")
         case .tabInfo:
             return UIImage.init(named: "tabInfo.gray")
+        case .emptyImage_near:
+            return UIImage(named: "empty_img (1)")
+        case .emptyImage_request:
+            return UIImage(named: "empty_img")
         }
     }
 }

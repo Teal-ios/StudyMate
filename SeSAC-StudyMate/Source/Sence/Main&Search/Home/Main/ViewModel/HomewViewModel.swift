@@ -25,15 +25,15 @@ class HomeViewModel {
     func requestSearchData(lat: Double, long: Double) {
         SearchAPI.shared.requestSearchData(lat: lat, long: long) { data, error, statusCode in
             print("requestSearchData")
+            guard let statusCode = statusCode else { return }
             print("🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷",data, statusCode, error)
             switch statusCode {
             case 200:
                 guard let data = data else { return }
-                self.searchData.accept(data)
+                self.searchData.accept(data)                
             default:
                 print("에러당에러야")
             }
-            print(statusCode)
         }
     }
     

@@ -130,6 +130,9 @@
 		2FFD9D482937600B00E2B314 /* WithDrawAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD9D472937600B00E2B314 /* WithDrawAPI.swift */; };
 		2FFD9D4A2937613E00E2B314 /* WithDrawError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD9D492937613E00E2B314 /* WithDrawError.swift */; };
 		2FFD9D4D29376C8100E2B314 /* NearTabmanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD9D4C29376C8100E2B314 /* NearTabmanViewController.swift */; };
+		2FFD9D5229376F0000E2B314 /* ResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD9D5129376F0000E2B314 /* ResponseViewController.swift */; };
+		2FFD9D5429376F2600E2B314 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD9D5329376F2600E2B314 /* RequestViewController.swift */; };
+		2FFD9D572937705400E2B314 /* NearTabmanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD9D562937705400E2B314 /* NearTabmanView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -246,6 +249,9 @@
 		2FFD9D472937600B00E2B314 /* WithDrawAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawAPI.swift; sourceTree = "<group>"; };
 		2FFD9D492937613E00E2B314 /* WithDrawError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawError.swift; sourceTree = "<group>"; };
 		2FFD9D4C29376C8100E2B314 /* NearTabmanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearTabmanViewController.swift; sourceTree = "<group>"; };
+		2FFD9D5129376F0000E2B314 /* ResponseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseViewController.swift; sourceTree = "<group>"; };
+		2FFD9D5329376F2600E2B314 /* RequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
+		2FFD9D562937705400E2B314 /* NearTabmanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearTabmanView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -947,7 +953,6 @@
 			isa = PBXGroup;
 			children = (
 				2FFD9D4E29376CBB00E2B314 /* Tabman */,
-				2FFD9D4C29376C8100E2B314 /* NearTabmanViewController.swift */,
 			);
 			path = NearSeSAC;
 			sourceTree = "<group>";
@@ -955,6 +960,34 @@
 		2FFD9D4E29376CBB00E2B314 /* Tabman */ = {
 			isa = PBXGroup;
 			children = (
+				2FFD9D552937703B00E2B314 /* Tabman */,
+				2FFD9D5029376EE700E2B314 /* Response */,
+				2FFD9D4F29376EDF00E2B314 /* Request */,
+			);
+			path = Tabman;
+			sourceTree = "<group>";
+		};
+		2FFD9D4F29376EDF00E2B314 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				2FFD9D5329376F2600E2B314 /* RequestViewController.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		2FFD9D5029376EE700E2B314 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				2FFD9D5129376F0000E2B314 /* ResponseViewController.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		2FFD9D552937703B00E2B314 /* Tabman */ = {
+			isa = PBXGroup;
+			children = (
+				2FFD9D4C29376C8100E2B314 /* NearTabmanViewController.swift */,
+				2FFD9D562937705400E2B314 /* NearTabmanView.swift */,
 			);
 			path = Tabman;
 			sourceTree = "<group>";
@@ -1063,6 +1096,7 @@
 			files = (
 				2FAE3F622918D9DD0069579F /* UIFont+.swift in Sources */,
 				2FF877ED2924B45D0002C35E /* TitleCategoryCollectionViewCell.swift in Sources */,
+				2FFD9D5429376F2600E2B314 /* RequestViewController.swift in Sources */,
 				2FD05058292F560E0045450E /* RecommendCollectionViewCell.swift in Sources */,
 				2F21D70B291B90A600429935 /* GenderViewModel.swift in Sources */,
 				2FF877EB2924B4090002C35E /* MyDetailImageTableViewCell.swift in Sources */,
@@ -1122,6 +1156,7 @@
 				2FD05067292F7A7C0045450E /* QueueAPI.swift in Sources */,
 				2FAE3F5D2918D54F0069579F /* BaseCollectionViewCell.swift in Sources */,
 				2FFD9D462937308200E2B314 /* CustomAlertEnum.swift in Sources */,
+				2FFD9D5229376F0000E2B314 /* ResponseViewController.swift in Sources */,
 				2F21D6FF291B906900429935 /* BirthdayViewModel.swift in Sources */,
 				2F21D6FB291B904D00429935 /* BirthdayViewController.swift in Sources */,
 				2F21D705291B908B00429935 /* EmailViewModel.swift in Sources */,
@@ -1160,6 +1195,7 @@
 				2FD05069292F7D740045450E /* QueueError.swift in Sources */,
 				2FAE3F5E2918D54F0069579F /* BaseView.swift in Sources */,
 				2F21D6E2291B7F2700429935 /* PhoneCertificationView.swift in Sources */,
+				2FFD9D572937705400E2B314 /* NearTabmanView.swift in Sources */,
 				2FAE3F2F2918D4840069579F /* SceneDelegate.swift in Sources */,
 				2F21D703291B908500429935 /* EmailViewController.swift in Sources */,
 				2FD05056292F55090045450E /* MyListCollectionViewCell.swift in Sources */,
