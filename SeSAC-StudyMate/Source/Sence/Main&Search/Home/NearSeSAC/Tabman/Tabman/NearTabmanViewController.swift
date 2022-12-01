@@ -14,27 +14,37 @@ import Pageboy
 
 final class NearTabmanViewController: TabmanViewController {
     
+    let viewModel = NearTabmanViewModel()
     let mainview = NearTabManView()
+    var lat: Double = 37.517819364682694
+    var long: Double = 126.88647317074734
     
     var viewControllers: [BaseViewController] = [
         RequestViewController(), ResponseViewController()
     ]
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-             
+                     
+        tabmanSetting()
+        naviSetting()
+        viewModel.requestSearchData(lat: lat, long: long)
+    }
+    
+    private func naviSetting() {
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "찾기중단", style: .plain, target: self, action: #selector(cancelFind))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: ImageEnum.arrow.image, style: .plain, target: self, action: #selector(backButtonClicked))
+        navigationItem.title = "새싹 찾기"
+    }
+    
+    private func tabmanSetting() {
         self.dataSource = self
         
         let bar = TMBar.ButtonBar()
         settingTabBar(ctBar: bar)
         addBar(bar, dataSource: self, at: .top)
-        
-        navigationController?.isNavigationBarHidden = false
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "찾기중단", style: .plain, target: self, action: #selector(cancelFind))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: ImageEnum.arrow.image, style: .plain, target: self, action: #selector(backButtonClicked))
-        navigationItem.title = "새싹 찾기"
     }
     
     func settingTabBar(ctBar: TMBar.ButtonBar) {
@@ -95,6 +105,6 @@ extension NearTabmanViewController {
     }
     
     @objc func backButtonClicked() {
-        
+        self.dismiss(animated: true)
     }
 }

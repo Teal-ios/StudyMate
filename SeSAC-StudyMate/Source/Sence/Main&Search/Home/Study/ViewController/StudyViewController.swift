@@ -89,6 +89,7 @@ final class StudyViewController: BaseViewController {
             .bind(onNext: { [weak self] _ in
                 print("서치버튼 눌림")
                 self?.viewModel.tapSearchButton()
+                self?.transition(NearTabmanViewController(), transitionStyle: .presentFullScreen)
             })
             .disposed(by: disposeBag)
         

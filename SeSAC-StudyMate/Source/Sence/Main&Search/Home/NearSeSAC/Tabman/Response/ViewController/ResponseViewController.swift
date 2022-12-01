@@ -1,18 +1,17 @@
 //
-//  RequestViewController.swift
+//  ResponseViewController.swift
 //  SeSAC-StudyMate
 //
 //  Created by 이병현 on 2022/11/30.
 //
-
 import UIKit
 
 import SnapKit
 import Then
 import RxSwift
 
-class RequestViewController: BaseViewController {
-
+class ResponseViewController: BaseViewController {
+    
     var indexPathSection = 0
     
     // MARK: - DisposeBag
@@ -22,13 +21,13 @@ class RequestViewController: BaseViewController {
     // MARK: - Property
     let viewModel = NearTabmanViewModel()
     private let tableView = UITableView(frame: .zero, style: .grouped).then {
-        $0.separatorStyle               = .none
+        $0.separatorStyle = .none
         $0.showsVerticalScrollIndicator = false
-        $0.sectionHeaderTopPadding      = 0
-        $0.backgroundColor              = .white
-        $0.bounces                      = false
-        $0.allowsSelection              = false
-        $0.rowHeight                    = UITableView.automaticDimension
+        $0.sectionHeaderTopPadding = 0
+        $0.backgroundColor = .white
+        $0.bounces = false
+        $0.allowsSelection =  false
+        $0.rowHeight = UITableView.automaticDimension
     }
     
     // MARK: - LifeCycle
@@ -41,7 +40,7 @@ class RequestViewController: BaseViewController {
     }
     
     override func loadView() {
-        view = RequestView()
+        view = ResponseView()
     }
     
     
@@ -63,6 +62,7 @@ class RequestViewController: BaseViewController {
         tableView.register(InfoManageTableViewCell.self, forCellReuseIdentifier: InfoManageTableViewCell.reuseIdentifier)
     }
     
+    
     // MARK: - @objce
     
     @objc func touchupToggleButton(_ sender: UIButton) {
@@ -80,10 +80,9 @@ class RequestViewController: BaseViewController {
 }
 
 // MARK: - TableView
-extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
+extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
         return viewModel.searchData.value.fromQueueDB.count
     }
     

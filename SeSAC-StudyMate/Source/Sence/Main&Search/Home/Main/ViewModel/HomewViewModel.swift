@@ -67,7 +67,6 @@ class HomeViewModel {
     
     func reloadAnnotation(map: MKMapView) {
         locationDelegate?.location(lat: map.centerCoordinate.latitude, long: map.centerCoordinate.longitude)
-//        self.requestSearchData()
     }
     
     func reloadLocation(location: CLLocationCoordinate2D) {

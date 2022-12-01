@@ -12,12 +12,17 @@ import RxSwift
 import RxCocoa
 import Toast
 
+protocol coordinateDelegate {
+    func location(lat: Double, long: Double)
+}
+
 class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
     
     let viewModel = HomeViewModel()
     let mapView = HomeView()
     let locationManager = CLLocationManager()
     let disposeBag = DisposeBag()
+    var coordinateDelegate: coordinateDelegate?
     
     //MARK: - LifeCycle
     override func loadView() {
@@ -37,7 +42,7 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
     
     //MARK: - Bind
     private func bind() {
-        
+
         //myQueue통신 후 상태 확인
         switch viewModel.myQueueState() {
         case MatchState.matching.rawValue:
@@ -78,8 +83,12 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
     }
     
     @objc func findSeSAC() {
+        let nextVC = NearTabmanViewController()
         
-        switch viewModel.myQueueState() {
+        nextVC.lat = locationManager.location?.coordinate.latitude ?? 37.517819364682694
+        nextVC.long = locationManager.location?.coordinate.longitude ?? 126.88647317074734
+        
+            switch viewModel.myQueueState() {
             case MatchState.matching.rawValue:
 //                transition(FindSeSACViewController(), transitionStyle: .push)
             transition(StudyViewController(), transitionStyle: .push)
