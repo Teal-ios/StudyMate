@@ -10,6 +10,8 @@ import SnapKit
 import Then
 
 final class MyDetailImageTableViewCell: BaseTableViewCell {
+    
+    
 
     // MARK: - Property
     

@@ -12,6 +12,10 @@ import Then
 
 final class MyReviewView: BaseView {
     
+    func configure(data: FromQueueDB) {
+        reviewLabel.text = data.reviews.first
+    }
+    
     // MARK: - Property
     
     private lazy var reviewStackView = UIStackView(arrangedSubviews: [reviewTitleLabel, reviewLabel]).then {
@@ -28,7 +32,6 @@ final class MyReviewView: BaseView {
     
     let reviewLabel = UILabel().then {
         $0.font = UIFont.Body3_R14
-        $0.text = MainEnum.firstReview.text
         $0.textColor = UIColor.grayScale6
     }
     

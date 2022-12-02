@@ -12,6 +12,10 @@ import Then
 
 final class MyStudyView: BaseView {
     
+    func configure(data: FromQueueDB) {
+        
+    }
+    
     // MARK: - Property
     
     private var dataSource: UICollectionViewDiffableDataSource<Int, String>?

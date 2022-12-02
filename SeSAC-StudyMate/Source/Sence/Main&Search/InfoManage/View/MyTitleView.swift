@@ -12,6 +12,10 @@ import Then
 
 final class MyTitleView: BaseView {
     
+    func configure(data: FromQueueDB) {
+        
+    }
+    
     // MARK: - Property
     
     private var dataSource: UICollectionViewDiffableDataSource<Int, String>?
@@ -109,6 +113,7 @@ extension MyTitleView {
             cell.setupData(itemIdentifier)
             return cell
         })
+        
         
         var snapShot = NSDiffableDataSourceSnapshot<Int, String>()
         snapShot.appendSections([0])

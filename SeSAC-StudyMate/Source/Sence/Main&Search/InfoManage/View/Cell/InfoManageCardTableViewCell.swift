@@ -11,12 +11,7 @@ import Then
 
 
 
-final class InfoManageCardTableViewCell: BaseTableViewCell, cellSettingDelegate {
-    
-    func cellData(nick: String, reputation: [Int], studyList: [String], reviews: [String], gender: Int, type: Int, sesac: Int, background: Int) {
-        nextVC.delegate = self
-        nameView.nameLabel.text = nick
-    }
+final class InfoManageCardTableViewCell: BaseTableViewCell {
     
     let nextVC = ResponseViewController()
     
@@ -81,5 +76,12 @@ final class InfoManageCardTableViewCell: BaseTableViewCell, cellSettingDelegate 
             reviewView.isHidden = false
              nameView.moreImageView.image = ImageEnum.moreArrow_2.image
         }
+    }
+    
+    func configure(data: FromQueueDB) {
+        nameView.configure(data: data)
+        titleView.configure(data: data)
+        studyView.configure(data: data)
+        reviewView.configure(data: data)
     }
 }

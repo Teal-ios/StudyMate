@@ -11,16 +11,12 @@ import Then
 import RxSwift
 import RxCocoa
 
-protocol cellSettingDelegate: AnyObject {
-    func cellData(nick: String, reputation: [Int], studyList: [String], reviews: [String], gender: Int, type: Int, sesac: Int, background: Int)
-}
 
 class ResponseViewController: BaseViewController {
     
     var lat: Double = 37.517819364682694
     var long: Double = 126.88647317074734
     var indexPathSection = 0
-    weak var delegate: cellSettingDelegate?
     
     // MARK: - DisposeBag
     
@@ -126,22 +122,16 @@ extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
         guard let nameCell = tableView.dequeueReusableCell(withIdentifier: InfoManageCardTableViewCell.reuseIdentifier, for: indexPath) as? InfoManageCardTableViewCell
         else { return UITableViewCell() }
         nameCell.toggleButton.addTarget(self, action: #selector(touchupToggleButton(_:)), for: .touchUpInside)
+                
+        let data = viewModel.searchData.value.fromQueueDB[indexPath.section]
         
-        //MARK: - delegate를 사용해 값 전달하기
-        let nick = viewModel.searchData.value.fromQueueDB[indexPathSection].nick
-        let reputation = viewModel.searchData.value.fromQueueDB[indexPathSection].reputation
-        let studyList = viewModel.searchData.value.fromQueueDB[indexPathSection].studylist
-        let reviews = viewModel.searchData.value.fromQueueDB[indexPathSection].reviews
-        let gender = viewModel.searchData.value.fromQueueDB[indexPathSection].gender
-        let type = viewModel.searchData.value.fromQueueDB[indexPathSection].type
-        let sesac = viewModel.searchData.value.fromQueueDB[indexPathSection].sesac
-        let background = viewModel.searchData.value.fromQueueDB[indexPathSection].background
+        nameCell.configure(data: data)
         
-        delegate?.cellData(nick: nick, reputation: reputation, studyList: studyList, reviews: reviews, gender: gender, type: type, sesac: sesac, background: background)
         
         return nameCell
         
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //        tableView.deselectRow(at: indexPath, animated: true)
