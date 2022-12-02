@@ -10,14 +10,18 @@ import UIKit
 import SnapKit
 import Then
 
-final class MyNameView: BaseView {
-    
+final class MyNameView: BaseView, cellSettingDelegate {
     // MARK: - Property
+    func cellData(nick: String, reputation: [Int], studyList: [String], reviews: [String], gender: Int, type: Int, sesac: Int, background: Int) {
+        self.nextVC.delegate = self
+        nameLabel.text = nick
+    }
+    let nextVC = ResponseViewController()
     
     let nameLabel = UILabel().then {
         $0.textColor = UIColor.black
         $0.font = UIFont.Title1_M16
-        $0.text = "이병현"
+//        $0.text = "이병현"
     }
         
     let moreImageView = UIImageView().then {

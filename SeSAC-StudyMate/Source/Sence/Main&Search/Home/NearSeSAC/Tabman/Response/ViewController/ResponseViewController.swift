@@ -9,10 +9,18 @@ import UIKit
 import SnapKit
 import Then
 import RxSwift
+import RxCocoa
+
+protocol cellSettingDelegate: AnyObject {
+    func cellData(nick: String, reputation: [Int], studyList: [String], reviews: [String], gender: Int, type: Int, sesac: Int, background: Int)
+}
 
 class ResponseViewController: BaseViewController {
     
+    var lat: Double = 37.517819364682694
+    var long: Double = 126.88647317074734
     var indexPathSection = 0
+    weak var delegate: cellSettingDelegate?
     
     // MARK: - DisposeBag
     
@@ -34,13 +42,31 @@ class ResponseViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("@@@@@@@@@")
+        viewModel.requestSearchData(lat: lat, long: long)
+        bind()
         configureLayout()
         setupDelegate()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     override func loadView() {
         view = ResponseView()
+    }
+    
+    func bind() {
+        
+        viewModel.searchData
+            .distinctUntilChanged{$0}
+            .bind(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
     
     
@@ -83,6 +109,7 @@ class ResponseViewController: BaseViewController {
 extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        print(viewModel.requestedStudyUserCount, "viewmodel Cnt")
         return viewModel.searchData.value.fromQueueDB.count
     }
     
@@ -99,10 +126,19 @@ extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
         guard let nameCell = tableView.dequeueReusableCell(withIdentifier: InfoManageCardTableViewCell.reuseIdentifier, for: indexPath) as? InfoManageCardTableViewCell
         else { return UITableViewCell() }
         nameCell.toggleButton.addTarget(self, action: #selector(touchupToggleButton(_:)), for: .touchUpInside)
-        //        nameCell.toggleButton.isHidden = true
-        //        self.reloadCell(cell: nameCell, section: indexPath.section)
-        //        nameCell.isSelected ? nameCell.changeView(isSelected: true) : nameCell.changeView(isSelected: false)
-        //        tableView.reloadSections(IndexSet(), with: .fade)
+        
+        //MARK: - delegate를 사용해 값 전달하기
+        let nick = viewModel.searchData.value.fromQueueDB[indexPathSection].nick
+        let reputation = viewModel.searchData.value.fromQueueDB[indexPathSection].reputation
+        let studyList = viewModel.searchData.value.fromQueueDB[indexPathSection].studylist
+        let reviews = viewModel.searchData.value.fromQueueDB[indexPathSection].reviews
+        let gender = viewModel.searchData.value.fromQueueDB[indexPathSection].gender
+        let type = viewModel.searchData.value.fromQueueDB[indexPathSection].type
+        let sesac = viewModel.searchData.value.fromQueueDB[indexPathSection].sesac
+        let background = viewModel.searchData.value.fromQueueDB[indexPathSection].background
+        
+        delegate?.cellData(nick: nick, reputation: reputation, studyList: studyList, reviews: reviews, gender: gender, type: type, sesac: sesac, background: background)
+        
         return nameCell
         
     }
@@ -115,8 +151,6 @@ extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
         //        nameCell.isSelected ? nameCell.changeView(isSelected: true) : nameCell.changeView(isSelected: false)
         //        tableView.reloadSections(IndexSet(), with: .fade)
         //        return nameCell
-        print("@@")
-        
     }
     
     func reloadCell(cell : InfoManageCardTableViewCell, section: Int) {

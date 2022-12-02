@@ -20,16 +20,22 @@ final class NearTabmanViewController: TabmanViewController {
     var long: Double = 126.88647317074734
     
     var viewControllers: [BaseViewController] = [
-        RequestViewController(), ResponseViewController()
+        ResponseViewController(), RequestViewController()
     ]
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
                      
+        viewModel.requestSearchData(lat: lat, long: long)
         tabmanSetting()
         naviSetting()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         viewModel.requestSearchData(lat: lat, long: long)
+
     }
     
     private func naviSetting() {

@@ -11,6 +11,8 @@ import RxSwift
 
 class NearTabmanViewModel {
     
+    var requestedStudyUserCount: Int {   searchData.value.fromQueueDB.count    }
+    
     var searchData = BehaviorRelay<SearchResponse>(value: SearchResponse(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
     
     var nick       = BehaviorRelay<String>(value: "")
@@ -44,6 +46,7 @@ class NearTabmanViewModel {
             case 200:
                 guard let data = data else { return }
                 self.searchData.accept(data)
+                print("섹션의 개수를 알려달라!! 알려달라!!",self.searchData.value.fromQueueDB.count)
                 self.spreadData()
             default:
                 print("에러당에러야")

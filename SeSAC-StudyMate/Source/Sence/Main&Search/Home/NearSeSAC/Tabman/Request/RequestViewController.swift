@@ -13,6 +13,8 @@ import RxSwift
 
 class RequestViewController: BaseViewController {
 
+    var lat: Double = 37.517819364682694
+    var long: Double = 126.88647317074734
     var indexPathSection = 0
     
     // MARK: - DisposeBag
@@ -36,12 +38,36 @@ class RequestViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.requestSearchData(lat: lat, long: long)
+        bind()
         configureLayout()
         setupDelegate()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.global().sync {
+            viewModel.requestSearchData(lat: lat, long: long)
+        }
     }
     
     override func loadView() {
         view = RequestView()
+    }
+    
+    func bind() {
+        
+        viewModel.searchData
+            .distinctUntilChanged{$0}
+            .bind(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+
+            
+        
+        
     }
     
     
@@ -76,15 +102,15 @@ class RequestViewController: BaseViewController {
     @objc func saveButtonClicked() {
         self.tableView.reloadData()
     }
-    
 }
 
 // MARK: - TableView
 extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        print(viewModel.searchData.value.fromQueueDB.count, "viewmodel Cnt")
         
-        return viewModel.searchData.value.fromQueueDB.count
+        return viewModel.searchData.value.fromQueueDBRequested.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,10 +126,6 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
         guard let nameCell = tableView.dequeueReusableCell(withIdentifier: InfoManageCardTableViewCell.reuseIdentifier, for: indexPath) as? InfoManageCardTableViewCell
         else { return UITableViewCell() }
         nameCell.toggleButton.addTarget(self, action: #selector(touchupToggleButton(_:)), for: .touchUpInside)
-        //        nameCell.toggleButton.isHidden = true
-        //        self.reloadCell(cell: nameCell, section: indexPath.section)
-        //        nameCell.isSelected ? nameCell.changeView(isSelected: true) : nameCell.changeView(isSelected: false)
-        //        tableView.reloadSections(IndexSet(), with: .fade)
         return nameCell
         
     }

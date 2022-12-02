@@ -11,7 +11,14 @@ import Then
 
 
 
-final class InfoManageCardTableViewCell: BaseTableViewCell {
+final class InfoManageCardTableViewCell: BaseTableViewCell, cellSettingDelegate {
+    
+    func cellData(nick: String, reputation: [Int], studyList: [String], reviews: [String], gender: Int, type: Int, sesac: Int, background: Int) {
+        nextVC.delegate = self
+        nameView.nameLabel.text = nick
+    }
+    
+    let nextVC = ResponseViewController()
     
     // MARK: - Property
     

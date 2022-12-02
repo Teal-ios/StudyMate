@@ -8,13 +8,13 @@
 import Foundation
 
 // MARK: - SearchResponse
-struct SearchResponse: Codable {
+struct SearchResponse: Codable, Equatable {
     let fromQueueDB, fromQueueDBRequested: [FromQueueDB]
     let fromRecommend: [String]
 }
 
 // MARK: - FromQueueDB
-struct FromQueueDB: Codable {
+struct FromQueueDB: Codable, Equatable {
     let uid, nick: String
     let lat, long: Double
     let reputation: [Int]
