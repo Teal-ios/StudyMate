@@ -78,6 +78,12 @@
 		2FB2714429386EE6004DDD2C /* ResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB2714329386EE6004DDD2C /* ResponseView.swift */; };
 		2FB2714629386F00004DDD2C /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB2714529386F00004DDD2C /* RequestView.swift */; };
 		2FB2714D293876E1004DDD2C /* NearTabmanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB2714C293876E1004DDD2C /* NearTabmanViewModel.swift */; };
+		2FBC74BA293C718300F2173D /* APIQueueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC74B9293C718300F2173D /* APIQueueService.swift */; };
+		2FBC74BC293C72AF00F2173D /* StudyRequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC74BB293C72AF00F2173D /* StudyRequestAPI.swift */; };
+		2FBC74BE293C72B900F2173D /* StudyAcceptAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC74BD293C72B900F2173D /* StudyAcceptAPI.swift */; };
+		2FBC74C0293C732B00F2173D /* StudyRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC74BF293C732B00F2173D /* StudyRequestError.swift */; };
+		2FBC74C2293C733500F2173D /* StudyAcceptError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC74C1293C733500F2173D /* StudyAcceptError.swift */; };
+		2FBC74C4293C7E4300F2173D /* ResponseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC74C3293C7E4300F2173D /* ResponseViewModel.swift */; };
 		2FBD9725292A90B0008FBA04 /* MyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD9724292A90B0008FBA04 /* MyPageModel.swift */; };
 		2FBD9727292A93A7008FBA04 /* MyPageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */; };
 		2FC61FA7292757D000CA11F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC61FA6292757D000CA11F3 /* HomeView.swift */; };
@@ -207,6 +213,12 @@
 		2FB2714329386EE6004DDD2C /* ResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseView.swift; sourceTree = "<group>"; };
 		2FB2714529386F00004DDD2C /* RequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
 		2FB2714C293876E1004DDD2C /* NearTabmanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearTabmanViewModel.swift; sourceTree = "<group>"; };
+		2FBC74B9293C718300F2173D /* APIQueueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIQueueService.swift; sourceTree = "<group>"; };
+		2FBC74BB293C72AF00F2173D /* StudyRequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyRequestAPI.swift; sourceTree = "<group>"; };
+		2FBC74BD293C72B900F2173D /* StudyAcceptAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyAcceptAPI.swift; sourceTree = "<group>"; };
+		2FBC74BF293C732B00F2173D /* StudyRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyRequestError.swift; sourceTree = "<group>"; };
+		2FBC74C1293C733500F2173D /* StudyAcceptError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyAcceptError.swift; sourceTree = "<group>"; };
+		2FBC74C3293C7E4300F2173D /* ResponseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseViewModel.swift; sourceTree = "<group>"; };
 		2FBD9724292A90B0008FBA04 /* MyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModel.swift; sourceTree = "<group>"; };
 		2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAPI.swift; sourceTree = "<group>"; };
 		2FC61FA6292757D000CA11F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -557,6 +569,8 @@
 				2FD05068292F7D740045450E /* QueueError.swift */,
 				2FD0506A292F87DD0045450E /* SLPError.swift */,
 				2FFD9D492937613E00E2B314 /* WithDrawError.swift */,
+				2FBC74BF293C732B00F2173D /* StudyRequestError.swift */,
+				2FBC74C1293C733500F2173D /* StudyAcceptError.swift */,
 			);
 			path = APIError;
 			sourceTree = "<group>";
@@ -772,6 +786,14 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		2FBC74C5293C7E4A00F2173D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2FBC74C3293C7E4300F2173D /* ResponseViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		2FCEF782292A0965003A1C5D /* FindSeSAC */ = {
 			isa = PBXGroup;
 			children = (
@@ -859,6 +881,8 @@
 				2FB151A9292DF2D500742F7D /* SearchAPI.swift */,
 				2FD05066292F7A7C0045450E /* QueueAPI.swift */,
 				2FFD9D472937600B00E2B314 /* WithDrawAPI.swift */,
+				2FBC74BB293C72AF00F2173D /* StudyRequestAPI.swift */,
+				2FBC74BD293C72B900F2173D /* StudyAcceptAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -875,6 +899,7 @@
 			isa = PBXGroup;
 			children = (
 				2FD4C9B9292095F200EEDEA8 /* APIService.swift */,
+				2FBC74B9293C718300F2173D /* APIQueueService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1001,6 +1026,7 @@
 		2FFD9D5029376EE700E2B314 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				2FBC74C5293C7E4A00F2173D /* ViewModel */,
 				2FB2714829387117004DDD2C /* ViewController */,
 				2FB2714729387113004DDD2C /* View */,
 			);
@@ -1137,6 +1163,7 @@
 				2FFD9D482937600B00E2B314 /* WithDrawAPI.swift in Sources */,
 				2FD0505A292F570F0045450E /* NearStudyCollectionViewCell.swift in Sources */,
 				2FAE3F312918D4840069579F /* ViewController.swift in Sources */,
+				2FBC74C0293C732B00F2173D /* StudyRequestError.swift in Sources */,
 				2FF877EF2924B7110002C35E /* MyDetailImageView.swift in Sources */,
 				2FAE3F5A2918D54F0069579F /* ReusableProtocol.swift in Sources */,
 				2FBD9727292A93A7008FBA04 /* MyPageAPI.swift in Sources */,
@@ -1148,12 +1175,14 @@
 				2F9F31A4292B46F600281816 /* MyQueueStateResponese.swift in Sources */,
 				2FD05054292F45960045450E /* PlaceHolder.swift in Sources */,
 				2F21D6E7291B7F7500429935 /* PhoneCertificationViewModel.swift in Sources */,
+				2FBC74BE293C72B900F2173D /* StudyAcceptAPI.swift in Sources */,
 				2FDD9BEF2921F0D900C87641 /* LaunchScreenView.swift in Sources */,
 				2FFA7248291A340A00172240 /* PhoneViewController.swift in Sources */,
 				2FD0505E292F59FD0045450E /* StudyViewController.swift in Sources */,
 				2F21D709291B909D00429935 /* GenderViewController.swift in Sources */,
 				2F21D6F5291B902600429935 /* NicknameView.swift in Sources */,
 				2FAE3F592918D54F0069579F /* UIViewController+.swift in Sources */,
+				2FBC74C4293C7E4300F2173D /* ResponseViewModel.swift in Sources */,
 				2FD4C9B8292095D100EEDEA8 /* MoyaPlugin.swift in Sources */,
 				2F2751E229222A8600391163 /* InfoViewModel.swift in Sources */,
 				2F21D6F9291B903E00429935 /* NicknameViewController.swift in Sources */,
@@ -1187,6 +1216,7 @@
 				2F21D6FB291B904D00429935 /* BirthdayViewController.swift in Sources */,
 				2F21D705291B908B00429935 /* EmailViewModel.swift in Sources */,
 				2FD05051292F44F60045450E /* StudyView.swift in Sources */,
+				2FBC74BC293C72AF00F2173D /* StudyRequestAPI.swift in Sources */,
 				2FB2714629386F00004DDD2C /* RequestView.swift in Sources */,
 				2F2751DF29221FD000391163 /* InfoTableViewCell.swift in Sources */,
 				2FF877F32924FF000002C35E /* InfoManageViewModel.swift in Sources */,
@@ -1203,6 +1233,7 @@
 				2F9F31AE292B515500281816 /* MyQueueStateError.swift in Sources */,
 				2FFD9D4D29376C8100E2B314 /* NearTabmanViewController.swift in Sources */,
 				2FF877E12924AF340002C35E /* InfoManageCardTableViewCell.swift in Sources */,
+				2FBC74BA293C718300F2173D /* APIQueueService.swift in Sources */,
 				2F21D707291B909800429935 /* GenderView.swift in Sources */,
 				2FAE3F5B2918D54F0069579F /* BaseViewController.swift in Sources */,
 				2FF877DE2924AB700002C35E /* UIView+.swift in Sources */,
@@ -1215,6 +1246,7 @@
 				2F3F5B8029261236005EF93F /* LoginError.swift in Sources */,
 				2FFA7256291A414600172240 /* PhoneViewModel.swift in Sources */,
 				2F3F5B7B2925FD34005EF93F /* SLPModel.swift in Sources */,
+				2FBC74C2293C733500F2173D /* StudyAcceptError.swift in Sources */,
 				2FF877D72924A1B70002C35E /* InfoManageViewController.swift in Sources */,
 				2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */,
 				2FAE2C3C292298FF0015DBEB /* ScrollView+.swift in Sources */,

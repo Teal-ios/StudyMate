@@ -25,5 +25,10 @@ extension UIColor {
     //MARK: - SystemColor
     static let systemSccess = UIColor(red: 98/255, green: 143/255, blue: 229/255, alpha: 1)
     static let systemError = UIColor(red: 233/255, green: 102/255, blue: 107/255, alpha: 1)
-    static let systemFocus = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)  
+    static let systemFocus = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+    
+    //MARK: - Request / Response Button
+    
+    static let requestButtonColor = UIColor(red: 0.913, green: 0.401, blue: 0.419, alpha: 1)
+    static let responseButtonColor = UIColor(red: 0.384, green: 0.559, blue: 0.9, alpha: 1)
 }

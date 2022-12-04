@@ -114,7 +114,13 @@ extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return MyDetailImageView()
+        var detailImageView = MyDetailImageView()
+        detailImageView.settingButton.setTitle("요청하기", for: .normal)
+        detailImageView.settingButton.backgroundColor = .requestButtonColor
+        let data = viewModel.searchData.value.fromQueueDB[section]
+        detailImageView.configure(data: data)
+//        detailImageView.settingButton.addTarget(self, action: #selector(requestButtonClicked), for: .touchUpInside)
+        return detailImageView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -151,4 +157,8 @@ extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.reloadSections(IndexSet(), with: .fade)
     }
     
+//    @objc func requestButtonClicked() {
+//        print("요청하기 버튼 클ㄹ릭클릭")
+//
+//    }
 }

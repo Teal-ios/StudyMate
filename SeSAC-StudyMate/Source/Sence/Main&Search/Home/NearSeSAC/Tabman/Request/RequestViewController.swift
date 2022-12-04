@@ -118,7 +118,13 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return MyDetailImageView()
+        var detailImageView = MyDetailImageView()
+        detailImageView.settingButton.setTitle("수락하기", for: .normal)
+        detailImageView.settingButton.backgroundColor = .responseButtonColor
+        let data = viewModel.searchData.value.fromQueueDBRequested[section]
+        detailImageView.configure(data: data)
+        detailImageView.settingButton.addTarget(self, action: #selector(acceptButtonClicked), for: .touchUpInside)
+        return detailImageView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -126,6 +132,12 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
         guard let nameCell = tableView.dequeueReusableCell(withIdentifier: InfoManageCardTableViewCell.reuseIdentifier, for: indexPath) as? InfoManageCardTableViewCell
         else { return UITableViewCell() }
         nameCell.toggleButton.addTarget(self, action: #selector(touchupToggleButton(_:)), for: .touchUpInside)
+                
+        let data = viewModel.searchData.value.fromQueueDBRequested[indexPath.section]
+        
+        nameCell.configure(data: data)
+        
+        
         return nameCell
         
     }
@@ -148,6 +160,10 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.isSelected ? cell.changeView(isSelected: true) : cell.changeView(isSelected: false)
         tableView.reloadSections(IndexSet(), with: .fade)
+    }
+    
+    @objc func acceptButtonClicked() {
+        
     }
     
 }

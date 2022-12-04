@@ -13,7 +13,6 @@ import Then
 final class MyTitleView: BaseView {
     
     func configure(data: FromQueueDB) {
-        
     }
     
     // MARK: - Property
