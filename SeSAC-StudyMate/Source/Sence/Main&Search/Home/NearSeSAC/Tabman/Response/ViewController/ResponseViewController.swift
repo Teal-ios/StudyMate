@@ -11,6 +11,10 @@ import Then
 import RxSwift
 import RxCocoa
 
+protocol uidProtocol {
+    func uidDelegate(uid: String)
+}
+
 
 class ResponseViewController: BaseViewController {
     
@@ -22,8 +26,11 @@ class ResponseViewController: BaseViewController {
     
     private let disposeBag = DisposeBag()
     
+    
     // MARK: - Property
     let viewModel = NearTabmanViewModel()
+    var uidDelegate: uidProtocol?
+
     private let tableView = UITableView(frame: .zero, style: .grouped).then {
         $0.separatorStyle = .none
         $0.showsVerticalScrollIndicator = false
@@ -119,7 +126,8 @@ extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
         detailImageView.settingButton.backgroundColor = .requestButtonColor
         let data = viewModel.searchData.value.fromQueueDB[section]
         detailImageView.configure(data: data)
-//        detailImageView.settingButton.addTarget(self, action: #selector(requestButtonClicked), for: .touchUpInside)
+        detailImageView.settingButton.addTarget(self, action: #selector(requestButtonClicked), for: .touchUpInside)
+        uidDelegate?.uidDelegate(uid: data.uid)
         return detailImageView
     }
     
@@ -132,7 +140,6 @@ extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
         let data = viewModel.searchData.value.fromQueueDB[indexPath.section]
         
         nameCell.configure(data: data)
-        
         
         return nameCell
         
@@ -157,8 +164,9 @@ extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.reloadSections(IndexSet(), with: .fade)
     }
     
-//    @objc func requestButtonClicked() {
-//        print("요청하기 버튼 클ㄹ릭클릭")
-//
-//    }
+    @objc func requestButtonClicked() {
+        let alertVC = ResponseAlertViewController()
+        self.transition(alertVC, transitionStyle: .overFullScreen)
+        
+    }
 }

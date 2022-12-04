@@ -124,26 +124,28 @@ extension MyDetailImageView {
 extension MyDetailImageView {
     
     @objc func requestButtonClicked() {
-        if settingButton.backgroundColor == .requestButtonColor {
-            StudyRequestAPI.shared.requestStudy(userID: self.userID) { error, statusCode in
-                switch statusCode {
-                case 200 :
-                    print("success")
-                default:
-                    print(statusCode)
-                }
-            }
-        } else if settingButton.backgroundColor == .responseButtonColor {
-            StudyAcceptAPI.shared.requestStudy(userID: self.userID) { error, statusCode in
-                switch statusCode {
-                case 200 :
-                    print("success")
-                default:
-                    print(statusCode)
-                }
-            }
-        } else {
-            return 
-        }
+        
+//        if settingButton.backgroundColor == .requestButtonColor {
+//            StudyRequestAPI.shared.requestStudy(userID: self.userID) { error, statusCode in
+//                switch statusCode {
+//                case 200 :
+//                    print("success")
+//                default:
+//                    print(statusCode)
+//                }
+//            }
+//        } else if settingButton.backgroundColor == .responseButtonColor {
+//            StudyAcceptAPI.shared.requestStudy(userID: self.userID) { error, statusCode in
+//                switch statusCode {
+//                case 200 :
+//                    print("success")
+//                    print("Accept 통신",statusCode)
+//                default:
+//                    print("Accept 통신",statusCode)
+//                }
+//            }
+//        } else {
+//            return
+//        }
     }
 }

@@ -13,9 +13,15 @@ protocol withDrawButtonDelegate: AnyObject {
     func okButtonTapped(tap: Bool)
 }
 
+protocol responseButtonDelegate: AnyObject {
+    func cancelButtonTapped(tap: Bool)
+    func okButtonTapped(tap: Bool)
+}
+
 class CustomAlertView: BaseView {
     
     var withDrawButtonDelegate: withDrawButtonDelegate?
+    var responseButtonDelegate: responseButtonDelegate?
     
     let bgView = UIView().then {
         $0.layer.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.5).cgColor
@@ -27,15 +33,16 @@ class CustomAlertView: BaseView {
         $0.backgroundColor = .white
     }
     
-    let titleLabel = UILabel().then {
+    var titleLabel = UILabel().then {
         $0.textColor = .black
         $0.font = UIFont.Body1_M16
         $0.textAlignment = .center
     }
     
-    let subtitleLabel = UILabel().then {
+    var subtitleLabel = UILabel().then {
         $0.textColor = UIColor(red: 0.533, green: 0.533, blue: 0.533, alpha: 1)
         $0.font = UIFont.Title4_R14
+        $0.numberOfLines = 0
         $0.textAlignment = .center
     }
     
@@ -91,6 +98,7 @@ class CustomAlertView: BaseView {
     @objc func cancelButtonClicked(_ sender: PlainButton) {
         let tap = sender.isTouchInside
         withDrawButtonDelegate?.cancelButtonTapped(tap: tap)
+        responseButtonDelegate?.cancelButtonTapped(tap: tap)
         print(sender.isTouchInside)
         print("제발눌려라")
     }
@@ -98,6 +106,7 @@ class CustomAlertView: BaseView {
     @objc func okButtonClicked(_ sender: PlainButton) {
         print(sender.isTouchInside)
         withDrawButtonDelegate?.okButtonTapped(tap: sender.isTouchInside)
+        responseButtonDelegate?.okButtonTapped(tap: sender.isTouchInside)
         print("제발눌려라")
     }
 }

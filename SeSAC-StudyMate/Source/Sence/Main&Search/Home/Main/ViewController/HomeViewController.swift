@@ -129,6 +129,9 @@ extension HomeViewController: MKMapViewDelegate {
         print(mapView.centerCoordinate)
         mapView.removeAnnotations(mapView.annotations)
         viewModel.requestSearchData(lat: mapView.centerCoordinate.latitude, long: mapView.centerCoordinate.longitude)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+             mapView.isUserInteractionEnabled = true
+         }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
