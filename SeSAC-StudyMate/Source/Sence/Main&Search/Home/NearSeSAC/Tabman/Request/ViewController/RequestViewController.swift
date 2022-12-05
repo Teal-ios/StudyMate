@@ -164,9 +164,7 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func acceptButtonClicked() {
-        let alertVC = CustomAlertViewController()
-        alertVC.mainview.titleLabel.text = "스터디를 수락할까요?"
-        alertVC.mainview.subtitleLabel.text = "요청을 수락하면 채팅방에서 대화를 나눌 수 있어요"
+        let alertVC = RequestAlertViewController()
         self.transition(alertVC, transitionStyle: .overFullScreen)
 
     }

@@ -11,10 +11,9 @@ import Then
 import RxSwift
 import RxCocoa
 
-protocol uidProtocol {
-    func uidDelegate(uid: String)
-}
-
+//protocol uidProtocol {
+//    func uidDelegate(uid: String)
+//}
 
 class ResponseViewController: BaseViewController {
     
@@ -29,7 +28,7 @@ class ResponseViewController: BaseViewController {
     
     // MARK: - Property
     let viewModel = NearTabmanViewModel()
-    var uidDelegate: uidProtocol?
+//    var uidDelegate: uidProtocol?
 
     private let tableView = UITableView(frame: .zero, style: .grouped).then {
         $0.separatorStyle = .none
@@ -127,7 +126,8 @@ extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
         let data = viewModel.searchData.value.fromQueueDB[section]
         detailImageView.configure(data: data)
         detailImageView.settingButton.addTarget(self, action: #selector(requestButtonClicked), for: .touchUpInside)
-        uidDelegate?.uidDelegate(uid: data.uid)
+//        detailImageView.
+//        uidDelegate?.uidDelegate(uid: data.uid)
         return detailImageView
     }
     
@@ -142,7 +142,6 @@ extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
         nameCell.configure(data: data)
         
         return nameCell
-        
     }
     
     
@@ -151,14 +150,10 @@ extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
         guard let nameCell = tableView.dequeueReusableCell(withIdentifier: InfoManageCardTableViewCell.reuseIdentifier, for: indexPath) as? InfoManageCardTableViewCell
         else { return }
         self.reloadCell(cell: nameCell, section: indexPath.section)
-        //        nameCell.isSelected ? nameCell.changeView(isSelected: true) : nameCell.changeView(isSelected: false)
-        //        tableView.reloadSections(IndexSet(), with: .fade)
-        //        return nameCell
+
     }
     
     func reloadCell(cell : InfoManageCardTableViewCell, section: Int) {
-        
-        //        cell(IndexPath(row: 0, section: section)).isSelected ? cell(IndexPath(row: 0, section: section)).changeView(isSelected: true) : cell(IndexPath(row: 0, section: section)).changeView(isSelected: false)
         
         cell.isSelected ? cell.changeView(isSelected: true) : cell.changeView(isSelected: false)
         tableView.reloadSections(IndexSet(), with: .fade)
@@ -167,6 +162,5 @@ extension ResponseViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func requestButtonClicked() {
         let alertVC = ResponseAlertViewController()
         self.transition(alertVC, transitionStyle: .overFullScreen)
-        
     }
 }

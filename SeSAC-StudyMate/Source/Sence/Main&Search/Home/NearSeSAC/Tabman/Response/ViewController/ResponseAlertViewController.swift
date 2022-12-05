@@ -9,8 +9,6 @@ import UIKit
 
 class ResponseAlertViewController: CustomAlertViewController {
     
-    var userID:String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
@@ -25,15 +23,12 @@ class ResponseAlertViewController: CustomAlertViewController {
         view = mainview
     }
     
-    func configureFromQueueDBDate(data: FromQueueDB) {
-        self.userID = data.uid
-    }
+//    func configureFromQueueDBDate(data: FromQueueDB) {
+//        self.userID = data.uid
+//    }
 }
 
-extension ResponseAlertViewController: responseButtonDelegate, uidProtocol {
-    func uidDelegate(uid: String) {
-        self.userID = uid
-    }
+extension ResponseAlertViewController: responseButtonDelegate {
     
     func cancelButtonTapped(tap: Bool) {
         if tap {
@@ -42,10 +37,12 @@ extension ResponseAlertViewController: responseButtonDelegate, uidProtocol {
     }
     
     func okButtonTapped(tap: Bool) {
-        let vc = ResponseViewController()
-        vc.uidDelegate = self
-        print("니아이디가 뭐이니?",self.userID)
-        StudyRequestAPI.shared.requestStudy(userID: self.userID) { error, statusCode in
+
+        
+//        let vc = ResponseViewController()
+//        vc.uidDelegate = self
+        print("니아이디가 뭐이니?",UserDefaultsHelper.standard.uid ?? "")
+        StudyRequestAPI.shared.requestStudy(userID: UserDefaultsHelper.standard.uid ?? "") { error, statusCode in
             switch statusCode {
             case 200 :
                 print("지금 이게 성공한거 맞제?")
@@ -54,32 +51,32 @@ extension ResponseAlertViewController: responseButtonDelegate, uidProtocol {
                 print(statusCode)
             }
         }
-        if tap {
-            let VC = MyDetailImageView()
-            if VC.settingButton.backgroundColor == .requestButtonColor {
-                StudyRequestAPI.shared.requestStudy(userID: self.userID) { error, statusCode in
-                    switch statusCode {
-                    case 200 :
-                        print("지금 이게 성공한거 맞제?")
-                        print("success")
-                    default:
-                        print(statusCode)
-                    }
-                }
-            } else if VC.settingButton.backgroundColor == .responseButtonColor {
-                StudyAcceptAPI.shared.requestStudy(userID: self.userID) { error, statusCode in
-                    switch statusCode {
-                    case 200 :
-                        print("success")
-                        print("Accept 통신",statusCode)
-                    default:
-                        print("Accept 통신",statusCode)
-                    }
-                }
-            } else {
-                return print("아무것도아임다")
-            }
-        }
+//        if tap {
+//            let VC = MyDetailImageView()
+//            if VC.settingButton.backgroundColor == .requestButtonColor {
+//                StudyRequestAPI.shared.requestStudy(userID: UserDefaultsHelper.standard.uid ?? "") { error, statusCode in
+//                    switch statusCode {
+//                    case 200 :
+//                        print("지금 이게 성공한거 맞제?")
+//                        print("success")
+//                    default:
+//                        print(statusCode)
+//                    }
+//                }
+//            } else if VC.settingButton.backgroundColor == .responseButtonColor {
+//                StudyAcceptAPI.shared.requestStudy(userID: UserDefaultsHelper.standard.uid ?? "") { error, statusCode in
+//                    switch statusCode {
+//                    case 200 :
+//                        print("success")
+//                        print("Accept 통신",statusCode)
+//                    default:
+//                        print("Accept 통신",statusCode)
+//                    }
+//                }
+//            } else {
+//                return print("아무것도아임다")
+//            }
+//        }
         self.dismiss(animated: true)
     }
         

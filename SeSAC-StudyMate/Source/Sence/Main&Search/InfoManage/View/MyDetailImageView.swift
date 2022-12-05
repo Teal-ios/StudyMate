@@ -124,7 +124,13 @@ extension MyDetailImageView {
 extension MyDetailImageView {
     
     @objc func requestButtonClicked() {
+        delegate?.uidDelegate(uid: self.userID)
+        print(self.userID)
+        UserDefaultsHelper.standard.uid = self.userID
         
+        
+        
+
 //        if settingButton.backgroundColor == .requestButtonColor {
 //            StudyRequestAPI.shared.requestStudy(userID: self.userID) { error, statusCode in
 //                switch statusCode {

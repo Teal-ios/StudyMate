@@ -22,6 +22,7 @@ final class UserDefaultsHelper {
         static let email = "email"
         static let gender = "gender"
         static let currentUser = "currentUser"
+        static let uid = "uid"
     }
     
     var idToken: String? {
@@ -69,6 +70,11 @@ final class UserDefaultsHelper {
         set { userDefaults.set(newValue, forKey: Key.currentUser) }
     }
     
+    var uid: String? {
+        get { return userDefaults.string(forKey: Key.uid) ?? "" }
+        set { userDefaults.set(newValue, forKey: Key.uid) }
+    }
+    
     func removeObject() {
         userDefaults.removeObject(forKey: Key.idToken)
         userDefaults.removeObject(forKey: Key.FCMtoken)
@@ -78,6 +84,7 @@ final class UserDefaultsHelper {
         userDefaults.removeObject(forKey: Key.birthday)
         userDefaults.removeObject(forKey: Key.email)
         userDefaults.removeObject(forKey: Key.gender)
+        userDefaults.removeObject(forKey: Key.uid)
     }
     
     // 로그아웃을 위해

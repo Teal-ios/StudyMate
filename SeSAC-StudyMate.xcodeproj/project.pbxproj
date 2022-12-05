@@ -88,6 +88,7 @@
 		2FBD9725292A90B0008FBA04 /* MyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD9724292A90B0008FBA04 /* MyPageModel.swift */; };
 		2FBD9727292A93A7008FBA04 /* MyPageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */; };
 		2FC61FA7292757D000CA11F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC61FA6292757D000CA11F3 /* HomeView.swift */; };
+		2FCC30F9293DB87B00A34B7A /* RequestAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC30F8293DB87B00A34B7A /* RequestAlertViewController.swift */; };
 		2FCEF784292A0988003A1C5D /* FindSeSACViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEF783292A0988003A1C5D /* FindSeSACViewController.swift */; };
 		2FCFC7612933A9CF00F33CF5 /* matchedEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFC7602933A9CF00F33CF5 /* matchedEnum.swift */; };
 		2FD05051292F44F60045450E /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD05050292F44F60045450E /* StudyView.swift */; };
@@ -224,6 +225,7 @@
 		2FBD9724292A90B0008FBA04 /* MyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModel.swift; sourceTree = "<group>"; };
 		2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAPI.swift; sourceTree = "<group>"; };
 		2FC61FA6292757D000CA11F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2FCC30F8293DB87B00A34B7A /* RequestAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAlertViewController.swift; sourceTree = "<group>"; };
 		2FCEF783292A0988003A1C5D /* FindSeSACViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSeSACViewController.swift; sourceTree = "<group>"; };
 		2FCFC7602933A9CF00F33CF5 /* matchedEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchedEnum.swift; sourceTree = "<group>"; };
 		2FD05050292F44F60045450E /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
@@ -797,6 +799,30 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2FCC30F4293DB84100A34B7A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2FFD9D5329376F2600E2B314 /* RequestViewController.swift */,
+				2FCC30F8293DB87B00A34B7A /* RequestAlertViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2FCC30F5293DB84B00A34B7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FB2714529386F00004DDD2C /* RequestView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2FCC30F6293DB85900A34B7A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		2FCEF782292A0965003A1C5D /* FindSeSAC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1020,8 +1046,9 @@
 		2FFD9D4F29376EDF00E2B314 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				2FFD9D5329376F2600E2B314 /* RequestViewController.swift */,
-				2FB2714529386F00004DDD2C /* RequestView.swift */,
+				2FCC30F6293DB85900A34B7A /* ViewModel */,
+				2FCC30F5293DB84B00A34B7A /* View */,
+				2FCC30F4293DB84100A34B7A /* ViewController */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1198,6 +1225,7 @@
 				2FFD9D4429372FE600E2B314 /* WithDrawAlertViewController.swift in Sources */,
 				2FAB1B502935C63B00683D8F /* CustomAlertView.swift in Sources */,
 				2F2751DD29221F3400391163 /* InfoView.swift in Sources */,
+				2FCC30F9293DB87B00A34B7A /* RequestAlertViewController.swift in Sources */,
 				2F2751DB2922024D00391163 /* InfoViewController.swift in Sources */,
 				2FAE3F5C2918D54F0069579F /* BaseTableViewCell.swift in Sources */,
 				2FAE3F602918D5980069579F /* UIColor+.swift in Sources */,
