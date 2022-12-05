@@ -8,7 +8,10 @@
 import UIKit
 
 final class ChattingViewController: BaseViewController {
+    
     var mainview = ChattingView()
+    var chat: [Chat] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,3 +43,4 @@ final class ChattingViewController: BaseViewController {
         
     }
 }
+
