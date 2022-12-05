@@ -10,6 +10,7 @@ import Foundation
 enum PlaceHolder {
     case searchBar
     case writeStudy
+    case message
 }
 
 extension PlaceHolder {
@@ -19,6 +20,8 @@ extension PlaceHolder {
             return "띄어쓰기로 복수 입력이 가능해요."
         case .writeStudy:
             return "스터디를 입력해 주세요."
+        case .message:
+            return "메세지를 입력하세요"
         }
     }
 }

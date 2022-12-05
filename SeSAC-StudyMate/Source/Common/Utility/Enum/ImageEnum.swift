@@ -43,6 +43,8 @@ enum ImageEnum: Int {
     
     case emptyImage_near
     case emptyImage_request
+    
+    case sendButton_normal
 }
 
 extension ImageEnum {
@@ -112,6 +114,8 @@ extension ImageEnum {
             return UIImage(named: "empty_img (1)")
         case .emptyImage_request:
             return UIImage(named: "empty_img")
+        case .sendButton_normal:
+            return UIImage(named: "sendButton_normal")
         }
     }
 }

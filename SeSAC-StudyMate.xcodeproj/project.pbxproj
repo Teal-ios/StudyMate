@@ -89,6 +89,12 @@
 		2FBD9727292A93A7008FBA04 /* MyPageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */; };
 		2FC61FA7292757D000CA11F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC61FA6292757D000CA11F3 /* HomeView.swift */; };
 		2FCC30F9293DB87B00A34B7A /* RequestAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC30F8293DB87B00A34B7A /* RequestAlertViewController.swift */; };
+		2FCC30FF293DBD1300A34B7A /* ChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC30FE293DBD1300A34B7A /* ChattingView.swift */; };
+		2FCC3101293DBD4800A34B7A /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC3100293DBD4800A34B7A /* ChattingViewController.swift */; };
+		2FCC3103293DBD5C00A34B7A /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC3102293DBD5C00A34B7A /* ChattingViewModel.swift */; };
+		2FCC310A293DD6C900A34B7A /* MyChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC3109293DD6C900A34B7A /* MyChattingTableViewCell.swift */; };
+		2FCC310C293DD6DA00A34B7A /* OtherChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC310B293DD6DA00A34B7A /* OtherChattingTableViewCell.swift */; };
+		2FCC310E293DDAFF00A34B7A /* ChattingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC310D293DDAFF00A34B7A /* ChattingHeaderView.swift */; };
 		2FCEF784292A0988003A1C5D /* FindSeSACViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEF783292A0988003A1C5D /* FindSeSACViewController.swift */; };
 		2FCFC7612933A9CF00F33CF5 /* matchedEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFC7602933A9CF00F33CF5 /* matchedEnum.swift */; };
 		2FD05051292F44F60045450E /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD05050292F44F60045450E /* StudyView.swift */; };
@@ -226,6 +232,12 @@
 		2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAPI.swift; sourceTree = "<group>"; };
 		2FC61FA6292757D000CA11F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2FCC30F8293DB87B00A34B7A /* RequestAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAlertViewController.swift; sourceTree = "<group>"; };
+		2FCC30FE293DBD1300A34B7A /* ChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingView.swift; sourceTree = "<group>"; };
+		2FCC3100293DBD4800A34B7A /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
+		2FCC3102293DBD5C00A34B7A /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
+		2FCC3109293DD6C900A34B7A /* MyChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChattingTableViewCell.swift; sourceTree = "<group>"; };
+		2FCC310B293DD6DA00A34B7A /* OtherChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherChattingTableViewCell.swift; sourceTree = "<group>"; };
+		2FCC310D293DDAFF00A34B7A /* ChattingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingHeaderView.swift; sourceTree = "<group>"; };
 		2FCEF783292A0988003A1C5D /* FindSeSACViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSeSACViewController.swift; sourceTree = "<group>"; };
 		2FCFC7602933A9CF00F33CF5 /* matchedEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchedEnum.swift; sourceTree = "<group>"; };
 		2FD05050292F44F60045450E /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
@@ -535,6 +547,7 @@
 		2F8E1CBA291FB4B20087935A /* Main&Search */ = {
 			isa = PBXGroup;
 			children = (
+				2FCC30FA293DBAE700A34B7A /* Chat */,
 				2F2751E32922306F00391163 /* InfoManage */,
 				2F2751D22922010900391163 /* Info */,
 				2F2751D12922010000391163 /* Friend */,
@@ -821,6 +834,51 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2FCC30FA293DBAE700A34B7A /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				2FCC3108293DD6AB00A34B7A /* Cell */,
+				2FCC30FD293DBB0700A34B7A /* ViewController */,
+				2FCC30FC293DBB0200A34B7A /* ViewModel */,
+				2FCC30FB293DBAFC00A34B7A /* View */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		2FCC30FB293DBAFC00A34B7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FCC30FE293DBD1300A34B7A /* ChattingView.swift */,
+				2FCC310D293DDAFF00A34B7A /* ChattingHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2FCC30FC293DBB0200A34B7A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2FCC3102293DBD5C00A34B7A /* ChattingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2FCC30FD293DBB0700A34B7A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2FCC3100293DBD4800A34B7A /* ChattingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2FCC3108293DD6AB00A34B7A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2FCC3109293DD6C900A34B7A /* MyChattingTableViewCell.swift */,
+				2FCC310B293DD6DA00A34B7A /* OtherChattingTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		2FCEF782292A0965003A1C5D /* FindSeSAC */ = {
@@ -1175,6 +1233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FCC3103293DBD5C00A34B7A /* ChattingViewModel.swift in Sources */,
 				2FAE3F622918D9DD0069579F /* UIFont+.swift in Sources */,
 				2FF877ED2924B45D0002C35E /* TitleCategoryCollectionViewCell.swift in Sources */,
 				2FFD9D5429376F2600E2B314 /* RequestViewController.swift in Sources */,
@@ -1185,6 +1244,7 @@
 				2F21D6F7291B903000429935 /* NicknameViewModel.swift in Sources */,
 				2FC61FA7292757D000CA11F3 /* HomeView.swift in Sources */,
 				2FD0506B292F87DD0045450E /* SLPError.swift in Sources */,
+				2FCC30FF293DBD1300A34B7A /* ChattingView.swift in Sources */,
 				2FD0505C292F592B0045450E /* DynamicCollectionView.swift in Sources */,
 				2FF877E52924B24A0002C35E /* MyTitleView.swift in Sources */,
 				2FCEF784292A0988003A1C5D /* FindSeSACViewController.swift in Sources */,
@@ -1231,6 +1291,7 @@
 				2FAE3F602918D5980069579F /* UIColor+.swift in Sources */,
 				2FAE2C41292359220015DBEB /* toastMessage.swift in Sources */,
 				2FDF688229347B520005484C /* ImageEnum.swift in Sources */,
+				2FCC3101293DBD4800A34B7A /* ChattingViewController.swift in Sources */,
 				2FAE2C3F292356AE0015DBEB /* APIError.swift in Sources */,
 				2F2751D92922024500391163 /* FriendViewController.swift in Sources */,
 				2FAEF4852930B2F20046E22B /* Annotation.swift in Sources */,
@@ -1245,6 +1306,7 @@
 				2FFD9D5229376F0000E2B314 /* ResponseViewController.swift in Sources */,
 				2F21D6FF291B906900429935 /* BirthdayViewModel.swift in Sources */,
 				2F21D6FB291B904D00429935 /* BirthdayViewController.swift in Sources */,
+				2FCC310E293DDAFF00A34B7A /* ChattingHeaderView.swift in Sources */,
 				2F21D705291B908B00429935 /* EmailViewModel.swift in Sources */,
 				2FD05051292F44F60045450E /* StudyView.swift in Sources */,
 				2FBC74BC293C72AF00F2173D /* StudyRequestAPI.swift in Sources */,
@@ -1262,6 +1324,7 @@
 				2FAE3F582918D54F0069579F /* String+.swift in Sources */,
 				2FD4C9BC2920A6C700EEDEA8 /* UserAPI.swift in Sources */,
 				2F9F31AE292B515500281816 /* MyQueueStateError.swift in Sources */,
+				2FCC310A293DD6C900A34B7A /* MyChattingTableViewCell.swift in Sources */,
 				2FFD9D4D29376C8100E2B314 /* NearTabmanViewController.swift in Sources */,
 				2FF877E12924AF340002C35E /* InfoManageCardTableViewCell.swift in Sources */,
 				2FBC74BA293C718300F2173D /* APIQueueService.swift in Sources */,
@@ -1279,6 +1342,7 @@
 				2F3F5B7B2925FD34005EF93F /* SLPModel.swift in Sources */,
 				2FBC74C2293C733500F2173D /* StudyAcceptError.swift in Sources */,
 				2FF877D72924A1B70002C35E /* InfoManageViewController.swift in Sources */,
+				2FCC310C293DD6DA00A34B7A /* OtherChattingTableViewCell.swift in Sources */,
 				2FAE3F2D2918D4840069579F /* AppDelegate.swift in Sources */,
 				2FAE2C3C292298FF0015DBEB /* ScrollView+.swift in Sources */,
 				2F3F5B7E2925FEC1005EF93F /* LoginAPI.swift in Sources */,
