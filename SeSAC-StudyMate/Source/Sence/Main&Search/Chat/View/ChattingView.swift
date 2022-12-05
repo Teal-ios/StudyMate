@@ -11,38 +11,65 @@ import SnapKit
 
 class ChattingView: BaseView {
     
-    let chattingTableView = UITableView().then {
-        $0.separatorStyle = .none
-        $0.showsVerticalScrollIndicator = false
-        $0.sectionHeaderTopPadding = 0
-        $0.backgroundColor = .white
-        $0.bounces = false
-        $0.allowsSelection =  false
-        $0.rowHeight = UITableView.automaticDimension
+    //MARK: - HeaderView 설정
+    lazy var headerView = ChattingHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 120))
+    
+    lazy var tableView: UITableView = {
+        let view = UITableView()
+        view.register(MyChattingTableViewCell.self, forCellReuseIdentifier: MyChattingTableViewCell.reuseIdentifier)
+        view.register(OtherChattingTableViewCell.self, forCellReuseIdentifier: OtherChattingTableViewCell.reuseIdentifier)
+        view.separatorStyle = .none
+        view.rowHeight = UITableView.automaticDimension
+        view.tableHeaderView = headerView
+        return view
+    }()
+    
+    let messageView = UIView().then {
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 8
+        $0.backgroundColor = .grayScale1
     }
     
-    let chattingTextField = UITextField().then {
-        $0.backgroundColor = UIColor.grayScale1
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-        $0.font = UIFont.Body3_R14
-        $0.placeholder = PlaceHolder.message.text
-        $0.borderStyle = .none
-        $0.textColor = .black
+    let textView = UITextView().then {
+        $0.textColor = .grayScale7
+        $0.font = UIFont.Title4_R14
+        $0.backgroundColor = .grayScale1
+        $0.text = "메세지를 입력하세요"
+        $0.textContainer.lineBreakMode = .byTruncatingTail
+        $0.isScrollEnabled = false
+        $0.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     let sendButton = UIButton().then {
         $0.setImage(ImageEnum.sendButton_normal.image, for: .normal)
+        $0.tintColor = .grayScale6
     }
     
     override func configureUI() {
-        addSubviews([chattingTextField, sendButton, chattingTableView])
+        messageView.addSubviews([textView, sendButton])
+        addSubviews([tableView, messageView])
     }
     
     override func setConstraints() {
-        chattingTextField.snp.makeConstraints { make in
-            make.bottom.leading.trailing.equalToSuperview().inset(16)
-            
+        tableView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalTo(messageView.snp.top).offset(-12)
+            make.top.equalTo(self.safeAreaLayoutGuide)
+        }
+        sendButton.snp.makeConstraints { make in
+            make.size.equalTo(20)
+            make.trailing.equalTo(messageView).offset(-14)
+            make.centerY.equalTo(messageView)
+        }
+        textView.snp.makeConstraints { make in
+            make.verticalEdges.equalTo(messageView).inset(14)
+            make.leading.equalToSuperview().offset(12)
+            make.trailing.equalTo(sendButton.snp.leading).offset(-10)
+        }
+        messageView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).offset(-16)
+            make.height.greaterThanOrEqualTo(52)
         }
     }
 }
