@@ -23,6 +23,7 @@ final class UserDefaultsHelper {
         static let gender = "gender"
         static let currentUser = "currentUser"
         static let uid = "uid"
+        static let otherUid = "otherUid"
     }
     
     var idToken: String? {
@@ -73,6 +74,11 @@ final class UserDefaultsHelper {
     var uid: String? {
         get { return userDefaults.string(forKey: Key.uid) ?? "" }
         set { userDefaults.set(newValue, forKey: Key.uid) }
+    }
+    
+    var otherUid: String? {
+        get { return userDefaults.string(forKey: Key.otherUid) ?? "" }
+        set { userDefaults.set(newValue, forKey: Key.otherUid) }
     }
     
     func removeObject() {

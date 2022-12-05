@@ -9,8 +9,8 @@ import Moya
 import Foundation
 
 final class QueueAPI: locationDelegate {
-    var dataLong: Double = 126.92983890550006
-    var dataLat: Double = 37.482733667903865
+    var dataLong: Double = 126.8854176553498
+    var dataLat: Double = 37.52406613969246
     func location(lat: Double, long: Double) {
         dataLong = long
         dataLat = lat

@@ -78,6 +78,7 @@
 		2FB2714429386EE6004DDD2C /* ResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB2714329386EE6004DDD2C /* ResponseView.swift */; };
 		2FB2714629386F00004DDD2C /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB2714529386F00004DDD2C /* RequestView.swift */; };
 		2FB2714D293876E1004DDD2C /* NearTabmanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB2714C293876E1004DDD2C /* NearTabmanViewModel.swift */; };
+		2FB493C9293E69A900CCAF78 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB493C8293E69A900CCAF78 /* DateFormatterHelper.swift */; };
 		2FBC74BA293C718300F2173D /* APIQueueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC74B9293C718300F2173D /* APIQueueService.swift */; };
 		2FBC74BC293C72AF00F2173D /* StudyRequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC74BB293C72AF00F2173D /* StudyRequestAPI.swift */; };
 		2FBC74BE293C72B900F2173D /* StudyAcceptAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC74BD293C72B900F2173D /* StudyAcceptAPI.swift */; };
@@ -225,6 +226,7 @@
 		2FB2714329386EE6004DDD2C /* ResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseView.swift; sourceTree = "<group>"; };
 		2FB2714529386F00004DDD2C /* RequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
 		2FB2714C293876E1004DDD2C /* NearTabmanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearTabmanViewModel.swift; sourceTree = "<group>"; };
+		2FB493C8293E69A900CCAF78 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		2FBC74B9293C718300F2173D /* APIQueueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIQueueService.swift; sourceTree = "<group>"; };
 		2FBC74BB293C72AF00F2173D /* StudyRequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyRequestAPI.swift; sourceTree = "<group>"; };
 		2FBC74BD293C72B900F2173D /* StudyAcceptAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyAcceptAPI.swift; sourceTree = "<group>"; };
@@ -668,6 +670,7 @@
 		2FAE3F452918D54F0069579F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2FB493C7293E690400CCAF78 /* DateFormatterHelper */,
 				2FAE2C4429236A3A0015DBEB /* UserDefaultsHelper */,
 				2FAE3F462918D54F0069579F /* Utility */,
 			);
@@ -811,6 +814,14 @@
 				2FBC74C6293C8D7900F2173D /* ResponseAlertViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2FB493C7293E690400CCAF78 /* DateFormatterHelper */ = {
+			isa = PBXGroup;
+			children = (
+				2FB493C8293E69A900CCAF78 /* DateFormatterHelper.swift */,
+			);
+			path = DateFormatterHelper;
 			sourceTree = "<group>";
 		};
 		2FBC74C5293C7E4A00F2173D /* ViewModel */ = {
@@ -1259,6 +1270,7 @@
 				2FFD9D5429376F2600E2B314 /* RequestViewController.swift in Sources */,
 				2FD05058292F560E0045450E /* RecommendCollectionViewCell.swift in Sources */,
 				2F21D70B291B90A600429935 /* GenderViewModel.swift in Sources */,
+				2FB493C9293E69A900CCAF78 /* DateFormatterHelper.swift in Sources */,
 				2FF877EB2924B4090002C35E /* MyDetailImageTableViewCell.swift in Sources */,
 				2F9F31AA292B4DFC00281816 /* SearchResponse.swift in Sources */,
 				2F21D6F7291B903000429935 /* NicknameViewModel.swift in Sources */,

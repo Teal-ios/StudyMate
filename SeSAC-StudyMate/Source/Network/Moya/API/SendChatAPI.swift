@@ -19,9 +19,9 @@ final class SendChatAPI {
     private init() { }
     // 서버 연결 후 전달 받을 response
     
-    var data: Chat?
+    var data: Payload?
     
-    func sendChat(chat: String, completionHandler: @escaping (Chat?, SendChatError?, Int?) -> Void) {
+    func sendChat(chat: String, completionHandler: @escaping (Payload?, SendChatError?, Int?) -> Void) {
         MyPageProvider.request(.sendChat(chat: chat)) { result in
             switch result {
                 
@@ -31,7 +31,7 @@ final class SendChatAPI {
                 
                 print("GET 성공", statusCode)
                 do {
-                    self.data = try response.map(Chat?.self)
+                    self.data = try response.map(Payload?.self)
                     guard let data = self.data else { return }
                     
                     // 해당 데이터를 함수 호출 뒤, 탈출 클로저로 쓸 수 있도록 전달
