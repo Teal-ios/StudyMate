@@ -34,17 +34,15 @@ extension RequestAlertViewController: responseButtonDelegate {
     }
     
     func okButtonTapped(tap: Bool) {
-//        StudyAcceptAPI.shared.requestStudy(userID: UserDefaultsHelper.standard.uid ?? "") { error, statusCode in
-//            switch statusCode {
-//            case 200 :
-//                print("지금 이게 성공한거 맞제?")
-//                print("success")
-//                transition(ChattingViewController(), transitionStyle: .presentFullScreen)
-//            default:
-//                print(statusCode)
-//            }
-//        }
-//        self.dismiss(animated: true)
-        transition(ChattingViewController(), transitionStyle: .presentFullScreen)
+        StudyAcceptAPI.shared.requestStudy(userID: UserDefaultsHelper.standard.uid ?? "") { error, statusCode in
+            switch statusCode {
+            case 200 :
+                print("지금 이게 성공한거 맞제?")
+                print("success")
+                self.transition(ChattingViewController(), transitionStyle: .presentFullScreen)
+            default:
+                print(statusCode)
+            }
+        }
     }
 }

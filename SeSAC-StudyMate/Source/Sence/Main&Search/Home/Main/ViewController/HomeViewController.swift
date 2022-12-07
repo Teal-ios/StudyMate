@@ -90,12 +90,12 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
         
             switch viewModel.myQueueState() {
             case MatchState.matching.rawValue:
-//                transition(FindSeSACViewController(), transitionStyle: .push)
+                self.transition(FindSeSACViewController(), transitionStyle: .push)
             transition(StudyViewController(), transitionStyle: .push)
             case MatchState.matched.rawValue:
-                print("1-5화면인 채팅으로 넘어가야함")
+                self.transition(ChattingViewController(), transitionStyle: .push)
             case MatchState.normal.rawValue:
-                transition(StudyViewController(), transitionStyle: .push)
+                self.transition(StudyViewController(), transitionStyle: .push)
             default:
                 print()
         }

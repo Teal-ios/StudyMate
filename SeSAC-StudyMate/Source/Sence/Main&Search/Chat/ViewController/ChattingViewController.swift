@@ -37,7 +37,7 @@ final class ChattingViewController: BaseViewController {
         navigationItem.leftBarButtonItem = backButtonItem
         navigationItem.rightBarButtonItem = menuButtonItem
         navigationItem.title = "고래밥"
-
+        
     }
     
     func bind() {
@@ -54,28 +54,35 @@ final class ChattingViewController: BaseViewController {
             .withUnretained(self)
             .bind { (vc, _) in
                 guard let text = vc.mainview.textView.text else { return }
-                vc.viewModel.sendChat(chat: text)
+                guard let uid = UserDefaultsHelper.standard.otherUid else { return }
+
+                vc.viewModel.sendChat(chat: text, to: uid)
                 vc.mainview.textView.text = ""
             }
+               
+        viewModel.chatData.bind(to: mainview.tableView.rx.items) { tableView, row, element in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: OtherChattingTableViewCell.reuseIdentifier) as? OtherChattingTableViewCell else { return UITableViewCell() }
+
+            return cell
+            
+        }
+        .disposed(by: disposeBag)
         
-//        viewModel.chatData.asDriver(onErrorJustReturn: [])
-//            .drive(mainview.tableView.rx.items) { tableView, row, element in
-//                guard let uid =  UserDefaultsHelper.standard.otherUid else { return }
-//
-//                if element.from == uid {
-//                    guard let cell = tableView.dequeueReusableCell(withIdentifier: OtherChattingTableViewCell.reuseIdentifier) as? OtherChattingTableViewCell else { return BaseTableViewCell() }
-//
-//                    cell.dateLabel.text = DateFormatterHelper.shared.dateChangeForChat(dateString: element.createzdAt)
-//                    cell.messageLabel.text = element.chat
-//
-//                    return cell
-//                } else {
-//                    guard let cell = tableView.dequeueReusableCell(withIdentifier: MyChattingTableViewCell.reuseIdentifier) as? MyChattingTableViewCell else { return BaseTableViewCell() }
-//                    cell.dateLabel.text = DateFormatterHelper.shared.dateChangeForChat(dateString: element.createdAt)
-//                    cell.messageLabel.text = element.chat
-//                    return cell
-//                }
-//            }.disposed(by: disposeBag)
+        
+        
+//        viewModel.chatData.bind(to: mainview.tableView.rx.items) { tableView, row, chat in
+//            guard let uid = UserDefaultsHelper.standard.otherUid else { return }
+//            
+//            if chat.from == uid {
+//                guard let cell = tableView.dequeueReusableCell(withIdentifier: OtherChattingTableViewCell.reuseIdentifier) as? OtherChattingTableViewCell else { return UITableViewCell() }
+//                cell.messageLabel.text = chat.chat
+//                return cell
+//            } else {
+//                guard let cell = tableView.dequeueReusableCell(withIdentifier: MyChattingTableViewCell.reuseIdentifier) as? MyChattingTableViewCell else { return UITableViewCell() }
+//                cell.messageLabel.text = chat.chat
+//                return cell
+//            }
+//        }.disposed(by: disposeBag)
     }
     
     private func setUpConstraints(height: CGFloat) {

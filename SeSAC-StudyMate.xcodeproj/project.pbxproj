@@ -89,6 +89,7 @@
 		2FBD9725292A90B0008FBA04 /* MyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD9724292A90B0008FBA04 /* MyPageModel.swift */; };
 		2FBD9727292A93A7008FBA04 /* MyPageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */; };
 		2FC61FA7292757D000CA11F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC61FA6292757D000CA11F3 /* HomeView.swift */; };
+		2FC87AA2293F2C4600783C84 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC87AA1293F2C4600783C84 /* ChatModel.swift */; };
 		2FCC30F9293DB87B00A34B7A /* RequestAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC30F8293DB87B00A34B7A /* RequestAlertViewController.swift */; };
 		2FCC30FF293DBD1300A34B7A /* ChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC30FE293DBD1300A34B7A /* ChattingView.swift */; };
 		2FCC3101293DBD4800A34B7A /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC3100293DBD4800A34B7A /* ChattingViewController.swift */; };
@@ -96,7 +97,7 @@
 		2FCC310A293DD6C900A34B7A /* MyChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC3109293DD6C900A34B7A /* MyChattingTableViewCell.swift */; };
 		2FCC310C293DD6DA00A34B7A /* OtherChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC310B293DD6DA00A34B7A /* OtherChattingTableViewCell.swift */; };
 		2FCC310E293DDAFF00A34B7A /* ChattingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC310D293DDAFF00A34B7A /* ChattingHeaderView.swift */; };
-		2FCC3111293E237200A34B7A /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC3110293E237200A34B7A /* ChatModel.swift */; };
+		2FCC3111293E237200A34B7A /* ChatListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC3110293E237200A34B7A /* ChatListModel.swift */; };
 		2FCC3113293E243C00A34B7A /* APIChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC3112293E243C00A34B7A /* APIChatService.swift */; };
 		2FCC3115293E26DD00A34B7A /* SendChatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC3114293E26DD00A34B7A /* SendChatAPI.swift */; };
 		2FCC3117293E273500A34B7A /* SendChatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC3116293E273500A34B7A /* SendChatError.swift */; };
@@ -237,6 +238,7 @@
 		2FBD9724292A90B0008FBA04 /* MyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModel.swift; sourceTree = "<group>"; };
 		2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAPI.swift; sourceTree = "<group>"; };
 		2FC61FA6292757D000CA11F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2FC87AA1293F2C4600783C84 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		2FCC30F8293DB87B00A34B7A /* RequestAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAlertViewController.swift; sourceTree = "<group>"; };
 		2FCC30FE293DBD1300A34B7A /* ChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingView.swift; sourceTree = "<group>"; };
 		2FCC3100293DBD4800A34B7A /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
@@ -244,7 +246,7 @@
 		2FCC3109293DD6C900A34B7A /* MyChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChattingTableViewCell.swift; sourceTree = "<group>"; };
 		2FCC310B293DD6DA00A34B7A /* OtherChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherChattingTableViewCell.swift; sourceTree = "<group>"; };
 		2FCC310D293DDAFF00A34B7A /* ChattingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingHeaderView.swift; sourceTree = "<group>"; };
-		2FCC3110293E237200A34B7A /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		2FCC3110293E237200A34B7A /* ChatListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListModel.swift; sourceTree = "<group>"; };
 		2FCC3112293E243C00A34B7A /* APIChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChatService.swift; sourceTree = "<group>"; };
 		2FCC3114293E26DD00A34B7A /* SendChatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendChatAPI.swift; sourceTree = "<group>"; };
 		2FCC3116293E273500A34B7A /* SendChatError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendChatError.swift; sourceTree = "<group>"; };
@@ -905,7 +907,8 @@
 		2FCC310F293E235A00A34B7A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2FCC3110293E237200A34B7A /* ChatModel.swift */,
+				2FCC3110293E237200A34B7A /* ChatListModel.swift */,
+				2FC87AA1293F2C4600783C84 /* ChatModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1299,6 +1302,7 @@
 				2F21D6E7291B7F7500429935 /* PhoneCertificationViewModel.swift in Sources */,
 				2FBC74BE293C72B900F2173D /* StudyAcceptAPI.swift in Sources */,
 				2FCC3113293E243C00A34B7A /* APIChatService.swift in Sources */,
+				2FC87AA2293F2C4600783C84 /* ChatModel.swift in Sources */,
 				2FDD9BEF2921F0D900C87641 /* LaunchScreenView.swift in Sources */,
 				2FFA7248291A340A00172240 /* PhoneViewController.swift in Sources */,
 				2FD0505E292F59FD0045450E /* StudyViewController.swift in Sources */,
@@ -1383,7 +1387,7 @@
 				2F3F5B7E2925FEC1005EF93F /* LoginAPI.swift in Sources */,
 				2F2751ED2922499600391163 /* BaseScrollerView.swift in Sources */,
 				2FD05069292F7D740045450E /* QueueError.swift in Sources */,
-				2FCC3111293E237200A34B7A /* ChatModel.swift in Sources */,
+				2FCC3111293E237200A34B7A /* ChatListModel.swift in Sources */,
 				2FAE3F5E2918D54F0069579F /* BaseView.swift in Sources */,
 				2F21D6E2291B7F2700429935 /* PhoneCertificationView.swift in Sources */,
 				2FBC74C7293C8D7900F2173D /* ResponseAlertViewController.swift in Sources */,

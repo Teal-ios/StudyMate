@@ -83,17 +83,18 @@ class HomeViewModel {
 
                 if data?.matched == Matched.matched.rawValue {
                     print("매칭 대기중 상태")
-                    num = 1
+                    return num = 1
                 } else {
                     print("매칭 상태")
-                    num = 2
+                    return num = 2
                 }
             default:
                 print("미등록 에러")
-                num = 0
+                return num = 0
             }
             print("myQueue 통신",statusCode, data)
         }
+        print("매칭",num)
         return num
     }
 }

@@ -126,10 +126,16 @@ extension MyDetailImageView {
     @objc func requestButtonClicked() {
         delegate?.uidDelegate(uid: self.userID)
         print(self.userID)
-        UserDefaultsHelper.standard.uid = self.userID
-        
-        
-        
+        if self.settingButton.backgroundColor == UIColor.requestButtonColor {
+            UserDefaultsHelper.standard.uid = self.userID
+            print("나의 uid")
+            print(UserDefaultsHelper.standard.uid)
+        } else {
+            UserDefaultsHelper.standard.otherUid = self.userID
+            print("상대방 uid")
+            print(UserDefaultsHelper.standard.otherUid)
+        }
+
 
 //        if settingButton.backgroundColor == .requestButtonColor {
 //            StudyRequestAPI.shared.requestStudy(userID: self.userID) { error, statusCode in

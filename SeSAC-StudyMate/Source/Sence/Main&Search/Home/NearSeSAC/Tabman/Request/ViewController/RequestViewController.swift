@@ -11,11 +11,16 @@ import SnapKit
 import Then
 import RxSwift
 
+protocol otheruidDelegate {
+    func otheruid(uid: String)
+}
+
 class RequestViewController: BaseViewController {
 
     var lat: Double = 37.517819364682694
     var long: Double = 126.88647317074734
     var indexPathSection = 0
+    var otheruidDelegate: otheruidDelegate?
     
     // MARK: - DisposeBag
     
@@ -65,8 +70,6 @@ class RequestViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
 
-            
-        
         
     }
     
@@ -124,7 +127,6 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
         let data = viewModel.searchData.value.fromQueueDBRequested[section]
         detailImageView.configure(data: data)
         detailImageView.settingButton.addTarget(self, action: #selector(acceptButtonClicked), for: .touchUpInside)
-
         return detailImageView
     }
     
@@ -135,10 +137,7 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
         nameCell.toggleButton.addTarget(self, action: #selector(touchupToggleButton(_:)), for: .touchUpInside)
                 
         let data = viewModel.searchData.value.fromQueueDBRequested[indexPath.section]
-        
         nameCell.configure(data: data)
-        
-        
         return nameCell
         
     }
@@ -166,6 +165,5 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func acceptButtonClicked() {
         let alertVC = RequestAlertViewController()
         self.transition(alertVC, transitionStyle: .overFullScreen)
-
     }
 }

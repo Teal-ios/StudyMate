@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum APIChatService {
-    case sendChat(chat: String)
+    case sendChat(chat: String, to: String)
     case responseChat
 }
 
@@ -26,8 +26,8 @@ extension APIChatService: TargetType {
     // base url 뒤로 붙는 각 API 별 path parameter
     var path: String {
         switch self {
-        case .sendChat:
-            return "\(version)/chat/\(UserDefaultsHelper.standard.uid ?? "")"
+        case .sendChat(_, let to):
+            return "\(version)/chat/\(to)"
         case .responseChat:
             return "\(version)/chat/{from}?lastchatDate={lastchatDate}"
         }
@@ -57,7 +57,7 @@ extension APIChatService: TargetType {
     //MARK: 요청
     var task: Moya.Task {
         switch self {
-        case .sendChat(let chat):
+        case .sendChat(let chat, _):
             return .requestParameters(parameters: ["chat": chat], encoding: URLEncoding.default)
         case .responseChat:
             return .requestPlain

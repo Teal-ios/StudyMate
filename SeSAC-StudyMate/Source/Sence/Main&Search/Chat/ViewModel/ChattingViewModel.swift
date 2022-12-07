@@ -10,23 +10,23 @@ import RxSwift
 import RxCocoa
 
 class ChattingViewModel {
-    var chatData = BehaviorRelay<[Payload]>(value: [])
+    var chatData = BehaviorRelay<[Chat]>(value: [])
     
-    func sendChat(chat: String) {
-        SendChatAPI.shared.sendChat(chat: chat) { data, error, statusCode in
+    func sendChat(chat: String, to: String) {
+        SendChatAPI.shared.sendChat(chat: chat, to: to) { data, error, statusCode in
             switch statusCode {
             case 200:
                 print("채팅보내기 성공",data)
-                self.addChatData(chat: data ?? Payload(id: "", to: "", from: "", chat: "", createdAt: ""))
+                self.addChatData(chat: data ?? Chat(id: "", to: "", from: "", chat: "", createdAt: ""))
             default:
                 print("채팅보내기 실패")
             }
         }
     }
     
-    func addChatData(chat: Payload) {
+    func addChatData(chat: Chat) {
 
-        let chatPayload = Payload(id: chat.id, to: chat.to, from: chat.from, chat: chat.chat, createdAt: chat.createdAt)
+        let chatPayload = Chat(id: chat.id, to: chat.to, from: chat.from, chat: chat.chat, createdAt: chat.createdAt)
         var data = [chatPayload]
         chatData.accept(data)
 

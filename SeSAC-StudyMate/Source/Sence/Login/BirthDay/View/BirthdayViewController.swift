@@ -45,7 +45,6 @@ class BirthdayViewController: BaseViewController {
             .bind { (vc, _) in
                 
                 vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.success() : vc.mainview.makeToast(toastMessage.notChoiceWeatherError.description)
-
             }
     }
     
