@@ -44,16 +44,7 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
     private func bind() {
 
         //myQueue통신 후 상태 확인
-        switch viewModel.myQueueState() {
-        case MatchState.matching.rawValue:
-            self.mapView.statusButton.setImage(MatchState.matching.imageName, for: .normal)
-        case MatchState.matched.rawValue:
-            self.mapView.statusButton.setImage(MatchState.matched.imageName, for: .normal)
-        case MatchState.normal.rawValue:
-            self.mapView.statusButton.setImage(MatchState.normal.imageName, for: .normal)
-        default:
-            self.mapView.makeToast(ToastEnum.notDefindError.message)
-        }
+        myQueueStateChangeImg()
                 
         viewModel.searchData
             .asDriver(onErrorJustReturn: SearchResponse(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
@@ -104,6 +95,26 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
     func buttonActions() {
         mapView.gpsButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
         mapView.statusButton.addTarget(self, action: #selector(findSeSAC), for: .touchUpInside)
+    }
+    
+    func myQueueStateChangeImg() {
+        MyQueueStateAPI.shared.requestMyQueueData { data, error, statusCode in
+            switch statusCode {
+            case 200:
+                if data?.matched == MatchState.matching.rawValue {
+                    print("매칭 대기중 상태")
+                    self.mapView.statusButton.setImage(MatchState.matching.imageName, for: .normal)
+                } else if data?.matched == Matched.matched.rawValue {
+                    print("매칭 상태")
+                    self.mapView.statusButton.setImage(MatchState.matched.imageName, for: .normal)
+                }
+            case 201:
+                self.mapView.statusButton.setImage(MatchState.normal.imageName, for: .normal)
+            default:
+                print("미등록 에러")
+            }
+            print("myQueue 통신",statusCode, data)
+        }
     }
 }
 
