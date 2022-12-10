@@ -79,17 +79,36 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
         nextVC.lat = locationManager.location?.coordinate.latitude ?? 37.517819364682694
         nextVC.long = locationManager.location?.coordinate.longitude ?? 126.88647317074734
         
-            switch viewModel.myQueueState() {
-            case MatchState.matching.rawValue:
-                self.transition(FindSeSACViewController(), transitionStyle: .push)
-            transition(StudyViewController(), transitionStyle: .push)
-            case MatchState.matched.rawValue:
-                self.transition(ChattingViewController(), transitionStyle: .push)
-            case MatchState.normal.rawValue:
+        MyQueueStateAPI.shared.requestMyQueueData { data, error, statusCode in
+            switch statusCode {
+            case 200:
+                if data?.matched == MatchState.matching.rawValue {
+                    print("매칭 대기중 상태")
+                    self.transition(FindSeSACViewController(), transitionStyle: .push)
+
+                } else if data?.matched == Matched.matched.rawValue {
+                    print("매칭 상태")
+                    self.transition(ChattingViewController(), transitionStyle: .push)
+                }
+            case 201:
                 self.transition(StudyViewController(), transitionStyle: .push)
             default:
-                print()
+                print("미등록 에러")
+            }
+            print("myQueue 통신",statusCode, data)
         }
+        
+//            switch viewModel.myQueueState() {
+//            case MatchState.matching.rawValue:
+//                self.transition(FindSeSACViewController(), transitionStyle: .push)
+//            transition(StudyViewController(), transitionStyle: .push)
+//            case MatchState.matched.rawValue:
+//                self.transition(ChattingViewController(), transitionStyle: .push)
+//            case MatchState.normal.rawValue:
+//                self.transition(StudyViewController(), transitionStyle: .push)
+//            default:
+//                print()
+//        }
     }
 
     func buttonActions() {
