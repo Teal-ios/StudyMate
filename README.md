@@ -41,6 +41,21 @@
 | 22.12.07(수) | DateFormatter 설정 및 Chat Logic 수정 완료                   |                                                              |
 | 22.12.08(목) | 내 상태에 따른 분기처리 구조화                               |                                                              |
 
+
+
+## 사용 기술
+
+- RxSwift
+- Moya
+- Firebase
+- Snapkit
+- Then
+- Toast
+- IQKeyboard
+- Tabman
+- MultiSlider
+- Pageboy
+
 ---
 
 
