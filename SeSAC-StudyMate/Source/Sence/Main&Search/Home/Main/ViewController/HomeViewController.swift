@@ -84,7 +84,7 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
             case 200:
                 if data?.matched == MatchState.matching.rawValue {
                     print("매칭 대기중 상태")
-                    self.transition(FindSeSACViewController(), transitionStyle: .push)
+                    self.transition(StudyViewController(), transitionStyle: .push)
 
                 } else if data?.matched == Matched.matched.rawValue {
                     print("매칭 상태")
@@ -97,18 +97,6 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
             }
             print("myQueue 통신",statusCode, data)
         }
-        
-//            switch viewModel.myQueueState() {
-//            case MatchState.matching.rawValue:
-//                self.transition(FindSeSACViewController(), transitionStyle: .push)
-//            transition(StudyViewController(), transitionStyle: .push)
-//            case MatchState.matched.rawValue:
-//                self.transition(ChattingViewController(), transitionStyle: .push)
-//            case MatchState.normal.rawValue:
-//                self.transition(StudyViewController(), transitionStyle: .push)
-//            default:
-//                print()
-//        }
     }
 
     func buttonActions() {

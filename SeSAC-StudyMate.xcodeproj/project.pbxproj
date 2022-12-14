@@ -33,6 +33,8 @@
 		2F2751DF29221FD000391163 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751DE29221FD000391163 /* InfoTableViewCell.swift */; };
 		2F2751E229222A8600391163 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751E129222A8600391163 /* InfoViewModel.swift */; };
 		2F2751ED2922499600391163 /* BaseScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2751EC2922499600391163 /* BaseScrollerView.swift */; };
+		2F3EF72A2949CB5D0038CDE7 /* DodgeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3EF7292949CB5D0038CDE7 /* DodgeError.swift */; };
+		2F3EF72C2949CBA30038CDE7 /* DodgeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3EF72B2949CBA30038CDE7 /* DodgeAPI.swift */; };
 		2F3F5B7B2925FD34005EF93F /* SLPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7A2925FD34005EF93F /* SLPModel.swift */; };
 		2F3F5B7E2925FEC1005EF93F /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */; };
 		2F3F5B8029261236005EF93F /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F5B7F29261236005EF93F /* LoginError.swift */; };
@@ -183,6 +185,8 @@
 		2F2751DE29221FD000391163 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		2F2751E129222A8600391163 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 		2F2751EC2922499600391163 /* BaseScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollerView.swift; sourceTree = "<group>"; };
+		2F3EF7292949CB5D0038CDE7 /* DodgeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodgeError.swift; sourceTree = "<group>"; };
+		2F3EF72B2949CBA30038CDE7 /* DodgeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodgeAPI.swift; sourceTree = "<group>"; };
 		2F3F5B7A2925FD34005EF93F /* SLPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPModel.swift; sourceTree = "<group>"; };
 		2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		2F3F5B7F29261236005EF93F /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
@@ -533,6 +537,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2F3EF7282949CB4D0038CDE7 /* QueueError */ = {
+			isa = PBXGroup;
+			children = (
+				2F3EF7292949CB5D0038CDE7 /* DodgeError.swift */,
+			);
+			path = QueueError;
+			sourceTree = "<group>";
+		};
 		2F3F5B7C2925FE30005EF93F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,6 +602,7 @@
 		2FAE2C3D2923569D0015DBEB /* APIError */ = {
 			isa = PBXGroup;
 			children = (
+				2F3EF7282949CB4D0038CDE7 /* QueueError */,
 				2FAE2C3E292356AE0015DBEB /* APIError.swift */,
 				2FAE2C40292359220015DBEB /* toastMessage.swift */,
 				2F3F5B7F29261236005EF93F /* LoginError.swift */,
@@ -1003,6 +1016,7 @@
 				2FBC74BB293C72AF00F2173D /* StudyRequestAPI.swift */,
 				2FBC74BD293C72B900F2173D /* StudyAcceptAPI.swift */,
 				2FCC3114293E26DD00A34B7A /* SendChatAPI.swift */,
+				2F3EF72B2949CBA30038CDE7 /* DodgeAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1279,6 +1293,7 @@
 				2F21D6F7291B903000429935 /* NicknameViewModel.swift in Sources */,
 				2FC61FA7292757D000CA11F3 /* HomeView.swift in Sources */,
 				2FD0506B292F87DD0045450E /* SLPError.swift in Sources */,
+				2F3EF72A2949CB5D0038CDE7 /* DodgeError.swift in Sources */,
 				2FCC30FF293DBD1300A34B7A /* ChattingView.swift in Sources */,
 				2FD0505C292F592B0045450E /* DynamicCollectionView.swift in Sources */,
 				2FF877E52924B24A0002C35E /* MyTitleView.swift in Sources */,
@@ -1349,6 +1364,7 @@
 				2F21D705291B908B00429935 /* EmailViewModel.swift in Sources */,
 				2FD05051292F44F60045450E /* StudyView.swift in Sources */,
 				2FBC74BC293C72AF00F2173D /* StudyRequestAPI.swift in Sources */,
+				2F3EF72C2949CBA30038CDE7 /* DodgeAPI.swift in Sources */,
 				2FB2714629386F00004DDD2C /* RequestView.swift in Sources */,
 				2F2751DF29221FD000391163 /* InfoTableViewCell.swift in Sources */,
 				2FF877F32924FF000002C35E /* InfoManageViewModel.swift in Sources */,

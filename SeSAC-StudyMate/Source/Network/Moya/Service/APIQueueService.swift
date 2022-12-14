@@ -11,6 +11,7 @@ import Moya
 enum APIQueueService {
     case studyrequest(uid: String)
     case studyaccept(uid: String)
+    case dodge(uid: String)
 }
 
 extension APIQueueService: TargetType {
@@ -30,6 +31,8 @@ extension APIQueueService: TargetType {
             return "\(version)/queue/studyaccept"
         case .studyrequest:
             return "\(version)/queue/studyrequest/"
+        case .dodge:
+            return "\(version)/queue/dodge"
 
         }
     }
@@ -42,8 +45,9 @@ extension APIQueueService: TargetType {
     //MARK: method (.get, .post, .delete, .patch 등의 어떤 통신을 할 것인가?)
     var method: Moya.Method {
         switch self {
-        case .studyaccept, .studyrequest:
+        case .studyaccept, .studyrequest, .dodge:
             return .post
+            
 
         }
     }
@@ -60,7 +64,8 @@ extension APIQueueService: TargetType {
             return .requestParameters(parameters: ["otheruid":uid], encoding: URLEncoding.default)
         case .studyrequest(let uid):
             return .requestParameters(parameters: ["otheruid": uid], encoding: URLEncoding.default)
-            
+        case .dodge(let uid):
+            return .requestParameters(parameters: ["otheruid": uid], encoding: URLEncoding.default)
         }
     }
 }

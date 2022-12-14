@@ -26,7 +26,6 @@ final class StudyViewController: BaseViewController {
     
     override func loadView() {
         super.view = mainView
-        
     }
     
     override func configure() {

@@ -39,7 +39,6 @@ class EmailViewController: BaseViewController {
         mainview.baseButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                
                 vc.mainview.baseButton.backgroundColor == .brandGreen ? vc.sucess() : vc.mainview.makeToast(toastMessage.emailTypeError.description)
             }
     }

@@ -13,8 +13,6 @@ import RxSwift
 import MultiSlider
 
 final class InfoManageViewController: BaseViewController, WithdrawDelegate {
-
-    
     
     // MARK: - DisposeBag
     
@@ -32,9 +30,7 @@ final class InfoManageViewController: BaseViewController, WithdrawDelegate {
         $0.rowHeight = UITableView.automaticDimension
     }
     
-    
     var updateMypage = myPage(searchable: 1, ageMin: 18, ageMax: 65, gender: 1)
-    
     
     let viewModel = InfoManageViewModel()
     // MARK: - LifeCycle
