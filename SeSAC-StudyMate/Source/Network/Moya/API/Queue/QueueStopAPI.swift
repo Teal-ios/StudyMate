@@ -1,17 +1,17 @@
 //
-//  WithDrawAPI.swift
+//  QueueStopAPI.swift
 //  SeSAC-StudyMate
 //
-//  Created by 이병현 on 2022/11/30.
+//  Created by 이병현 on 2022/12/14.
 //
 
 import Moya
 import Foundation
 
-final class WithDrawAPI {
+final class queueStopAPI {
     
     // 싱글톤 패턴
-    static let shared: WithDrawAPI = WithDrawAPI()
+    static let shared: queueStopAPI = queueStopAPI()
     
     // MoyaProvider라는 BaseProvider로 Provider를 구현하되, 조건(Target == API)에 따라 다양한 Provider를 생성해 구분된 네트워크 작업을 구현
     private let MyPageProvider = MoyaProvider<APIService>(plugins: [MoyaLoggingPlugin()])
@@ -19,7 +19,7 @@ final class WithDrawAPI {
     private init() { }
     // 서버 연결 후 전달 받을 response
     
-    func requestWithDraw(completionHandler: @escaping (queueStopError?, Int?) -> Void) {
+    func requestQueueStop(completionHandler: @escaping (queueStopError?, Int?) -> Void) {
         MyPageProvider.request(.queueStop) { result  in
 
             switch result {

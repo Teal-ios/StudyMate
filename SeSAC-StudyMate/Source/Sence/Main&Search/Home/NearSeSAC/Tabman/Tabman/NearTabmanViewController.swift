@@ -107,7 +107,14 @@ extension NearTabmanViewController: PageboyViewControllerDataSource, TMBarDataSo
 
 extension NearTabmanViewController {
     @objc func cancelFind() {
-        
+        queueStopAPI.shared.requestQueueStop { error, statusCode in
+            switch statusCode {
+            case 200:
+                self.transition(HomeViewController(), transitionStyle: .rootViewChanged)
+            default:
+                print(statusCode, "성공안한거 보여줘")
+            }
+        }
     }
     
     @objc func backButtonClicked() {

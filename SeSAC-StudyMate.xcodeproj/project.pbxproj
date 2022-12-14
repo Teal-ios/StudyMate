@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F0D8DAC2949EAD100073699 /* QueueStopAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D8DAB2949EAD100073699 /* QueueStopAPI.swift */; };
+		2F0D8DAE2949EB7900073699 /* QueueStopError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D8DAD2949EB7900073699 /* QueueStopError.swift */; };
 		2F21D6D9291B424900429935 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2F21D6D8291B424900429935 /* FirebaseAuth */; };
 		2F21D6DB291B424900429935 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2F21D6DA291B424900429935 /* FirebaseCrashlytics */; };
 		2F21D6DD291B424900429935 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 2F21D6DC291B424900429935 /* FirebaseMessaging */; };
@@ -161,6 +163,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F0D8DAB2949EAD100073699 /* QueueStopAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueStopAPI.swift; sourceTree = "<group>"; };
+		2F0D8DAD2949EB7900073699 /* QueueStopError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueStopError.swift; sourceTree = "<group>"; };
 		2F21D6DE291B6BF900429935 /* SeSAC-StudyMate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SeSAC-StudyMate.entitlements"; sourceTree = "<group>"; };
 		2F21D6E1291B7F2700429935 /* PhoneCertificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationView.swift; sourceTree = "<group>"; };
 		2F21D6E3291B7F3200429935 /* PhoneCertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationViewController.swift; sourceTree = "<group>"; };
@@ -328,6 +332,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F0D8DAA2949EAC400073699 /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				2F0D8DAB2949EAD100073699 /* QueueStopAPI.swift */,
+			);
+			path = Queue;
+			sourceTree = "<group>";
+		};
 		2F21D6DF291B7EF700429935 /* PhoneCertification */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +553,7 @@
 			isa = PBXGroup;
 			children = (
 				2F3EF7292949CB5D0038CDE7 /* DodgeError.swift */,
+				2F0D8DAD2949EB7900073699 /* QueueStopError.swift */,
 			);
 			path = QueueError;
 			sourceTree = "<group>";
@@ -1006,6 +1019,7 @@
 		2FD4C9B42920932000EEDEA8 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2F0D8DAA2949EAC400073699 /* Queue */,
 				2FD4C9BB2920A6C700EEDEA8 /* UserAPI.swift */,
 				2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */,
 				2FBD9726292A93A7008FBA04 /* MyPageAPI.swift */,
@@ -1335,6 +1349,7 @@
 				2FAEF48129309D700046E22B /* HomewViewModel.swift in Sources */,
 				2FDD9BEB2921F0C300C87641 /* LaunchScreenViewController.swift in Sources */,
 				2FCC3117293E273500A34B7A /* SendChatError.swift in Sources */,
+				2F0D8DAC2949EAD100073699 /* QueueStopAPI.swift in Sources */,
 				2FFD9D4429372FE600E2B314 /* WithDrawAlertViewController.swift in Sources */,
 				2FAB1B502935C63B00683D8F /* CustomAlertView.swift in Sources */,
 				2F2751DD29221F3400391163 /* InfoView.swift in Sources */,
@@ -1403,6 +1418,7 @@
 				2F3F5B7E2925FEC1005EF93F /* LoginAPI.swift in Sources */,
 				2F2751ED2922499600391163 /* BaseScrollerView.swift in Sources */,
 				2FD05069292F7D740045450E /* QueueError.swift in Sources */,
+				2F0D8DAE2949EB7900073699 /* QueueStopError.swift in Sources */,
 				2FCC3111293E237200A34B7A /* ChatListModel.swift in Sources */,
 				2FAE3F5E2918D54F0069579F /* BaseView.swift in Sources */,
 				2F21D6E2291B7F2700429935 /* PhoneCertificationView.swift in Sources */,

@@ -74,6 +74,16 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
     }
     
     @objc func findSeSAC() {
+        
+//        DodgeAPI.shared.requestStudy(userID: UserDefaultsHelper.standard.otherUid ?? "") { error, statusCode in
+//            switch statusCode {
+//            case 200:
+//                print("찾기중단우선해")
+//            default:
+//                print("이건문제가잇다")
+//            }
+//        }
+        
         let nextVC = NearTabmanViewController()
         
         nextVC.lat = locationManager.location?.coordinate.latitude ?? 37.517819364682694
@@ -84,7 +94,7 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
             case 200:
                 if data?.matched == MatchState.matching.rawValue {
                     print("매칭 대기중 상태")
-                    self.transition(StudyViewController(), transitionStyle: .push)
+                    self.transition(NearTabmanViewController(), transitionStyle: .push)
 
                 } else if data?.matched == Matched.matched.rawValue {
                     print("매칭 상태")
