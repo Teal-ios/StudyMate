@@ -99,6 +99,9 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
                 } else if data?.matched == Matched.matched.rawValue {
                     print("매칭 상태")
                     self.transition(ChattingViewController(), transitionStyle: .push)
+                } else {
+                    self.transition(StudyViewController(), transitionStyle: .push)
+
                 }
             case 201:
                 self.transition(StudyViewController(), transitionStyle: .push)

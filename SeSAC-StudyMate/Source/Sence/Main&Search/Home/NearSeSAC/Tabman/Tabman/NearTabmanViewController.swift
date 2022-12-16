@@ -118,6 +118,7 @@ extension NearTabmanViewController {
     }
     
     @objc func backButtonClicked() {
-        self.dismiss(animated: true)
+        self.transition(HomeViewController(), transitionStyle: .rootViewChanged)
+        
     }
 }
