@@ -40,6 +40,12 @@ final class ChattingViewController: BaseViewController {
         
     }
     
+    
+    override func configure() {
+        NotificationCenter.default.addObserver(self, selector: #selector(getMessage(notification:)), name: NSNotification.Name("getMessage"), object: nil)
+        
+    }
+    
     func bind() {
         RxKeyboard.instance.visibleHeight
             .drive(onNext: { [weak self] height in
@@ -55,34 +61,47 @@ final class ChattingViewController: BaseViewController {
             .bind { (vc, _) in
                 guard let text = vc.mainview.textView.text else { return }
                 guard let uid = UserDefaultsHelper.standard.otherUid else { return }
-
+                
                 vc.viewModel.sendChat(chat: text, to: uid)
                 vc.mainview.textView.text = ""
             }
-               
-        viewModel.chatData.bind(to: mainview.tableView.rx.items) { tableView, row, element in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: OtherChattingTableViewCell.reuseIdentifier) as? OtherChattingTableViewCell else { return UITableViewCell() }
+        
+        viewModel.chatData
+            .asDriver(onErrorJustReturn: [])
+            .drive(mainview.tableView.rx.items) { tableView, row, element in
+                guard let uid = UserDefaultsHelper.standard.otherUid ?? "" else { return UICollectionViewCell() }
 
-            return cell
-            
-        }
-        .disposed(by: disposeBag)
+                if element.from == uid {
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: OtherChattingTableViewCell.identifier) as? OtherChattingTableViewCell else { return UITableViewCell() }
+
+                    cell.dateLabel.text = DateFormatterHelper.standard.dateChangeForChat(dateString: element.createdAt)
+                    cell.messageLabel.text = element.chat
+
+                    return cell
+                } else {
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: MyChattingTableViewCell.identifier) as? MyChattingTableViewCell else { return UITableViewCell() }
+                    cell.dateLabel.text = DateFormatterHelper.shared.chatDateText(dateString: element.createdAt)
+                    cell.messageLabel.text = element.chat
+                    return cell
+                }
+            }.disposed(by: disposeBag)
         
         
         
-//        viewModel.chatData.bind(to: mainview.tableView.rx.items) { tableView, row, chat in
-//            guard let uid = UserDefaultsHelper.standard.otherUid else { return }
-//            
-//            if chat.from == uid {
-//                guard let cell = tableView.dequeueReusableCell(withIdentifier: OtherChattingTableViewCell.reuseIdentifier) as? OtherChattingTableViewCell else { return UITableViewCell() }
-//                cell.messageLabel.text = chat.chat
-//                return cell
-//            } else {
-//                guard let cell = tableView.dequeueReusableCell(withIdentifier: MyChattingTableViewCell.reuseIdentifier) as? MyChattingTableViewCell else { return UITableViewCell() }
-//                cell.messageLabel.text = chat.chat
-//                return cell
-//            }
-//        }.disposed(by: disposeBag)
+        
+        //        viewModel.chatData.bind(to: mainview.tableView.rx.items) { tableView, row, chat in
+        //            guard let uid = UserDefaultsHelper.standard.otherUid else { return }
+        //
+        //            if chat.from == uid {
+        //                guard let cell = tableView.dequeueReusableCell(withIdentifier: OtherChattingTableViewCell.reuseIdentifier) as? OtherChattingTableViewCell else { return UITableViewCell() }
+        //                cell.messageLabel.text = chat.chat
+        //                return cell
+        //            } else {
+        //                guard let cell = tableView.dequeueReusableCell(withIdentifier: MyChattingTableViewCell.reuseIdentifier) as? MyChattingTableViewCell else { return UITableViewCell() }
+        //                cell.messageLabel.text = chat.chat
+        //                return cell
+        //            }
+        //        }.disposed(by: disposeBag)
     }
     
     private func setUpConstraints(height: CGFloat) {
@@ -121,6 +140,20 @@ final class ChattingViewController: BaseViewController {
     
     @objc func menuButtonTapped() {
         
+    }
+    
+    @objc private func getMessage(notification: NSNotification) {
+        guard let userInfo = notification.userInfo,
+              let id = userInfo["id"] as? String,
+              let chat = userInfo["chat"] as? String,
+              let createdAt = userInfo["createdAt"] as? String,
+              let from = userInfo["from"] as? String,
+              let to = userInfo["to"] as? String else { return }
+        
+        let chatData = Chat(id: id, to: to, from: from, chat: chat, createdAt: createdAt)
+        print("메세지왔음 \(chatData)")
+
+        mainview.tableView.scrollToRow(at: IndexPath(row: viewModel.tableViewCellCount() - 1, section: 0), at: .bottom, animated: false)
     }
 }
 

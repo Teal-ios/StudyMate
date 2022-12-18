@@ -46,6 +46,8 @@
 		2F9F31AA292B4DFC00281816 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F31A9292B4DFC00281816 /* SearchResponse.swift */; };
 		2F9F31AC292B4EB100281816 /* MyQueueStateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F31AB292B4EB100281816 /* MyQueueStateAPI.swift */; };
 		2F9F31AE292B515500281816 /* MyQueueStateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F31AD292B515500281816 /* MyQueueStateError.swift */; };
+		2FA9A953294EF43600819C30 /* responseChatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA9A952294EF43600819C30 /* responseChatAPI.swift */; };
+		2FA9A956294EF50000819C30 /* ResponseChatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA9A955294EF50000819C30 /* ResponseChatError.swift */; };
 		2FAB1B502935C63B00683D8F /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB1B4F2935C63B00683D8F /* CustomAlertView.swift */; };
 		2FAB1B532935C99800683D8F /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAB1B522935C99800683D8F /* Tabman */; };
 		2FAB1B552935CC9500683D8F /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB1B542935CC9500683D8F /* CustomAlertViewController.swift */; };
@@ -200,6 +202,8 @@
 		2F9F31A9292B4DFC00281816 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		2F9F31AB292B4EB100281816 /* MyQueueStateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQueueStateAPI.swift; sourceTree = "<group>"; };
 		2F9F31AD292B515500281816 /* MyQueueStateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQueueStateError.swift; sourceTree = "<group>"; };
+		2FA9A952294EF43600819C30 /* responseChatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = responseChatAPI.swift; sourceTree = "<group>"; };
+		2FA9A955294EF50000819C30 /* ResponseChatError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseChatError.swift; sourceTree = "<group>"; };
 		2FAB1B4F2935C63B00683D8F /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		2FAB1B542935CC9500683D8F /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+.swift"; sourceTree = "<group>"; };
@@ -603,6 +607,22 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		2FA9A951294EF31300819C30 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				2FA9A952294EF43600819C30 /* responseChatAPI.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		2FA9A954294EF4ED00819C30 /* ChatError */ = {
+			isa = PBXGroup;
+			children = (
+				2FA9A955294EF50000819C30 /* ResponseChatError.swift */,
+			);
+			path = ChatError;
+			sourceTree = "<group>";
+		};
 		2FAB1B4E2935C61400683D8F /* ReuseItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,6 +635,7 @@
 		2FAE2C3D2923569D0015DBEB /* APIError */ = {
 			isa = PBXGroup;
 			children = (
+				2FA9A954294EF4ED00819C30 /* ChatError */,
 				2F3EF7282949CB4D0038CDE7 /* QueueError */,
 				2FAE2C3E292356AE0015DBEB /* APIError.swift */,
 				2FAE2C40292359220015DBEB /* toastMessage.swift */,
@@ -1019,6 +1040,7 @@
 		2FD4C9B42920932000EEDEA8 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2FA9A951294EF31300819C30 /* Chat */,
 				2F0D8DAA2949EAC400073699 /* Queue */,
 				2FD4C9BB2920A6C700EEDEA8 /* UserAPI.swift */,
 				2F3F5B7D2925FEC1005EF93F /* LoginAPI.swift */,
@@ -1306,6 +1328,7 @@
 				2F9F31AA292B4DFC00281816 /* SearchResponse.swift in Sources */,
 				2F21D6F7291B903000429935 /* NicknameViewModel.swift in Sources */,
 				2FC61FA7292757D000CA11F3 /* HomeView.swift in Sources */,
+				2FA9A956294EF50000819C30 /* ResponseChatError.swift in Sources */,
 				2FD0506B292F87DD0045450E /* SLPError.swift in Sources */,
 				2F3EF72A2949CB5D0038CDE7 /* DodgeError.swift in Sources */,
 				2FCC30FF293DBD1300A34B7A /* ChattingView.swift in Sources */,
@@ -1370,6 +1393,7 @@
 				2FCFC7612933A9CF00F33CF5 /* matchedEnum.swift in Sources */,
 				2FD5A00A291CF67C009102EF /* GenderCollectionViewCell.swift in Sources */,
 				2FD05067292F7A7C0045450E /* QueueAPI.swift in Sources */,
+				2FA9A953294EF43600819C30 /* responseChatAPI.swift in Sources */,
 				2FAE3F5D2918D54F0069579F /* BaseCollectionViewCell.swift in Sources */,
 				2FFD9D462937308200E2B314 /* CustomAlertEnum.swift in Sources */,
 				2FFD9D5229376F0000E2B314 /* ResponseViewController.swift in Sources */,

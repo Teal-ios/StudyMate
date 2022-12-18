@@ -24,11 +24,19 @@ class ChattingViewModel {
         }
     }
     
+    func fetchChat() {
+//        responseChatAPI.shared.responseChat(from: <#T##String#>, lastchatDate: <#T##String#>, completionHandler: <#T##(ChatList?, responseChatError?, Int?) -> Void#>)
+    }
+    
     func addChatData(chat: Chat) {
 
         let chatPayload = Chat(id: chat.id, to: chat.to, from: chat.from, chat: chat.chat, createdAt: chat.createdAt)
         var data = [chatPayload]
         chatData.accept(data)
 
+    }
+    
+    func tableViewCellCount() -> Int {
+        return chatData.value.count
     }
 }

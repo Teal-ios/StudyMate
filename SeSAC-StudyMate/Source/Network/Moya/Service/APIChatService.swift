@@ -10,7 +10,7 @@ import Moya
 
 enum APIChatService {
     case sendChat(chat: String, to: String)
-    case responseChat
+    case responseChat(from: String, lastchatDate: String)
 }
 
 extension APIChatService: TargetType {
@@ -28,8 +28,8 @@ extension APIChatService: TargetType {
         switch self {
         case .sendChat(_, let to):
             return "\(version)/chat/\(to)"
-        case .responseChat:
-            return "\(version)/chat/{from}?lastchatDate={lastchatDate}"
+        case .responseChat(let from, let lastchatDate):
+            return "\(version)/chat/\(from)?lastchatDate=\(lastchatDate)"
         }
     }
     
@@ -59,8 +59,8 @@ extension APIChatService: TargetType {
         switch self {
         case .sendChat(let chat, _):
             return .requestParameters(parameters: ["chat": chat], encoding: URLEncoding.default)
-        case .responseChat:
-            return .requestPlain
+        case .responseChat(let from, let lastchatDate):
+            return .requestParameters(parameters: ["from" : from, "lastchatDate" : lastchatDate], encoding: URLEncoding.default)
         }
     }
 }

@@ -8,6 +8,8 @@
 import UIKit
 import Then
 import SnapKit
+import RxCocoa
+import RxSwift
 
 class ChattingView: BaseView {
     

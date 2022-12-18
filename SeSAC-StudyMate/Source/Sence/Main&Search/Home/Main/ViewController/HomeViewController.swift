@@ -93,12 +93,14 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
             switch statusCode {
             case 200:
                 if data?.matched == MatchState.matching.rawValue {
-                    print("매칭 대기중 상태")
-                    self.transition(NearTabmanViewController(), transitionStyle: .push)
-
-                } else if data?.matched == Matched.matched.rawValue {
                     print("매칭 상태")
                     self.transition(ChattingViewController(), transitionStyle: .push)
+
+
+                } else if data?.matched == Matched.matched.rawValue {
+
+                    print("매칭 대기중 상태")
+                    self.transition(NearTabmanViewController(), transitionStyle: .push)
                 } else {
                     self.transition(StudyViewController(), transitionStyle: .push)
 
@@ -122,11 +124,17 @@ class HomeViewController: BaseViewController,  CLLocationManagerDelegate {
             switch statusCode {
             case 200:
                 if data?.matched == MatchState.matching.rawValue {
-                    print("매칭 대기중 상태")
-                    self.mapView.statusButton.setImage(MatchState.matching.imageName, for: .normal)
-                } else if data?.matched == Matched.matched.rawValue {
                     print("매칭 상태")
                     self.mapView.statusButton.setImage(MatchState.matched.imageName, for: .normal)
+                    
+//                    print("매칭 대기중 상태")
+//                    self.mapView.statusButton.setImage(MatchState.matching.imageName, for: .normal)
+                } else if data?.matched == Matched.matched.rawValue {
+//                    print("매칭 상태")
+//                    self.mapView.statusButton.setImage(MatchState.matched.imageName, for: .normal)
+                    
+                    print("매칭 대기중 상태")
+                    self.mapView.statusButton.setImage(MatchState.matching.imageName, for: .normal)
                 }
             case 201:
                 self.mapView.statusButton.setImage(MatchState.normal.imageName, for: .normal)
