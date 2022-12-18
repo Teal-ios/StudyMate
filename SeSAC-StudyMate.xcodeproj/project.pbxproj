@@ -48,6 +48,8 @@
 		2F9F31AE292B515500281816 /* MyQueueStateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F31AD292B515500281816 /* MyQueueStateError.swift */; };
 		2FA9A953294EF43600819C30 /* responseChatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA9A952294EF43600819C30 /* responseChatAPI.swift */; };
 		2FA9A956294EF50000819C30 /* ResponseChatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA9A955294EF50000819C30 /* ResponseChatError.swift */; };
+		2FA9A958294EFC1E00819C30 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA9A957294EFC1E00819C30 /* SocketIOManager.swift */; };
+		2FA9A95B294EFCB500819C30 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA9A95A294EFCB500819C30 /* SocketIO */; };
 		2FAB1B502935C63B00683D8F /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB1B4F2935C63B00683D8F /* CustomAlertView.swift */; };
 		2FAB1B532935C99800683D8F /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAB1B522935C99800683D8F /* Tabman */; };
 		2FAB1B552935CC9500683D8F /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB1B542935CC9500683D8F /* CustomAlertViewController.swift */; };
@@ -204,6 +206,7 @@
 		2F9F31AD292B515500281816 /* MyQueueStateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQueueStateError.swift; sourceTree = "<group>"; };
 		2FA9A952294EF43600819C30 /* responseChatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = responseChatAPI.swift; sourceTree = "<group>"; };
 		2FA9A955294EF50000819C30 /* ResponseChatError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseChatError.swift; sourceTree = "<group>"; };
+		2FA9A957294EFC1E00819C30 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		2FAB1B4F2935C63B00683D8F /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		2FAB1B542935CC9500683D8F /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		2FAE2C3B292298FF0015DBEB /* ScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+.swift"; sourceTree = "<group>"; };
@@ -326,6 +329,7 @@
 				2FFA7250291A40E300172240 /* RxCocoa in Frameworks */,
 				2FAE3F662918EB7F0069579F /* SnapKit in Frameworks */,
 				2F21D6DB291B424900429935 /* FirebaseCrashlytics in Frameworks */,
+				2FA9A95B294EFCB500819C30 /* SocketIO in Frameworks */,
 				2FF877DC2924A2BB0002C35E /* MultiSlider in Frameworks */,
 				2F21D6D9291B424900429935 /* FirebaseAuth in Frameworks */,
 				2FD4C9B1292090FD00EEDEA8 /* Moya in Frameworks */,
@@ -956,6 +960,7 @@
 			children = (
 				2FCC3110293E237200A34B7A /* ChatListModel.swift */,
 				2FC87AA1293F2C4600783C84 /* ChatModel.swift */,
+				2FA9A957294EFC1E00819C30 /* SocketIOManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1245,6 +1250,7 @@
 				2FF877DB2924A2BB0002C35E /* MultiSlider */,
 				2FD05064292F6BB70045450E /* RxKeyboard */,
 				2FAB1B522935C99800683D8F /* Tabman */,
+				2FA9A95A294EFCB500819C30 /* SocketIO */,
 			);
 			productName = "SeSAC-StudyMate";
 			productReference = 2FAE3F292918D4840069579F /* SeSAC-StudyMate.app */;
@@ -1285,6 +1291,7 @@
 				2FF877DA2924A2BB0002C35E /* XCRemoteSwiftPackageReference "MultiSlider" */,
 				2FD05063292F6BB70045450E /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 				2FAB1B512935C99700683D8F /* XCRemoteSwiftPackageReference "Tabman" */,
+				2FA9A959294EFCB500819C30 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 			);
 			productRefGroup = 2FAE3F2A2918D4840069579F /* Products */;
 			projectDirPath = "";
@@ -1393,6 +1400,7 @@
 				2FCFC7612933A9CF00F33CF5 /* matchedEnum.swift in Sources */,
 				2FD5A00A291CF67C009102EF /* GenderCollectionViewCell.swift in Sources */,
 				2FD05067292F7A7C0045450E /* QueueAPI.swift in Sources */,
+				2FA9A958294EFC1E00819C30 /* SocketIOManager.swift in Sources */,
 				2FA9A953294EF43600819C30 /* responseChatAPI.swift in Sources */,
 				2FAE3F5D2918D54F0069579F /* BaseCollectionViewCell.swift in Sources */,
 				2FFD9D462937308200E2B314 /* CustomAlertEnum.swift in Sources */,
@@ -1687,6 +1695,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		2FA9A959294EFCB500819C30 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 16.0.1;
+			};
+		};
 		2FAB1B512935C99700683D8F /* XCRemoteSwiftPackageReference "Tabman" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uias/Tabman.git";
@@ -1776,6 +1792,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2F21D6D7291B424900429935 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		2FA9A95A294EFCB500819C30 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FA9A959294EFCB500819C30 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
 		};
 		2FAB1B522935C99800683D8F /* Tabman */ = {
 			isa = XCSwiftPackageProductDependency;

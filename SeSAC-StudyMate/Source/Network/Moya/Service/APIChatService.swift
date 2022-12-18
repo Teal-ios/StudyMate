@@ -11,6 +11,7 @@ import Moya
 enum APIChatService {
     case sendChat(chat: String, to: String)
     case responseChat(from: String, lastchatDate: String)
+    
 }
 
 extension APIChatService: TargetType {
