@@ -16,10 +16,6 @@
 - 검색 : 직접 원하는 스터디를 등록할 수 있으며, 주변에 등록된 스터디들을 알려줍니다.
 - 내정보 : 원하는 스터디 / 성별 / 매칭 연령대 / 리뷰 등을 확인 / 수정할 수 있습니다.
 
-## 사용 기술
-
-MVVM / ReactiveProgramming / CodeBase UI / Moya / Firebase / Web Socket
-
 ## 기술 스택
 
 - Firebase를 통한 **전화번호 인증 프로세스**를 개발하였습니다.
