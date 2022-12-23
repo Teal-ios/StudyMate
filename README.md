@@ -1,8 +1,61 @@
 # 개발 일기
 
+# SeSAC-SLP
 
+|           | Explain                                                      |
+| --------- | ------------------------------------------------------------ |
+| 진행 기간 | 22.11.07 ~ 22.12.07                                          |
+| Skill     | RxSwift MVVM CodeBase UI Moya Firebase                       |
+| Library   | Toast Tabman IQKeyboard Pageboy Multislider RxKeyboard Snapkit Then |
 
-## SeSAC-SLP
+## 앱 내 주요 기능
+
+- 회원 가입 : 전화번호 인증을 통해 회원가입을 진행합니다.
+- 채팅 : 스터디가 매칭된 사람들끼리 채팅을 할 수 있습니다.
+- 홈 화면 : 채팅 / 등록 / 매칭 상태로 구분되며, 설정한 위치를 기반으로 스터디를 등록할 수 있습니다.
+- 검색 : 직접 원하는 스터디를 등록할 수 있으며, 주변에 등록된 스터디들을 알려줍니다.
+- 내정보 : 원하는 스터디 / 성별 / 매칭 연령대 / 리뷰 등을 확인 / 수정할 수 있습니다.
+
+## 사용 기술
+
+MVVM / ReactiveProgramming / CodeBase UI / Moya / Firebase / Web Socket
+
+## 기술 스택
+
+- Firebase를 통한 **전화번호 인증 프로세스**를 개발하였습니다.
+- FCM Token 만료 시 **RefreshToken Logic**을 구현하였습니다.
+- **Web Socket** 방식을 통한 1대1 채팅 기능을 구현하였습니다.
+- **MVVM** 패턴을 적용해 **business Logic을**  분리하였습니다.
+- **RxSwift / RxCocoa / RxKeyboard**를 통한 전반적 서비스를 구성하였습니다.
+- **Moya** 도입으로 Network 레이어 설계를 통한 네트워킹 작업을 단순화하였습니다.
+- **Figma / SwaggerUI / Confluence**를 통한 개발을 진행하였습니다.
+- **Compositional Layout**을 적용하여 Label 길이에 따른 cell의 크기를 자동으로 조절해주었습니다.
+- StackView에 Hidden처리를 통한 **동적 View 설계**를 하였습니다.
+- **Mapkit / CoreLocation**을 적용하여 설정 위치에 따라 Annotation이 보이도록 설계하였습니다.
+- 정규식을 활용하여 전화번호 입력 시 하이픈이 추가되도록 해주었습니다.
+
+## TroubleShooting
+
+### Cell Item Size 자동화
+
+Lable 길이에 따라 FlowLayout의 분기처리를 통해 Collection View의 Cell 크기를 조정하고자 하였으나, 수많은 분기처리 / 예외처리가 필요하였습니다. 이를 Compositional Layout을 통해 자동으로 Cell 크기를 지정하도록 변경해주었습니다.
+
+### 동적 View 구성
+
+Figma에 구성된 Design 요구사항을 Expandable TableView로 구성하였고, Cell끼리 연결되어있는 화면을 구성할 수 없는 이슈가 발생하였습니다. 이를 해결하고자 StackView 및 Hidden처리 방식으로 화면을 재구성하였습니다. 이를 통해 개발 전 Design에 따른 설계의 중요성에 대해 깨닫게 되었습니다.
+
+### Keyboard에 따른 화면 높이 조정
+
+Keyboard 활성화에 따른 높이 조정을 Notification 및 CGAffineTransform를 통해 구성하였습니다. 하지만 이러한 방식을 사용 시 ViewWillAppear / ViewWillDisappear / Keyboard 설정 함수 등 Controller에서의 코드가 증가하는 문제가 발생하였습니다. 이를 RxKeyboard / remakeConstraints를 통해 간결 및 Rx의 코드 일관성을 가질 수 있도록 개선하였습니다.
+
+## 회고
+
+- UserDefualts를 Singleton Pattern 및 계산속성을 활용하여 구성하다 보니 Logic이 중복사용되는 문제점을 발견하였습니다. 이를 **Property Wrapper**을 활용하여 get / set 의 중복을 방지하고, 코드 재사용성을 높히는 방식으로 개선해보고 싶습니다.
+- API 응답값에 따른 화면 전환을 하는 경우, ViewModel에서 처리하지 못해 Controller에서 처리해주었습니다. 이를 **Coordinator**를 통해 Controller에서 화면 전환에 대한 Logic을 구분할 것입니다.
+- 코드 가독성을 높히기 위해 **Coding Convention**이 필요함을 느꼈습니다. 이를 통해 다음 프로젝트에는 함수는 주어 + 동사 + 목적의 형태 / CamelCase / MARK:를 활용하여 연관성에 따른 코드를 구분하도록 구성할 것입니다.
+- 프로젝트 구성 시 Utill / Common 등의 파일들을 가져오는 형태로 구성하였습니다. 이를 **Framework**를 구성하여 **모듈화**를 통해 결합성을 낮추고, 빌드 속도 및 코드 안정성을 도입하고 싶습니다.
+
+---
 
 
 
@@ -40,32 +93,13 @@
 | 22.12.06(화) | Chat Network 구성 완료                                       |                                                              |
 | 22.12.07(수) | DateFormatter 설정 및 Chat Logic 수정 완료                   | 채팅 보내지고 받는 것도 확인. 취업 준비를 해보자!            |
 
-개발 기간 22.11.07 ~ 22.12.07
-
-## 사용 기술
-
-- RxSwift
-- Moya
-- Firebase
-- Snapkit
-- Then
-- Toast
-- IQKeyboard
-- Tabman
-- MultiSlider
-- Pageboy
-
 ---
-
-
 
 ### 22.11.07(월)
 
 - SLP Figma 톺아보기
 - BaseSetting 만들어놓기
 - Onboarding 화면 PageViewController으로 만들기(fail...?)
-
-
 
 #### SLPFigma 톺아보기
 
@@ -97,15 +131,11 @@ Login 관련 화면이 정말 많은데, 먼저 회원가입 로직의 시작인
 
 그리고 주어진 조건에 맞추어 버튼의 색이 변경되도록 Rx로 구현해주었음!!
 
-
-
 #### 정규식 이용해서 010-1234-5678 이형태로 구현하고 싶었음 -> 적용 X
 
 이부분이 정말 시간을 많이 썼는데, 하이픈이 들어간 번호형태로 구현하는 것이 주어진 조건이여서 이 부분을  정규식을 사용해서 구현해보자! 생각함.
 
 그래서 정규식도 찾아보면서 구현하는 로직까진 생각했지만, 문제가 내가 Rx로 구현한 것... 이것을 어떻게 적용하나... 정말 이것 저것 많이 해봤는데 해결책을 못찾음... 너무 여기에만 하루를 날리는 것 같아 우선 차후에 구현하도록 하고, 마감 기한까지 진도를 나가는게 우선이라 생각해 다음 걸로 넘어갔음.
-
-
 
 #### 재사용 View를 만들고, 이를 상속받아 추가로 구현하도록 만들어 줌 -> View를 상속받아 구현해보니... 이전 상속 View에 있던 것들이 보여지지 않는 issue 발생
 
@@ -352,8 +382,6 @@ collectionViewCell에서 이렇게 계산속성을 활용해 구현하니 중복
 정말... 많은 이슈가 있었다. 먼저 회사측 Firebase로 변경하기 위해 Google.info 변경 및 Schema 변경, info에서 http 설정 허용을 해주었어야 했는데, 둘 다 안하고 plist만 바꾸고 실기기 테스트를 위해 notification / background만 지우고 왜 안될까.. 하면서 끙끙 앓았던 것.
 
 그래도 다행히 수정 후 인증까지 문제 없이 변경이 되었다.
-
-
 
 #### NavigationBar Custom 완료
 
