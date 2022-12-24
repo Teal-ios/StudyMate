@@ -752,8 +752,6 @@ Tabman을 사용하여 요청 / 수락화면UI를 구성했다.
 
 - Chat tableView UI 구성 완료
 
-#### Chat tableView UI 구성 완료
-
 ### 22.12.06(화)
 
 - Chat Network 구성 완료
