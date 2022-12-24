@@ -5,7 +5,7 @@
 |           | Explain                                                      |
 | --------- | ------------------------------------------------------------ |
 | 진행 기간 | 22.11.07 ~ 22.12.07                                          |
-| Skill     | RxSwift MVVM CodeBase UI Moya Firebase                       |
+| Skill     | **RxSwift** **MVVM** **CodeBaseUI** **Moya** **Firebase**    |
 | Library   | Toast Tabman IQKeyboard Pageboy Multislider RxKeyboard Snapkit Then |
 
 ## 앱 내 주요 기능
@@ -16,11 +16,7 @@
 - 검색 : 직접 원하는 스터디를 등록할 수 있으며, 주변에 등록된 스터디들을 알려줍니다.
 - 내정보 : 원하는 스터디 / 성별 / 매칭 연령대 / 리뷰 등을 확인 / 수정할 수 있습니다.
 
-## 사용 기술
-
-MVVM / ReactiveProgramming / CodeBase UI / Moya / Firebase / Web Socket
-
-## 기술 스택
+## 🛠 기술 스택
 
 - Firebase를 통한 **전화번호 인증 프로세스**를 개발하였습니다.
 - FCM Token 만료 시 **RefreshToken Logic**을 구현하였습니다.
@@ -34,7 +30,7 @@ MVVM / ReactiveProgramming / CodeBase UI / Moya / Firebase / Web Socket
 - **Mapkit / CoreLocation**을 적용하여 설정 위치에 따라 Annotation이 보이도록 설계하였습니다.
 - 정규식을 활용하여 전화번호 입력 시 하이픈이 추가되도록 해주었습니다.
 
-## TroubleShooting
+## 💣 TroubleShooting
 
 ### Cell Item Size 자동화
 
@@ -46,12 +42,12 @@ Figma에 구성된 Design 요구사항을 Expandable TableView로 구성하였�
 
 ### Keyboard에 따른 화면 높이 조정
 
-Keyboard 활성화에 따른 높이 조정을 Notification 및 CGAffineTransform를 통해 구성하였습니다. 하지만 이러한 방식을 사용 시 ViewWillAppear / ViewWillDisappear / Keyboard 설정 함수 등 Controller에서의 코드가 증가하는 문제가 발생하였습니다. 이를 RxKeyboard / remakeConstraints를 통해 간결 및 Rx의 코드 일관성을 가질 수 있도록 개선하였습니다.
+Keyboard 활성화에 따른 높이 조정을 **Notification** 및 **CGAffineTransform**를 통해 구성하였습니다. 하지만 이러한 방식을 사용 시 ViewWillAppear / ViewWillDisappear / Keyboard 설정 함수 등 Controller에서의 코드가 증가하는 문제가 발생하였습니다. 이를 **RxKeyboard** / **remakeConstraints**를 통해 간결 및 Rx의 코드 일관성을 가질 수 있도록 개선하였습니다.
 
 ## 회고
 
-- UserDefualts를 Singleton Pattern 및 계산속성을 활용하여 구성하다 보니 Logic이 중복사용되는 문제점을 발견하였습니다. 이를 **Property Wrapper**을 활용하여 get / set 의 중복을 방지하고, 코드 재사용성을 높히는 방식으로 개선해보고 싶습니다.
-- API 응답값에 따른 화면 전환을 하는 경우, ViewModel에서 처리하지 못해 Controller에서 처리해주었습니다. 이를 **Coordinator**를 통해 Controller에서 화면 전환에 대한 Logic을 구분할 것입니다.
+- UserDefualts를 Singleton Pattern 및 계산속성을 활용하여 구성하다 보니 Logic이 중복사용되는 문제점을 발견하였습니다. 이를 **Property Wrapper**을 활용하여 코드 재사용성을 높히는 방식으로 개선해보고 싶습니다.
+- API 응답값에 따른 화면 전환을 하는 경우, ViewModel에서 처리하지 못해 Controller에서 처리해주었습니다. 이를 **Coordinator**를 통해 Controller에서 화면 전환에 대한 Logic을 구분하는 방식으로 개선해보고 싶습니다.
 - 코드 가독성을 높히기 위해 **Coding Convention**이 필요함을 느꼈습니다. 이를 통해 다음 프로젝트에는 함수는 주어 + 동사 + 목적의 형태 / CamelCase / MARK:를 활용하여 연관성에 따른 코드를 구분하도록 구성할 것입니다.
 - 프로젝트 구성 시 Utill / Common 등의 파일들을 가져오는 형태로 구성하였습니다. 이를 **Framework**를 구성하여 **모듈화**를 통해 결합성을 낮추고, 빌드 속도 및 코드 안정성을 도입하고 싶습니다.
 
@@ -375,8 +371,6 @@ collectionViewCell에서 이렇게 계산속성을 활용해 구현하니 중복
 - NavigationBar Custom 완료
 - Moya를 이용한 Network 통신 완료
 
-
-
 #### 회사 측 Firebase로 변경 완료
 
 정말... 많은 이슈가 있었다. 먼저 회사측 Firebase로 변경하기 위해 Google.info 변경 및 Schema 변경, info에서 http 설정 허용을 해주었어야 했는데, 둘 다 안하고 plist만 바꾸고 실기기 테스트를 위해 notification / background만 지우고 왜 안될까.. 하면서 끙끙 앓았던 것.
@@ -623,6 +617,8 @@ SearchView에 대한 부분에서 Snapshot에서 데이터를 뿌리는 도중, 
 
 #### 내정보 관리 PUT Network 통신 완료
 
+내 정보 관리 뷰에서 PUT 통신을 통한 내 정보 수정 기능을 구현하였다. CRUD 중 Update를 처음 경험해본 부분이었고, PUT과 PATCH에 대한 차이에 대해서도 찾아보았다.이를 통해 이때 PUT은 전체를 새로 갱신하는 것이고, PATCH는 여러 항목들 중 수정된 부분만 갱신하는 것이라는 차이점에 대해서도 알게되었다.
+
 #### SearchView CollectionView 화면 구성 - 구현 실패
 
 ---
@@ -721,36 +717,52 @@ CustomAlert을 만들어 비슷하게 CustomAlert이 사용되는 곳에서 상�
 
 - Tabman 구성
 
-Tabman 구성 (요청 / 수락 화면)
+#### Tabman 구성 (요청 / 수락 화면)
 
-Tabman
+Tabman을 사용하여 요청 / 수락화면UI를 구성했다. 
 
 ### 22.12.01(목)
 
 - 요청하기 화면 데이터 구성
 - 요청 데이터 개수 및 nameLabel 구성 완료
 
+#### 요청하기 화면 데이터 구성
+
+#### 요청 데이터 개수 및 nameLabel 구성 완료
+
 ### 22.12.02(금)
 
 - 요청하기 화면 데이터 받아와서 개수 및 이름 Label 설정 완료
+
+#### 요청하기 화면 데이터 받아와서 개수 및 이름 Label 설정 완료
 
 ### 22.12.03(토)
 
 - 요청 / 수락하기 기능 완료
 
+#### 요청 / 수락 기능 구현 완료
+
 ### 22.12.04(일)
 
 - Custom Alert 구성해 확인 눌렀을 때 요청 / 수락 기능 구현 완료
+
+#### Custom Alert 구성하여 확인 눌렀을 때 요청 / 수락 기능을 구현하도록 Refactor
 
 ### 22.12.05(월)
 
 - Chat tableView UI 구성 완료
 
+#### Chat tableView UI 구성 완료
+
 ### 22.12.06(화)
 
 - Chat Network 구성 완료
 
+#### Chat Network 구성
+
 ### 22.12.07(수)
 
 - DateFormatter 설정 및 Chat Logic 수정 완료
+
+#### DateFormatter 설정 및 Chat Logic 수정 완료
 
