@@ -36,13 +36,107 @@
 
 Lable 길이에 따라 FlowLayout의 분기처리를 통해 Collection View의 Cell 크기를 조정하고자 하였으나, 수많은 분기처리 / 예외처리가 필요하였습니다. 이를 Compositional Layout을 통해 자동으로 Cell 크기를 지정하도록 변경해주었습니다.
 
+~~~swift
+    private static func createLayout() -> UICollectionViewCompositionalLayout {
+        //item
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .estimated(200),
+            heightDimension: .absolute(32)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        //group
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(32)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitems: [item]
+        )
+        group.interItemSpacing = .fixed(8)
+        //sections
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 8
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0)
+        //return
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.scrollDirection = .vertical
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        layout.configuration = config
+        
+        return layout
+    }
+~~~
+
+---
+
 ### 동적 View 구성
 
 Figma에 구성된 Design 요구사항을 Expandable TableView로 구성하였고, Cell끼리 연결되어있는 화면을 구성할 수 없는 이슈가 발생하였습니다. 이를 해결하고자 StackView 및 Hidden처리 방식으로 화면을 재구성하였습니다. 이를 통해 개발 전 Design에 따른 설계의 중요성에 대해 깨닫게 되었습니다.
 
+~~~swift
+    private lazy var stackView = UIStackView(
+        arrangedSubviews: [nameView, titleView, studyView, reviewView]).then {
+            $0.makeCornerStyle(width: 1, color: UIColor.grayScale2.cgColor, radius: 8)
+            $0.axis = .vertical
+            $0.spacing = 24
+            $0.alignment = .fill
+            $0.distribution = .equalSpacing
+            $0.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+            $0.isLayoutMarginsRelativeArrangement = true
+        }
+~~~
+
+---
+
 ### Keyboard에 따른 화면 높이 조정
 
 Keyboard 활성화에 따른 높이 조정을 **Notification** 및 **CGAffineTransform**를 통해 구성하였습니다. 하지만 이러한 방식을 사용 시 ViewWillAppear / ViewWillDisappear / Keyboard 설정 함수 등 Controller에서의 코드가 증가하는 문제가 발생하였습니다. 이를 **RxKeyboard** / **remakeConstraints**를 통해 간결 및 Rx의 코드 일관성을 가질 수 있도록 개선하였습니다.
+
+~~~swift
+        RxKeyboard.instance.visibleHeight
+            .drive(onNext: { [weak self] height in
+                self?.setUpConstraints(height: height)
+                UIView.animate(withDuration: 0.5) {
+                    self?.mainview.messageView.layoutIfNeeded()
+                }
+            })
+            .disposed(by: disposeBag)
+~~~
+
+~~~swift
+    private func setUpConstraints(height: CGFloat) {
+        switch height {
+        case 0:
+            //다시 돌아가기
+            mainview.messageView.snp.remakeConstraints { make in
+                make.horizontalEdges.equalToSuperview().inset(16)
+                make.bottom.equalTo(mainview.safeAreaLayoutGuide).offset(-16)
+                make.height.greaterThanOrEqualTo(52)
+            }
+            mainview.tableView.snp.remakeConstraints { make in
+                make.horizontalEdges.equalToSuperview()
+                make.bottom.equalTo(mainview.messageView.snp.top).offset(-12)
+                make.top.equalTo(mainview.safeAreaLayoutGuide)
+            }
+        default:
+            //올리기
+            mainview.messageView.snp.remakeConstraints { make in
+                make.horizontalEdges.equalToSuperview().inset(16)
+                make.bottom.equalToSuperview().offset(-height-16)
+                make.height.greaterThanOrEqualTo(52)
+            }
+            mainview.tableView.snp.remakeConstraints { make in
+                make.horizontalEdges.equalToSuperview()
+                make.bottom.equalTo(mainview.messageView.snp.top).offset(-12)
+                make.top.equalTo(mainview.safeAreaLayoutGuide)
+            }
+        }
+    }
+~~~
+
+
 
 ## 회고
 
