@@ -11,13 +11,14 @@ import RxCocoa
 import RxKeyboard
 import SnapKit
 import Alamofire
-
+import SocketIO
 final class ChattingViewController: BaseViewController {
     
     var mainview = ChattingView()
     var chat: [Chat] = []
     var disposeBag = DisposeBag()
     let viewModel = ChattingViewModel()
+    var socket: SocketIOClient!
     
     
     override func viewDidLoad() {
@@ -49,6 +50,7 @@ final class ChattingViewController: BaseViewController {
     }
     
     func bind() {
+        
         RxKeyboard.instance.visibleHeight
             .drive(onNext: { [weak self] height in
                 self?.setUpConstraints(height: height)
@@ -76,8 +78,7 @@ final class ChattingViewController: BaseViewController {
         }
         .disposed(by: disposeBag)
         
-        
-        
+                
 //        viewModel.chatData.bind(to: mainview.tableView.rx.items) { tableView, row, chat in
 //            guard let uid = UserDefaultsHelper.standard.otherUid else { return }
 //            
@@ -120,6 +121,7 @@ final class ChattingViewController: BaseViewController {
                 make.top.equalTo(mainview.safeAreaLayoutGuide)
             }
         }
+        
     }
     
     //MARK: - Obj-C
@@ -128,7 +130,28 @@ final class ChattingViewController: BaseViewController {
     }
     
     @objc func menuButtonTapped() {
-        
+        DodgeAPI.shared.requestStudy(userID: UserDefaultsHelper.standard.otherUid ?? UserDefaultsHelper.standard.uid ?? "") { error, statusCode in
+            
+            switch statusCode {
+            case 200:
+                print("스터디 취소 성공")
+                self.transition(HomeViewController(), transitionStyle: .rootViewChanged)
+            case 201:
+                print("otherUid:\(UserDefaultsHelper.standard.otherUid)")
+                print("uid:\(UserDefaultsHelper.standard.uid)")
+                print("uid오류")
+            default:
+                print("의문의 에러군")
+            }
+        }
+    }
+    
+    func updateChat(count: Int, completion: @escaping () -> Void ) {
+        let indexPath = IndexPath(row: count - 1, section: 0)
+        mainview.tableView.beginUpdates()
+        mainview.tableView.insertRows(at: [indexPath], with: .none)
+        mainview.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+        completion()
     }
     
     @objc func getMessage(notification: NSNotification) {
@@ -143,8 +166,11 @@ final class ChattingViewController: BaseViewController {
         let value = Chat(id: id, to: to, from: from, chat: chat, createdAt: createdAt)
         
         self.chat.append(value)
-        mainview.tableView.reloadData()
-        mainview.tableView.scrollToRow(at: IndexPath(row: self.chat.count - 1, section: 0), at: .bottom, animated: false)
+        self.updateChat(count: self.chat.count) {
+            print("send Message")
+        }
+//        mainview.tableView.reloadData()
+//        mainview.tableView.scrollToRow(at: IndexPath(row: self.chat.count - 1, section: 0), at: .bottom, animated: false)
     }
     
     func fetchChat() {
@@ -165,8 +191,6 @@ final class ChattingViewController: BaseViewController {
             }
         }
     }
-    
-    
 }
 
 extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
@@ -181,6 +205,18 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chat.count
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let myChat = chat[indexPath.row]
+
+        //좌우마진 122, 40이 최대값이므로 최댓값 가로길이는 아래와같음
+        let widthOfText = view.frame.width - 122 - 40
+        let size = CGSize(width: widthOfText, height: 1000)
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)]
+        let estimatedFrame = NSString(string: myChat.chat).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+
+        // 위아래마진 14,14 + 여유공간 4
+        return estimatedFrame.height + 14 + 14 + 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
