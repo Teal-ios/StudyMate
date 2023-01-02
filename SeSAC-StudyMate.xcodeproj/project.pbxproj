@@ -134,6 +134,8 @@
 		2FDF688229347B520005484C /* ImageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDF688129347B520005484C /* ImageEnum.swift */; };
 		2FDF688429347FC50005484C /* ToastEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDF688329347FC50005484C /* ToastEnum.swift */; };
 		2FDF6886293481F80005484C /* MainEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDF6885293481F80005484C /* MainEnum.swift */; };
+		2FEEDFC92963240A00B1A1E8 /* TBInfoManageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEDFC82963240A00B1A1E8 /* TBInfoManageTableViewCell.swift */; };
+		2FEEDFCB2963244000B1A1E8 /* TBInfoManageCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEDFCA2963244000B1A1E8 /* TBInfoManageCardTableViewCell.swift */; };
 		2FF877D72924A1B70002C35E /* InfoManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877D62924A1B70002C35E /* InfoManageViewController.swift */; };
 		2FF877D92924A2410002C35E /* InfoManageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF877D82924A2410002C35E /* InfoManageTableViewCell.swift */; };
 		2FF877DC2924A2BB0002C35E /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 2FF877DB2924A2BB0002C35E /* MultiSlider */; };
@@ -288,6 +290,8 @@
 		2FDF688129347B520005484C /* ImageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEnum.swift; sourceTree = "<group>"; };
 		2FDF688329347FC50005484C /* ToastEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastEnum.swift; sourceTree = "<group>"; };
 		2FDF6885293481F80005484C /* MainEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEnum.swift; sourceTree = "<group>"; };
+		2FEEDFC82963240A00B1A1E8 /* TBInfoManageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBInfoManageTableViewCell.swift; sourceTree = "<group>"; };
+		2FEEDFCA2963244000B1A1E8 /* TBInfoManageCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBInfoManageCardTableViewCell.swift; sourceTree = "<group>"; };
 		2FF877D62924A1B70002C35E /* InfoManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManageViewController.swift; sourceTree = "<group>"; };
 		2FF877D82924A2410002C35E /* InfoManageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManageTableViewCell.swift; sourceTree = "<group>"; };
 		2FF877DD2924AB700002C35E /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -1097,6 +1101,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2FEEDFC7296323BD00B1A1E8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2FEEDFC82963240A00B1A1E8 /* TBInfoManageTableViewCell.swift */,
+				2FEEDFCA2963244000B1A1E8 /* TBInfoManageCardTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		2FF877D42924A17B0002C35E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1203,6 +1216,7 @@
 		2FFD9D5029376EE700E2B314 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				2FEEDFC7296323BD00B1A1E8 /* Cell */,
 				2FBC74C5293C7E4A00F2173D /* ViewModel */,
 				2FB2714829387117004DDD2C /* ViewController */,
 				2FB2714729387113004DDD2C /* View */,
@@ -1348,6 +1362,7 @@
 				2FD0505A292F570F0045450E /* NearStudyCollectionViewCell.swift in Sources */,
 				2FAE3F312918D4840069579F /* ViewController.swift in Sources */,
 				2FBC74C0293C732B00F2173D /* StudyRequestError.swift in Sources */,
+				2FEEDFC92963240A00B1A1E8 /* TBInfoManageTableViewCell.swift in Sources */,
 				2FF877EF2924B7110002C35E /* MyDetailImageView.swift in Sources */,
 				2FAE3F5A2918D54F0069579F /* ReusableProtocol.swift in Sources */,
 				2FBD9727292A93A7008FBA04 /* MyPageAPI.swift in Sources */,
@@ -1409,6 +1424,7 @@
 				2F21D6FB291B904D00429935 /* BirthdayViewController.swift in Sources */,
 				2FCC310E293DDAFF00A34B7A /* ChattingHeaderView.swift in Sources */,
 				2F21D705291B908B00429935 /* EmailViewModel.swift in Sources */,
+				2FEEDFCB2963244000B1A1E8 /* TBInfoManageCardTableViewCell.swift in Sources */,
 				2FD05051292F44F60045450E /* StudyView.swift in Sources */,
 				2FBC74BC293C72AF00F2173D /* StudyRequestAPI.swift in Sources */,
 				2F3EF72C2949CBA30038CDE7 /* DodgeAPI.swift in Sources */,

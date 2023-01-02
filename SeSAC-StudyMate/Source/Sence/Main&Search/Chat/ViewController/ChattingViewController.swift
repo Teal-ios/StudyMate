@@ -222,7 +222,6 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let data = chat[indexPath.row]
-         
 //        if indexPath.row.isMultiple(of: 2) {
         if data.id == APIKey.userId {
             let cell = mainview.tableView.dequeueReusableCell(withIdentifier: MyChattingTableViewCell.reuseIdentifier, for: indexPath) as! MyChattingTableViewCell
@@ -234,5 +233,4 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
-    
 }
